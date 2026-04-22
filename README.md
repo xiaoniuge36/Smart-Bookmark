@@ -75,11 +75,27 @@ npm run build     # 构建到 dist/（自动生成图标 + tsc + vite + postbuil
 npm run zip       # 构建并打包 dist.zip，可上传商店
 ```
 
-### 本地安装（开发版）
-1. `npm run build`
-2. Chrome / Edge 打开 `chrome://extensions` 或 `edge://extensions`
-3. 开启「开发者模式」→ 点击「加载解压缩的扩展程序」→ 选择 `dist/` 目录
-4. 打开新标签页即可看到 Smart Bookmark
+### 直接安装（零构建，推荐）
+
+仓库已附带最新的预构建产物 `dist/`，`git clone` 后**无需 npm install** 即可直接加载：
+
+```bash
+git clone https://github.com/xiaoniuge36/Smart-Bookmark.git
+```
+
+1. Chrome / Edge 打开 `chrome://extensions` 或 `edge://extensions`
+2. 开启「开发者模式」→ 点击「加载已解压的扩展程序」→ 选择克隆后的 `dist/` 目录
+3. 打开新标签页即可看到 Smart Bookmark
+
+### 本地开发 / 自行构建
+
+```bash
+npm install
+npm run build    # 重新生成 dist/
+npm run zip      # 打包 dist.zip（上传商店用）
+```
+
+> 注：`dist/` 会随代码更新一并提交，Pull 最新后重新加载扩展即可生效。
 
 ### 目录结构
 

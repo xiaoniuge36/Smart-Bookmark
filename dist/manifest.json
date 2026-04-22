@@ -1,0 +1,80 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Bookmark - 书签清理 + 新标签页",
+  "short_name": "SmartBookmark",
+  "version": "0.2.0",
+  "description": "书签清理 + 新标签页看板 + AI 搜索 + 对比搜索 + 悬浮球 + 二维码，二合一浏览器扩展。Chrome / Edge 双平台。",
+  "default_locale": "zh_CN",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Smart Bookmark",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "bookmarks",
+    "storage",
+    "contextMenus",
+    "sidePanel",
+    "history",
+    "topSites",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "commands": {
+    "open-side-panel": {
+      "suggested_key": {
+        "default": "Alt+B",
+        "mac": "Command+B"
+      },
+      "description": "打开 Smart Bookmark 侧边栏"
+    },
+    "open-cleaner": {
+      "suggested_key": {
+        "default": "Alt+Shift+C"
+      },
+      "description": "打开书签清理中心"
+    },
+    "toggle-float": {
+      "suggested_key": {
+        "default": "Alt+Shift+F"
+      },
+      "description": "切换网页悬浮球"
+    }
+  },
+  "minimum_chrome_version": "114"
+}
