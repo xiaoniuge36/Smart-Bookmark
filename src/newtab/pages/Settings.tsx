@@ -227,6 +227,38 @@ export default function SettingsPage() {
               </span>
             </div>
           </Row>
+          <Row label={t("settings.floatingDisabledDomains")}>
+            <div className="flex flex-wrap gap-2">
+              {(s.floatingDisabledDomains ?? []).length === 0 ? (
+                <span className="text-xs text-muted-foreground">
+                  {t("settings.floatingDisabledDomainsEmpty")}
+                </span>
+              ) : (
+                (s.floatingDisabledDomains ?? []).map((d) => (
+                  <span
+                    key={d}
+                    className="group inline-flex items-center gap-1 rounded-full border bg-muted/60 px-2.5 py-1 text-xs"
+                  >
+                    <span className="font-medium">{d}</span>
+                    <button
+                      type="button"
+                      className="ml-1 rounded-full p-0.5 text-muted-foreground transition hover:bg-background hover:text-foreground"
+                      title={t("settings.floatingDisabledDomainsRemove")}
+                      onClick={() =>
+                        update({
+                          floatingDisabledDomains: (
+                            s.floatingDisabledDomains ?? []
+                          ).filter((x) => x !== d),
+                        })
+                      }
+                    >
+                      <XCircle className="h-3.5 w-3.5" />
+                    </button>
+                  </span>
+                ))
+              )}
+            </div>
+          </Row>
         </CardContent>
       </Card>
 

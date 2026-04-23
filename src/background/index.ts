@@ -201,6 +201,13 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         sendResponse({ ok: true });
         return;
       }
+      if (msg?.type === "open-settings") {
+        await chrome.tabs.create({
+          url: chrome.runtime.getURL("newtab.html#tab=settings"),
+        });
+        sendResponse({ ok: true });
+        return;
+      }
       if (msg?.type === "open-qr" && typeof msg.url === "string") {
         await openQrTab(msg.url);
         sendResponse({ ok: true });

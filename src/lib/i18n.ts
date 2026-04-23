@@ -129,9 +129,12 @@ const zh: Dict = {
     "API Key 仅保存在浏览器本地存储，不会上传任何服务端。若你使用受限网络，可能需要自备代理。",
   "settings.extras": "扩展功能",
   "settings.language": "语言",
-  "settings.floatingBall": "网页内悬浮球",
+  "settings.floatingBall": "网页内悬浮标签",
   "settings.floatingBallHint":
-    "在任意网页右下角显示一个悬浮球，点击可呼出侧边栏或快速搜索。",
+    "在任意网页右侧边缘显示一个贴边标签，点击可呼出搜索和命令。",
+  "settings.floatingDisabledDomains": "已禁用的网站",
+  "settings.floatingDisabledDomainsEmpty": "暂无被禁用的网站",
+  "settings.floatingDisabledDomainsRemove": "重新启用",
   "settings.compareEngines": "对比搜索引擎",
 
   "qr.title": "二维码",
@@ -287,9 +290,12 @@ const en: Dict = {
     "The API key lives only in local browser storage and is never uploaded to any server.",
   "settings.extras": "Extras",
   "settings.language": "Language",
-  "settings.floatingBall": "In-page floating ball",
+  "settings.floatingBall": "In-page edge tab",
   "settings.floatingBallHint":
-    "Show a draggable ball on web pages for quick search / side panel.",
+    "Show a slim tab pinned to the right edge of any web page for quick search and commands.",
+  "settings.floatingDisabledDomains": "Disabled sites",
+  "settings.floatingDisabledDomainsEmpty": "No sites are disabled",
+  "settings.floatingDisabledDomainsRemove": "Re-enable",
   "settings.compareEngines": "Compare-search engines",
 
   "qr.title": "QR code",

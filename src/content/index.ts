@@ -1,10 +1,12 @@
 export {};
 
 const SETTINGS_KEY = "smart-bookmark::settings";
-const STATE_KEY_POS = "smart-bookmark::floating-pos";
+const STATE_KEY_POS = "smart-bookmark::edge-tab-top";
+const SESSION_HIDE_KEY = "smart-bookmark::session-hidden";
 
 interface MiniSettings {
   floatingBall?: boolean;
+  floatingDisabledDomains?: string[];
   language?: "auto" | "zh" | "en";
   searchEngine?: string;
 }
@@ -23,6 +25,12 @@ const STRINGS = {
     copied: "已复制",
     kbdOpen: "打开",
     kbdNav: "移动",
+    menuHideSession: "隐藏直到下一次访问",
+    menuDisableSite: "此页面禁用",
+    menuDisableGlobal: "全局禁用",
+    menuFooterPrefix: "您可以在",
+    menuFooterLink: "设置页面",
+    menuFooterSuffix: "中重新启用",
   },
   en: {
     placeholder: "Search bookmarks or actions…",
@@ -37,6 +45,12 @@ const STRINGS = {
     copied: "Copied",
     kbdOpen: "Open",
     kbdNav: "Navigate",
+    menuHideSession: "Hide until next visit",
+    menuDisableSite: "Disable on this site",
+    menuDisableGlobal: "Disable globally",
+    menuFooterPrefix: "Re-enable in",
+    menuFooterLink: "Settings",
+    menuFooterSuffix: "",
   },
 };
 
@@ -46,7 +60,6 @@ function pickLang(l?: string): "zh" | "en" {
   return nav.startsWith("zh") ? "zh" : "en";
 }
 
-// 轻量图标集：feather 风格，16px stroke 2
 const ICON = {
   search: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>`,
   panel: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/></svg>`,
@@ -61,6 +74,7 @@ let host: HTMLDivElement | null = null;
 let root: ShadowRoot | null = null;
 let langKey: "zh" | "en" = "en";
 let isOpen = false;
+let isMenuOpen = false;
 
 function ensureHost() {
   if (host) return;
@@ -83,29 +97,121 @@ function injectStyles(r: ShadowRoot) {
   const style = document.createElement("style");
   style.textContent = `
   :host { all: initial; }
-  .wrap { pointer-events: auto; position: fixed; }
+  .wrap {
+    pointer-events: auto;
+    position: fixed;
+    right: 12px;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
 
-  .ball {
-    width: 44px; height: 44px; border-radius: 22px;
-    background: linear-gradient(135deg,#5e6ad2,#7c3aed);
+  /* ---------- 贴边标签（白色胶囊 + 品牌色图标） ---------- */
+  .tab {
+    position: relative;
+    width: 36px; height: 36px;
+    border-radius: 999px;
+    background: #ffffff;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; user-select: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+    box-shadow:
+      0 0 0 1px rgba(15,23,42,.06),
+      0 6px 20px rgba(15,23,42,.12),
+      0 2px 6px rgba(15,23,42,.06);
+  }
+  .wrap:hover .tab,
+  .tab.is-active {
+    transform: translateX(-4px) scale(1.04);
+    box-shadow:
+      0 0 0 1px rgba(99,102,241,.18),
+      0 10px 28px rgba(15,23,42,.18),
+      0 4px 10px rgba(99,102,241,.18);
+  }
+  .tab .bm-icon {
+    width: 20px; height: 20px;
+    pointer-events: none;
+    transition: transform .2s ease;
+  }
+  .wrap:hover .tab .bm-icon {
+    transform: scale(1.08);
+  }
+
+  /* ---------- 关闭按钮 ---------- */
+  .close-btn {
+    position: absolute;
+    top: -8px; right: -8px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #6b7280;
     color: #fff;
     display: flex; align-items: center; justify-content: center;
-    cursor: grab; user-select: none;
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,.08),
-      0 10px 30px rgba(94,106,210,.35);
-    font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-    font-size: 18px; font-weight: 700; letter-spacing: -.02em;
-    transition: transform .15s ease, box-shadow .15s ease;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.75);
+    transition: opacity .15s ease, transform .15s ease, background .15s ease;
+    box-shadow: 0 2px 6px rgba(15,23,42,.25);
+    border: 2px solid #fff;
   }
-  .ball:hover {
-    transform: scale(1.06);
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,.14),
-      0 14px 36px rgba(94,106,210,.45);
+  .close-btn:hover { background: #374151; }
+  .close-btn svg { width: 11px; height: 11px; }
+  .wrap:hover .close-btn,
+  .close-btn.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
   }
-  .ball:active { cursor: grabbing; transform: scale(.97); }
 
+  /* ---------- 关闭菜单 ---------- */
+  .close-menu {
+    position: absolute;
+    top: 4px; right: 52px;
+    min-width: 240px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow:
+      0 0 0 1px rgba(15,23,42,.06),
+      0 16px 40px rgba(15,23,42,.18),
+      0 4px 12px rgba(15,23,42,.08);
+    padding: 10px 0 0;
+    color: #0f172a;
+    display: none;
+    animation: slideIn .18s ease;
+  }
+  .close-menu.is-open { display: block; }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(6px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .close-menu-item {
+    padding: 14px 20px;
+    cursor: pointer;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.35;
+    transition: background .12s ease;
+  }
+  .close-menu-item:hover { background: #f5f6f8; }
+  .close-menu-item:active { background: #eceef1; }
+  .close-menu-footer {
+    padding: 12px 20px 14px;
+    margin-top: 6px;
+    border-top: 1px solid #eef0f3;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.5;
+    background: #fafbfc;
+    border-radius: 0 0 14px 14px;
+  }
+  .close-menu-footer .settings-link {
+    color: #6366f1;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .close-menu-footer .settings-link:hover { text-decoration: underline; }
+
+  /* ---------- 搜索面板（保持原样，稍作适配） ---------- */
   .panel {
     position: fixed;
     min-width: 440px; max-width: 520px;
@@ -119,11 +225,10 @@ function injectStyles(r: ShadowRoot) {
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
     overflow: hidden;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: inherit;
     font-size: 13px;
     letter-spacing: -0.005em;
   }
-
   .search {
     display: flex; align-items: center; gap: 10px;
     padding: 12px 14px;
@@ -246,20 +351,19 @@ async function searchBookmarks(q: string): Promise<SimpleBookmark[]> {
   });
 }
 
-interface Pos {
-  right: number;
-  bottom: number;
+interface TabPos {
+  top: number;
 }
 
-async function loadPos(): Promise<Pos> {
+async function loadPos(): Promise<TabPos> {
   try {
     const saved = await chrome.storage?.local?.get?.(STATE_KEY_POS);
-    if (saved?.[STATE_KEY_POS]) return saved[STATE_KEY_POS] as Pos;
+    if (saved?.[STATE_KEY_POS]) return saved[STATE_KEY_POS] as TabPos;
   } catch {}
-  return { right: 24, bottom: 120 };
+  return { top: Math.round(window.innerHeight * 0.42) };
 }
 
-async function savePos(p: Pos) {
+async function savePos(p: TabPos) {
   try {
     await chrome.storage?.local?.set?.({ [STATE_KEY_POS]: p });
   } catch {}
@@ -267,6 +371,7 @@ async function savePos(p: Pos) {
 
 let panelEl: HTMLDivElement | null = null;
 let wrapEl: HTMLDivElement | null = null;
+let menuEl: HTMLDivElement | null = null;
 let mounted = false;
 
 type ItemKind = "bookmark" | "action";
@@ -286,6 +391,14 @@ function svgSpan(svg: string): HTMLSpanElement {
   return span;
 }
 
+function currentHostname(): string {
+  try {
+    return location.hostname.replace(/^www\./, "");
+  } catch {
+    return location.hostname || "";
+  }
+}
+
 async function mount() {
   if (mounted) return;
   ensureHost();
@@ -297,13 +410,29 @@ async function mount() {
   const wrap = document.createElement("div");
   wrap.className = "wrap";
   const pos = await loadPos();
-  wrap.style.right = `${pos.right}px`;
-  wrap.style.bottom = `${pos.bottom}px`;
+  wrap.style.top = `${pos.top}px`;
 
-  const ball = document.createElement("div");
-  ball.className = "ball";
-  ball.textContent = "S";
-  ball.title = "Smart Bookmark";
+  const tab = document.createElement("div");
+  tab.className = "tab";
+  tab.title = "Smart Bookmark";
+  tab.innerHTML = `
+    <svg class="bm-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <defs>
+        <linearGradient id="sb-tab-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#3b82f6"/>
+          <stop offset="100%" stop-color="#8b5cf6"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#sb-tab-grad)" d="M7 3h10a2 2 0 0 1 2 2v16l-7-4.2L5 21V5a2 2 0 0 1 2-2z"/>
+    </svg>
+  `;
+
+  const closeBtn = document.createElement("div");
+  closeBtn.className = "close-btn";
+  closeBtn.innerHTML = ICON.x;
+  closeBtn.title = S.menuHideSession;
+
+  const menu = buildCloseMenu(S);
 
   const panel = document.createElement("div");
   panel.className = "panel";
@@ -340,18 +469,20 @@ async function mount() {
   const togglePanel = (force?: boolean) => {
     isOpen = force ?? !isOpen;
     panel.style.display = isOpen ? "block" : "none";
+    tab.classList.toggle("is-active", isOpen);
     if (isOpen) {
-      const rect = ball.getBoundingClientRect();
+      closeMenu();
+      const rect = tab.getBoundingClientRect();
       const panelHeight = panel.offsetHeight || 420;
       const panelWidth = panel.offsetWidth || 460;
-      const top = Math.max(8, rect.top - panelHeight - 8);
-      const left = Math.max(
+      const top = Math.max(
         8,
         Math.min(
-          window.innerWidth - panelWidth - 8,
-          rect.left - (panelWidth - rect.width),
+          window.innerHeight - panelHeight - 8,
+          rect.top - panelHeight / 2,
         ),
       );
+      const left = Math.max(8, rect.left - panelWidth - 12);
       panel.style.top = `${top}px`;
       panel.style.left = `${left}px`;
       setTimeout(() => {
@@ -360,6 +491,59 @@ async function mount() {
       }, 30);
     }
   };
+
+  const openMenu = () => {
+    isMenuOpen = true;
+    menu.classList.add("is-open");
+    closeBtn.classList.add("is-visible");
+    togglePanel(false);
+  };
+  const closeMenu = () => {
+    isMenuOpen = false;
+    menu.classList.remove("is-open");
+    closeBtn.classList.remove("is-visible");
+  };
+
+  closeBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (isMenuOpen) closeMenu();
+    else openMenu();
+  });
+
+  // Right-click on tab also opens the close menu
+  tab.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    openMenu();
+  });
+
+  menu.querySelector<HTMLDivElement>("[data-act='hide-session']")?.addEventListener(
+    "click",
+    () => {
+      closeMenu();
+      hideForSession();
+    },
+  );
+  menu.querySelector<HTMLDivElement>("[data-act='disable-site']")?.addEventListener(
+    "click",
+    async () => {
+      closeMenu();
+      await disableForSite();
+    },
+  );
+  menu.querySelector<HTMLDivElement>("[data-act='disable-global']")?.addEventListener(
+    "click",
+    async () => {
+      closeMenu();
+      await disableGlobal();
+    },
+  );
+  menu.querySelector<HTMLAnchorElement>(".settings-link")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    try {
+      chrome.runtime.sendMessage({ type: "open-settings" });
+    } catch {}
+  });
 
   const actionDefs: FlatItem[] = [
     {
@@ -405,16 +589,6 @@ async function mount() {
       onRun: () => {
         chrome.runtime.sendMessage({ type: "open-qr", url: location.href });
         togglePanel(false);
-      },
-    },
-    {
-      kind: "action",
-      label: S.hide,
-      iconSvg: ICON.x,
-      onRun: async () => {
-        const s = await loadSettings();
-        await saveSettings({ ...s, floatingBall: false });
-        unmount();
       },
     },
   ];
@@ -565,41 +739,36 @@ async function mount() {
 
   renderItems("", []);
 
+  // 拖拽：只沿垂直方向移动
   let dragStart: {
-    x: number;
     y: number;
-    rx: number;
-    ry: number;
+    top: number;
     moved: boolean;
   } | null = null;
 
-  ball.addEventListener("mousedown", (e) => {
+  tab.addEventListener("mousedown", (e) => {
+    if (e.button !== 0) return;
     dragStart = {
-      x: e.clientX,
       y: e.clientY,
-      rx: parseInt(wrap.style.right, 10) || 0,
-      ry: parseInt(wrap.style.bottom, 10) || 0,
+      top: parseInt(wrap.style.top, 10) || 0,
       moved: false,
     };
     const onMove = (ev: MouseEvent) => {
       if (!dragStart) return;
-      const dx = ev.clientX - dragStart.x;
       const dy = ev.clientY - dragStart.y;
-      if (Math.abs(dx) + Math.abs(dy) > 3) dragStart.moved = true;
-      const right = Math.max(0, dragStart.rx - dx);
-      const bottom = Math.max(0, dragStart.ry - dy);
-      wrap.style.right = `${right}px`;
-      wrap.style.bottom = `${bottom}px`;
+      if (Math.abs(dy) > 3) dragStart.moved = true;
+      const top = Math.max(
+        8,
+        Math.min(window.innerHeight - 52, dragStart.top + dy),
+      );
+      wrap.style.top = `${top}px`;
     };
     const onUp = async () => {
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseup", onUp);
       if (dragStart) {
         if (dragStart.moved) {
-          await savePos({
-            right: parseInt(wrap.style.right, 10) || 0,
-            bottom: parseInt(wrap.style.bottom, 10) || 0,
-          });
+          await savePos({ top: parseInt(wrap.style.top, 10) || 0 });
         } else {
           togglePanel();
         }
@@ -610,23 +779,69 @@ async function mount() {
     window.addEventListener("mouseup", onUp);
   });
 
-  wrap.appendChild(ball);
+  wrap.appendChild(tab);
+  wrap.appendChild(closeBtn);
+  wrap.appendChild(menu);
   wrap.appendChild(panel);
   root.appendChild(wrap);
 
   wrapEl = wrap;
   panelEl = panel;
+  menuEl = menu;
   mounted = true;
 
   document.addEventListener("click", onGlobalClick, true);
 }
 
+function buildCloseMenu(S: (typeof STRINGS)["zh"]): HTMLDivElement {
+  const menu = document.createElement("div");
+  menu.className = "close-menu";
+  menu.innerHTML = `
+    <div class="close-menu-item" data-act="hide-session">${S.menuHideSession}</div>
+    <div class="close-menu-item" data-act="disable-site">${S.menuDisableSite}</div>
+    <div class="close-menu-item" data-act="disable-global">${S.menuDisableGlobal}</div>
+    <div class="close-menu-footer">
+      ${S.menuFooterPrefix} <a class="settings-link" href="#">${S.menuFooterLink}</a> ${S.menuFooterSuffix}
+    </div>
+  `;
+  return menu;
+}
+
+function hideForSession() {
+  try {
+    sessionStorage.setItem(SESSION_HIDE_KEY, "1");
+  } catch {}
+  unmount();
+}
+
+async function disableForSite() {
+  const host = currentHostname();
+  if (!host) return unmount();
+  const s = await loadSettings();
+  const list = new Set(s.floatingDisabledDomains ?? []);
+  list.add(host);
+  await saveSettings({ ...s, floatingDisabledDomains: Array.from(list) });
+  // storage change will trigger apply() → unmount
+}
+
+async function disableGlobal() {
+  const s = await loadSettings();
+  await saveSettings({ ...s, floatingBall: false });
+}
+
 function onGlobalClick(e: MouseEvent) {
-  if (!isOpen || !wrapEl) return;
   const path = e.composedPath();
-  if (!path.includes(wrapEl)) {
-    isOpen = false;
-    if (panelEl) panelEl.style.display = "none";
+  if (isMenuOpen && menuEl && wrapEl) {
+    if (!path.includes(wrapEl)) {
+      isMenuOpen = false;
+      menuEl.classList.remove("is-open");
+    }
+  }
+  if (isOpen && wrapEl) {
+    if (!path.includes(wrapEl)) {
+      isOpen = false;
+      if (panelEl) panelEl.style.display = "none";
+    }
   }
 }
 
@@ -637,8 +852,10 @@ function unmount() {
   root = null;
   panelEl = null;
   wrapEl = null;
+  menuEl = null;
   mounted = false;
   isOpen = false;
+  isMenuOpen = false;
   document.removeEventListener("click", onGlobalClick, true);
 }
 
@@ -666,9 +883,22 @@ async function saveSettings(next: MiniSettings) {
   } catch {}
 }
 
+function isSessionHidden(): boolean {
+  try {
+    return sessionStorage.getItem(SESSION_HIDE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 async function apply() {
   const s = await loadSettings();
-  if (s.floatingBall) {
+  const host = currentHostname();
+  const siteDisabled = !!(
+    s.floatingDisabledDomains && host && s.floatingDisabledDomains.includes(host)
+  );
+  const sessionHidden = isSessionHidden();
+  if (s.floatingBall && !siteDisabled && !sessionHidden) {
     mount().catch(console.warn);
   } else {
     unmount();

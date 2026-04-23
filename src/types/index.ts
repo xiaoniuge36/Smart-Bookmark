@@ -72,6 +72,8 @@ export interface Settings {
   cardDensity: "comfy" | "compact";
   language: Language;
   floatingBall: boolean;
+  /** 禁用悬浮球的域名列表（域名级禁用） */
+  floatingDisabledDomains: string[];
   compareEngines: string[];
   customEngines: CustomEngine[];
   expandedFolders: string[];
