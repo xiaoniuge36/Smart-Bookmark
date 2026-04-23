@@ -93,6 +93,13 @@ export default function Dashboard({
   );
   const trendingSectionRef = useRef<HTMLElement>(null);
   const [trendingHeight, setTrendingHeight] = useState<number | null>(null);
+  const [pageSize, setPageSize] = useState<number>(() => {
+    const raw = localStorage.getItem("sb_pageSize");
+    if (raw === "Infinity") return Infinity;
+    const n = Number(raw);
+    return [24, 60, 120, 240].includes(n) ? n : 60;
+  });
+  const [page, setPage] = useState<number>(1);
   const searchWrapRef = useRef<HTMLFormElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const isMac = useMemo(
@@ -168,7 +175,7 @@ export default function Dashboard({
       setItems(all.map((b, i) => ({ ...b, index: i })));
       setBreadcrumb(buildBreadcrumb(tree, folder.id));
     } else {
-      const flat = flatten(tree).slice(0, 500);
+      const flat = flatten(tree);
       setItems(flat.map((b, i) => ({ ...b, index: i })));
       setSubFolders([]);
       setBreadcrumb([]);
@@ -185,6 +192,33 @@ export default function Dashboard({
         b.path.toLowerCase().includes(q),
     );
   }, [items, query]);
+
+  const pageCount = Math.max(
+    1,
+    pageSize === Infinity ? 1 : Math.ceil(filtered.length / pageSize),
+  );
+
+  useEffect(() => {
+    setPage(1);
+  }, [selected, query, pageSize]);
+
+  useEffect(() => {
+    if (page > pageCount) setPage(pageCount);
+  }, [page, pageCount]);
+
+  const pagedItems = useMemo(() => {
+    if (pageSize === Infinity) return filtered;
+    const start = (page - 1) * pageSize;
+    return filtered.slice(start, start + pageSize);
+  }, [filtered, page, pageSize]);
+
+  const onChangePageSize = (n: number) => {
+    setPageSize(n);
+    localStorage.setItem(
+      "sb_pageSize",
+      n === Infinity ? "Infinity" : String(n),
+    );
+  };
 
   const onSelectFolder = async (id: string) => {
     setSelected(id);
@@ -367,15 +401,6 @@ export default function Dashboard({
       .map((id) => findFolder(tree, id))
       .filter(Boolean) as BookmarkNode[];
   }, [pinnedIds, tree]);
-
-  const totalBookmarks = useMemo(() => {
-    if (selected) {
-      const folder = findFolder(tree, selected);
-      if (!folder) return 0;
-      return flatten([folder], "").length;
-    }
-    return flatten(tree).length;
-  }, [tree, selected]);
 
   const greeting = useGreeting();
   const showHero = !selected && !query.trim();
@@ -796,7 +821,7 @@ export default function Dashboard({
 
         {(showHero || (!subFolders.length && breadcrumb.length === 0)) &&
           filtered.length > 0 && (
-            <div className="flex items-end justify-between border-b pb-1.5 pt-2">
+            <div className="flex flex-wrap items-end justify-between gap-2 border-b pb-1.5 pt-2">
               <div className="flex items-center gap-2">
                 <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 text-primary">
                   <Folder className="h-3.5 w-3.5" />
@@ -805,20 +830,32 @@ export default function Dashboard({
                   我的书签
                 </h2>
                 <span className="text-[11px] text-muted-foreground">
-                  · 共 {totalBookmarks} 个
+                  · 共 {filtered.length} 个
+                  {query.trim() ? "（已过滤）" : ""}
                 </span>
-                {filtered.length < totalBookmarks && !query.trim() && (
+                {pageSize !== Infinity && filtered.length > pageSize && (
                   <span className="text-[11px] text-muted-foreground/70">
-                    （展示前 {filtered.length}）
+                    · 第 {(page - 1) * pageSize + 1}-
+                    {Math.min(page * pageSize, filtered.length)} 条
                   </span>
                 )}
               </div>
-              {canReorder && (
-                <span className="hidden items-center gap-1 text-[11px] text-muted-foreground sm:inline-flex">
-                  <GripVertical className="h-3 w-3" />
-                  {t("dash.dragHint")}
-                </span>
-              )}
+              <div className="flex items-center gap-2">
+                {canReorder && (
+                  <span className="hidden items-center gap-1 text-[11px] text-muted-foreground sm:inline-flex">
+                    <GripVertical className="h-3 w-3" />
+                    {t("dash.dragHint")}
+                  </span>
+                )}
+                <PageSizePicker value={pageSize} onChange={onChangePageSize} />
+                {pageSize !== Infinity && pageCount > 1 && (
+                  <Pager
+                    page={page}
+                    pageCount={pageCount}
+                    onChange={setPage}
+                  />
+                )}
+              </div>
             </div>
           )}
 
@@ -837,7 +874,7 @@ export default function Dashboard({
               : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6",
           )}
         >
-          {filtered.map((b) => (
+          {pagedItems.map((b) => (
             <div
               key={b.id}
               draggable={canReorder}
@@ -924,6 +961,18 @@ export default function Dashboard({
             </div>
           )}
         </div>
+
+        {pageSize !== Infinity &&
+          pageCount > 1 &&
+          filtered.length > 0 &&
+          (showHero || (!subFolders.length && breadcrumb.length === 0)) && (
+            <div className="flex items-center justify-center gap-3 pt-2">
+              <Pager page={page} pageCount={pageCount} onChange={setPage} />
+              <span className="text-[11px] text-muted-foreground">
+                共 {filtered.length} 条
+              </span>
+            </div>
+          )}
       </section>
 
       {ctxMenu && (
@@ -979,6 +1028,227 @@ function useGreeting(): string {
   if (h < 18) return "下午好";
   if (h < 22) return "晚上好";
   return "夜深了";
+}
+
+function PageSizePicker({
+  value,
+  onChange,
+}: {
+  value: number;
+  onChange: (n: number) => void;
+}) {
+  const options: Array<{ v: number; label: string }> = [
+    { v: 24, label: "24" },
+    { v: 60, label: "60" },
+    { v: 120, label: "120" },
+    { v: 240, label: "240" },
+    { v: Infinity, label: "全部" },
+  ];
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const close = (e: MouseEvent) => {
+      if (!ref.current) return;
+      if (!ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    window.addEventListener("click", close);
+    return () => window.removeEventListener("click", close);
+  }, [open]);
+  const current = options.find((o) => o.v === value)?.label ?? String(value);
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="inline-flex items-center gap-1 rounded-md border bg-card px-2 py-1 text-[11px] text-muted-foreground transition hover:bg-accent hover:text-foreground"
+        title="每页条数"
+      >
+        每页 {current}
+        <ChevronRight
+          className={cn("h-3 w-3 transition-transform", open && "rotate-90")}
+        />
+      </button>
+      {open && (
+        <div
+          className="absolute right-0 top-8 z-40 w-28 rounded-lg border bg-popover p-1 shadow-xl ring-1 ring-black/5 dark:ring-white/5"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {options.map((o) => (
+            <button
+              key={o.label}
+              type="button"
+              onClick={() => {
+                onChange(o.v);
+                setOpen(false);
+              }}
+              className={cn(
+                "flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs transition hover:bg-accent",
+                value === o.v && "bg-accent font-medium",
+              )}
+            >
+              <span>{o.label}</span>
+              {value === o.v && (
+                <span className="text-[10px] text-primary">✓</span>
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * 生成现代风格分页的页码序列：[1, "...", 4, 5, 6, "...", 19]
+ * 始终显示首末页，当前页±1 作为邻页，其余用 ellipsis 合并。
+ */
+function buildPageRange(
+  current: number,
+  total: number,
+  neighbor = 1,
+): Array<number | "ellipsis-l" | "ellipsis-r"> {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+  const out: Array<number | "ellipsis-l" | "ellipsis-r"> = [];
+  const left = Math.max(2, current - neighbor);
+  const right = Math.min(total - 1, current + neighbor);
+  out.push(1);
+  if (left > 2) out.push("ellipsis-l");
+  for (let i = left; i <= right; i++) out.push(i);
+  if (right < total - 1) out.push("ellipsis-r");
+  out.push(total);
+  return out;
+}
+
+function Pager({
+  page,
+  pageCount,
+  onChange,
+}: {
+  page: number;
+  pageCount: number;
+  onChange: (p: number) => void;
+}) {
+  const [jumpOpen, setJumpOpen] = useState(false);
+  const [jumpValue, setJumpValue] = useState("");
+  const jumpRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!jumpOpen) return;
+    const close = (e: MouseEvent) => {
+      if (!jumpRef.current) return;
+      if (!jumpRef.current.contains(e.target as Node)) setJumpOpen(false);
+    };
+    window.addEventListener("click", close);
+    return () => window.removeEventListener("click", close);
+  }, [jumpOpen]);
+
+  const prev = () => onChange(Math.max(1, page - 1));
+  const next = () => onChange(Math.min(pageCount, page + 1));
+  const items = buildPageRange(page, pageCount);
+
+  const doJump = () => {
+    const n = Number(jumpValue);
+    if (Number.isFinite(n) && n >= 1 && n <= pageCount) {
+      onChange(Math.floor(n));
+      setJumpOpen(false);
+      setJumpValue("");
+    }
+  };
+
+  return (
+    <div className="inline-flex items-center gap-1">
+      <button
+        type="button"
+        disabled={page <= 1}
+        onClick={prev}
+        className="flex h-7 w-7 items-center justify-center rounded-md border bg-card text-muted-foreground transition hover:border-primary/30 hover:bg-accent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:bg-card disabled:hover:text-muted-foreground"
+        aria-label="上一页"
+      >
+        <ChevronRight className="h-3.5 w-3.5 rotate-180" />
+      </button>
+      {items.map((it, idx) => {
+        if (it === "ellipsis-l" || it === "ellipsis-r") {
+          return (
+            <div
+              key={`${it}-${idx}`}
+              ref={it === "ellipsis-r" ? jumpRef : undefined}
+              className="relative"
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  setJumpOpen((v) => !v);
+                  setJumpValue("");
+                }}
+                className="flex h-7 min-w-[28px] items-center justify-center rounded-md text-[12px] text-muted-foreground/80 transition hover:bg-accent hover:text-foreground"
+                title="跳转页"
+              >
+                …
+              </button>
+              {jumpOpen && it === "ellipsis-r" && (
+                <div
+                  className="absolute left-1/2 top-9 z-40 -translate-x-1/2 rounded-lg border bg-popover p-2 shadow-xl ring-1 ring-black/5 dark:ring-white/5"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="flex items-center gap-1">
+                    <input
+                      autoFocus
+                      type="number"
+                      min={1}
+                      max={pageCount}
+                      value={jumpValue}
+                      onChange={(e) => setJumpValue(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") doJump();
+                        else if (e.key === "Escape") setJumpOpen(false);
+                      }}
+                      placeholder={`1-${pageCount}`}
+                      className="h-7 w-24 rounded-md border bg-background px-2 text-xs tabular-nums focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    />
+                    <button
+                      type="button"
+                      onClick={doJump}
+                      className="h-7 rounded-md bg-primary px-2 text-[11px] font-medium text-primary-foreground transition hover:opacity-90"
+                    >
+                      跳转
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        }
+        const active = it === page;
+        return (
+          <button
+            key={it}
+            type="button"
+            onClick={() => onChange(it)}
+            aria-current={active ? "page" : undefined}
+            className={cn(
+              "flex h-7 min-w-[28px] items-center justify-center rounded-md px-2 text-[12px] tabular-nums transition",
+              active
+                ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20"
+                : "border bg-card text-muted-foreground hover:border-primary/30 hover:bg-accent hover:text-foreground",
+            )}
+          >
+            {it}
+          </button>
+        );
+      })}
+      <button
+        type="button"
+        disabled={page >= pageCount}
+        onClick={next}
+        className="flex h-7 w-7 items-center justify-center rounded-md border bg-card text-muted-foreground transition hover:border-primary/30 hover:bg-accent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:bg-card disabled:hover:text-muted-foreground"
+        aria-label="下一页"
+      >
+        <ChevronRight className="h-3.5 w-3.5" />
+      </button>
+    </div>
+  );
 }
 
 function BookmarkCtxMenu({
