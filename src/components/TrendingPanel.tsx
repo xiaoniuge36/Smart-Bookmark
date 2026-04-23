@@ -207,15 +207,31 @@ export default function TrendingPanel({
       )}
 
       {list.length > 0 && (
-        <div className={cn("grid gap-3", gridCls)}>
-          {list.map((r) => (
-            <RepoCard
-              key={r.id}
-              repo={r}
-              compact={compact}
-              bookmarkFolderId={settings.rootFolderId}
-            />
-          ))}
+        <div className="relative">
+          <div
+            className={cn(
+              "grid gap-3 transition-opacity duration-200",
+              gridCls,
+              loading && "pointer-events-none opacity-45",
+            )}
+          >
+            {list.map((r) => (
+              <RepoCard
+                key={r.id}
+                repo={r}
+                compact={compact}
+                bookmarkFolderId={settings.rootFolderId}
+              />
+            ))}
+          </div>
+          {loading && (
+            <div className="pointer-events-none absolute inset-x-0 top-2 flex justify-center">
+              <div className="inline-flex items-center gap-1.5 rounded-full border bg-card/95 px-2.5 py-1 text-[11px] font-medium text-muted-foreground shadow-sm backdrop-blur">
+                <RefreshCw className="h-3 w-3 animate-spin" />
+                <span>{t("discover.loading")}</span>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

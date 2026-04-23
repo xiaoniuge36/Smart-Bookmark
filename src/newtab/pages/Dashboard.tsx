@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   getTree,
   flatten,
@@ -84,6 +91,8 @@ export default function Dashboard({
   const [widgetRange, setWidgetRange] = useState<TrendingRange>(
     settings.discoverDefaultRange ?? "weekly",
   );
+  const trendingSectionRef = useRef<HTMLElement>(null);
+  const [trendingHeight, setTrendingHeight] = useState<number | null>(null);
   const searchWrapRef = useRef<HTMLFormElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const isMac = useMemo(
@@ -128,6 +137,19 @@ export default function Dashboard({
         (sites || []).slice(0, 10).map((s) => ({ url: s.url, title: s.title })),
       );
     });
+  }, []);
+
+  useLayoutEffect(() => {
+    const el = trendingSectionRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver((entries) => {
+      for (const e of entries) {
+        const h = Math.round(e.contentRect.height);
+        if (h > 0) setTrendingHeight(h);
+      }
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
 
   useEffect(() => {
@@ -405,9 +427,6 @@ export default function Dashboard({
             <div className="text-2xl font-semibold tracking-tight text-foreground/90">
               {greeting} <span className="ml-1">👋</span>
             </div>
-            <div className="mt-1 text-sm text-muted-foreground">
-              {t("dash.kbdHint")}
-            </div>
           </div>
         )}
 
@@ -512,14 +531,11 @@ export default function Dashboard({
           </div>
 
           {searchFocused && query.trim() && (
-            <div className="mx-2 mt-1.5 flex items-center justify-between px-1 text-[11px] text-muted-foreground">
+            <div className="mx-2 mt-1.5 flex items-center px-1 text-[11px] text-muted-foreground">
               <span>
                 {filtered.length > 0
                   ? t("dash.matchCount", String(filtered.length))
                   : t("dash.matchNone")}
-              </span>
-              <span className="hidden items-center gap-2 sm:flex">
-                <span>{t("dash.kbdHint")}</span>
               </span>
             </div>
           )}
@@ -593,11 +609,18 @@ export default function Dashboard({
         )}
 
         {showHero && (
-          <div className="grid grid-cols-1 gap-5 pt-2 md:grid-cols-12">
+          <div className="grid grid-cols-1 items-stretch gap-5 pt-2 md:grid-cols-12">
             {topSites.length > 0 && (
               <aside className="hidden md:col-span-4 md:block">
-                <Card className="p-3">
-                  <div className="mb-1 flex items-center gap-2 px-1">
+                <Card
+                  className="flex h-full flex-col p-3"
+                  style={
+                    trendingHeight
+                      ? { maxHeight: trendingHeight + "px" }
+                      : undefined
+                  }
+                >
+                  <div className="mb-1 flex shrink-0 items-center gap-2 px-1">
                     <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500/20 to-indigo-500/20 text-sky-600 dark:text-sky-400">
                       <Clock className="h-3.5 w-3.5" />
                     </div>
@@ -614,10 +637,10 @@ export default function Dashboard({
                       自动
                     </span>
                   </div>
-                  <p className="mb-2 px-1 text-[10.5px] leading-relaxed text-muted-foreground/70">
+                  <p className="mb-2 shrink-0 px-1 text-[10.5px] leading-relaxed text-muted-foreground/70">
                     浏览器按访问频率自动更新
                   </p>
-                  <div className="space-y-0.5">
+                  <div className="min-h-0 flex-1 space-y-0.5 overflow-y-auto pr-1 scrollbar-thin">
                     {topSites.map((s) => (
                       <a
                         key={s.url}
@@ -653,6 +676,7 @@ export default function Dashboard({
             )}
 
             <section
+              ref={trendingSectionRef}
               className={cn(
                 "col-span-1",
                 topSites.length > 0
