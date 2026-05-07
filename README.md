@@ -151,6 +151,18 @@ smart-bookmark/
 
 商店上架文案与权限说明见 [`STORE_LISTING.md`](./STORE_LISTING.md)。
 
+## 🙏 致谢
+
+感谢真诚、友善、团结、专业的 Linuxdo 社区，让我学到那么多有关ai相关知识。
+
+<p>
+  <a href="https://linux.do">
+    <img src="https://img.shields.io/badge/LinuxDo-community-1f6feb" alt="LinuxDo">
+  </a>
+</p>
+
+- [LinuxDo](https://linux.do) 学 ai, 上 L 站!
+
 ## 📄 License
 
 MIT
