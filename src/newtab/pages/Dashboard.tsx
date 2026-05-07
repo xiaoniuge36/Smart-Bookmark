@@ -41,6 +41,7 @@ import QrDialog from "./QrDialog";
 import FolderTree from "@/components/FolderTree";
 import EngineSwitcher from "@/components/EngineSwitcher";
 import { findEngine } from "@/lib/engines";
+import InfoCollections from "@/components/InfoCollections";
 
 interface Props {
   settings: Settings;
@@ -409,10 +410,12 @@ export default function Dashboard({
 
   const greeting = useGreeting();
   const showHero = !selected && !query.trim();
+  const showGithubTrendingWidget = settings.showGithubTrendingWidget ?? true;
+  const showInfoCollections = settings.showInfoCollections ?? true;
 
   return (
-    <div className="grid grid-cols-12 gap-6">
-      <aside className="col-span-12 md:col-span-3 space-y-3">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-[240px_minmax(0,1fr)] 2xl:grid-cols-[260px_minmax(0,1fr)]">
+      <aside className="space-y-3 md:sticky md:top-20 md:self-start">
         {pinnedFolders.length > 0 && (
           <Card className="p-2">
             <div className="mb-1 flex items-center gap-2 px-1 text-xs font-medium text-muted-foreground">
@@ -451,7 +454,7 @@ export default function Dashboard({
         </Card>
       </aside>
 
-      <section className="col-span-12 md:col-span-9 space-y-5">
+      <section className="min-w-0 space-y-5">
         {showHero && (
           <div className="mb-2 pt-4 text-center">
             <div className="text-2xl font-semibold tracking-tight text-foreground/90">
@@ -641,11 +644,11 @@ export default function Dashboard({
         {showHero && (
           <div className="grid grid-cols-1 items-stretch gap-5 pt-2 md:grid-cols-12">
             {topSites.length > 0 && (
-              <aside className="hidden md:col-span-4 md:block">
+              <aside className="hidden md:col-span-3 md:block">
                 <Card
                   className="flex h-full flex-col p-3"
                   style={
-                    trendingHeight
+                    showGithubTrendingWidget && trendingHeight
                       ? { maxHeight: trendingHeight + "px" }
                       : undefined
                   }
@@ -705,15 +708,16 @@ export default function Dashboard({
               </aside>
             )}
 
-            <section
-              ref={trendingSectionRef}
-              className={cn(
-                "col-span-1",
-                topSites.length > 0
-                  ? "md:col-span-8"
-                  : "md:col-span-12",
-              )}
-            >
+            {showGithubTrendingWidget && (
+              <section
+                ref={trendingSectionRef}
+                className={cn(
+                  "col-span-1",
+                  topSites.length > 0
+                    ? "md:col-span-9"
+                    : "md:col-span-12",
+                )}
+              >
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500/20 to-rose-500/20 text-rose-500">
                   <Flame className="h-3.5 w-3.5" />
@@ -813,7 +817,21 @@ export default function Dashboard({
                 mode={widgetMode}
                 onModeChange={setWidgetMode}
               />
-            </section>
+              </section>
+            )}
+            {showInfoCollections && (
+              <InfoCollections
+                language={settings.language}
+                className={cn(
+                  "col-span-1",
+                  showGithubTrendingWidget
+                    ? "md:col-span-12"
+                    : topSites.length > 0
+                      ? "md:col-span-9"
+                      : "md:col-span-12",
+                )}
+              />
+            )}
           </div>
         )}
 
@@ -855,52 +873,40 @@ export default function Dashboard({
           </div>
         )}
 
-        {(showHero || (!subFolders.length && breadcrumb.length === 0)) &&
-          filtered.length > 0 && (
-            <div className="flex flex-wrap items-end justify-between gap-2 border-b pb-1.5 pt-2">
-              <div className="flex items-center gap-2">
-                <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 text-primary">
-                  <Folder className="h-3.5 w-3.5" />
-                </div>
-                <h2 className="text-sm font-semibold tracking-tight">
-                  我的书签
-                </h2>
-                <span className="text-[11px] text-muted-foreground">
-                  · 共 {filtered.length} 个
-                  {query.trim() ? "（已过滤）" : ""}
+        {filtered.length > 0 && (
+          <div className="flex flex-wrap items-end justify-between gap-2 border-b pb-1.5 pt-2">
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 text-primary">
+                <Folder className="h-3.5 w-3.5" />
+              </div>
+              <h2 className="text-sm font-semibold tracking-tight">
+                我的书签
+              </h2>
+              <span className="text-[11px] text-muted-foreground">
+                · 共 {filtered.length} 个
+                {query.trim() ? "（已过滤）" : ""}
+              </span>
+              {pageSize !== Infinity && filtered.length > pageSize && (
+                <span className="text-[11px] text-muted-foreground/70">
+                  · 第 {(page - 1) * pageSize + 1}-
+                  {Math.min(page * pageSize, filtered.length)} 条
                 </span>
-                {pageSize !== Infinity && filtered.length > pageSize && (
-                  <span className="text-[11px] text-muted-foreground/70">
-                    · 第 {(page - 1) * pageSize + 1}-
-                    {Math.min(page * pageSize, filtered.length)} 条
-                  </span>
-                )}
-              </div>
-              <div className="flex items-center gap-2">
-                {canReorder && (
-                  <span className="hidden items-center gap-1 text-[11px] text-muted-foreground sm:inline-flex">
-                    <GripVertical className="h-3 w-3" />
-                    {t("dash.dragHint")}
-                  </span>
-                )}
-                <PageSizePicker value={pageSize} onChange={onChangePageSize} />
-                {pageSize !== Infinity && pageCount > 1 && (
-                  <Pager
-                    page={page}
-                    pageCount={pageCount}
-                    onChange={setPage}
-                  />
-                )}
-              </div>
+              )}
             </div>
-          )}
-
-        {canReorder &&
-          !(showHero || (!subFolders.length && breadcrumb.length === 0)) && (
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <GripVertical className="h-3.5 w-3.5" /> {t("dash.dragHint")}
+            <div className="flex items-center gap-2">
+              {canReorder && (
+                <span className="hidden items-center gap-1 text-[11px] text-muted-foreground sm:inline-flex">
+                  <GripVertical className="h-3 w-3" />
+                  {t("dash.dragHint")}
+                </span>
+              )}
+              <PageSizePicker value={pageSize} onChange={onChangePageSize} />
+              {pageSize !== Infinity && pageCount > 1 && (
+                <Pager page={page} pageCount={pageCount} onChange={setPage} />
+              )}
             </div>
-          )}
+          </div>
+        )}
 
         <div
           className={cn(
@@ -1000,8 +1006,7 @@ export default function Dashboard({
 
         {pageSize !== Infinity &&
           pageCount > 1 &&
-          filtered.length > 0 &&
-          (showHero || (!subFolders.length && breadcrumb.length === 0)) && (
+          filtered.length > 0 && (
             <div className="flex items-center justify-center gap-3 pt-2">
               <Pager page={page} pageCount={pageCount} onChange={setPage} />
               <span className="text-[11px] text-muted-foreground">

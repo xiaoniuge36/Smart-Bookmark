@@ -45,7 +45,8 @@
     "history",
     "topSites",
     "tabs",
-    "scripting"
+    "scripting",
+    "cookies"
   ],
   "host_permissions": [
     "https://*/*",

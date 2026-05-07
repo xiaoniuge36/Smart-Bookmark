@@ -431,6 +431,42 @@ export default function SettingsPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
+          <Row label={t("settings.homeWidgets")}>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <Switch
+                  checked={s.showGithubTrendingWidget ?? true}
+                  onCheckedChange={(v) =>
+                    update({ showGithubTrendingWidget: v })
+                  }
+                />
+                <div className="min-w-0">
+                  <div className="text-sm font-medium">
+                    {t("settings.showGithubTrendingWidget")}
+                  </div>
+                  <div className="mt-0.5 text-xs text-muted-foreground">
+                    {t("settings.showGithubTrendingWidgetHint")}
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Switch
+                  checked={s.showInfoCollections ?? true}
+                  onCheckedChange={(v) =>
+                    update({ showInfoCollections: v })
+                  }
+                />
+                <div className="min-w-0">
+                  <div className="text-sm font-medium">
+                    {t("settings.showInfoCollections")}
+                  </div>
+                  <div className="mt-0.5 text-xs text-muted-foreground">
+                    {t("settings.showInfoCollectionsHint")}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Row>
           <Row label={t("settings.githubToken")}>
             <div className="space-y-2">
               <Input

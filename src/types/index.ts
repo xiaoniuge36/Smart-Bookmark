@@ -110,6 +110,10 @@ export interface Settings {
   discoverDefaultLanguage?: string;
   /** Discover 页默认排序口径（auto=按 mode 自适应） */
   discoverDefaultSort?: TrendingSort;
+  /** 首页是否显示 GitHub Trending 小组件 */
+  showGithubTrendingWidget?: boolean;
+  /** 首页是否显示「信息差雷达」（NewsNow + 资源入口）模块 */
+  showInfoCollections?: boolean;
 }
 
 export type TrendingRange = "daily" | "weekly" | "monthly" | "yearly";

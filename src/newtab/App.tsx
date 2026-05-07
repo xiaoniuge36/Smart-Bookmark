@@ -99,7 +99,7 @@ export default function App() {
       <div className="min-h-screen bg-background/85 backdrop-blur-sm">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-indigo-500/8 via-fuchsia-500/5 to-transparent" />
         <header className="sticky top-0 z-20 border-b bg-background/75 backdrop-blur">
-          <div className="mx-auto flex max-w-7xl items-center gap-4 px-6 py-3">
+          <div className="mx-auto flex max-w-[1600px] items-center gap-4 px-5 py-3 sm:px-6 2xl:px-8">
             <div className="flex shrink-0 items-center gap-2 whitespace-nowrap font-semibold">
               <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white shadow-md shadow-indigo-500/20">
                 <Bookmark className="h-4 w-4" />
@@ -138,7 +138,7 @@ export default function App() {
           </div>
         </header>
 
-        <main className="mx-auto max-w-7xl px-6 py-6">
+        <main className="mx-auto max-w-[1600px] px-5 py-6 sm:px-6 2xl:px-8">
           {tab === "dashboard" && (
             <Dashboard
               settings={settings}

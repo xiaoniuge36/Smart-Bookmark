@@ -113,6 +113,13 @@ const zh: Dict = {
   "settings.discoverSort": "默认排序",
   "settings.discoverSortHint":
     "「自动」会根据当前模式选合适口径：新建 → 创建以来均速；最热门 → 总 star。「近期增长」需要至少积累一次刷新快照。",
+  "settings.homeWidgets": "首页组件",
+  "settings.showGithubTrendingWidget": "首页显示 GitHub 热门",
+  "settings.showGithubTrendingWidgetHint":
+    "关闭后首页不再显示 GitHub 热门；发现页仍可正常使用。",
+  "settings.showInfoCollections": "首页显示信息差雷达",
+  "settings.showInfoCollectionsHint":
+    "关闭后首页不再显示 NewsNow 内嵌热点和资源入口面板。",
   "settings.githubTokenSave": "保存",
   "settings.githubTokenClear": "清空",
   "settings.githubTokenCreate": "创建 Token",
@@ -355,6 +362,13 @@ const en: Dict = {
   "settings.discoverSort": "Default sort",
   "settings.discoverSortHint":
     "\"Auto\" picks for you: Newly Created → since-creation; Hottest → total stars. \"Recent growth\" needs at least one refresh to gather snapshots.",
+  "settings.homeWidgets": "Home widgets",
+  "settings.showGithubTrendingWidget": "Show GitHub Trending on home",
+  "settings.showGithubTrendingWidgetHint":
+    "When off, the dashboard hides GitHub Trending. The Discover page still works.",
+  "settings.showInfoCollections": "Show signal radar on home",
+  "settings.showInfoCollectionsHint":
+    "When off, the dashboard hides the embedded NewsNow live feed and resource link panels.",
   "settings.githubTokenSave": "Save",
   "settings.githubTokenClear": "Clear",
   "settings.githubTokenCreate": "Create token",

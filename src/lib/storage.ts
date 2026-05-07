@@ -25,6 +25,8 @@ export const DEFAULT_SETTINGS: Settings = {
   discoverDefaultRange: "weekly",
   discoverDefaultMode: "created",
   discoverDefaultLanguage: "",
+  showGithubTrendingWidget: true,
+  showInfoCollections: true,
 };
 
 const hasChromeStorage = typeof chrome !== "undefined" && !!chrome.storage?.local;
