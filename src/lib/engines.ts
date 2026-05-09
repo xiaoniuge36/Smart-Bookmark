@@ -12,9 +12,51 @@ export interface EngineDef {
 export const BUILTIN_ENGINES: EngineDef[] = [
   {
     id: "google",
-    name: "Google",
+    name: "谷歌",
     url: (q) => `https://www.google.com/search?q=${encodeURIComponent(q)}`,
     host: "google.com",
+  },
+  {
+    id: "baidu",
+    name: "百度",
+    url: (q) => `https://www.baidu.com/s?wd=${encodeURIComponent(q)}`,
+    host: "baidu.com",
+  },
+  {
+    id: "doubao",
+    name: "豆包",
+    url: (q) => `https://www.doubao.com/chat/?q=${encodeURIComponent(q)}`,
+    host: "doubao.com",
+  },
+  {
+    id: "kimi",
+    name: "Kimi",
+    url: (q) => `https://kimi.moonshot.cn/?q=${encodeURIComponent(q)}`,
+    host: "kimi.moonshot.cn",
+  },
+  {
+    id: "deepseek",
+    name: "DeepSeek",
+    url: (q) => `https://chat.deepseek.com/?q=${encodeURIComponent(q)}`,
+    host: "chat.deepseek.com",
+  },
+  {
+    id: "qwen",
+    name: "千问",
+    url: (q) => `https://chat.qwen.ai/?q=${encodeURIComponent(q)}`,
+    host: "chat.qwen.ai",
+  },
+  {
+    id: "chatgpt",
+    name: "GPT",
+    url: (q) => `https://chatgpt.com/?q=${encodeURIComponent(q)}`,
+    host: "chatgpt.com",
+  },
+  {
+    id: "gemini",
+    name: "Gemini",
+    url: (q) => `https://gemini.google.com/app?q=${encodeURIComponent(q)}`,
+    host: "gemini.google.com",
   },
   {
     id: "bing",
@@ -30,12 +72,6 @@ export const BUILTIN_ENGINES: EngineDef[] = [
     iframe: true,
   },
   {
-    id: "baidu",
-    name: "百度",
-    url: (q) => `https://www.baidu.com/s?wd=${encodeURIComponent(q)}`,
-    host: "baidu.com",
-  },
-  {
     id: "github",
     name: "GitHub",
     url: (q) =>
@@ -49,37 +85,12 @@ export const BUILTIN_ENGINES: EngineDef[] = [
     host: "stackoverflow.com",
   },
   {
-    id: "youtube",
-    name: "YouTube",
-    url: (q) =>
-      `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`,
-    host: "youtube.com",
-  },
-  {
     id: "mdn",
     name: "MDN",
     url: (q) =>
       `https://developer.mozilla.org/en-US/search?q=${encodeURIComponent(q)}`,
     host: "developer.mozilla.org",
     iframe: true,
-  },
-  {
-    id: "kimi",
-    name: "Kimi",
-    url: (q) => `https://kimi.moonshot.cn/?q=${encodeURIComponent(q)}`,
-    host: "kimi.moonshot.cn",
-  },
-  {
-    id: "doubao",
-    name: "豆包",
-    url: (q) => `https://www.doubao.com/chat/?q=${encodeURIComponent(q)}`,
-    host: "doubao.com",
-  },
-  {
-    id: "chatgpt",
-    name: "ChatGPT",
-    url: (q) => `https://chatgpt.com/?q=${encodeURIComponent(q)}`,
-    host: "chatgpt.com",
   },
   {
     id: "felo",
@@ -127,16 +138,16 @@ export function findEngine(
   settings: Settings,
   id: string,
 ): EngineDef | undefined {
-  return allEngines(settings).find((e) => e.id === id);
+  return allEngines(settings).find((engine) => engine.id === id);
 }
 
-export function faviconFor(e: EngineDef): string {
-  return `https://www.google.com/s2/favicons?domain=${e.host}&sz=64`;
+export function faviconFor(engine: EngineDef): string {
+  return `https://www.google.com/s2/favicons?domain=${engine.host}&sz=64`;
 }
 
-function hostOf(u: string): string {
+function hostOf(url: string): string {
   try {
-    return new URL(u).hostname.replace(/^www\./, "");
+    return new URL(url).hostname.replace(/^www\./, "");
   } catch {
     return "";
   }

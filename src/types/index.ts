@@ -30,13 +30,21 @@ export interface CleanIssue {
 
 export type SearchEngineId =
   | "google"
+  | "baidu"
+  | "doubao"
+  | "kimi"
+  | "deepseek"
+  | "qwen"
+  | "chatgpt"
+  | "gemini"
   | "bing"
   | "duckduckgo"
-  | "baidu"
   | "github"
   | "stackoverflow"
-  | "youtube"
-  | "mdn";
+  | "mdn"
+  | "felo"
+  | "metaso"
+  | "perplexity";
 
 export type Language = "auto" | "zh" | "en";
 

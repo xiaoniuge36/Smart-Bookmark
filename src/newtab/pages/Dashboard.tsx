@@ -19,18 +19,24 @@ import { Button } from "@/components/ui/button";
 import { cn, faviconOf, hostnameOf } from "@/lib/utils";
 import {
   Search,
+  Bookmark as BookmarkIcon,
+  Bot,
+  Columns,
+  Command,
   ExternalLink,
   GripVertical,
   MoreHorizontal,
   Pin,
   Folder,
-  History as HistoryIcon,
   ChevronRight,
   X,
   Flame,
   Clock,
   Sparkles,
   TrendingUp,
+  HardDriveDownload,
+  Settings2,
+  Wand2,
 } from "lucide-react";
 import TrendingPanel from "@/components/TrendingPanel";
 import { rangeToWindowDays } from "@/lib/github";
@@ -40,8 +46,9 @@ import { toast } from "@/components/ui/toast";
 import QrDialog from "./QrDialog";
 import FolderTree from "@/components/FolderTree";
 import EngineSwitcher from "@/components/EngineSwitcher";
-import { findEngine } from "@/lib/engines";
+import { faviconFor, findEngine } from "@/lib/engines";
 import InfoCollections from "@/components/InfoCollections";
+import { rankSearchItems } from "@/lib/searchRank";
 
 interface Props {
   settings: Settings;
@@ -49,6 +56,15 @@ interface Props {
   /** 从首页热门 widget 跳到「发现」页（与地址栏 hash 同步，避免点击无反应） */
   onOpenDiscover?: () => void;
 }
+
+type DashboardTabId =
+  | "dashboard"
+  | "discover"
+  | "cleaner"
+  | "ai"
+  | "compare"
+  | "backup"
+  | "settings";
 
 interface FolderBookmark extends FlatBookmark {
   index: number;
@@ -63,6 +79,16 @@ interface HistoryHit {
   url: string;
   title: string;
   source: "history" | "bookmark";
+}
+
+interface SearchCommandItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  iconUrl?: string;
+  Icon?: React.ComponentType<{ className?: string }>;
+  onRun: () => void;
 }
 
 export default function Dashboard({
@@ -91,6 +117,7 @@ export default function Dashboard({
   const [topSites, setTopSites] = useState<TopSite[]>([]);
   const [historyHits, setHistoryHits] = useState<HistoryHit[]>([]);
   const [searchFocused, setSearchFocused] = useState(false);
+  const [activeCommand, setActiveCommand] = useState(0);
   const [widgetRange, setWidgetRange] = useState<TrendingRange>(
     settings.discoverDefaultRange ?? "weekly",
   );
@@ -189,14 +216,9 @@ export default function Dashboard({
   }, [tree, selected]);
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = query.trim();
     if (!q) return items;
-    return items.filter(
-      (b) =>
-        b.title.toLowerCase().includes(q) ||
-        b.url.toLowerCase().includes(q) ||
-        b.path.toLowerCase().includes(q),
-    );
+    return rankSearchItems(q, items, items.length).map(({ item }) => item);
   }, [items, query]);
 
   const pageCount = Math.max(
@@ -247,17 +269,48 @@ export default function Dashboard({
     await setSettings({ searchEngine: id });
   };
 
+  const openExternal = useCallback((url: string) => {
+    window.open(url, "_blank");
+    setSearchFocused(false);
+  }, []);
+
+  const openDashboardTab = useCallback((id: DashboardTabId) => {
+    const params = new URLSearchParams(window.location.hash.slice(1));
+    params.set("tab", id);
+    const next = params.toString();
+    window.location.hash = next ? "#" + next : "#";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setSearchFocused(false);
+  }, []);
+
+  const runEngineSearch = useCallback(
+    (text: string, engineId = settings.searchEngine) => {
+      const q = text.trim();
+      if (!q) return;
+      const engine =
+        findEngine(settings, engineId) ?? findEngine(settings, "google");
+      if (engine) openExternal(engine.url(q));
+    },
+    [openExternal, settings],
+  );
+
+  const runCompareSearch = useCallback(
+    (text: string) => {
+      const q = text.trim();
+      if (!q) return;
+      for (const id of settings.compareEngines) {
+        const eng = findEngine(settings, id);
+        if (eng) window.open(eng.url(q), "_blank");
+      }
+      setSearchFocused(false);
+    },
+    [settings],
+  );
+
   const onSubmitSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const q = query.trim();
-    if (!q) return;
-    const hit = filtered[0];
-    if (hit) {
-      window.open(hit.url, "_blank");
-      return;
-    }
-    const engine = findEngine(settings, settings.searchEngine);
-    if (engine) window.open(engine.url(q), "_blank");
+    runEngineSearch(q);
   };
 
   const canReorder = !!selected && !query.trim() && items.length > 0;
@@ -408,6 +461,159 @@ export default function Dashboard({
       .filter(Boolean) as BookmarkNode[];
   }, [pinnedIds, tree]);
 
+  const commandItems = useMemo<SearchCommandItem[]>(() => {
+    const q = query.trim();
+    const currentEngine =
+      findEngine(settings, settings.searchEngine) ??
+      findEngine(settings, "google");
+    const out: SearchCommandItem[] = [];
+
+    if (q && currentEngine) {
+      out.push({
+        id: "engine-default",
+        title: `用 ${currentEngine.name} 搜索 "${q}"`,
+        subtitle: "默认回车执行搜索，书签结果可用方向键选择",
+        badge: "Enter",
+        iconUrl: faviconFor(currentEngine),
+        onRun: () => runEngineSearch(q),
+      });
+      if (settings.compareEngines.length > 1) {
+        out.push({
+          id: "engine-compare",
+          title: `在对比搜索中打开 "${q}"`,
+          subtitle: `${settings.compareEngines.length} 个搜索引擎并行查询`,
+          badge: isMac ? "⌘ Enter" : "Ctrl Enter",
+          Icon: Columns,
+          onRun: () => runCompareSearch(q),
+        });
+      }
+    }
+
+    const bookmarkResults = q ? filtered.slice(0, 6) : [];
+    for (const b of bookmarkResults) {
+      out.push({
+        id: `bookmark-${b.id}`,
+        title: b.title,
+        subtitle: b.path
+          ? `${hostnameOf(b.url)} · ${b.path}`
+          : hostnameOf(b.url),
+        badge: "bookmark",
+        iconUrl: faviconOf(b.url, 32),
+        onRun: () => openExternal(b.url),
+      });
+    }
+
+    const historySource = q
+      ? rankSearchItems(
+          q,
+          historyHits.map((h, i) => ({ ...h, id: `history-${i}`, boost: 18 })),
+          5,
+        ).map(({ item }) => item)
+      : historyHits.slice(0, 5);
+    for (const h of historySource) {
+      out.push({
+        id: `history-${h.url}`,
+        title: h.title,
+        subtitle: hostnameOf(h.url),
+        badge: "history",
+        iconUrl: faviconOf(h.url, 32),
+        onRun: () => openExternal(h.url),
+      });
+    }
+
+    const topSiteSource = q
+      ? rankSearchItems(
+          q,
+          topSites.map((s, i) => ({ ...s, id: `top-${i}`, boost: 12 })),
+          4,
+        ).map(({ item }) => item)
+      : topSites.slice(0, 5);
+    for (const s of topSiteSource) {
+      out.push({
+        id: `top-${s.url}`,
+        title: s.title || hostnameOf(s.url),
+        subtitle: hostnameOf(s.url),
+        badge: "top site",
+        iconUrl: faviconOf(s.url, 32),
+        onRun: () => openExternal(s.url),
+      });
+    }
+
+    const actions: SearchCommandItem[] = [
+      {
+        id: "action-cleaner",
+        title: "打开清理中心",
+        subtitle: "重复、失效、空文件夹扫描",
+        badge: "action",
+        Icon: Wand2,
+        onRun: () => openDashboardTab("cleaner"),
+      },
+      {
+        id: "action-compare",
+        title: "打开对比搜索",
+        subtitle: "多个搜索引擎并排查询",
+        badge: "action",
+        Icon: Columns,
+        onRun: () => openDashboardTab("compare"),
+      },
+      {
+        id: "action-ai",
+        title: "打开 AI 助手",
+        subtitle: "基于书签快照整理和检索",
+        badge: "action",
+        Icon: Bot,
+        onRun: () => openDashboardTab("ai"),
+      },
+      {
+        id: "action-backup",
+        title: "打开备份",
+        subtitle: "导入、导出 JSON 或 HTML",
+        badge: "action",
+        Icon: HardDriveDownload,
+        onRun: () => openDashboardTab("backup"),
+      },
+      {
+        id: "action-settings",
+        title: "打开设置",
+        subtitle: "主题、搜索引擎、AI 和扩展功能",
+        badge: "action",
+        Icon: Settings2,
+        onRun: () => openDashboardTab("settings"),
+      },
+    ];
+    const actionSource = q
+      ? actions.filter((a) =>
+          `${a.title} ${a.subtitle}`.toLowerCase().includes(q.toLowerCase()),
+        )
+      : actions.slice(0, 3);
+    out.push(...actionSource);
+
+    return out.slice(0, q ? 14 : 10);
+  }, [
+    filtered,
+    historyHits,
+    isMac,
+    openDashboardTab,
+    openExternal,
+    query,
+    runCompareSearch,
+    runEngineSearch,
+    settings,
+    topSites,
+  ]);
+
+  useEffect(() => {
+    setActiveCommand(0);
+  }, [commandItems.length, query]);
+
+  const runCommand = useCallback(
+    (index = activeCommand) => {
+      const cmd = commandItems[index] ?? commandItems[0];
+      cmd?.onRun();
+    },
+    [activeCommand, commandItems],
+  );
+
   const greeting = useGreeting();
   const showHero = !selected && !query.trim();
   const showGithubTrendingWidget = settings.showGithubTrendingWidget ?? true;
@@ -465,10 +671,7 @@ export default function Dashboard({
 
         <form
           onSubmit={onSubmitSearch}
-          className={cn(
-            "mx-auto w-full max-w-2xl",
-            showHero ? "" : "max-w-none",
-          )}
+          className="relative mx-auto w-full max-w-3xl"
           ref={searchWrapRef}
         >
           <div
@@ -481,6 +684,9 @@ export default function Dashboard({
               settings={settings}
               value={settings.searchEngine}
               onChange={onChangeEngine}
+              onOpenChange={(open) => {
+                if (open) setSearchFocused(false);
+              }}
             />
             <span
               aria-hidden
@@ -508,16 +714,30 @@ export default function Dashboard({
                     return;
                   }
                   if (
+                    (e.key === "ArrowDown" || e.key === "ArrowUp") &&
+                    commandItems.length
+                  ) {
+                    e.preventDefault();
+                    setSearchFocused(true);
+                    setActiveCommand((idx) => {
+                      const delta = e.key === "ArrowDown" ? 1 : -1;
+                      return (idx + delta + commandItems.length) %
+                        commandItems.length;
+                    });
+                    return;
+                  }
+                  if (
                     e.key === "Enter" &&
                     (e.metaKey || e.ctrlKey) &&
                     query.trim()
                   ) {
                     e.preventDefault();
-                    const qq = query.trim();
-                    for (const id of settings.compareEngines) {
-                      const eng = findEngine(settings, id);
-                      if (eng) window.open(eng.url(qq), "_blank");
-                    }
+                    runCompareSearch(query);
+                    return;
+                  }
+                  if (e.key === "Enter" && searchFocused && commandItems.length) {
+                    e.preventDefault();
+                    runCommand(activeCommand);
                     return;
                   }
                   if (!searchFocused) setSearchFocused(true);
@@ -573,43 +793,17 @@ export default function Dashboard({
             </div>
           )}
 
-          {searchFocused && historyHits.length > 0 && (
-            <div className="relative">
-              <div className="absolute inset-x-0 top-2 z-30 mx-auto max-w-2xl overflow-hidden rounded-2xl border bg-white shadow-2xl ring-1 ring-black/5 dark:bg-slate-900 dark:ring-white/10">
-                <div className="bg-white px-4 py-2 text-[11px] text-muted-foreground dark:bg-slate-900">
-                  <HistoryIcon className="mr-1 inline h-3 w-3" />
-                  浏览历史
-                </div>
-                <div className="max-h-[320px] overflow-auto bg-white dark:bg-slate-900">
-                  {historyHits.map((h) => (
-                    <a
-                      key={h.url}
-                      href={h.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 border-t bg-white px-4 py-2 text-sm transition hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-800"
-                    >
-                      <img
-                        src={faviconOf(h.url, 16)}
-                        alt=""
-                        className="h-4 w-4 rounded"
-                        onError={(e) =>
-                          (e.currentTarget.style.visibility = "hidden")
-                        }
-                      />
-                      <span className="flex-1 truncate">{h.title}</span>
-                      <span className="truncate text-xs text-muted-foreground">
-                        {hostnameOf(h.url)}
-                      </span>
-                      <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground">
-                        history
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
+          {searchFocused && commandItems.length > 0 && (
+            <SearchCommandPalette
+              items={commandItems}
+              activeIndex={activeCommand}
+              onActiveChange={setActiveCommand}
+              query={query}
+              onClose={() => setSearchFocused(false)}
+            />
           )}
+
+
         </form>
 
         {showHero && topSites.length > 0 && (
@@ -1035,6 +1229,123 @@ export default function Dashboard({
       {qrUrl && <QrDialog url={qrUrl} onClose={() => setQrUrl(null)} />}
     </div>
   );
+}
+
+function SearchCommandPalette({
+  items,
+  activeIndex,
+  onActiveChange,
+  query,
+  onClose,
+}: {
+  items: SearchCommandItem[];
+  activeIndex: number;
+  onActiveChange: (index: number) => void;
+  query: string;
+  onClose: () => void;
+}) {
+  return (
+    <div className="absolute inset-x-0 top-[calc(100%+0.5rem)] z-40 overflow-hidden rounded-2xl border bg-popover shadow-2xl ring-1 ring-black/5 dark:ring-white/10">
+      <button
+        type="button"
+        onMouseDown={(e) => e.preventDefault()}
+        onClick={onClose}
+        className="absolute right-2 top-1.5 z-10 flex h-6 w-6 items-center justify-center rounded-full text-muted-foreground transition hover:bg-accent hover:text-foreground"
+        title="关闭"
+        aria-label="关闭搜索结果"
+      >
+        <X className="h-3.5 w-3.5" />
+      </button>
+      <div className="flex items-center justify-between gap-3 border-b bg-muted/30 px-3 py-2 pr-10 text-[11px] text-muted-foreground">
+        <span className="inline-flex items-center gap-1.5">
+          <Command className="h-3.5 w-3.5" />
+          {query.trim() ? "统一搜索" : "快捷入口"}
+        </span>
+        <span>↑↓ 选择 · Enter 打开</span>
+      </div>
+      <div className="max-h-[360px] overflow-auto p-1.5 scrollbar-thin">
+        {items.map((item, index) => {
+          const active = activeIndex === index;
+          const Icon = item.Icon ?? BookmarkIcon;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              onMouseEnter={() => onActiveChange(index)}
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={item.onRun}
+              className={cn(
+                "flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition",
+                active
+                  ? "bg-primary/10 text-foreground ring-1 ring-primary/20"
+                  : "text-foreground hover:bg-accent",
+              )}
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-background ring-1 ring-border">
+                {item.iconUrl ? (
+                  <img
+                    src={item.iconUrl}
+                    alt=""
+                    className="h-4 w-4 rounded"
+                    onError={(e) =>
+                      (e.currentTarget.style.visibility = "hidden")
+                    }
+                  />
+                ) : (
+                  <Icon className="h-4 w-4 text-muted-foreground" />
+                )}
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-sm font-medium">
+                  {item.title}
+                </span>
+                <span className="block truncate text-xs text-muted-foreground">
+                  {item.subtitle}
+                </span>
+              </span>
+              <span
+                className={cn(
+                  "shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ring-1",
+                  searchBadgeClass(item),
+                )}
+              >
+                {searchBadgeLabel(item)}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function searchBadgeLabel(item: SearchCommandItem): string {
+  if (item.id === "engine-default") return "回车";
+  if (item.id === "engine-compare") return "对比";
+  if (item.id.startsWith("bookmark-")) return "书签";
+  if (item.id.startsWith("history-")) return "历史";
+  if (item.id.startsWith("top-")) return "常去";
+  if (item.id.startsWith("action-")) return "动作";
+  return item.badge;
+}
+
+function searchBadgeClass(item: SearchCommandItem): string {
+  if (item.id === "engine-default") {
+    return "bg-primary/10 text-primary ring-primary/20";
+  }
+  if (item.id === "engine-compare") {
+    return "bg-sky-500/10 text-sky-700 ring-sky-500/20 dark:text-sky-300";
+  }
+  if (item.id.startsWith("bookmark-")) {
+    return "bg-emerald-500/10 text-emerald-700 ring-emerald-500/20 dark:text-emerald-300";
+  }
+  if (item.id.startsWith("history-")) {
+    return "bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300";
+  }
+  if (item.id.startsWith("top-")) {
+    return "bg-violet-500/10 text-violet-700 ring-violet-500/20 dark:text-violet-300";
+  }
+  return "bg-muted text-muted-foreground ring-border";
 }
 
 function buildBreadcrumb(
