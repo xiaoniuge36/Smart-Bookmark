@@ -388,7 +388,7 @@ function LinkPanel({
           </p>
         </div>
       </div>
-      <div className="mt-2.5 grid flex-1 gap-1">
+      <div className="mt-2.5 flex-1 divide-y divide-border/60">
         {group.items.map((item) => (
           <CompactLink key={item.url} item={item} lang={lang} />
         ))}
@@ -447,7 +447,7 @@ function CompactLink({
       rel="noreferrer"
       title={item.url}
       className={cn(
-        "group/item relative grid grid-cols-[28px_1fr_auto] items-center gap-2 rounded-lg border border-transparent px-2 py-1.5 transition",
+        "group/item relative grid grid-cols-[28px_1fr_auto] items-center gap-2 rounded-lg border border-transparent px-2 py-2 transition",
         "hover:-translate-y-px hover:border-border/80 hover:bg-accent/60 hover:shadow-sm",
       )}
     >
@@ -456,7 +456,7 @@ function CompactLink({
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-1.5 left-0 w-0.5 rounded-full bg-primary opacity-0 transition group-hover/item:opacity-100"
       />
-      <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-background to-muted/40 ring-1 ring-border/80 transition group-hover/item:ring-primary/30">
+      <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-background to-muted/40 shadow-[0_1px_0_rgba(15,23,42,0.03)] ring-1 ring-border/80 transition group-hover/item:ring-primary/30">
         <img
           src={faviconOf(item.url, 32)}
           alt=""

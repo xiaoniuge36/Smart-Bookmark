@@ -867,36 +867,38 @@ export default function Dashboard({
                   <p className="mb-2 shrink-0 px-1 text-[10.5px] leading-relaxed text-muted-foreground/70">
                     浏览器按访问频率自动更新
                   </p>
-                  <div className="min-h-0 flex-1 space-y-0.5 overflow-y-auto pr-1 scrollbar-thin">
-                    {topSites.map((s) => (
-                      <a
-                        key={s.url}
-                        href={s.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        title={s.url}
-                        className="group flex items-center gap-2.5 rounded-md px-2 py-1.5 transition hover:bg-accent"
-                      >
-                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-background ring-1 ring-border">
-                          <img
-                            src={faviconOf(s.url, 32)}
-                            alt=""
-                            className="h-4 w-4 rounded"
-                            onError={(e) =>
-                              (e.currentTarget.style.visibility = "hidden")
-                            }
-                          />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="truncate text-sm font-medium text-foreground">
-                            {s.title || hostnameOf(s.url)}
+                  <div className="min-h-0 flex-1 overflow-y-auto pr-1 scrollbar-thin">
+                    <div className="divide-y divide-border/60">
+                      {topSites.map((s) => (
+                        <a
+                          key={s.url}
+                          href={s.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          title={s.url}
+                          className="group flex items-center gap-2.5 rounded-md px-2 py-2 transition hover:bg-accent/70"
+                        >
+                          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-background shadow-[0_1px_0_rgba(15,23,42,0.03)] ring-1 ring-border/80">
+                            <img
+                              src={faviconOf(s.url, 32)}
+                              alt=""
+                              className="h-4 w-4 rounded"
+                              onError={(e) =>
+                                (e.currentTarget.style.visibility = "hidden")
+                              }
+                            />
                           </div>
-                          <div className="truncate text-[11px] text-muted-foreground">
-                            {hostnameOf(s.url)}
+                          <div className="min-w-0 flex-1">
+                            <div className="truncate text-sm font-medium text-foreground">
+                              {s.title || hostnameOf(s.url)}
+                            </div>
+                            <div className="truncate text-[11px] text-muted-foreground">
+                              {hostnameOf(s.url)}
+                            </div>
                           </div>
-                        </div>
-                      </a>
-                    ))}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </Card>
               </aside>
@@ -1244,8 +1246,16 @@ function SearchCommandPalette({
   query: string;
   onClose: () => void;
 }) {
+  const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  useEffect(() => {
+    itemRefs.current[activeIndex]?.scrollIntoView({
+      block: "nearest",
+    });
+  }, [activeIndex]);
+
   return (
-    <div className="absolute inset-x-0 top-[calc(100%+0.5rem)] z-40 overflow-hidden rounded-2xl border bg-popover shadow-2xl ring-1 ring-black/5 dark:ring-white/10">
+    <div className="absolute inset-x-0 top-[calc(100%+0.5rem)] z-40 overflow-hidden rounded-2xl border border-border/80 bg-popover/95 shadow-2xl shadow-slate-950/10 ring-1 ring-black/5 backdrop-blur supports-[backdrop-filter]:bg-popover/90 dark:ring-white/10">
       <button
         type="button"
         onMouseDown={(e) => e.preventDefault()}
@@ -1256,64 +1266,70 @@ function SearchCommandPalette({
       >
         <X className="h-3.5 w-3.5" />
       </button>
-      <div className="flex items-center justify-between gap-3 border-b bg-muted/30 px-3 py-2 pr-10 text-[11px] text-muted-foreground">
+      <div className="flex items-center justify-between gap-3 border-b border-border/60 bg-muted/40 px-3 py-2 pr-10 text-[11px] text-muted-foreground">
         <span className="inline-flex items-center gap-1.5">
           <Command className="h-3.5 w-3.5" />
           {query.trim() ? "统一搜索" : "快捷入口"}
         </span>
         <span>↑↓ 选择 · Enter 打开</span>
       </div>
-      <div className="max-h-[360px] overflow-auto p-1.5 scrollbar-thin">
-        {items.map((item, index) => {
-          const active = activeIndex === index;
-          const Icon = item.Icon ?? BookmarkIcon;
-          return (
-            <button
-              key={item.id}
-              type="button"
-              onMouseEnter={() => onActiveChange(index)}
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={item.onRun}
-              className={cn(
-                "flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition",
-                active
-                  ? "bg-primary/10 text-foreground ring-1 ring-primary/20"
-                  : "text-foreground hover:bg-accent",
-              )}
-            >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-background ring-1 ring-border">
-                {item.iconUrl ? (
-                  <img
-                    src={item.iconUrl}
-                    alt=""
-                    className="h-4 w-4 rounded"
-                    onError={(e) =>
-                      (e.currentTarget.style.visibility = "hidden")
-                    }
-                  />
-                ) : (
-                  <Icon className="h-4 w-4 text-muted-foreground" />
-                )}
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block truncate text-sm font-medium">
-                  {item.title}
-                </span>
-                <span className="block truncate text-xs text-muted-foreground">
-                  {item.subtitle}
-                </span>
-              </span>
-              <span
-                className={cn(
-                  "shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ring-1",
-                  searchBadgeClass(item),
-                )}
-              >
-                {searchBadgeLabel(item)}
-              </span>
-            </button>
-          );
-        })}
+      <div className="max-h-[360px] overflow-auto px-1.5 py-1 scrollbar-thin">
+        <div className="divide-y divide-border/60">
+          {items.map((item, index) => {
+            const active = activeIndex === index;
+            const Icon = item.Icon ?? BookmarkIcon;
+            return (
+              <div key={item.id} className="py-1 first:pt-0 last:pb-0">
+                <button
+                  ref={(node) => {
+                    itemRefs.current[index] = node;
+                  }}
+                  type="button"
+                  onMouseEnter={() => onActiveChange(index)}
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={item.onRun}
+                  className={cn(
+                    "flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition duration-150",
+                    active
+                      ? "bg-primary/10 text-foreground shadow-sm ring-1 ring-primary/20"
+                      : "text-foreground hover:bg-accent/70",
+                  )}
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-background shadow-[0_1px_0_rgba(15,23,42,0.03)] ring-1 ring-border/80">
+                    {item.iconUrl ? (
+                      <img
+                        src={item.iconUrl}
+                        alt=""
+                        className="h-4 w-4 rounded"
+                        onError={(e) =>
+                          (e.currentTarget.style.visibility = "hidden")
+                        }
+                      />
+                    ) : (
+                      <Icon className="h-4 w-4 text-muted-foreground" />
+                    )}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm font-medium">
+                      {item.title}
+                    </span>
+                    <span className="block truncate text-xs text-muted-foreground">
+                      {item.subtitle}
+                    </span>
+                  </span>
+                  <span
+                    className={cn(
+                      "shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ring-1",
+                      searchBadgeClass(item),
+                    )}
+                  >
+                    {searchBadgeLabel(item)}
+                  </span>
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
