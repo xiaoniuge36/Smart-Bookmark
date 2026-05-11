@@ -1,115 +1,76 @@
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
+import { type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface TooltipProps {
   /** 浮层显示的文案；为空时不渲染浮层（行为退化为只渲染 children） */
   content?: ReactNode;
   children: ReactNode;
-  /** 浮层位置，默认 top（在触发元素上方） */
+  /** 浮层位置，默认 bottom（在触发元素下方，更适合首页 widget header 场景） */
   side?: "top" | "bottom";
-  /** 显示延迟（ms），默认 200，避免鼠标快速划过频繁触发 */
-  delay?: number;
-  /** 让 wrapper 占满 children 的 inline 流式宽度 */
+  /** 横向对齐，默认 center；end 用于触发元素位于父容器右边缘的场景 */
+  align?: "start" | "center" | "end";
+  /** wrapper 自定义 className */
   className?: string;
   /** 浮层自定义 className */
   contentClassName?: string;
 }
 
 /**
- * 轻量自定义 Tooltip：
- * - 与项目设计系统对齐：foreground 底 + background 字、圆角 + 阴影 + 模糊
- * - 进入用 `tailwindcss-animate` 的 fade-in + zoom-in，比浏览器原生 title 更柔和
- * - 200ms 显示延迟，避免鼠标快速划过频繁触发
- * - 长文案自动换行（max-w + whitespace-normal + text-balance）
- * - 失焦 / 鼠标离开 / Escape 立即关闭
- * - 触摸设备直接退化（touch 时不触发 hover）
+ * 与 LoginPromptButton 弹层视觉对齐的 popover-card 风格 Tooltip：
+ * - 浅色 `bg-popover` + `ring` + `shadow-xl`，与项目其它浮层一致
+ * - 纯 CSS group-hover/focus-within 驱动，无 JS state，无闪烁
+ * - 触发元素与浮层之间用「容器 mt-* 留白」而非「margin-外」实现：
+ *   留白处仍属于 group 命中区，鼠标在触发元素和浮层之间平移不会丢失 hover
+ * - 进入动画用 tailwindcss-animate 的 fade-in + zoom-in
+ * - 默认浮层在下方（side=bottom），更适合首页 widget header 场景；
+ *   触发元素在父容器右边缘时配合 align=end 让浮层对齐右边
  */
 export function Tooltip({
   content,
   children,
-  side = "top",
-  delay = 200,
+  side = "bottom",
+  align = "center",
   className,
   contentClassName,
 }: TooltipProps) {
-  const [open, setOpen] = useState(false);
-  const timerRef = useRef<number | undefined>(undefined);
-  const tooltipId = useId();
-
-  const clear = useCallback(() => {
-    if (timerRef.current !== undefined) {
-      window.clearTimeout(timerRef.current);
-      timerRef.current = undefined;
-    }
-  }, []);
-
-  const show = useCallback(() => {
-    clear();
-    timerRef.current = window.setTimeout(() => setOpen(true), delay);
-  }, [clear, delay]);
-
-  const hide = useCallback(() => {
-    clear();
-    setOpen(false);
-  }, [clear]);
-
-  useEffect(() => () => clear(), [clear]);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") hide();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open, hide]);
-
   if (!content) {
     return <>{children}</>;
   }
 
   return (
     <span
-      className={cn("relative inline-flex", className)}
-      onMouseEnter={show}
-      onMouseLeave={hide}
-      onFocus={show}
-      onBlur={hide}
-      aria-describedby={open ? tooltipId : undefined}
+      className={cn(
+        "group/sb-tooltip relative inline-flex",
+        className,
+      )}
     >
       {children}
-      {open && (
+      <span
+        role="tooltip"
+        // 容器：覆盖触发元素到浮层之间的"空气间距"，避免鼠标平移丢 hover
+        // 注：不能加 pointer-events-none，否则鼠标移到 tooltip 上 group-hover 会失效闪烁
+        className={cn(
+          "invisible absolute z-50 opacity-0 transition-opacity duration-150",
+          "group-hover/sb-tooltip:visible group-hover/sb-tooltip:opacity-100",
+          "group-focus-within/sb-tooltip:visible group-focus-within/sb-tooltip:opacity-100",
+          side === "top" ? "bottom-full" : "top-full",
+          align === "start" && "left-0",
+          align === "center" && "left-1/2 -translate-x-1/2",
+          align === "end" && "right-0",
+        )}
+      >
+        {/* 实际浮层卡片：mt/mb 提供 6px 视觉间距，但 mt 部分仍在外层命中区内 */}
         <span
-          id={tooltipId}
-          role="tooltip"
           className={cn(
-            "pointer-events-none absolute left-1/2 z-50 -translate-x-1/2",
-            "max-w-[240px] whitespace-normal text-balance text-center leading-snug",
-            "rounded-md bg-foreground/95 px-2.5 py-1.5 text-[11px] font-medium text-background shadow-lg backdrop-blur-sm",
+            "block w-max max-w-[260px] rounded-lg border bg-popover px-3 py-2 text-left text-[11.5px] leading-relaxed text-foreground shadow-xl ring-1 ring-black/[0.04] dark:ring-white/[0.06]",
             "animate-in fade-in-0 zoom-in-95 duration-150",
-            side === "top" ? "bottom-full mb-2" : "top-full mt-2",
+            side === "top" ? "mb-1.5" : "mt-1.5",
             contentClassName,
           )}
         >
           {content}
-          <span
-            aria-hidden
-            className={cn(
-              "absolute left-1/2 h-0 w-0 -translate-x-1/2 border-[5px] border-transparent",
-              side === "top"
-                ? "top-full border-t-foreground/95"
-                : "bottom-full border-b-foreground/95",
-            )}
-          />
         </span>
-      )}
+      </span>
     </span>
   );
 }

@@ -62,7 +62,7 @@ export default function HideWidgetButton({
         variant === "absolute" && "absolute right-2 top-2",
       )}
     >
-      <Tooltip content={tooltip ?? label} side="top">
+      <Tooltip content={tooltip ?? label} side="bottom" align="end">
         {button}
       </Tooltip>
     </span>
