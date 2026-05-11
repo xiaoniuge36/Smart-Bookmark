@@ -11,7 +11,7 @@ export interface TopSitesItem {
 
 interface Props {
   items: TopSitesItem[];
-  /** 显示条数上限，默认 6（sidebar 紧凑场景） */
+  /** 显示条数上限，默认 3（高频回访场景已足够；其余空间让位 GitHub 热门） */
   limit?: number;
   /** Hide 按钮回调（不传则不渲染 Hide 按钮） */
   onHide?: () => void;
@@ -35,7 +35,7 @@ interface Props {
  */
 export default function TopSitesSidebar({
   items,
-  limit = 6,
+  limit = 3,
   onHide,
   hideLabel,
   hideTooltip,

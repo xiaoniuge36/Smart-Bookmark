@@ -73,7 +73,7 @@ const zh: Dict = {
   "discover.open": "打开",
   "discover.more": "查看全部",
   "discover.widget.title": "GitHub 热门",
-  "discover.widget.viewAll": "查看全部 →",
+  "discover.widget.viewAll": "查看全部",
   "discover.injectAi": "注入当前 trending",
   "discover.injectedAi": (n: string) => `已把 ${n} 条热门项目注入 AI 会话。`,
   "discover.updated": (t: string) => `更新于 ${t}`,
@@ -332,7 +332,7 @@ const en: Dict = {
   "discover.open": "Open",
   "discover.more": "View all",
   "discover.widget.title": "GitHub Trending",
-  "discover.widget.viewAll": "View all →",
+  "discover.widget.viewAll": "View all",
   "discover.injectAi": "Inject current trending",
   "discover.injectedAi": (n: string) =>
     `Injected ${n} trending repos into AI chat.`,

@@ -2,7 +2,6 @@ import type { MouseEvent } from "react";
 import {
   ArrowUpRight,
   Check,
-  ExternalLink,
   Info,
   Newspaper,
   Radio,
@@ -14,7 +13,6 @@ import { resolveLanguage } from "@/lib/i18n";
 import type { Language } from "@/types";
 import { useNewsNowAuth } from "@/hooks/useNewsNowAuth";
 import HideWidgetButton from "@/components/HideWidgetButton";
-import { Tooltip } from "@/components/ui/tooltip";
 
 type Copy = {
   zh: string;
@@ -233,7 +231,7 @@ export default function InfoCollections({
         下方分组 chip 列表：保留原来「热点入口」「信息差工具」两组的视觉区分
         （参考旧版设计），每组有独立标签和配色，视觉层级明确。
       */}
-      <div className="shrink-0 space-y-2 rounded-2xl border bg-card/40 p-3 ring-1 ring-black/[0.02] dark:ring-white/[0.04]">
+      <div className="shrink-0 space-y-3 rounded-2xl border bg-card/40 p-3 ring-1 ring-black/[0.02] dark:ring-white/[0.04]">
         <ChipGroup
           label={trendGroup.title[lang]}
           Icon={trendGroup.Icon}
@@ -419,28 +417,37 @@ function ChipGroup({
   chipAccent: "trend" | "tool";
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-1.5">
-      <span
-        className={cn(
-          "inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10.5px] font-semibold ring-1",
-          accentClass,
-        )}
-      >
-        <Icon className="h-2.5 w-2.5" />
-        {label}
-      </span>
-      {items.map((it) => (
-        <ChipLink key={it.url} item={it} lang={lang} accent={chipAccent} />
-      ))}
+    <div className="space-y-2">
+      {/* 分组标签独占一行，让其下方的卡片网格视觉对齐 */}
+      <div className="flex items-center gap-1.5 px-0.5">
+        <span
+          className={cn(
+            "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10.5px] font-semibold ring-1",
+            accentClass,
+          )}
+        >
+          <Icon className="h-2.5 w-2.5" />
+          {label}
+        </span>
+      </div>
+      {/*
+        卡片自适应网格：每张卡片最小 200px，按容器宽度自动 1/2/3/4 列；
+        在 main col 720-1300px 区间会自然落到 3-4 列，每张卡片宽度足够显示标题 + 单行描述
+      */}
+      <div className="grid gap-1.5 [grid-template-columns:repeat(auto-fill,minmax(200px,1fr))]">
+        {items.map((it) => (
+          <ChipLink key={it.url} item={it} lang={lang} accent={chipAccent} />
+        ))}
+      </div>
     </div>
   );
 }
 
 /**
- * 紧凑链接药丸：信息差雷达下方备用入口/工具的小卡片
- * - favicon + 标题
- * - hover 时根据分组 accent (trend=sky / tool=amber) 着色边框/背景
- * - hover 弹出 Tooltip 显示完整 tag + 描述 + 域名（避免药丸里塞太多文字）
+ * 链接小卡片：信息差雷达下方分组列表的可点击卡片。
+ * - 永久显示 favicon + 标题 + tag 徽章 + 一行描述（不需要 hover）
+ * - hover 时按分组 accent (trend=sky / tool=amber) 着色边框 + 微微上浮 + 阴影
+ * - 不再用 Tooltip，因为关键信息已直接呈现；hostname 留给原生 title 属性
  */
 function ChipLink({
   item,
@@ -451,51 +458,50 @@ function ChipLink({
   lang: "zh" | "en";
   accent: "trend" | "tool";
 }) {
-  const accentClass =
+  const hoverBorder =
     accent === "trend"
-      ? "hover:border-sky-500/40 hover:bg-sky-500/[0.06] hover:text-sky-700 dark:hover:text-sky-300"
-      : "hover:border-amber-500/40 hover:bg-amber-500/[0.06] hover:text-amber-700 dark:hover:text-amber-300";
+      ? "hover:border-sky-500/40"
+      : "hover:border-amber-500/40";
+  const tagClass =
+    accent === "trend"
+      ? "bg-sky-500/10 text-sky-700 ring-sky-500/20 dark:text-sky-300"
+      : "bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300";
 
   return (
-    <Tooltip
-      side="bottom"
-      align="center"
-      content={
-        <div className="max-w-[260px] space-y-1 text-left">
-          <div className="flex items-center gap-1.5 text-[12px] font-semibold text-foreground">
-            <span className="rounded-full bg-muted/80 px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground ring-1 ring-border/50">
-              {item.tag[lang]}
-            </span>
-            {item.title}
-          </div>
-          <p className="text-[11px] leading-relaxed text-muted-foreground">
-            {item.description[lang]}
-          </p>
-          <p className="text-[10px] text-muted-foreground/70">
-            {hostnameOf(item.url)}
-          </p>
-        </div>
-      }
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noreferrer"
+      title={`${item.title} · ${hostnameOf(item.url)}`}
+      className={cn(
+        "group/chipcard flex flex-col gap-1 rounded-xl border bg-card px-2.5 py-2 shadow-sm ring-1 ring-black/[0.02] transition dark:ring-white/[0.04]",
+        "hover:-translate-y-px hover:shadow-md",
+        hoverBorder,
+      )}
     >
-      <a
-        href={item.url}
-        target="_blank"
-        rel="noreferrer"
-        className={cn(
-          "group/chip inline-flex items-center gap-1.5 rounded-full border bg-card px-2.5 py-1 text-xs font-medium text-foreground/90 shadow-sm ring-1 ring-black/[0.02] transition dark:ring-white/[0.04]",
-          accentClass,
-        )}
-      >
+      <div className="flex min-w-0 items-center gap-1.5">
         <img
           src={faviconOf(item.url, 32)}
           alt=""
-          className="h-3.5 w-3.5 rounded"
+          className="h-3.5 w-3.5 shrink-0 rounded"
           onError={(e) => (e.currentTarget.style.visibility = "hidden")}
         />
-        <span className="truncate">{item.title}</span>
-        <ExternalLink className="h-2.5 w-2.5 opacity-0 transition group-hover/chip:opacity-60" />
-      </a>
-    </Tooltip>
+        <span className="min-w-0 flex-1 truncate text-[12.5px] font-semibold tracking-tight text-foreground">
+          {item.title}
+        </span>
+        <span
+          className={cn(
+            "shrink-0 rounded-full px-1.5 py-px text-[9.5px] font-medium ring-1",
+            tagClass,
+          )}
+        >
+          {item.tag[lang]}
+        </span>
+      </div>
+      <div className="line-clamp-1 text-[10.5px] leading-snug text-muted-foreground">
+        {item.description[lang]}
+      </div>
+    </a>
   );
 }
 
