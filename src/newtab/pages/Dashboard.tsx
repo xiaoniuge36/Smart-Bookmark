@@ -831,116 +831,108 @@ export default function Dashboard({
           </div>
         )}
 
-        {showHero && (
-          <div className="grid grid-cols-1 gap-5 pt-2 xl:grid-cols-[minmax(0,1fr)_280px] xl:items-start">
-            {/* 主区：信息差雷达（高频阅读区，始终置顶）
-                + <xl 时额外渲染一行常去 / GitHub 热门 供中小屏浏览 */}
-            <div className="min-w-0 space-y-5">
-              {showInfoCollections && (
-                <InfoCollections
-                  language={settings.language}
-                  onHide={() =>
-                    hideHomeWidget(
-                      "showInfoCollections",
-                      "home.widgetShort.infoCollections",
-                    )
-                  }
-                  hideLabel={t("home.hideWidget")}
-                  hideTooltip={t(
-                    "home.hideWidgetTooltip",
-                    t("home.widgetShort.infoCollections"),
-                  )}
-                />
-              )}
+        {showHero && (() => {
+          // 自适应布局分 3 种情况：
+          // A. 信息差雷达 + 任意 sidebar widget → 三栏 (main + sidebar 280)
+          // B. 只有信息差雷达 → 主区全宽，不显示 sidebar
+          // C. 信息差雷达隐藏但 sidebar widget 还在 → widgets 从 sidebar fallback
+          //    到主区，一个 widget 时整宽，两个时 md 起横排 1/2
+          const hasRightWidgets = hasTopSitesSection || showGithubTrendingWidget;
+          if (!showInfoCollections && !hasRightWidgets) return null;
 
-              {(hasTopSitesSection || showGithubTrendingWidget) && (
+          // 复用同一份 JSX 避免 props 列表重复；在三栏场景中会被渲染两次
+          // （中小屏 fallback + xl sidebar），这点与旧逻辑保持一致
+          const infoEl = showInfoCollections && (
+            <InfoCollections
+              language={settings.language}
+              onHide={() =>
+                hideHomeWidget(
+                  "showInfoCollections",
+                  "home.widgetShort.infoCollections",
+                )
+              }
+              hideLabel={t("home.hideWidget")}
+              hideTooltip={t(
+                "home.hideWidgetTooltip",
+                t("home.widgetShort.infoCollections"),
+              )}
+            />
+          );
+          const topSitesEl = hasTopSitesSection && (
+            <TopSitesSidebar
+              items={topSites}
+              onHide={() =>
+                hideHomeWidget("showTopSites", "home.widgetShort.topSites")
+              }
+              hideLabel={t("home.hideWidget")}
+              hideTooltip={t(
+                "home.hideWidgetTooltip",
+                t("home.widgetShort.topSites"),
+              )}
+            />
+          );
+          const trendingEl = showGithubTrendingWidget && (
+            <TrendingSidebar
+              settings={settings}
+              mode={widgetMode}
+              onModeChange={setWidgetMode}
+              range={widgetRange}
+              onRangeChange={setWidgetRange}
+              onOpenDiscover={onOpenDiscover}
+              onHide={() =>
+                hideHomeWidget(
+                  "showGithubTrendingWidget",
+                  "home.widgetShort.githubTrending",
+                )
+              }
+              hideLabel={t("home.hideWidget")}
+              hideTooltip={t(
+                "home.hideWidgetTooltip",
+                t("home.widgetShort.githubTrending"),
+              )}
+            />
+          );
+
+          // Case C: 信息差雷达隐藏 → sidebar widget 升级到主区
+          if (!showInfoCollections) {
+            const twoWidgets = hasTopSitesSection && showGithubTrendingWidget;
+            return (
+              <div
+                className={cn(
+                  "grid gap-5 pt-2 grid-cols-1",
+                  twoWidgets && "md:grid-cols-2",
+                )}
+              >
+                {topSitesEl}
+                {trendingEl}
+              </div>
+            );
+          }
+
+          // Case B: 只有信息差雷达 → 主区独占全宽
+          if (!hasRightWidgets) {
+            return <div className="pt-2">{infoEl}</div>;
+          }
+
+          // Case A: 三栏（主区信息差雷达 + 右栏 widget 堆叠）
+          return (
+            <div className="grid grid-cols-1 gap-5 pt-2 xl:grid-cols-[minmax(0,1fr)_280px] xl:items-start">
+              {/* 主区：信息差雷达 + (中小屏) 其它 widget fallback */}
+              <div className="min-w-0 space-y-5">
+                {infoEl}
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:hidden">
-                  {hasTopSitesSection && (
-                    <TopSitesSidebar
-                      items={topSites}
-                      onHide={() =>
-                        hideHomeWidget(
-                          "showTopSites",
-                          "home.widgetShort.topSites",
-                        )
-                      }
-                      hideLabel={t("home.hideWidget")}
-                      hideTooltip={t(
-                        "home.hideWidgetTooltip",
-                        t("home.widgetShort.topSites"),
-                      )}
-                    />
-                  )}
-                  {showGithubTrendingWidget && (
-                    <TrendingSidebar
-                      settings={settings}
-                      mode={widgetMode}
-                      onModeChange={setWidgetMode}
-                      range={widgetRange}
-                      onRangeChange={setWidgetRange}
-                      onOpenDiscover={onOpenDiscover}
-                      onHide={() =>
-                        hideHomeWidget(
-                          "showGithubTrendingWidget",
-                          "home.widgetShort.githubTrending",
-                        )
-                      }
-                      hideLabel={t("home.hideWidget")}
-                      hideTooltip={t(
-                        "home.hideWidgetTooltip",
-                        t("home.widgetShort.githubTrending"),
-                      )}
-                    />
-                  )}
+                  {topSitesEl}
+                  {trendingEl}
                 </div>
-              )}
-            </div>
-
-            {/* 右栏（仅 xl+ 显示）：常去 + GitHub 热门 垂直堆叠
-                280px 固定宽，跟随主区高度自然延伸 */}
-            {(hasTopSitesSection || showGithubTrendingWidget) && (
+              </div>
+              {/* 右栏：仅 xl+，280px 固定，sticky 跟随主区滚动 */}
               <aside className="hidden space-y-5 xl:block xl:sticky xl:top-20 xl:self-start">
-                {hasTopSitesSection && (
-                  <TopSitesSidebar
-                    items={topSites}
-                    onHide={() =>
-                      hideHomeWidget(
-                        "showTopSites",
-                        "home.widgetShort.topSites",
-                      )
-                    }
-                    hideLabel={t("home.hideWidget")}
-                    hideTooltip={t(
-                      "home.hideWidgetTooltip",
-                      t("home.widgetShort.topSites"),
-                    )}
-                  />
-                )}
-                {showGithubTrendingWidget && (
-                  <TrendingSidebar
-                    settings={settings}
-                    mode={widgetMode}
-                    onModeChange={setWidgetMode}
-                    range={widgetRange}
-                    onRangeChange={setWidgetRange}
-                    onOpenDiscover={onOpenDiscover}
-                    onHide={() =>
-                      hideHomeWidget(
-                        "showGithubTrendingWidget",
-                        "home.widgetShort.githubTrending",
-                      )
-                    }
-                    hideLabel={t("home.hideWidget")}
-                    hideTooltip={t(
-                      "home.hideWidgetTooltip",
-                      t("home.widgetShort.githubTrending"),
-                    )}
-                  />
-                )}
+                {topSitesEl}
+                {trendingEl}
               </aside>
-            )}
-          </div>
-        )}
+            </div>
+          );
+        })()}
 
         {!showHero && breadcrumb.length > 0 && (
           <nav className="flex items-center gap-1 text-sm text-muted-foreground">

@@ -14,6 +14,7 @@ import { resolveLanguage } from "@/lib/i18n";
 import type { Language } from "@/types";
 import { useNewsNowAuth } from "@/hooks/useNewsNowAuth";
 import HideWidgetButton from "@/components/HideWidgetButton";
+import { Tooltip } from "@/components/ui/tooltip";
 
 type Copy = {
   zh: string;
@@ -36,12 +37,11 @@ interface CollectionGroup {
 }
 
 const NEWSNOW_URL = "https://newsnow.busiyi.world/";
-// 0.74 是「文字足够清晰」与「仍能保 3 列 NewsNow」的平衡点：
-// 双列时容器 ≈ 1040px，iframe 原生宽度 = 1040/0.74 ≈ 1405px，
-// 足以达到 NewsNow 的 3 列响应式断点，同时文字不会过小。
-// （上一轮 0.62 为了勉强填出 3 列导致文字偏小，这里以「反向思路」调整：
-//  同时压缩 sidebar 到 260px，让 iframe 列能够容纳更高 scale。）
-const NEWSNOW_FRAME_SCALE = 0.74;
+// 0.70 让最窄场景 (xl=1280 屏，三栏 dashboard 下主区 ~720px) 也能达到 NewsNow
+// 3 列响应式断点：720 / 0.70 ≈ 1029px 原生宽，刚过 NewsNow 3 列阈值。
+// 文字相对 0.74 缩小 ~5%，几乎察觉不到，但能保证「无论屏宽多少 NewsNow 都 3 列」。
+// 大屏 (1440+) 主区 880px+ 原生 1257px+，已远超 3 列阈值，scale 偏低也无所谓。
+const NEWSNOW_FRAME_SCALE = 0.7;
 
 const COLLECTIONS: CollectionGroup[] = [
   {
@@ -205,8 +205,8 @@ export default function InfoCollections({
             </div>
             <p className="truncate text-[11.5px] text-muted-foreground">
               {lang === "zh"
-                ? "NewsNow 内嵌实时热点，旁边保留备用热榜和常用资源"
-                : "NewsNow embedded live, with backup trend feeds and resource tools nearby"}
+                ? "NewsNow 内嵌实时热点，下方备用热榜入口和信息差工具"
+                : "NewsNow embedded live, with backup trend feeds and tools below"}
             </p>
           </div>
         </div>
@@ -221,27 +221,28 @@ export default function InfoCollections({
       </div>
 
       {/*
-        三段式响应式布局：
-        - <lg：单列堆叠（iframe → trendGroup → toolGroup），符合移动端阅读顺序
-        - lg~xl：iframe 整宽顶部，下方 trendGroup + toolGroup 二等分，避免 LinkPanels
-          在窄列里竖堆得很丑
-        - xl+：真正的三列横向 [trendGroup][toolGroup][iframe]，iframe 用
-          minmax(0,2fr) 拿剩余宽度的 50%，新闻区域看起来最大，左两列链接平衡视觉
-        items-start 让 trendGroup（只有 2 个 link，自然更短）不被强行拉伸到 toolGroup
-        高度，避免下面留一大片空白。
+        单列布局：iframe 占主区全宽 → 触发 NewsNow 内部 3 列响应式；
+        下方备用入口/工具链接改为 chip wrap 紧凑横排，作为「补充信息」呈现，
+        不再抢主视觉。trendGroup + toolGroup 合并展示，按分组颜色区分。
       */}
-      <div className="grid items-start gap-3.5 grid-cols-1 lg:grid-cols-2 xl:grid-cols-[minmax(180px,1fr)_minmax(180px,1fr)_minmax(0,2fr)]">
-        {/* iframe：移动端最先出现；lg~xl 跨两列在顶；xl+ 移到第三列 */}
-        <div className="lg:col-span-2 xl:col-span-1 xl:order-3">
-          <LiveNewsFrame lang={lang} />
+      <LiveNewsFrame lang={lang} />
+
+      <div className="rounded-2xl border bg-card/40 p-3 ring-1 ring-black/[0.02] dark:ring-white/[0.04]">
+        <div className="mb-2 flex items-center gap-2 px-0.5 text-[11px] font-medium text-muted-foreground">
+          <span className="inline-flex h-4 w-4 items-center justify-center rounded-md bg-muted/80 ring-1 ring-border/60">
+            <Newspaper className="h-2.5 w-2.5" />
+          </span>
+          {lang === "zh"
+            ? "备用热点入口 / 信息差工具"
+            : "Backup trends & resource tools"}
         </div>
-        {/* trendGroup：xl+ 时第一列 */}
-        <div className="xl:order-1">
-          <LinkPanel group={trendGroup} lang={lang} />
-        </div>
-        {/* toolGroup：xl+ 时第二列 */}
-        <div className="xl:order-2">
-          <LinkPanel group={toolGroup} lang={lang} />
+        <div className="flex flex-wrap gap-1.5">
+          {trendGroup.items.map((it) => (
+            <ChipLink key={it.url} item={it} lang={lang} accent="trend" />
+          ))}
+          {toolGroup.items.map((it) => (
+            <ChipLink key={it.url} item={it} lang={lang} accent="tool" />
+          ))}
         </div>
       </div>
     </section>
@@ -390,32 +391,66 @@ function LoginPromptButton({
   );
 }
 
-function LinkPanel({
-  group,
+/**
+ * 紧凑链接药丸：信息差雷达下方备用入口/工具的小卡片
+ * - favicon + 标题
+ * - hover 时根据分组 accent (trend=sky / tool=amber) 着色边框/背景
+ * - hover 弹出 Tooltip 显示完整 tag + 描述 + 域名（避免药丸里塞太多文字）
+ */
+function ChipLink({
+  item,
   lang,
+  accent,
 }: {
-  group: CollectionGroup;
+  item: CollectionItem;
   lang: "zh" | "en";
+  accent: "trend" | "tool";
 }) {
+  const accentClass =
+    accent === "trend"
+      ? "hover:border-sky-500/40 hover:bg-sky-500/[0.06] hover:text-sky-700 dark:hover:text-sky-300"
+      : "hover:border-amber-500/40 hover:bg-amber-500/[0.06] hover:text-amber-700 dark:hover:text-amber-300";
+
   return (
-    <div className="flex flex-col rounded-2xl border bg-card p-2.5 shadow-sm ring-1 ring-black/[0.02] transition-shadow hover:shadow-md dark:ring-white/[0.04]">
-      <div className="flex items-center gap-2.5 px-1">
-        <SectionIcon Icon={group.Icon} accent={group.accent} />
-        <div className="min-w-0 flex-1">
-          <h3 className="truncate text-sm font-semibold tracking-tight">
-            {group.title[lang]}
-          </h3>
-          <p className="truncate text-[11px] text-muted-foreground">
-            {group.subtitle[lang]}
+    <Tooltip
+      side="bottom"
+      align="center"
+      content={
+        <div className="max-w-[260px] space-y-1 text-left">
+          <div className="flex items-center gap-1.5 text-[12px] font-semibold text-foreground">
+            <span className="rounded-full bg-muted/80 px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground ring-1 ring-border/50">
+              {item.tag[lang]}
+            </span>
+            {item.title}
+          </div>
+          <p className="text-[11px] leading-relaxed text-muted-foreground">
+            {item.description[lang]}
+          </p>
+          <p className="text-[10px] text-muted-foreground/70">
+            {hostnameOf(item.url)}
           </p>
         </div>
-      </div>
-      <div className="mt-2.5 flex-1 divide-y divide-border/60">
-        {group.items.map((item) => (
-          <CompactLink key={item.url} item={item} lang={lang} />
-        ))}
-      </div>
-    </div>
+      }
+    >
+      <a
+        href={item.url}
+        target="_blank"
+        rel="noreferrer"
+        className={cn(
+          "group/chip inline-flex items-center gap-1.5 rounded-full border bg-card px-2.5 py-1 text-xs font-medium text-foreground/90 shadow-sm ring-1 ring-black/[0.02] transition dark:ring-white/[0.04]",
+          accentClass,
+        )}
+      >
+        <img
+          src={faviconOf(item.url, 32)}
+          alt=""
+          className="h-3.5 w-3.5 rounded"
+          onError={(e) => (e.currentTarget.style.visibility = "hidden")}
+        />
+        <span className="truncate">{item.title}</span>
+        <ExternalLink className="h-2.5 w-2.5 opacity-0 transition group-hover/chip:opacity-60" />
+      </a>
+    </Tooltip>
   );
 }
 
@@ -455,51 +490,3 @@ function SectionIcon({
   );
 }
 
-function CompactLink({
-  item,
-  lang,
-}: {
-  item: CollectionItem;
-  lang: "zh" | "en";
-}) {
-  return (
-    <a
-      href={item.url}
-      target="_blank"
-      rel="noreferrer"
-      title={item.url}
-      className={cn(
-        "group/item relative grid grid-cols-[28px_1fr_auto] items-center gap-2 rounded-lg border border-transparent px-2 py-2 transition",
-        "hover:-translate-y-px hover:border-border/80 hover:bg-accent/60 hover:shadow-sm",
-      )}
-    >
-      {/* hover 时左侧 accent 指示条 */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-1.5 left-0 w-0.5 rounded-full bg-primary opacity-0 transition group-hover/item:opacity-100"
-      />
-      <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-background to-muted/40 shadow-[0_1px_0_rgba(15,23,42,0.03)] ring-1 ring-border/80 transition group-hover/item:ring-primary/30">
-        <img
-          src={faviconOf(item.url, 32)}
-          alt=""
-          className="h-3.5 w-3.5 rounded"
-          onError={(e) => (e.currentTarget.style.visibility = "hidden")}
-        />
-      </div>
-      <div className="min-w-0">
-        <div className="flex min-w-0 items-center gap-1.5">
-          <span className="truncate text-sm font-medium tracking-tight transition group-hover/item:text-primary">
-            {item.title}
-          </span>
-          <span className="hidden shrink-0 rounded-full bg-muted/80 px-1.5 py-0.5 text-[10px] text-muted-foreground ring-1 ring-border/50 sm:inline">
-            {item.tag[lang]}
-          </span>
-        </div>
-        <div className="truncate text-[11px] text-muted-foreground/90">
-          {item.description[lang]} · {hostnameOf(item.url)}
-        </div>
-      </div>
-      <ExternalLink className="h-3.5 w-3.5 text-muted-foreground opacity-60 transition group-hover/item:translate-x-0.5 group-hover/item:text-primary group-hover/item:opacity-100" />
-    </a>
-  );
-}

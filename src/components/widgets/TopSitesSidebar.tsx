@@ -47,7 +47,7 @@ export default function TopSitesSidebar({
   if (list.length === 0) return null;
 
   return (
-    <Card className="group/widget relative flex flex-col p-3">
+    <Card className="group/widget relative flex flex-col rounded-2xl p-3 ring-1 ring-black/[0.02] transition hover:shadow-md dark:ring-white/[0.04]">
       <div className="mb-1 flex shrink-0 items-center gap-2 px-1">
         <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500/20 to-indigo-500/20 text-sky-600 dark:text-sky-400">
           <Clock className="h-3.5 w-3.5" />

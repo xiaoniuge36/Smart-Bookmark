@@ -59,7 +59,7 @@ export default function TrendingSidebar({
   };
 
   return (
-    <Card className="group/widget relative flex flex-col p-3">
+    <Card className="group/widget relative flex flex-col rounded-2xl p-3 ring-1 ring-black/[0.02] transition hover:shadow-md dark:ring-white/[0.04]">
       {/* 第一行：图标 + 标题 + Hide */}
       <div className="mb-2 flex items-center gap-2 px-0.5">
         <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500/20 to-rose-500/20 text-rose-500">
