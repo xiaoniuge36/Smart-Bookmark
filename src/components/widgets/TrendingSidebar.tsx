@@ -65,7 +65,7 @@ export default function TrendingSidebar({
         <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500/20 to-rose-500/20 text-rose-500">
           <Flame className="h-3.5 w-3.5" />
         </div>
-        <h2 className="whitespace-nowrap text-sm font-semibold tracking-tight">
+        <h2 className="min-w-0 truncate text-sm font-semibold tracking-tight">
           {t("discover.widget.title")}
         </h2>
         <button
@@ -87,54 +87,59 @@ export default function TrendingSidebar({
       </div>
 
       {/*
-        第二行：Mode + Range 合并为一行 segmented tabs。
-        去掉冗余 border/box，中间用 竹分隔分隔两组，active 状态用
-        浅色 bg-primary/10 + text-primary 更低调、现代，整体不争夺焦点
+        第二行：iOS 风 segmented control。两个独立容器並排，采用:
+        - 容器 bg-muted/60 + rounded-md + p-0.5 (1.5px 内边距)
+        - active 按钮 bg-card + shadow-sm 表现「凸起」状态（不是实色高饱和色块）
+        - inactive 透明背景，hover 变颜色
+        - Mode 容器 inline-flex 自然宽，Range 容器 flex-1 让 4 个 tab 平分剩余空间
       */}
       <div
-        className="mb-2.5 flex items-center gap-1 px-0.5 text-[10.5px]"
+        className="mb-2.5 flex items-center gap-1.5 px-0.5 text-[10.5px]"
         role="group"
       >
-        {(["created", "hottest"] as TrendingMode[]).map((m) => {
-          const Icon = m === "created" ? Sparkles : TrendingUp;
-          return (
-            <Tooltip key={m} content={t(`discover.mode.${m}.hint`)}>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={mode === m}
-                onClick={() => onModeChange(m)}
-                className={cn(
-                  "inline-flex items-center gap-0.5 rounded-md px-1.5 py-1 font-medium transition",
-                  mode === m
-                    ? "bg-primary/10 text-primary ring-1 ring-primary/20"
-                    : "text-muted-foreground hover:bg-accent hover:text-foreground",
-                )}
-              >
-                <Icon className="h-2.5 w-2.5" />
-                {t(`discover.mode.${m}`)}
-              </button>
-            </Tooltip>
-          );
-        })}
-        <span className="mx-0.5 h-3.5 w-px bg-border" aria-hidden="true" />
-        {RANGE_TABS.map((r) => (
-          <button
-            key={r}
-            type="button"
-            role="tab"
-            aria-selected={range === r}
-            onClick={() => onRangeChange(r)}
-            className={cn(
-              "rounded-md px-1.5 py-1 font-medium transition",
-              range === r
-                ? "bg-primary/10 text-primary ring-1 ring-primary/20"
-                : "text-muted-foreground hover:bg-accent hover:text-foreground",
-            )}
-          >
-            {t(`discover.range.${r}`)}
-          </button>
-        ))}
+        <div className="inline-flex rounded-md bg-muted/60 p-0.5">
+          {(["created", "hottest"] as TrendingMode[]).map((m) => {
+            const Icon = m === "created" ? Sparkles : TrendingUp;
+            return (
+              <Tooltip key={m} content={t(`discover.mode.${m}.hint`)}>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={mode === m}
+                  onClick={() => onModeChange(m)}
+                  className={cn(
+                    "inline-flex items-center gap-0.5 rounded-[5px] px-2 py-1 font-medium transition",
+                    mode === m
+                      ? "bg-card text-foreground shadow-sm ring-1 ring-border/40"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  <Icon className="h-2.5 w-2.5" />
+                  {t(`discover.mode.${m}`)}
+                </button>
+              </Tooltip>
+            );
+          })}
+        </div>
+        <div className="flex flex-1 rounded-md bg-muted/60 p-0.5">
+          {RANGE_TABS.map((r) => (
+            <button
+              key={r}
+              type="button"
+              role="tab"
+              aria-selected={range === r}
+              onClick={() => onRangeChange(r)}
+              className={cn(
+                "flex-1 rounded-[5px] py-1 font-medium transition",
+                range === r
+                  ? "bg-card text-foreground shadow-sm ring-1 ring-border/40"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {t(`discover.range.${r}`)}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* 列表本体：单列、紧凑 */}
