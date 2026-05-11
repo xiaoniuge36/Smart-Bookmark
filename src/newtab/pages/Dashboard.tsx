@@ -832,7 +832,7 @@ export default function Dashboard({
         )}
 
         {showHero && (
-          <div className="grid grid-cols-1 gap-5 pt-2 xl:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="grid grid-cols-1 gap-5 pt-2 xl:grid-cols-[minmax(0,1fr)_280px] xl:items-start">
             {/* 主区：信息差雷达（高频阅读区，始终置顶）
                 + <xl 时额外渲染一行常去 / GitHub 热门 供中小屏浏览 */}
             <div className="min-w-0 space-y-5">

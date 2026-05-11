@@ -221,21 +221,27 @@ export default function InfoCollections({
       </div>
 
       {/*
-        双列布局（≥2xl）：左侧 sidebar（两个链接面板）在 260px 定宽列，
-        右侧 NewsNow iframe 占剩余空间；grid 默认 align-items: stretch
-        使 iframe 列高与 sidebar 列高对齐，底部不再留白。
-        侧栏 320 → 260：进一步压缩 sidebar，为 iframe 让出 60px 宽度，
-        配合 scale 0.74，NewsNow 文字明显变大且依然保持 3 列。
-        单列布局（<2xl）：iframe 在上、sidebar 在下，符合移动/小屏阅读顺序。
+        三段式响应式布局：
+        - <lg：单列堆叠（iframe → trendGroup → toolGroup），符合移动端阅读顺序
+        - lg~xl：iframe 整宽顶部，下方 trendGroup + toolGroup 二等分，避免 LinkPanels
+          在窄列里竖堆得很丑
+        - xl+：真正的三列横向 [trendGroup][toolGroup][iframe]，iframe 用
+          minmax(0,2fr) 拿剩余宽度的 50%，新闻区域看起来最大，左两列链接平衡视觉
+        items-start 让 trendGroup（只有 2 个 link，自然更短）不被强行拉伸到 toolGroup
+        高度，避免下面留一大片空白。
       */}
-      <div className="grid gap-3.5 2xl:grid-cols-[260px_minmax(0,1fr)]">
-        <div className="order-2 grid gap-3.5 lg:grid-cols-2 2xl:order-1 2xl:grid-cols-1">
-          <LinkPanel group={trendGroup} lang={lang} />
-          <LinkPanel group={toolGroup} lang={lang} />
-        </div>
-
-        <div className="order-1 2xl:order-2">
+      <div className="grid items-start gap-3.5 grid-cols-1 lg:grid-cols-2 xl:grid-cols-[minmax(180px,1fr)_minmax(180px,1fr)_minmax(0,2fr)]">
+        {/* iframe：移动端最先出现；lg~xl 跨两列在顶；xl+ 移到第三列 */}
+        <div className="lg:col-span-2 xl:col-span-1 xl:order-3">
           <LiveNewsFrame lang={lang} />
+        </div>
+        {/* trendGroup：xl+ 时第一列 */}
+        <div className="xl:order-1">
+          <LinkPanel group={trendGroup} lang={lang} />
+        </div>
+        {/* toolGroup：xl+ 时第二列 */}
+        <div className="xl:order-2">
+          <LinkPanel group={toolGroup} lang={lang} />
         </div>
       </div>
     </section>
@@ -297,7 +303,7 @@ function LiveNewsFrame({ lang }: { lang: "zh" | "en" }) {
           </a>
         </div>
       </div>
-      <div className="relative flex-1 min-h-[460px] overflow-hidden bg-background 2xl:min-h-[560px]">
+      <div className="relative flex-1 min-h-[460px] overflow-hidden bg-background xl:min-h-[600px] 2xl:min-h-[640px]">
         <iframe
           title="NewsNow"
           src={NEWSNOW_URL}
