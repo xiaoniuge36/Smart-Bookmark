@@ -154,8 +154,8 @@ export default function SidePanel() {
         <div className="mb-3 flex items-center gap-2">
           <Bookmark className="h-4 w-4 text-primary" />
           <span className="flex-1 font-semibold">{t("side.title")}</span>
-          <ThemeSwitcher variant="icon" />
           <LanguageSwitcher variant="icon" />
+          <ThemeSwitcher variant="icon" />
           <ThemeToggle />
         </div>
         <form onSubmit={onSubmitSearch} className="flex items-center gap-1 rounded-full border bg-card pl-1 pr-1">

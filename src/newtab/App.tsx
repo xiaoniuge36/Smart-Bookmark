@@ -111,8 +111,8 @@ export default function App() {
               </span>
             </div>
             <div className="min-w-0 flex-1" />
-            <ThemeSwitcher />
             <LanguageSwitcher />
+            <ThemeSwitcher />
             <ThemeToggle />
             <Tabs value={tab} onValueChange={(v) => setTabWithHash(v as TabId)}>
               <TabsList className="h-9 gap-0.5 bg-transparent p-0">
