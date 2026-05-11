@@ -915,11 +915,14 @@ export default function Dashboard({
           }
 
           // Case A: 三栏（主区信息差雷达 + 右栏 widget 堆叠）
+          // 主区 grid cell 默认 stretch 到 sidebar 高度；主区内用 flex flex-col 让
+          // InfoCollections 撑满（其内部 iframe 容器 flex-1，拉伸消除底部留白）
           return (
-            <div className="grid grid-cols-1 gap-5 pt-2 xl:grid-cols-[minmax(0,1fr)_280px] xl:items-start">
-              {/* 主区：信息差雷达 + (中小屏) 其它 widget fallback */}
-              <div className="min-w-0 space-y-5">
-                {infoEl}
+            <div className="grid grid-cols-1 gap-5 pt-2 xl:grid-cols-[minmax(0,1fr)_280px]">
+              <div className="min-w-0 space-y-5 xl:flex xl:flex-col xl:gap-5 xl:space-y-0">
+                <div className="xl:flex xl:flex-1 xl:min-h-0 xl:flex-col">
+                  {infoEl}
+                </div>
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:hidden">
                   {topSitesEl}
                   {trendingEl}

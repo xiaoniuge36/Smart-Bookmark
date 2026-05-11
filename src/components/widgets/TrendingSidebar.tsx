@@ -146,7 +146,8 @@ export default function TrendingSidebar({
         limit={limit}
         compact
         hideControls
-        gridClassName="grid-cols-1"
+        gridClassName="grid-cols-1 gap-0 divide-y divide-border/60"
+        itemLayout="row"
         range={range}
         onRangeChange={onRangeChange}
         mode={mode}

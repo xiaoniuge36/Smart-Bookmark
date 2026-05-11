@@ -178,8 +178,8 @@ export default function InfoCollections({
   const total = 1 + trendGroup.items.length + toolGroup.items.length;
 
   return (
-    <section className={cn("group/widget space-y-3.5", className)}>
-      <div className="flex flex-wrap items-center justify-between gap-3">
+    <section className={cn("group/widget flex flex-col gap-3.5 flex-1 min-h-0", className)}>
+      <div className="flex shrink-0 flex-wrap items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-3">
           <SectionIcon
             Icon={Radio}
@@ -222,28 +222,35 @@ export default function InfoCollections({
 
       {/*
         单列布局：iframe 占主区全宽 → 触发 NewsNow 内部 3 列响应式；
-        下方备用入口/工具链接改为 chip wrap 紧凑横排，作为「补充信息」呈现，
-        不再抢主视觉。trendGroup + toolGroup 合并展示，按分组颜色区分。
+        iframe 容器 flex-1 拉伸到与右栏 sidebar 等高（如果父容器给了高度），
+        消除「iframe 矮、sidebar 高」导致的底部大片留白。
       */}
-      <LiveNewsFrame lang={lang} />
+      <div className="flex-1 min-h-0">
+        <LiveNewsFrame lang={lang} />
+      </div>
 
-      <div className="rounded-2xl border bg-card/40 p-3 ring-1 ring-black/[0.02] dark:ring-white/[0.04]">
-        <div className="mb-2 flex items-center gap-2 px-0.5 text-[11px] font-medium text-muted-foreground">
-          <span className="inline-flex h-4 w-4 items-center justify-center rounded-md bg-muted/80 ring-1 ring-border/60">
-            <Newspaper className="h-2.5 w-2.5" />
-          </span>
-          {lang === "zh"
-            ? "备用热点入口 / 信息差工具"
-            : "Backup trends & resource tools"}
-        </div>
-        <div className="flex flex-wrap gap-1.5">
-          {trendGroup.items.map((it) => (
-            <ChipLink key={it.url} item={it} lang={lang} accent="trend" />
-          ))}
-          {toolGroup.items.map((it) => (
-            <ChipLink key={it.url} item={it} lang={lang} accent="tool" />
-          ))}
-        </div>
+      {/*
+        下方分组 chip 列表：保留原来「热点入口」「信息差工具」两组的视觉区分
+        （参考旧版设计），每组有独立标签和配色，视觉层级明确。
+      */}
+      <div className="shrink-0 space-y-2 rounded-2xl border bg-card/40 p-3 ring-1 ring-black/[0.02] dark:ring-white/[0.04]">
+        <ChipGroup
+          label={trendGroup.title[lang]}
+          Icon={trendGroup.Icon}
+          accentClass="bg-sky-500/10 text-sky-700 ring-sky-500/20 dark:text-sky-300"
+          items={trendGroup.items}
+          lang={lang}
+          chipAccent="trend"
+        />
+        <div className="h-px bg-border/50" />
+        <ChipGroup
+          label={toolGroup.title[lang]}
+          Icon={toolGroup.Icon}
+          accentClass="bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300"
+          items={toolGroup.items}
+          lang={lang}
+          chipAccent="tool"
+        />
       </div>
     </section>
   );
@@ -387,6 +394,44 @@ function LoginPromptButton({
           </button>
         </div>
       </div>
+    </div>
+  );
+}
+
+/**
+ * 一组 chip 链接的容器：左上角是一个带图标的分组标签，右侧紧跟 chip wrap。
+ * 用于在信息差雷达下方分别展示「热点入口」和「信息差工具」两组备用入口。
+ */
+function ChipGroup({
+  label,
+  Icon,
+  accentClass,
+  items,
+  lang,
+  chipAccent,
+}: {
+  label: string;
+  Icon: LucideIcon;
+  // 分组标签的背景色/文字色 className (如 bg-sky-500 的半透明 + text-sky-700 + ring)
+  accentClass: string;
+  items: CollectionItem[];
+  lang: "zh" | "en";
+  chipAccent: "trend" | "tool";
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      <span
+        className={cn(
+          "inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10.5px] font-semibold ring-1",
+          accentClass,
+        )}
+      >
+        <Icon className="h-2.5 w-2.5" />
+        {label}
+      </span>
+      {items.map((it) => (
+        <ChipLink key={it.url} item={it} lang={lang} accent={chipAccent} />
+      ))}
     </div>
   );
 }

@@ -10,7 +10,7 @@ import {
   Activity,
   Info,
 } from "lucide-react";
-import RepoCard from "@/components/RepoCard";
+import RepoCard, { RepoRow } from "@/components/RepoCard";
 import {
   fetchTrending,
   COMMON_LANGUAGES,
@@ -72,6 +72,12 @@ export interface TrendingPanelProps {
   className?: string;
   /** 列表网格 className 覆盖（例如 sidebar 场景强制单列） */
   gridClassName?: string;
+  /**
+   * 列表项渲染形式：
+   * - "card" (默认)：渲染 RepoCard 完整卡片（发现页默认布局）
+   * - "row"：渲染 RepoRow 紧凑行（适合 sidebar / 280px 窄列场景）
+   */
+  itemLayout?: "card" | "row";
 }
 
 export default function TrendingPanel({
@@ -89,6 +95,7 @@ export default function TrendingPanel({
   headerExtra,
   className,
   gridClassName,
+  itemLayout = "card",
 }: TrendingPanelProps) {
   const t = useT();
   const [rangeState, setRangeState] = useState<TrendingRange>(
@@ -360,16 +367,25 @@ export default function TrendingPanel({
               loading && "pointer-events-none opacity-45",
             )}
           >
-            {list.map((r, i) => (
-              <RepoCard
-                key={r.id}
-                repo={r}
-                rank={i + 1}
-                compact={compact}
-                primaryMetric={sort}
-                bookmarkFolderId={settings.rootFolderId}
-              />
-            ))}
+            {list.map((r, i) =>
+              itemLayout === "row" ? (
+                <RepoRow
+                  key={r.id}
+                  repo={r}
+                  rank={i + 1}
+                  primaryMetric={sort}
+                />
+              ) : (
+                <RepoCard
+                  key={r.id}
+                  repo={r}
+                  rank={i + 1}
+                  compact={compact}
+                  primaryMetric={sort}
+                  bookmarkFolderId={settings.rootFolderId}
+                />
+              ),
+            )}
           </div>
           {loading && (
             <div className="pointer-events-none absolute inset-x-0 top-2 flex justify-center">

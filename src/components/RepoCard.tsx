@@ -301,3 +301,101 @@ export default function RepoCard({
     </a>
   );
 }
+
+/**
+ * 紧凑列表行：RepoCard 的窄列替代品，适合 sidebar (≤ 280px) 场景。
+ * - 单行布局：[rank] [avatar] [owner/name] (单行 truncate)
+ * - 下方一行小字 stats：[★/天] [总 ★] [● language]
+ * - 不显示 description / bookmark / copy 按钮 / 左色条
+ * - 整行 hover bg-accent，与 TopSitesSidebar 列表风格一致
+ */
+export function RepoRow({
+  repo,
+  rank,
+  primaryMetric = "velocity-since-creation",
+}: {
+  repo: TrendingRepo;
+  rank?: number;
+  primaryMetric?: RepoCardMetric;
+}) {
+  const color = langColor(repo.language);
+  const t = useT();
+
+  const velocityValue =
+    primaryMetric === "recent-growth"
+      ? repo.recentVelocity
+      : repo.starsPerDay;
+  const showVelocity =
+    primaryMetric !== "total-stars" &&
+    typeof velocityValue === "number" &&
+    velocityValue > 0;
+
+  return (
+    <a
+      href={repo.url}
+      target="_blank"
+      rel="noreferrer"
+      title={repo.description || repo.fullName}
+      className="group flex items-center gap-2.5 rounded-lg px-2 py-2 transition hover:bg-accent/70"
+    >
+      {rank != null && (
+        <div
+          className={cn(
+            "inline-flex h-5 min-w-[20px] flex-shrink-0 items-center justify-center rounded px-1 text-[10px] font-bold tabular-nums ring-1",
+            rankChipClass(rank),
+          )}
+          aria-label={t("discover.rank.hint", String(rank))}
+        >
+          {rank}
+        </div>
+      )}
+      <img
+        src={repo.avatar}
+        alt=""
+        className="h-6 w-6 flex-shrink-0 rounded ring-1 ring-border"
+        loading="lazy"
+      />
+      <div className="min-w-0 flex-1">
+        <div className="truncate text-[13px] font-semibold tracking-tight">
+          <span className="text-muted-foreground">{repo.owner}</span>
+          <span className="mx-0.5 text-muted-foreground/60">/</span>
+          <span className="text-foreground group-hover:text-primary">
+            {repo.name}
+          </span>
+        </div>
+        <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10.5px] text-muted-foreground">
+          {showVelocity && (
+            <span
+              className="inline-flex items-center gap-0.5 font-medium text-primary"
+              title={
+                primaryMetric === "recent-growth"
+                  ? t("discover.recentVelocity.hint")
+                  : t("discover.velocity.hint")
+              }
+            >
+              {primaryMetric === "recent-growth" ? (
+                <Activity className="h-2.5 w-2.5" />
+              ) : (
+                <TrendingUp className="h-2.5 w-2.5" />
+              )}
+              {formatVelocity(velocityValue)}
+              ★/天
+            </span>
+          )}
+          <span className="inline-flex items-center gap-0.5">
+            <Star className="h-2.5 w-2.5" /> {formatK(repo.stars)}
+          </span>
+          {repo.language && (
+            <span className="inline-flex items-center gap-0.5">
+              <span
+                className="h-1.5 w-1.5 rounded-full"
+                style={{ backgroundColor: color }}
+              />
+              {repo.language}
+            </span>
+          )}
+        </div>
+      </div>
+    </a>
+  );
+}
