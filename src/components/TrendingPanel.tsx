@@ -70,6 +70,8 @@ export interface TrendingPanelProps {
   headerExtra?: React.ReactNode;
   /** 根容器额外 className */
   className?: string;
+  /** 列表网格 className 覆盖（例如 sidebar 场景强制单列） */
+  gridClassName?: string;
 }
 
 export default function TrendingPanel({
@@ -86,6 +88,7 @@ export default function TrendingPanel({
   hideControls = false,
   headerExtra,
   className,
+  gridClassName,
 }: TrendingPanelProps) {
   const t = useT();
   const [rangeState, setRangeState] = useState<TrendingRange>(
@@ -168,9 +171,11 @@ export default function TrendingPanel({
     return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   }, [updatedAt]);
 
-  const gridCls = compact
-    ? "grid-cols-1 sm:grid-cols-2"
-    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+  const gridCls =
+    gridClassName ??
+    (compact
+      ? "grid-cols-1 sm:grid-cols-2"
+      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3");
 
   // recent-growth 排序下，如果列表里没任何项拿到 recentVelocity（首次刷新/刚清空快照），
   // 提示用户“这个排序需要再刷一次”。

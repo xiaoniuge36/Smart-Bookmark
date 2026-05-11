@@ -1,7 +1,6 @@
 import {
   useCallback,
   useEffect,
-  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -30,16 +29,10 @@ import {
   Folder,
   ChevronRight,
   X,
-  Flame,
-  Clock,
-  Sparkles,
-  TrendingUp,
   HardDriveDownload,
   Settings2,
   Wand2,
 } from "lucide-react";
-import TrendingPanel from "@/components/TrendingPanel";
-import { rangeToWindowDays } from "@/lib/github";
 import { setSettings } from "@/lib/storage";
 import { useT } from "@/lib/i18n";
 import { toast } from "@/components/ui/toast";
@@ -48,8 +41,8 @@ import FolderTree from "@/components/FolderTree";
 import EngineSwitcher from "@/components/EngineSwitcher";
 import { faviconFor, findEngine } from "@/lib/engines";
 import InfoCollections from "@/components/InfoCollections";
-import HideWidgetButton from "@/components/HideWidgetButton";
-import { Tooltip } from "@/components/ui/tooltip";
+import TopSitesSidebar from "@/components/widgets/TopSitesSidebar";
+import TrendingSidebar from "@/components/widgets/TrendingSidebar";
 import { rankSearchItems } from "@/lib/searchRank";
 
 interface Props {
@@ -126,8 +119,6 @@ export default function Dashboard({
   const [widgetMode, setWidgetMode] = useState<TrendingMode>(
     settings.discoverDefaultMode ?? "created",
   );
-  const trendingSectionRef = useRef<HTMLElement>(null);
-  const [trendingHeight, setTrendingHeight] = useState<number | null>(null);
   const [pageSize, setPageSize] = useState<number>(() => {
     const raw = localStorage.getItem("sb_pageSize");
     if (raw === "Infinity") return Infinity;
@@ -179,19 +170,6 @@ export default function Dashboard({
         (sites || []).slice(0, 10).map((s) => ({ url: s.url, title: s.title })),
       );
     });
-  }, []);
-
-  useLayoutEffect(() => {
-    const el = trendingSectionRef.current;
-    if (!el || typeof ResizeObserver === "undefined") return;
-    const ro = new ResizeObserver((entries) => {
-      for (const e of entries) {
-        const h = Math.round(e.contentRect.height);
-        if (h > 0) setTrendingHeight(h);
-      }
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
   }, []);
 
   useEffect(() => {
@@ -854,237 +832,112 @@ export default function Dashboard({
         )}
 
         {showHero && (
-          <div className="grid grid-cols-1 items-stretch gap-5 pt-2 md:grid-cols-12">
-            {hasTopSitesSection && (
-              <aside className="hidden md:col-span-3 md:block">
-                <Card
-                  className="group/widget relative flex h-full flex-col p-3"
-                  style={
-                    showGithubTrendingWidget && trendingHeight
-                      ? { maxHeight: trendingHeight + "px" }
-                      : undefined
+          <div className="grid grid-cols-1 gap-5 pt-2 xl:grid-cols-[minmax(0,1fr)_280px]">
+            {/* 主区：信息差雷达（高频阅读区，始终置顶）
+                + <xl 时额外渲染一行常去 / GitHub 热门 供中小屏浏览 */}
+            <div className="min-w-0 space-y-5">
+              {showInfoCollections && (
+                <InfoCollections
+                  language={settings.language}
+                  onHide={() =>
+                    hideHomeWidget(
+                      "showInfoCollections",
+                      "home.widgetShort.infoCollections",
+                    )
                   }
-                >
-                  <div className="mb-1 flex shrink-0 items-center gap-2 px-1">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500/20 to-indigo-500/20 text-sky-600 dark:text-sky-400">
-                      <Clock className="h-3.5 w-3.5" />
-                    </div>
-                    <h2 className="text-sm font-semibold tracking-tight">
-                      常去
-                    </h2>
-                    <Tooltip content="由 Chrome 浏览器自动统计的常访问站点">
-                      <span className="rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
-                        TOP {topSites.length}
-                      </span>
-                    </Tooltip>
-                    <span className="ml-auto text-[10px] text-muted-foreground/70 transition group-hover/widget:opacity-0">
-                      自动
-                    </span>
-                  </div>
-                  <HideWidgetButton
+                  hideLabel={t("home.hideWidget")}
+                  hideTooltip={t(
+                    "home.hideWidgetTooltip",
+                    t("home.widgetShort.infoCollections"),
+                  )}
+                />
+              )}
+
+              {(hasTopSitesSection || showGithubTrendingWidget) && (
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:hidden">
+                  {hasTopSitesSection && (
+                    <TopSitesSidebar
+                      items={topSites}
+                      onHide={() =>
+                        hideHomeWidget(
+                          "showTopSites",
+                          "home.widgetShort.topSites",
+                        )
+                      }
+                      hideLabel={t("home.hideWidget")}
+                      hideTooltip={t(
+                        "home.hideWidgetTooltip",
+                        t("home.widgetShort.topSites"),
+                      )}
+                    />
+                  )}
+                  {showGithubTrendingWidget && (
+                    <TrendingSidebar
+                      settings={settings}
+                      mode={widgetMode}
+                      onModeChange={setWidgetMode}
+                      range={widgetRange}
+                      onRangeChange={setWidgetRange}
+                      onOpenDiscover={onOpenDiscover}
+                      onHide={() =>
+                        hideHomeWidget(
+                          "showGithubTrendingWidget",
+                          "home.widgetShort.githubTrending",
+                        )
+                      }
+                      hideLabel={t("home.hideWidget")}
+                      hideTooltip={t(
+                        "home.hideWidgetTooltip",
+                        t("home.widgetShort.githubTrending"),
+                      )}
+                    />
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* 右栏（仅 xl+ 显示）：常去 + GitHub 热门 垂直堆叠
+                280px 固定宽，跟随主区高度自然延伸 */}
+            {(hasTopSitesSection || showGithubTrendingWidget) && (
+              <aside className="hidden space-y-5 xl:block xl:sticky xl:top-20 xl:self-start">
+                {hasTopSitesSection && (
+                  <TopSitesSidebar
+                    items={topSites}
                     onHide={() =>
                       hideHomeWidget(
                         "showTopSites",
                         "home.widgetShort.topSites",
                       )
                     }
-                    label={t("home.hideWidget")}
-                    tooltip={t(
+                    hideLabel={t("home.hideWidget")}
+                    hideTooltip={t(
                       "home.hideWidgetTooltip",
                       t("home.widgetShort.topSites"),
                     )}
                   />
-                  <p className="mb-2 shrink-0 px-1 text-[10.5px] leading-relaxed text-muted-foreground/70">
-                    浏览器按访问频率自动更新
-                  </p>
-                  <div className="min-h-0 flex-1 overflow-y-auto pr-1 scrollbar-thin">
-                    <div className="divide-y divide-border/60">
-                      {topSites.map((s) => (
-                        <a
-                          key={s.url}
-                          href={s.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          title={s.url}
-                          className="group flex items-center gap-2.5 rounded-md px-2 py-2 transition hover:bg-accent/70"
-                        >
-                          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-background shadow-[0_1px_0_rgba(15,23,42,0.03)] ring-1 ring-border/80">
-                            <img
-                              src={faviconOf(s.url, 32)}
-                              alt=""
-                              className="h-4 w-4 rounded"
-                              onError={(e) =>
-                                (e.currentTarget.style.visibility = "hidden")
-                              }
-                            />
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <div className="truncate text-sm font-medium text-foreground">
-                              {s.title || hostnameOf(s.url)}
-                            </div>
-                            <div className="truncate text-[11px] text-muted-foreground">
-                              {hostnameOf(s.url)}
-                            </div>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </Card>
-              </aside>
-            )}
-
-            {showGithubTrendingWidget && (
-              <section
-                ref={trendingSectionRef}
-                className={cn(
-                  "group/widget col-span-1",
-                  hasTopSitesSection
-                    ? "md:col-span-9"
-                    : "md:col-span-12",
                 )}
-              >
-              <div className="mb-3 flex flex-wrap items-center gap-2">
-                <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500/20 to-rose-500/20 text-rose-500">
-                  <Flame className="h-3.5 w-3.5" />
-                </div>
-                <h2 className="text-sm font-semibold tracking-tight">
-                  {t("discover.widget.title")}
-                </h2>
-                <div
-                  className="inline-flex items-center gap-0.5 rounded-lg border bg-card/80 p-0.5 text-[11px]"
-                  role="tablist"
-                  aria-label="Mode"
-                >
-                  {(["created", "hottest"] as TrendingMode[]).map((m) => {
-                    const Icon = m === "created" ? Sparkles : TrendingUp;
-                    return (
-                      <Tooltip
-                        key={m}
-                        content={t(`discover.mode.${m}.hint`)}
-                      >
-                        <button
-                          type="button"
-                          role="tab"
-                          aria-selected={widgetMode === m}
-                          onClick={() => setWidgetMode(m)}
-                          className={cn(
-                            "inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 font-medium transition",
-                            widgetMode === m
-                              ? "bg-primary text-primary-foreground shadow-sm"
-                              : "text-muted-foreground hover:bg-accent hover:text-foreground",
-                          )}
-                        >
-                          <Icon className="h-3 w-3" />
-                          {t(`discover.mode.${m}`)}
-                        </button>
-                      </Tooltip>
-                    );
-                  })}
-                </div>
-                <div
-                  className="inline-flex items-center gap-0.5 rounded-lg border bg-card/80 p-0.5 text-[11px]"
-                  role="tablist"
-                  aria-label={t("discover.widget.title")}
-                >
-                  {(["daily", "weekly", "monthly", "yearly"] as TrendingRange[]).map(
-                    (r) => (
-                      <button
-                        key={r}
-                        type="button"
-                        role="tab"
-                        aria-selected={widgetRange === r}
-                        onClick={() => setWidgetRange(r)}
-                        className={cn(
-                          "rounded-md px-2 py-0.5 font-medium transition",
-                          widgetRange === r
-                            ? "bg-primary text-primary-foreground shadow-sm"
-                            : "text-muted-foreground hover:bg-accent hover:text-foreground",
-                        )}
-                      >
-                        {t(`discover.range.${r}`)}
-                      </button>
-                    ),
-                  )}
-                </div>
-                <div className="flex-1" />
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (onOpenDiscover) {
-                      onOpenDiscover();
-                    } else {
-                      const p = new URLSearchParams(window.location.hash.slice(1));
-                      p.set("tab", "discover");
-                      const s = p.toString();
-                      window.location.hash = s ? "#" + s : "#";
+                {showGithubTrendingWidget && (
+                  <TrendingSidebar
+                    settings={settings}
+                    mode={widgetMode}
+                    onModeChange={setWidgetMode}
+                    range={widgetRange}
+                    onRangeChange={setWidgetRange}
+                    onOpenDiscover={onOpenDiscover}
+                    onHide={() =>
+                      hideHomeWidget(
+                        "showGithubTrendingWidget",
+                        "home.widgetShort.githubTrending",
+                      )
                     }
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="relative z-10 cursor-pointer rounded-md px-2 py-1 text-xs text-muted-foreground transition hover:bg-accent hover:text-primary"
-                >
-                  {t("discover.widget.viewAll")}
-                </button>
-                <HideWidgetButton
-                  variant="inline"
-                  onHide={() =>
-                    hideHomeWidget(
-                      "showGithubTrendingWidget",
-                      "home.widgetShort.githubTrending",
-                    )
-                  }
-                  label={t("home.hideWidget")}
-                  tooltip={t(
-                    "home.hideWidgetTooltip",
-                    t("home.widgetShort.githubTrending"),
-                  )}
-                />
-              </div>
-              <p className="text-[11px] leading-relaxed text-muted-foreground/90">
-                {t(
-                  "discover.widget.hint",
-                  t(`discover.range.${widgetRange}`),
-                  String(rangeToWindowDays(widgetRange)),
-                )}{" "}
-                {t(`discover.mode.${widgetMode}.hint`)}
-              </p>
-              <TrendingPanel
-                settings={settings}
-                limit={8}
-                compact
-                hideControls
-                range={widgetRange}
-                onRangeChange={setWidgetRange}
-                mode={widgetMode}
-                onModeChange={setWidgetMode}
-              />
-              </section>
-            )}
-            {showInfoCollections && (
-              <InfoCollections
-                language={settings.language}
-                className={cn(
-                  "col-span-1",
-                  showGithubTrendingWidget
-                    ? "md:col-span-12"
-                    : hasTopSitesSection
-                      ? "md:col-span-9"
-                      : "md:col-span-12",
+                    hideLabel={t("home.hideWidget")}
+                    hideTooltip={t(
+                      "home.hideWidgetTooltip",
+                      t("home.widgetShort.githubTrending"),
+                    )}
+                  />
                 )}
-                onHide={() =>
-                  hideHomeWidget(
-                    "showInfoCollections",
-                    "home.widgetShort.infoCollections",
-                  )
-                }
-                hideLabel={t("home.hideWidget")}
-                hideTooltip={t(
-                  "home.hideWidgetTooltip",
-                  t("home.widgetShort.infoCollections"),
-                )}
-              />
+              </aside>
             )}
           </div>
         )}
