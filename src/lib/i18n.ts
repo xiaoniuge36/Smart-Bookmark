@@ -193,6 +193,13 @@ const zh: Dict = {
     `已导入 ${n} 条书签，跳过 ${s} 条重复`,
   "backup.pickFile": "选择文件",
 
+  "common.language": "语言",
+  "common.languageAuto": "跟随系统",
+  "common.languageZh": "中文",
+  "common.languageEn": "English",
+  "common.languagePicker": "选择界面语言",
+  "common.languageHint": "「跟随系统」会根据浏览器语言自动选择中文或英文。",
+
   "settings.appearance": "外观",
   "settings.theme": "主题",
   "settings.themeAuto": "跟随系统",
@@ -456,6 +463,14 @@ const en: Dict = {
   "backup.imported": (n: string, s: string) =>
     `Imported ${n} bookmarks, skipped ${s} duplicates`,
   "backup.pickFile": "Pick file",
+
+  "common.language": "Language",
+  "common.languageAuto": "Auto",
+  "common.languageZh": "中文",
+  "common.languageEn": "English",
+  "common.languagePicker": "Pick UI language",
+  "common.languageHint":
+    "\"Auto\" follows your browser language and picks Chinese or English.",
 
   "settings.appearance": "Appearance",
   "settings.theme": "Theme",

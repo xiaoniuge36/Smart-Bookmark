@@ -1,5 +1,7 @@
 # Smart Bookmark
 
+> **中文** · [English](./README_EN.md)
+
 > 书签清理 + 新标签页看板 + AI 搜索 + 对比搜索 + 悬浮球 + 二维码 + 备份，一站式 Chrome / Edge 浏览器扩展。  
 > 致敬 [LazyCat Bookmark Cleaner](https://github.com/Alanrk/LazyCat-Bookmark-Cleaner) 和 [TabMark](https://github.com/Alanrk/TabMark-Bookmark-New-Tab)。
 
@@ -48,6 +50,7 @@
 ### 🌐 i18n（0.2 新增）
 - 中文 / English 全 UI 覆盖，跟随系统自动切换
 - 设置页手动切换，实时生效
+- 看板 / 侧边栏顶部新增一键语言切换器（🌐 图标），无需进设置页
 
 ### ✨ AI 助手
 - 支持 OpenAI、Anthropic，API Key 只存本地

@@ -23,6 +23,7 @@ import { useT } from "@/lib/i18n";
 import { ToastHost } from "@/components/ui/toast";
 import ThemeToggle from "@/components/ThemeToggle";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 type TabId =
   | "dashboard"
@@ -111,6 +112,7 @@ export default function App() {
             </div>
             <div className="min-w-0 flex-1" />
             <ThemeSwitcher />
+            <LanguageSwitcher />
             <ThemeToggle />
             <Tabs value={tab} onValueChange={(v) => setTabWithHash(v as TabId)}>
               <TabsList className="h-9 gap-0.5 bg-transparent p-0">
