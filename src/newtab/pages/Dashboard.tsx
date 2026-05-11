@@ -30,7 +30,6 @@ import {
   Folder,
   ChevronRight,
   X,
-  EyeOff,
   Flame,
   Clock,
   Sparkles,
@@ -49,6 +48,7 @@ import FolderTree from "@/components/FolderTree";
 import EngineSwitcher from "@/components/EngineSwitcher";
 import { faviconFor, findEngine } from "@/lib/engines";
 import InfoCollections from "@/components/InfoCollections";
+import HideWidgetButton from "@/components/HideWidgetButton";
 import { rankSearchItems } from "@/lib/searchRank";
 
 interface Props {
@@ -880,30 +880,20 @@ export default function Dashboard({
                     <span className="ml-auto text-[10px] text-muted-foreground/70 transition group-hover/widget:opacity-0">
                       自动
                     </span>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        hideHomeWidget(
-                          "showTopSites",
-                          "home.widgetShort.topSites",
-                        );
-                      }}
-                      title={t(
-                        "home.hideWidgetTooltip",
-                        t("home.widgetShort.topSites"),
-                      )}
-                      aria-label={t(
-                        "home.hideWidgetTooltip",
-                        t("home.widgetShort.topSites"),
-                      )}
-                      className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-md bg-background/80 px-1.5 py-0.5 text-[10px] text-muted-foreground opacity-0 shadow-sm ring-1 ring-border transition focus:opacity-100 group-hover/widget:opacity-100 hover:text-foreground"
-                    >
-                      <EyeOff className="h-3 w-3" />
-                      {t("home.hideWidget")}
-                    </button>
                   </div>
+                  <HideWidgetButton
+                    onHide={() =>
+                      hideHomeWidget(
+                        "showTopSites",
+                        "home.widgetShort.topSites",
+                      )
+                    }
+                    label={t("home.hideWidget")}
+                    tooltip={t(
+                      "home.hideWidgetTooltip",
+                      t("home.widgetShort.topSites"),
+                    )}
+                  />
                   <p className="mb-2 shrink-0 px-1 text-[10.5px] leading-relaxed text-muted-foreground/70">
                     浏览器按访问频率自动更新
                   </p>
@@ -1034,29 +1024,20 @@ export default function Dashboard({
                 >
                   {t("discover.widget.viewAll")}
                 </button>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
+                <HideWidgetButton
+                  variant="inline"
+                  onHide={() =>
                     hideHomeWidget(
                       "showGithubTrendingWidget",
                       "home.widgetShort.githubTrending",
-                    );
-                  }}
-                  title={t(
+                    )
+                  }
+                  label={t("home.hideWidget")}
+                  tooltip={t(
                     "home.hideWidgetTooltip",
                     t("home.widgetShort.githubTrending"),
                   )}
-                  aria-label={t(
-                    "home.hideWidgetTooltip",
-                    t("home.widgetShort.githubTrending"),
-                  )}
-                  className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground opacity-0 transition focus:opacity-100 group-hover/widget:opacity-100 hover:bg-accent hover:text-foreground"
-                >
-                  <EyeOff className="h-3 w-3" />
-                  {t("home.hideWidget")}
-                </button>
+                />
               </div>
               <p className="text-[11px] leading-relaxed text-muted-foreground/90">
                 {t(

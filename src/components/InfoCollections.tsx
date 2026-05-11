@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   Check,
   ExternalLink,
-  EyeOff,
   Info,
   Newspaper,
   Radio,
@@ -14,6 +13,7 @@ import { cn, faviconOf, hostnameOf } from "@/lib/utils";
 import { resolveLanguage } from "@/lib/i18n";
 import type { Language } from "@/types";
 import { useNewsNowAuth } from "@/hooks/useNewsNowAuth";
+import HideWidgetButton from "@/components/HideWidgetButton";
 
 type Copy = {
   zh: string;
@@ -211,20 +211,12 @@ export default function InfoCollections({
           </div>
         </div>
         {onHide && (
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onHide();
-            }}
-            title={hideTooltip}
-            aria-label={hideTooltip ?? hideLabel}
-            className="inline-flex shrink-0 items-center gap-1 rounded-md px-2 py-1 text-[11px] text-muted-foreground opacity-0 transition focus:opacity-100 group-hover/widget:opacity-100 hover:bg-accent hover:text-foreground"
-          >
-            <EyeOff className="h-3 w-3" />
-            {hideLabel ?? (lang === "zh" ? "隐藏" : "Hide")}
-          </button>
+          <HideWidgetButton
+            variant="inline"
+            onHide={onHide}
+            label={hideLabel ?? (lang === "zh" ? "隐藏" : "Hide")}
+            tooltip={hideTooltip}
+          />
         )}
       </div>
 
