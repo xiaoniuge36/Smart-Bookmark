@@ -49,6 +49,7 @@ import EngineSwitcher from "@/components/EngineSwitcher";
 import { faviconFor, findEngine } from "@/lib/engines";
 import InfoCollections from "@/components/InfoCollections";
 import HideWidgetButton from "@/components/HideWidgetButton";
+import { Tooltip } from "@/components/ui/tooltip";
 import { rankSearchItems } from "@/lib/searchRank";
 
 interface Props {
@@ -871,12 +872,11 @@ export default function Dashboard({
                     <h2 className="text-sm font-semibold tracking-tight">
                       常去
                     </h2>
-                    <span
-                      className="rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground"
-                      title="由 Chrome 浏览器自动统计的常访问站点"
-                    >
-                      TOP {topSites.length}
-                    </span>
+                    <Tooltip content="由 Chrome 浏览器自动统计的常访问站点">
+                      <span className="rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
+                        TOP {topSites.length}
+                      </span>
+                    </Tooltip>
                     <span className="ml-auto text-[10px] text-muted-foreground/70 transition group-hover/widget:opacity-0">
                       自动
                     </span>
@@ -959,23 +959,26 @@ export default function Dashboard({
                   {(["created", "hottest"] as TrendingMode[]).map((m) => {
                     const Icon = m === "created" ? Sparkles : TrendingUp;
                     return (
-                      <button
+                      <Tooltip
                         key={m}
-                        type="button"
-                        role="tab"
-                        aria-selected={widgetMode === m}
-                        onClick={() => setWidgetMode(m)}
-                        title={t(`discover.mode.${m}.hint`)}
-                        className={cn(
-                          "inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 font-medium transition",
-                          widgetMode === m
-                            ? "bg-primary text-primary-foreground shadow-sm"
-                            : "text-muted-foreground hover:bg-accent hover:text-foreground",
-                        )}
+                        content={t(`discover.mode.${m}.hint`)}
                       >
-                        <Icon className="h-3 w-3" />
-                        {t(`discover.mode.${m}`)}
-                      </button>
+                        <button
+                          type="button"
+                          role="tab"
+                          aria-selected={widgetMode === m}
+                          onClick={() => setWidgetMode(m)}
+                          className={cn(
+                            "inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 font-medium transition",
+                            widgetMode === m
+                              ? "bg-primary text-primary-foreground shadow-sm"
+                              : "text-muted-foreground hover:bg-accent hover:text-foreground",
+                          )}
+                        >
+                          <Icon className="h-3 w-3" />
+                          {t(`discover.mode.${m}`)}
+                        </button>
+                      </Tooltip>
                     );
                   })}
                 </div>
