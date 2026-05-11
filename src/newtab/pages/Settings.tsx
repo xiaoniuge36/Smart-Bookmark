@@ -13,6 +13,7 @@ import { COMMON_LANGUAGES, clearTrendingCache } from "@/lib/github";
 import type { TrendingMode, TrendingRange, TrendingSort } from "@/types";
 import { toast } from "@/components/ui/toast";
 import { THEME_PRESETS } from "@/lib/themePresets";
+import { HOME_WIDGETS } from "@/lib/homeWidgets";
 import { cn } from "@/lib/utils";
 
 const ENGINE_LIST = BUILTIN_ENGINES.slice(0, 10);
@@ -433,37 +434,48 @@ export default function SettingsPage() {
         <CardContent className="space-y-4">
           <Row label={t("settings.homeWidgets")}>
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <Switch
-                  checked={s.showGithubTrendingWidget ?? true}
-                  onCheckedChange={(v) =>
-                    update({ showGithubTrendingWidget: v })
-                  }
-                />
-                <div className="min-w-0">
-                  <div className="text-sm font-medium">
-                    {t("settings.showGithubTrendingWidget")}
-                  </div>
-                  <div className="mt-0.5 text-xs text-muted-foreground">
-                    {t("settings.showGithubTrendingWidgetHint")}
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Switch
-                  checked={s.showInfoCollections ?? true}
-                  onCheckedChange={(v) =>
-                    update({ showInfoCollections: v })
-                  }
-                />
-                <div className="min-w-0">
-                  <div className="text-sm font-medium">
-                    {t("settings.showInfoCollections")}
-                  </div>
-                  <div className="mt-0.5 text-xs text-muted-foreground">
-                    {t("settings.showInfoCollectionsHint")}
-                  </div>
-                </div>
+              <p className="text-xs text-muted-foreground">
+                {t("settings.homeWidgetsHint")}
+              </p>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {HOME_WIDGETS.map((w) => {
+                  const checked = s[w.key] ?? true;
+                  const Icon = w.Icon;
+                  return (
+                    <label
+                      key={w.key}
+                      className={cn(
+                        "group flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition",
+                        checked
+                          ? "border-primary/40 bg-primary/5 hover:bg-primary/10"
+                          : "border-border bg-card/40 hover:bg-accent",
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          "mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br",
+                          w.iconAccent,
+                        )}
+                      >
+                        <Icon className="h-3.5 w-3.5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="text-sm font-medium leading-tight">
+                          {t(w.titleKey)}
+                        </div>
+                        <div className="mt-1 text-[11.5px] leading-relaxed text-muted-foreground">
+                          {t(w.hintKey)}
+                        </div>
+                      </div>
+                      <Switch
+                        checked={checked}
+                        onCheckedChange={(v) =>
+                          update({ [w.key]: v } as Partial<Settings>)
+                        }
+                      />
+                    </label>
+                  );
+                })}
               </div>
             </div>
           </Row>

@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   Check,
   ExternalLink,
+  EyeOff,
   Info,
   Newspaper,
   Radio,
@@ -161,16 +162,23 @@ const COLLECTIONS: CollectionGroup[] = [
 export default function InfoCollections({
   language,
   className,
+  onHide,
+  hideLabel,
+  hideTooltip,
 }: {
   language: Language;
   className?: string;
+  /** 如果传入，在 header 右侧显示鼠标悬停才出现的「隐藏」按钮 */
+  onHide?: () => void;
+  hideLabel?: string;
+  hideTooltip?: string;
 }) {
   const lang = resolveLanguage(language);
   const [trendGroup, toolGroup] = COLLECTIONS;
   const total = 1 + trendGroup.items.length + toolGroup.items.length;
 
   return (
-    <section className={cn("space-y-3.5", className)}>
+    <section className={cn("group/widget space-y-3.5", className)}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-3">
           <SectionIcon
@@ -202,6 +210,22 @@ export default function InfoCollections({
             </p>
           </div>
         </div>
+        {onHide && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onHide();
+            }}
+            title={hideTooltip}
+            aria-label={hideTooltip ?? hideLabel}
+            className="inline-flex shrink-0 items-center gap-1 rounded-md px-2 py-1 text-[11px] text-muted-foreground opacity-0 transition focus:opacity-100 group-hover/widget:opacity-100 hover:bg-accent hover:text-foreground"
+          >
+            <EyeOff className="h-3 w-3" />
+            {hideLabel ?? (lang === "zh" ? "隐藏" : "Hide")}
+          </button>
+        )}
       </div>
 
       {/*

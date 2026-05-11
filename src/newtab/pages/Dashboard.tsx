@@ -30,6 +30,7 @@ import {
   Folder,
   ChevronRight,
   X,
+  EyeOff,
   Flame,
   Clock,
   Sparkles,
@@ -618,6 +619,22 @@ export default function Dashboard({
   const showHero = !selected && !query.trim();
   const showGithubTrendingWidget = settings.showGithubTrendingWidget ?? true;
   const showInfoCollections = settings.showInfoCollections ?? true;
+  const showTopSites = settings.showTopSites ?? true;
+  const hasTopSitesSection = showTopSites && topSites.length > 0;
+
+  const hideHomeWidget = useCallback(
+    async (
+      key:
+        | "showGithubTrendingWidget"
+        | "showInfoCollections"
+        | "showTopSites",
+      shortNameKey: string,
+    ) => {
+      await setSettings({ [key]: false });
+      toast(t("home.widgetHidden", t(shortNameKey)), "success");
+    },
+    [t],
+  );
 
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-[240px_minmax(0,1fr)] 2xl:grid-cols-[260px_minmax(0,1fr)]">
@@ -806,7 +823,7 @@ export default function Dashboard({
 
         </form>
 
-        {showHero && topSites.length > 0 && (
+        {showHero && hasTopSitesSection && (
           <div className="md:hidden mx-auto flex max-w-4xl flex-wrap items-start justify-center gap-4 pt-2">
             {topSites.map((s) => (
               <a
@@ -837,10 +854,10 @@ export default function Dashboard({
 
         {showHero && (
           <div className="grid grid-cols-1 items-stretch gap-5 pt-2 md:grid-cols-12">
-            {topSites.length > 0 && (
+            {hasTopSitesSection && (
               <aside className="hidden md:col-span-3 md:block">
                 <Card
-                  className="flex h-full flex-col p-3"
+                  className="group/widget relative flex h-full flex-col p-3"
                   style={
                     showGithubTrendingWidget && trendingHeight
                       ? { maxHeight: trendingHeight + "px" }
@@ -860,9 +877,32 @@ export default function Dashboard({
                     >
                       TOP {topSites.length}
                     </span>
-                    <span className="ml-auto text-[10px] text-muted-foreground/70">
+                    <span className="ml-auto text-[10px] text-muted-foreground/70 transition group-hover/widget:opacity-0">
                       自动
                     </span>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        hideHomeWidget(
+                          "showTopSites",
+                          "home.widgetShort.topSites",
+                        );
+                      }}
+                      title={t(
+                        "home.hideWidgetTooltip",
+                        t("home.widgetShort.topSites"),
+                      )}
+                      aria-label={t(
+                        "home.hideWidgetTooltip",
+                        t("home.widgetShort.topSites"),
+                      )}
+                      className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-md bg-background/80 px-1.5 py-0.5 text-[10px] text-muted-foreground opacity-0 shadow-sm ring-1 ring-border transition focus:opacity-100 group-hover/widget:opacity-100 hover:text-foreground"
+                    >
+                      <EyeOff className="h-3 w-3" />
+                      {t("home.hideWidget")}
+                    </button>
                   </div>
                   <p className="mb-2 shrink-0 px-1 text-[10.5px] leading-relaxed text-muted-foreground/70">
                     浏览器按访问频率自动更新
@@ -908,8 +948,8 @@ export default function Dashboard({
               <section
                 ref={trendingSectionRef}
                 className={cn(
-                  "col-span-1",
-                  topSites.length > 0
+                  "group/widget col-span-1",
+                  hasTopSitesSection
                     ? "md:col-span-9"
                     : "md:col-span-12",
                 )}
@@ -994,6 +1034,29 @@ export default function Dashboard({
                 >
                   {t("discover.widget.viewAll")}
                 </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    hideHomeWidget(
+                      "showGithubTrendingWidget",
+                      "home.widgetShort.githubTrending",
+                    );
+                  }}
+                  title={t(
+                    "home.hideWidgetTooltip",
+                    t("home.widgetShort.githubTrending"),
+                  )}
+                  aria-label={t(
+                    "home.hideWidgetTooltip",
+                    t("home.widgetShort.githubTrending"),
+                  )}
+                  className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground opacity-0 transition focus:opacity-100 group-hover/widget:opacity-100 hover:bg-accent hover:text-foreground"
+                >
+                  <EyeOff className="h-3 w-3" />
+                  {t("home.hideWidget")}
+                </button>
               </div>
               <p className="text-[11px] leading-relaxed text-muted-foreground/90">
                 {t(
@@ -1022,9 +1085,20 @@ export default function Dashboard({
                   "col-span-1",
                   showGithubTrendingWidget
                     ? "md:col-span-12"
-                    : topSites.length > 0
+                    : hasTopSitesSection
                       ? "md:col-span-9"
                       : "md:col-span-12",
+                )}
+                onHide={() =>
+                  hideHomeWidget(
+                    "showInfoCollections",
+                    "home.widgetShort.infoCollections",
+                  )
+                }
+                hideLabel={t("home.hideWidget")}
+                hideTooltip={t(
+                  "home.hideWidgetTooltip",
+                  t("home.widgetShort.infoCollections"),
                 )}
               />
             )}

@@ -120,6 +120,19 @@ const zh: Dict = {
   "settings.showInfoCollections": "首页显示信息差雷达",
   "settings.showInfoCollectionsHint":
     "关闭后首页不再显示 NewsNow 内嵌热点和资源入口面板。",
+  "settings.showTopSites": "首页显示「常去」",
+  "settings.showTopSitesHint":
+    "关闭后首页不再显示由 Chrome 自动统计的常访问站点小组件。",
+  "settings.homeWidgetsHint":
+    "勾选要在首页显示的组件。首页组件 header 也可鼠标悬停后点「隐藏」快捷关闭。",
+  "home.widgetShort.githubTrending": "GitHub 热门",
+  "home.widgetShort.infoCollections": "信息差雷达",
+  "home.widgetShort.topSites": "常去",
+  "home.hideWidget": "隐藏",
+  "home.hideWidgetTooltip": (name: string) =>
+    `隐藏「${name}」组件（可在设置 → 首页组件中恢复）`,
+  "home.widgetHidden": (name: string) =>
+    `已隐藏「${name}」，可在设置 → 首页组件中恢复`,
   "settings.githubTokenSave": "保存",
   "settings.githubTokenClear": "清空",
   "settings.githubTokenCreate": "创建 Token",
@@ -369,6 +382,19 @@ const en: Dict = {
   "settings.showInfoCollections": "Show signal radar on home",
   "settings.showInfoCollectionsHint":
     "When off, the dashboard hides the embedded NewsNow live feed and resource link panels.",
+  "settings.showTopSites": "Show \"Frequent\" on home",
+  "settings.showTopSitesHint":
+    "When off, the dashboard hides the Chrome top sites widget.",
+  "settings.homeWidgetsHint":
+    "Pick the widgets to show on the dashboard. You can also hover any widget header on home and click \"Hide\" to remove it from there.",
+  "home.widgetShort.githubTrending": "GitHub Trending",
+  "home.widgetShort.infoCollections": "Signal radar",
+  "home.widgetShort.topSites": "Frequent",
+  "home.hideWidget": "Hide",
+  "home.hideWidgetTooltip": (name: string) =>
+    `Hide \"${name}\" (restore in Settings → Home widgets)`,
+  "home.widgetHidden": (name: string) =>
+    `Hid \"${name}\". Restore in Settings → Home widgets.`,
   "settings.githubTokenSave": "Save",
   "settings.githubTokenClear": "Clear",
   "settings.githubTokenCreate": "Create token",
