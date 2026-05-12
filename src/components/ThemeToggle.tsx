@@ -1,9 +1,21 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun, Monitor } from "lucide-react";
 import { getSettings, onSettingsChange, setSettings } from "@/lib/storage";
+import { cn } from "@/lib/utils";
 import type { Settings } from "@/types";
 
-export default function ThemeToggle() {
+/**
+ * 主题模式（亮 / 暗 / 跟随系统）轮换按钮。
+ *
+ * 与 LanguageSwitcher / ThemeSwitcher 同属 header 顶部一级偏好控件；
+ * 支持外层通过 `className` 覆盖默认的独立 pill 样式（rounded-full / border / bg），
+ * 以便嵌入到 utility 连体胶囊（segmented group）容器中。
+ */
+export default function ThemeToggle({
+  className,
+}: {
+  className?: string;
+}) {
   const [theme, setTheme] = useState<Settings["theme"]>("system");
   useEffect(() => {
     getSettings().then((s) => setTheme(s.theme));
@@ -23,7 +35,10 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={cycle}
-      className="inline-flex h-8 items-center gap-1.5 rounded-full border bg-background/60 px-3 text-xs text-muted-foreground transition hover:bg-accent"
+      className={cn(
+        "inline-flex h-8 items-center gap-1.5 rounded-full border bg-background/60 px-3 text-xs text-muted-foreground transition hover:bg-accent",
+        className,
+      )}
       title={`主题：${label}（点击切换）`}
     >
       <Icon className="h-3.5 w-3.5" />

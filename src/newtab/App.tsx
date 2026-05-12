@@ -101,6 +101,16 @@ export default function App() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-indigo-500/8 via-fuchsia-500/5 to-transparent" />
         <header className="sticky top-0 z-20 border-b bg-background/75 backdrop-blur">
           <div className="mx-auto flex max-w-[1600px] items-center gap-4 px-5 py-3 sm:px-6 2xl:px-8">
+            {/*
+              Header 三段均衡排版（参考 Tailwind docs / Apple / Notion 等无 search
+              bar 站点）：
+                左：品牌身份（logo + 标题 + 版本）
+                中：主导航 Tabs（由两侧 flex-1 spacer 推到画布中央）
+                右：utility segmented group（语言 / 主题色 / 主题模式 连体胶囊）
+              双侧 flex-1 spacer 等分剩余空间，让 Tabs 居中；右侧 3 个 pill 共享
+              一个 rounded-full border 容器、靠 `divide-x` 内部 1px 分割，视觉上
+              成为一个独立的"偏好集群" widget。
+            */}
             <div className="flex shrink-0 items-center gap-2 whitespace-nowrap font-semibold">
               <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white shadow-md shadow-indigo-500/20">
                 <Bookmark className="h-4 w-4" />
@@ -111,9 +121,6 @@ export default function App() {
               </span>
             </div>
             <div className="min-w-0 flex-1" />
-            <LanguageSwitcher />
-            <ThemeSwitcher />
-            <ThemeToggle />
             <Tabs value={tab} onValueChange={(v) => setTabWithHash(v as TabId)}>
               <TabsList className="h-9 gap-0.5 bg-transparent p-0">
                 {(
@@ -137,6 +144,20 @@ export default function App() {
                 ))}
               </TabsList>
             </Tabs>
+            <div className="min-w-0 flex-1" />
+            {/*
+              Utility segmented group（连体胶囊）：
+              - 外层一个 rounded-full border + shared bg，3 个偏好控件视觉合并为「一个 widget」
+              - `divide-x divide-border/60` 自动在子项之间画 1px 分隔线
+              - 内部每个组件传入 className 去掉自身的 rounded-full / border / bg
+                （依靠 tailwind-merge 的同属性覆盖能力，无需修改组件内部）
+              - `overflow-hidden` 把 hover 高亮的色块裁剪到胶囊形状内
+            */}
+            <div className="inline-flex h-8 shrink-0 items-center divide-x divide-border/60 overflow-hidden rounded-full border bg-background/60 shadow-sm backdrop-blur">
+              <LanguageSwitcher className="h-full rounded-none border-0 bg-transparent shadow-none" />
+              <ThemeSwitcher className="h-full rounded-none border-0 bg-transparent shadow-none" />
+              <ThemeToggle className="h-full rounded-none border-0 bg-transparent shadow-none" />
+            </div>
           </div>
         </header>
 

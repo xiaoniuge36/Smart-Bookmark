@@ -120,8 +120,17 @@ export interface Settings {
   discoverDefaultSort?: TrendingSort;
   /** 首页是否显示 GitHub Trending 小组件 */
   showGithubTrendingWidget?: boolean;
-  /** 首页是否显示「信息差雷达」（NewsNow + 资源入口）模块 */
+  /**
+   * @deprecated 旧字段：原「信息差雷达」整体开关。
+   * 新版本拆成 `showInfoLiveNews`（NewsNow iframe）和 `showInfoEntries`
+   * （热点入口 + 信息差工具）两个独立模块。当新字段未显式设置时，会回退
+   * 读取此字段作为默认值，确保历史用户的偏好不丢失。
+   */
   showInfoCollections?: boolean;
+  /** 首页是否显示「NewsNow 实时热点」iframe 模块 */
+  showInfoLiveNews?: boolean;
+  /** 首页是否显示「热点入口 + 信息差工具」资源入口卡片 */
+  showInfoEntries?: boolean;
   /** 首页是否显示「常去」（Chrome topSites）小组件 */
   showTopSites?: boolean;
 }

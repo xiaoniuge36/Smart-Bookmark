@@ -40,7 +40,8 @@ import QrDialog from "./QrDialog";
 import FolderTree from "@/components/FolderTree";
 import EngineSwitcher from "@/components/EngineSwitcher";
 import { faviconFor, findEngine } from "@/lib/engines";
-import InfoCollections from "@/components/InfoCollections";
+import { InfoEntries, InfoLiveNews } from "@/components/InfoCollections";
+import { isHomeWidgetVisible } from "@/lib/homeWidgets";
 import TopSitesSidebar from "@/components/widgets/TopSitesSidebar";
 import TrendingSidebar from "@/components/widgets/TrendingSidebar";
 import { rankSearchItems } from "@/lib/searchRank";
@@ -597,7 +598,13 @@ export default function Dashboard({
   const greeting = useGreeting();
   const showHero = !selected && !query.trim();
   const showGithubTrendingWidget = settings.showGithubTrendingWidget ?? true;
-  const showInfoCollections = settings.showInfoCollections ?? true;
+  // 信息差雷达按子模块独立显隐：
+  // - showInfoLiveNews   → NewsNow iframe
+  // - showInfoEntries    → 下方「热点入口 + 信息差工具」资源入口卡片
+  // 老版本只有 showInfoCollections 总开关，通过 isHomeWidgetVisible 回退兼容。
+  const showInfoLiveNews = isHomeWidgetVisible(settings, "showInfoLiveNews");
+  const showInfoEntries = isHomeWidgetVisible(settings, "showInfoEntries");
+  const hasInfoRadar = showInfoLiveNews || showInfoEntries;
   const showTopSites = settings.showTopSites ?? true;
   const hasTopSitesSection = showTopSites && topSites.length > 0;
 
@@ -605,7 +612,8 @@ export default function Dashboard({
     async (
       key:
         | "showGithubTrendingWidget"
-        | "showInfoCollections"
+        | "showInfoLiveNews"
+        | "showInfoEntries"
         | "showTopSites",
       shortNameKey: string,
     ) => {
@@ -832,31 +840,58 @@ export default function Dashboard({
         )}
 
         {showHero && (() => {
-          // 自适应布局分 3 种情况：
-          // A. 信息差雷达 + 任意 sidebar widget → 三栏 (main + sidebar 280)
-          // B. 只有信息差雷达 → 主区全宽，不显示 sidebar
-          // C. 信息差雷达隐藏但 sidebar widget 还在 → widgets 从 sidebar fallback
-          //    到主区，一个 widget 时整宽，两个时 md 起横排 1/2
+          // 信息差雷达拆分成 2 个独立模块（iframe + 资源入口卡片），与右栏
+          // sidebar widgets 一起共 4 个可选块。自适应布局按「主区是否有内容」
+          // 与「右栏是否有内容」组合：
+          //   A. 主区有信息雷达 + 右栏有 widgets → 三栏（主区雷达 + sidebar 280）
+          //   B. 主区有信息雷达 + 右栏无 widgets → 主区独占全宽
+          //   C. 主区无信息雷达 + 右栏有 widgets → widgets fallback 升级到主区
+          //   D. 全部隐藏 → 不渲染（返回 null）
           const hasRightWidgets = hasTopSitesSection || showGithubTrendingWidget;
-          if (!showInfoCollections && !hasRightWidgets) return null;
+          if (!hasInfoRadar && !hasRightWidgets) return null;
 
           // 复用同一份 JSX 避免 props 列表重复；在三栏场景中会被渲染两次
           // （中小屏 fallback + xl sidebar），这点与旧逻辑保持一致
-          const infoEl = showInfoCollections && (
-            <InfoCollections
+          const liveNewsEl = showInfoLiveNews && (
+            <InfoLiveNews
               language={settings.language}
               onHide={() =>
                 hideHomeWidget(
-                  "showInfoCollections",
-                  "home.widgetShort.infoCollections",
+                  "showInfoLiveNews",
+                  "home.widgetShort.infoLiveNews",
                 )
               }
               hideLabel={t("home.hideWidget")}
               hideTooltip={t(
                 "home.hideWidgetTooltip",
-                t("home.widgetShort.infoCollections"),
+                t("home.widgetShort.infoLiveNews"),
               )}
             />
+          );
+          const entriesEl = showInfoEntries && (
+            <InfoEntries
+              language={settings.language}
+              onHide={() =>
+                hideHomeWidget(
+                  "showInfoEntries",
+                  "home.widgetShort.infoEntries",
+                )
+              }
+              hideLabel={t("home.hideWidget")}
+              hideTooltip={t(
+                "home.hideWidgetTooltip",
+                t("home.widgetShort.infoEntries"),
+              )}
+            />
+          );
+          // 主区信息雷达堆叠容器：上 iframe（可拉伸）+ 下资源入口卡（自然高度）。
+          // 当只剩 entries 时，section 退化为单卡，不需要外层 flex-col 拉伸。
+          // 当只剩 iframe 时，iframe 自然撑满（其内部 flex-1 + min-h 已处理）。
+          const infoRadarStack = hasInfoRadar && (
+            <div className="flex h-full min-h-0 flex-col gap-3.5">
+              {liveNewsEl}
+              {entriesEl}
+            </div>
           );
           const topSitesEl = hasTopSitesSection && (
             <TopSitesSidebar
@@ -893,8 +928,8 @@ export default function Dashboard({
             />
           );
 
-          // Case C: 信息差雷达隐藏 → sidebar widget 升级到主区
-          if (!showInfoCollections) {
+          // Case C: 信息差雷达全部隐藏 → sidebar widget 升级到主区
+          if (!hasInfoRadar) {
             const twoWidgets = hasTopSitesSection && showGithubTrendingWidget;
             return (
               <div
@@ -911,17 +946,17 @@ export default function Dashboard({
 
           // Case B: 只有信息差雷达 → 主区独占全宽
           if (!hasRightWidgets) {
-            return <div className="pt-2">{infoEl}</div>;
+            return <div className="pt-2">{infoRadarStack}</div>;
           }
 
-          // Case A: 三栏（主区信息差雷达 + 右栏 widget 堆叠）
+          // Case A: 三栏（主区信息雷达堆叠 + 右栏 widget 堆叠）
           // 主区 grid cell 默认 stretch 到 sidebar 高度；主区内用 flex flex-col 让
-          // InfoCollections 撑满（其内部 iframe 容器 flex-1，拉伸消除底部留白）
+          // iframe 撑满（其内部 flex-1，拉伸消除底部留白）。
           return (
             <div className="grid grid-cols-1 gap-5 pt-2 xl:grid-cols-[minmax(0,1fr)_280px]">
               <div className="min-w-0 space-y-5 xl:flex xl:flex-col xl:gap-5 xl:space-y-0">
                 <div className="xl:flex xl:flex-1 xl:min-h-0 xl:flex-col">
-                  {infoEl}
+                  {infoRadarStack}
                 </div>
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:hidden">
                   {topSitesEl}

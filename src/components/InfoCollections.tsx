@@ -4,7 +4,6 @@ import {
   Check,
   Info,
   Newspaper,
-  Radio,
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
@@ -157,7 +156,23 @@ const COLLECTIONS: CollectionGroup[] = [
   },
 ];
 
-export default function InfoCollections({
+interface HidePropsBase {
+  /** 如果传入，组件在 hover 时显示「隐藏」按钮，点击触发回调 */
+  onHide?: () => void;
+  hideLabel?: string;
+  hideTooltip?: string;
+}
+
+/**
+ * 「NewsNow 实时热点」iframe 独立模块。
+ *
+ * 拆分自旧的 `InfoCollections`：现在 iframe 与下方资源入口卡片各自是独立的
+ * 首页组件，可在「设置 → 首页组件」或 hover header 时的「隐藏」按钮中单独隐藏。
+ *
+ * 布局：组件被设计为可在父容器中以 `flex-1 min-h-0` 拉伸（与三栏布局
+ * 右栏 sidebar 等高对齐），内部 iframe 容器 `flex-1` 撑满剩余空间。
+ */
+export function InfoLiveNews({
   language,
   className,
   onHide,
@@ -166,95 +181,88 @@ export default function InfoCollections({
 }: {
   language: Language;
   className?: string;
-  /** 如果传入，在 header 右侧显示鼠标悬停才出现的「隐藏」按钮 */
-  onHide?: () => void;
-  hideLabel?: string;
-  hideTooltip?: string;
-}) {
+} & HidePropsBase) {
   const lang = resolveLanguage(language);
-  const [trendGroup, toolGroup] = COLLECTIONS;
-  const total = 1 + trendGroup.items.length + toolGroup.items.length;
-
   return (
-    <section className={cn("group/widget flex flex-col gap-3.5 flex-1 min-h-0", className)}>
-      <div className="flex shrink-0 flex-wrap items-center justify-between gap-3">
-        <div className="flex min-w-0 items-center gap-3">
-          <SectionIcon
-            Icon={Radio}
-            accent="from-emerald-500/25 to-sky-500/25 text-emerald-600 dark:text-emerald-400"
-            size="lg"
-            glow
-          />
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-[15px] font-semibold tracking-tight">
-                {lang === "zh" ? "信息差雷达" : "Signal radar"}
-              </h2>
-              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-500/20 dark:text-emerald-300">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                </span>
-                {lang === "zh" ? "实时热点" : "Live trends"}
-              </span>
-              <span className="rounded-full bg-muted/80 px-2 py-0.5 text-[10px] font-medium text-muted-foreground ring-1 ring-border/60">
-                {lang === "zh" ? `${total} 个入口` : `${total} links`}
-              </span>
-            </div>
-            <p className="truncate text-[11.5px] text-muted-foreground">
-              {lang === "zh"
-                ? "NewsNow 内嵌实时热点，下方备用热榜入口和信息差工具"
-                : "NewsNow embedded live, with backup trend feeds and tools below"}
-            </p>
-          </div>
-        </div>
-        {onHide && (
-          <HideWidgetButton
-            variant="inline"
-            onHide={onHide}
-            label={hideLabel ?? (lang === "zh" ? "隐藏" : "Hide")}
-            tooltip={hideTooltip}
-          />
-        )}
-      </div>
-
-      {/*
-        单列布局：iframe 占主区全宽 → 触发 NewsNow 内部 3 列响应式；
-        iframe 容器 flex-1 拉伸到与右栏 sidebar 等高（如果父容器给了高度），
-        消除「iframe 矮、sidebar 高」导致的底部大片留白。
-      */}
-      <div className="flex-1 min-h-0">
-        <LiveNewsFrame lang={lang} />
-      </div>
-
-      {/*
-        下方分组 chip 列表：保留原来「热点入口」「信息差工具」两组的视觉区分
-        （参考旧版设计），每组有独立标签和配色，视觉层级明确。
-      */}
-      <div className="shrink-0 space-y-3 rounded-2xl border bg-card/40 p-3 ring-1 ring-black/[0.02] dark:ring-white/[0.04]">
-        <ChipGroup
-          label={trendGroup.title[lang]}
-          Icon={trendGroup.Icon}
-          accentClass="bg-sky-500/10 text-sky-700 ring-sky-500/20 dark:text-sky-300"
-          items={trendGroup.items}
-          lang={lang}
-          chipAccent="trend"
-        />
-        <div className="h-px bg-border/50" />
-        <ChipGroup
-          label={toolGroup.title[lang]}
-          Icon={toolGroup.Icon}
-          accentClass="bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300"
-          items={toolGroup.items}
-          lang={lang}
-          chipAccent="tool"
-        />
-      </div>
+    <section
+      className={cn(
+        "group/widget flex flex-1 min-h-0 flex-col",
+        className,
+      )}
+    >
+      <LiveNewsFrame
+        lang={lang}
+        onHide={onHide}
+        hideLabel={hideLabel}
+        hideTooltip={hideTooltip}
+      />
     </section>
   );
 }
 
-function LiveNewsFrame({ lang }: { lang: "zh" | "en" }) {
+/**
+ * 「热点资源入口」独立模块：原来位于 NewsNow iframe 下方的
+ * 「热点入口 + 信息差工具」chip 链接卡片。
+ *
+ * 与 {@link InfoLiveNews} 完全解耦，可独立显隐；隐藏按钮以浮层形式落在
+ * 卡片右上角（hover 才出现），不占用版面。
+ */
+export function InfoEntries({
+  language,
+  className,
+  onHide,
+  hideLabel,
+  hideTooltip,
+}: {
+  language: Language;
+  className?: string;
+} & HidePropsBase) {
+  const lang = resolveLanguage(language);
+  const [trendGroup, toolGroup] = COLLECTIONS;
+
+  return (
+    <section
+      className={cn(
+        "group/widget relative shrink-0 space-y-3 rounded-2xl border bg-card/40 p-3 ring-1 ring-black/[0.02] dark:ring-white/[0.04]",
+        className,
+      )}
+    >
+      {onHide && (
+        <HideWidgetButton
+          onHide={onHide}
+          label={hideLabel ?? (lang === "zh" ? "隐藏" : "Hide")}
+          tooltip={hideTooltip}
+        />
+      )}
+      <ChipGroup
+        label={trendGroup.title[lang]}
+        Icon={trendGroup.Icon}
+        accentClass="bg-sky-500/10 text-sky-700 ring-sky-500/20 dark:text-sky-300"
+        items={trendGroup.items}
+        lang={lang}
+        chipAccent="trend"
+      />
+      <div className="h-px bg-border/50" />
+      <ChipGroup
+        label={toolGroup.title[lang]}
+        Icon={toolGroup.Icon}
+        accentClass="bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300"
+        items={toolGroup.items}
+        lang={lang}
+        chipAccent="tool"
+      />
+    </section>
+  );
+}
+
+function LiveNewsFrame({
+  lang,
+  onHide,
+  hideLabel,
+  hideTooltip,
+}: {
+  lang: "zh" | "en";
+} & HidePropsBase) {
   // 登录检测放在 LiveNewsFrame 内部：
   // - 未登录 / 无法判定时在「打开」旁多一个 amber 「需登录同步」按钮
   // - 鼠标悬停按钮会出现自定义 tooltip（不是原生 title）
@@ -307,6 +315,14 @@ function LiveNewsFrame({ lang }: { lang: "zh" | "en" }) {
             {lang === "zh" ? "打开" : "Open"}
             <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
+          {onHide && (
+            <HideWidgetButton
+              variant="inline"
+              onHide={onHide}
+              label={hideLabel ?? (lang === "zh" ? "隐藏" : "Hide")}
+              tooltip={hideTooltip}
+            />
+          )}
         </div>
       </div>
       <div className="relative flex-1 min-h-[460px] overflow-hidden bg-background xl:min-h-[600px] 2xl:min-h-[640px]">

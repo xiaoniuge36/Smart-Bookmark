@@ -1,4 +1,10 @@
-import { Clock, Flame, Radio, type LucideIcon } from "lucide-react";
+import {
+  Clock,
+  Flame,
+  Newspaper,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 import type { Settings } from "@/types";
 
 /**
@@ -7,10 +13,16 @@ import type { Settings } from "@/types";
  *  - Settings 页面「首页组件」分组中的开关
  *  - Dashboard 组件 header 的「隐藏」按钮
  *  - 隐藏后的 toast 提示
+ *
+ * 注：旧的 `showInfoCollections` 整体开关被拆成
+ * `showInfoLiveNews`（NewsNow iframe）和 `showInfoEntries`（资源入口卡片）
+ * 两项；旧字段仍保留在 Settings 类型里，并通过 {@link isHomeWidgetVisible}
+ * 作为回退默认值，确保历史用户偏好不丢失。
  */
 export type HomeWidgetKey =
   | "showGithubTrendingWidget"
-  | "showInfoCollections"
+  | "showInfoLiveNews"
+  | "showInfoEntries"
   | "showTopSites";
 
 export interface HomeWidgetDef {
@@ -40,13 +52,22 @@ export const HOME_WIDGETS: HomeWidgetDef[] = [
     iconAccent: "from-orange-500/20 to-rose-500/20 text-rose-500",
   },
   {
-    key: "showInfoCollections",
-    titleKey: "settings.showInfoCollections",
-    hintKey: "settings.showInfoCollectionsHint",
-    shortKey: "home.widgetShort.infoCollections",
-    Icon: Radio,
+    key: "showInfoLiveNews",
+    titleKey: "settings.showInfoLiveNews",
+    hintKey: "settings.showInfoLiveNewsHint",
+    shortKey: "home.widgetShort.infoLiveNews",
+    Icon: Newspaper,
     iconAccent:
-      "from-emerald-500/25 to-sky-500/25 text-emerald-600 dark:text-emerald-400",
+      "from-sky-500/25 to-indigo-500/25 text-sky-600 dark:text-sky-400",
+  },
+  {
+    key: "showInfoEntries",
+    titleKey: "settings.showInfoEntries",
+    hintKey: "settings.showInfoEntriesHint",
+    shortKey: "home.widgetShort.infoEntries",
+    Icon: Sparkles,
+    iconAccent:
+      "from-amber-500/20 to-rose-500/20 text-amber-600 dark:text-amber-300",
   },
   {
     key: "showTopSites",
@@ -58,9 +79,22 @@ export const HOME_WIDGETS: HomeWidgetDef[] = [
   },
 ];
 
+/**
+ * 解析单个首页组件的可见性。
+ *
+ * - 对于拆分后的 `showInfoLiveNews` / `showInfoEntries`，若用户没有显式设置过新
+ *   字段（值为 `undefined`），则回退读取旧的 `showInfoCollections` 总开关，
+ *   保持历史用户「关闭整个信息差雷达」的偏好不被新版本误打开。
+ * - 其他字段保持原有行为：未设置时默认显示。
+ */
 export function isHomeWidgetVisible(
   settings: Settings,
   key: HomeWidgetKey,
 ): boolean {
+  if (key === "showInfoLiveNews" || key === "showInfoEntries") {
+    const explicit = settings[key];
+    if (typeof explicit === "boolean") return explicit;
+    return settings.showInfoCollections ?? true;
+  }
   return settings[key] ?? true;
 }

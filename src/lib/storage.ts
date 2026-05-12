@@ -27,6 +27,8 @@ export const DEFAULT_SETTINGS: Settings = {
   discoverDefaultLanguage: "",
   showGithubTrendingWidget: true,
   showInfoCollections: true,
+  showInfoLiveNews: true,
+  showInfoEntries: true,
   showTopSites: true,
 };
 

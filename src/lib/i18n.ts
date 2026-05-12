@@ -120,6 +120,12 @@ const zh: Dict = {
   "settings.showInfoCollections": "首页显示信息差雷达",
   "settings.showInfoCollectionsHint":
     "关闭后首页不再显示 NewsNow 内嵌热点和资源入口面板。",
+  "settings.showInfoLiveNews": "首页显示 NewsNow 实时热点",
+  "settings.showInfoLiveNewsHint":
+    "关闭后首页不再显示上方的 NewsNow 内嵌实时热点 iframe，下方资源入口卡片不受影响。",
+  "settings.showInfoEntries": "首页显示热点资源入口",
+  "settings.showInfoEntriesHint":
+    "关闭后首页不再显示下方「热点入口 + 信息差工具」资源链接卡片，NewsNow iframe 不受影响。",
   "settings.showTopSites": "首页显示「常去」",
   "settings.showTopSitesHint":
     "关闭后首页不再显示由 Chrome 自动统计的常访问站点小组件。",
@@ -127,6 +133,8 @@ const zh: Dict = {
     "勾选要在首页显示的组件。首页组件 header 也可鼠标悬停后点「隐藏」快捷关闭。",
   "home.widgetShort.githubTrending": "GitHub 热门",
   "home.widgetShort.infoCollections": "信息差雷达",
+  "home.widgetShort.infoLiveNews": "实时热点",
+  "home.widgetShort.infoEntries": "热点资源入口",
   "home.widgetShort.topSites": "常去",
   "home.hideWidget": "隐藏",
   "home.hideWidgetTooltip": (name: string) =>
@@ -389,6 +397,12 @@ const en: Dict = {
   "settings.showInfoCollections": "Show signal radar on home",
   "settings.showInfoCollectionsHint":
     "When off, the dashboard hides the embedded NewsNow live feed and resource link panels.",
+  "settings.showInfoLiveNews": "Show NewsNow live feed on home",
+  "settings.showInfoLiveNewsHint":
+    "When off, the embedded NewsNow live feed iframe is hidden on the dashboard; the resource entries card below stays visible.",
+  "settings.showInfoEntries": "Show resource entries on home",
+  "settings.showInfoEntriesHint":
+    "When off, the \"Trend sources + Resource tools\" card is hidden on the dashboard; the NewsNow iframe stays visible.",
   "settings.showTopSites": "Show \"Frequent\" on home",
   "settings.showTopSitesHint":
     "When off, the dashboard hides the Chrome top sites widget.",
@@ -396,6 +410,8 @@ const en: Dict = {
     "Pick the widgets to show on the dashboard. You can also hover any widget header on home and click \"Hide\" to remove it from there.",
   "home.widgetShort.githubTrending": "GitHub Trending",
   "home.widgetShort.infoCollections": "Signal radar",
+  "home.widgetShort.infoLiveNews": "Live feed",
+  "home.widgetShort.infoEntries": "Resource entries",
   "home.widgetShort.topSites": "Frequent",
   "home.hideWidget": "Hide",
   "home.hideWidgetTooltip": (name: string) =>
