@@ -8,6 +8,8 @@ import {
   Columns,
   HardDriveDownload,
   Flame,
+  ExternalLink,
+  Github,
 } from "lucide-react";
 import Dashboard from "./pages/Dashboard";
 import Cleaner from "./pages/Cleaner";
@@ -24,6 +26,9 @@ import { ToastHost } from "@/components/ui/toast";
 import ThemeToggle from "@/components/ThemeToggle";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+
+const PROJECT_REPO_URL = "https://github.com/xiaoniuge36/Smart-Bookmark";
+const PROJECT_REPO_LABEL = "xiaoniuge36/Smart-Bookmark";
 
 type TabId =
   | "dashboard"
@@ -145,6 +150,19 @@ export default function App() {
               </TabsList>
             </Tabs>
             <div className="min-w-0 flex-1" />
+            <a
+              href={PROJECT_REPO_URL}
+              target="_blank"
+              rel="noreferrer"
+              title={PROJECT_REPO_URL}
+              aria-label={`Open GitHub repository: ${PROJECT_REPO_LABEL}`}
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center gap-1.5 rounded-full border bg-background/60 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur transition hover:border-primary/40 hover:bg-primary/10 hover:text-primary sm:w-auto sm:px-3"
+            >
+              <Github className="h-3.5 w-3.5 shrink-0" />
+              <span className="hidden xl:inline">{PROJECT_REPO_LABEL}</span>
+              <span className="hidden sm:inline xl:hidden">GitHub</span>
+              <ExternalLink className="hidden h-3 w-3 shrink-0 sm:block" />
+            </a>
             {/*
               Utility segmented group（连体胶囊）：
               - 外层一个 rounded-full border + shared bg，3 个偏好控件视觉合并为「一个 widget」
