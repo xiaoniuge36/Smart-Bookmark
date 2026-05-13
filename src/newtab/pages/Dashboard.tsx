@@ -23,6 +23,7 @@ import {
   Columns,
   Command,
   ExternalLink,
+  Github,
   GripVertical,
   MoreHorizontal,
   Pin,
@@ -45,6 +46,9 @@ import { isHomeWidgetVisible } from "@/lib/homeWidgets";
 import TopSitesSidebar from "@/components/widgets/TopSitesSidebar";
 import TrendingSidebar from "@/components/widgets/TrendingSidebar";
 import { rankSearchItems } from "@/lib/searchRank";
+
+const PROJECT_REPO_URL = "https://github.com/xiaoniuge36/Smart-Bookmark";
+const PROJECT_REPO_LABEL = "github.com/xiaoniuge36/Smart-Bookmark";
 
 interface Props {
   settings: Settings;
@@ -809,6 +813,23 @@ export default function Dashboard({
 
 
         </form>
+
+        {showHero && (
+          <div className="flex justify-center">
+            <a
+              href={PROJECT_REPO_URL}
+              target="_blank"
+              rel="noreferrer"
+              title={PROJECT_REPO_URL}
+              aria-label="Open Smart Bookmark GitHub repository"
+              className="inline-flex max-w-full items-center gap-1.5 rounded-full border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur transition hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+            >
+              <Github className="h-3.5 w-3.5 shrink-0" />
+              <span className="truncate">{PROJECT_REPO_LABEL}</span>
+              <ExternalLink className="h-3 w-3 shrink-0" />
+            </a>
+          </div>
+        )}
 
         {showHero && hasTopSitesSection && (
           <div className="md:hidden mx-auto flex max-w-4xl flex-wrap items-start justify-center gap-4 pt-2">
