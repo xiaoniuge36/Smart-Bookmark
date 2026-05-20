@@ -68,13 +68,22 @@ const COLLECTIONS: CollectionGroup[] = [
           en: "Hot X posts for a fast read on public conversation",
         },
       },
+      {
+        title: "A股收盘简报",
+        url: "https://zxl7.top/quant-review/",
+        tag: { zh: "A股复盘", en: "A-share recap" },
+        description: {
+          zh: "收盘后看指数、情绪温度、连板结构与次日观察方向",
+          en: "A-share close recap with sentiment, limit-up ladder and watch points",
+        },
+      },
     ],
   },
   {
     title: { zh: "信息差工具", en: "Resource tools" },
     subtitle: {
-      zh: "AI 中转、公益站与内容检索入口",
-      en: "AI relays, public AI sites and useful indexes",
+      zh: "AI 中转、格式转换与内容检索入口",
+      en: "AI relays, converters and useful indexes",
     },
     Icon: Sparkles,
     accent:
@@ -105,6 +114,24 @@ const COLLECTIONS: CollectionGroup[] = [
         description: {
           zh: "AI API 中转站合集，适合横向对比可用服务",
           en: "AI API relay collection for comparing available services",
+        },
+      },
+      {
+        title: "Sub / CPA 互转",
+        url: "http://cd.xdo.icu:18358/",
+        tag: { zh: "格式转换", en: "Converter" },
+        description: {
+          zh: "本地转换 GPT AT、CPA、Sub2API JSON，适合整理导入格式",
+          en: "Local GPT AT, CPA and Sub2API JSON conversion",
+        },
+      },
+      {
+        title: "GPT Session Converter",
+        url: "https://gtxx3600.github.io/GPTSession2CPAandSub2API/",
+        tag: { zh: "Session 转换", en: "Session converter" },
+        description: {
+          zh: "ChatGPT Session 本地转 CPA、sub2api、Cockpit、9router、AxonHub",
+          en: "Local ChatGPT session export to CPA, sub2api, Cockpit, 9router and AxonHub",
         },
       },
       {
@@ -556,4 +583,3 @@ function SectionIcon({
     </div>
   );
 }
-
