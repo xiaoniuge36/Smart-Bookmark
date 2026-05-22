@@ -135,6 +135,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "1key.me",
+            url: "https://1key.me/",
+            tag: { zh: "维护入口", en: "Maintenance" },
+            description: {
+              zh: "1Key 入口，当前站点提示维护中，可先保留快速访问",
+              en: "1Key entry currently showing maintenance; kept for quick access",
+            },
+          },
+          {
             title: "LDOH 公益站导航",
             url: "https://ldoh.105117.xyz/",
             tag: { zh: "公益站导航", en: "Public AI" },
