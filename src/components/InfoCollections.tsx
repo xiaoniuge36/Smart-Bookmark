@@ -25,12 +25,18 @@ interface CollectionItem {
   description: Copy;
 }
 
+interface CollectionSection {
+  title: Copy;
+  items: CollectionItem[];
+}
+
 interface CollectionGroup {
   title: Copy;
   subtitle: Copy;
   Icon: LucideIcon;
   accent: string;
-  items: CollectionItem[];
+  items?: CollectionItem[];
+  sections?: CollectionSection[];
 }
 
 const NEWSNOW_URL = "https://newsnow.busiyi.world/";
@@ -88,96 +94,120 @@ const COLLECTIONS: CollectionGroup[] = [
     Icon: Sparkles,
     accent:
       "from-amber-500/20 to-rose-500/20 text-amber-600 dark:text-amber-300",
-    items: [
+    sections: [
       {
-        title: "tokennav.cc",
-        url: "https://tokennav.cc",
-        tag: { zh: "Token 比价", en: "Token prices" },
-        description: {
-          zh: "API 中转服务比价入口，适合先看价格区间",
-          en: "API relay price comparison for quick market checks",
-        },
+        title: { zh: "AI / API", en: "AI / API" },
+        items: [
+          {
+            title: "tokennav.cc",
+            url: "https://tokennav.cc",
+            tag: { zh: "Token 比价", en: "Token prices" },
+            description: {
+              zh: "API 中转服务比价入口，适合先看价格区间",
+              en: "API relay price comparison for quick market checks",
+            },
+          },
+          {
+            title: "aibijia.org",
+            url: "https://aibijia.org",
+            tag: { zh: "Token 比价", en: "Token prices" },
+            description: {
+              zh: "同类 API 中转比价，补充价格和供应商参考",
+              en: "Another API relay price index for supplier comparison",
+            },
+          },
+          {
+            title: "HelpAIO Transit",
+            url: "https://www.helpaio.com/transit",
+            tag: { zh: "AI 中转合集", en: "AI relays" },
+            description: {
+              zh: "AI API 中转站合集，适合横向对比可用服务",
+              en: "AI API relay collection for comparing available services",
+            },
+          },
+          {
+            title: "Codex Redeem",
+            url: "https://codex.henhe.li/",
+            tag: { zh: "Codex 入口", en: "Codex entry" },
+            description: {
+              zh: "Codex 相关入口，适合快速访问和兑换",
+              en: "Codex-related entry for quick access and redeeming",
+            },
+          },
+          {
+            title: "LDOH 公益站导航",
+            url: "https://ldoh.105117.xyz/",
+            tag: { zh: "公益站导航", en: "Public AI" },
+            description: {
+              zh: "AI 公益站与免费体验资源导航",
+              en: "Public AI sites and free trial resource navigation",
+            },
+          },
+        ],
       },
       {
-        title: "aibijia.org",
-        url: "https://aibijia.org",
-        tag: { zh: "Token 比价", en: "Token prices" },
-        description: {
-          zh: "同类 API 中转比价，补充价格和供应商参考",
-          en: "Another API relay price index for supplier comparison",
-        },
+        title: { zh: "格式转换", en: "Converters" },
+        items: [
+          {
+            title: "Sub / CPA 互转",
+            url: "http://cd.xdo.icu:18358/",
+            tag: { zh: "格式转换", en: "Converter" },
+            description: {
+              zh: "本地转换 GPT AT、CPA、Sub2API JSON，适合整理导入格式",
+              en: "Local GPT AT, CPA and Sub2API JSON conversion",
+            },
+          },
+          {
+            title: "GPT Session Converter",
+            url: "https://gtxx3600.github.io/GPTSession2CPAandSub2API/",
+            tag: { zh: "Session 转换", en: "Session converter" },
+            description: {
+              zh: "ChatGPT Session 本地转 CPA、sub2api、Cockpit、9router、AxonHub",
+              en: "Local ChatGPT session export to CPA, sub2api, Cockpit, 9router and AxonHub",
+            },
+          },
+        ],
       },
       {
-        title: "HelpAIO Transit",
-        url: "https://www.helpaio.com/transit",
-        tag: { zh: "AI 中转合集", en: "AI relays" },
-        description: {
-          zh: "AI API 中转站合集，适合横向对比可用服务",
-          en: "AI API relay collection for comparing available services",
-        },
-      },
-      {
-        title: "Sub / CPA 互转",
-        url: "http://cd.xdo.icu:18358/",
-        tag: { zh: "格式转换", en: "Converter" },
-        description: {
-          zh: "本地转换 GPT AT、CPA、Sub2API JSON，适合整理导入格式",
-          en: "Local GPT AT, CPA and Sub2API JSON conversion",
-        },
-      },
-      {
-        title: "GPT Session Converter",
-        url: "https://gtxx3600.github.io/GPTSession2CPAandSub2API/",
-        tag: { zh: "Session 转换", en: "Session converter" },
-        description: {
-          zh: "ChatGPT Session 本地转 CPA、sub2api、Cockpit、9router、AxonHub",
-          en: "Local ChatGPT session export to CPA, sub2api, Cockpit, 9router and AxonHub",
-        },
-      },
-      {
-        title: "LDOH 公益站导航",
-        url: "https://ldoh.105117.xyz/",
-        tag: { zh: "公益站导航", en: "Public AI" },
-        description: {
-          zh: "AI 公益站与免费体验资源导航",
-          en: "Public AI sites and free trial resource navigation",
-        },
-      },
-      {
-        title: "wallhaven.cc",
-        url: "https://wallhaven.cc/",
-        tag: { zh: "图片素材", en: "Wallpapers" },
-        description: {
-          zh: "高质量壁纸和图片素材检索入口",
-          en: "High-quality wallpaper and image discovery",
-        },
-      },
-      {
-        title: "greenvideo.cc",
-        url: "https://greenvideo.cc",
-        tag: { zh: "视频检索", en: "Video search" },
-        description: {
-          zh: "视频资源检索入口",
-          en: "Video resource search entry",
-        },
-      },
-      {
-        title: "seedhub.cc",
-        url: "https://seedhub.cc",
-        tag: { zh: "影视索引", en: "Media index" },
-        description: {
-          zh: "影视资源索引入口",
-          en: "Film and series resource index",
-        },
-      },
-      {
-        title: "flacdownloader.com",
-        url: "https://flacdownloader.com",
-        tag: { zh: "无损音乐", en: "Lossless music" },
-        description: {
-          zh: "FLAC 音乐资源检索入口",
-          en: "FLAC music search entry",
-        },
+        title: { zh: "内容检索", en: "Content search" },
+        items: [
+          {
+            title: "wallhaven.cc",
+            url: "https://wallhaven.cc/",
+            tag: { zh: "图片素材", en: "Wallpapers" },
+            description: {
+              zh: "高质量壁纸和图片素材检索入口",
+              en: "High-quality wallpaper and image discovery",
+            },
+          },
+          {
+            title: "greenvideo.cc",
+            url: "https://greenvideo.cc",
+            tag: { zh: "视频检索", en: "Video search" },
+            description: {
+              zh: "视频资源检索入口",
+              en: "Video resource search entry",
+            },
+          },
+          {
+            title: "seedhub.cc",
+            url: "https://seedhub.cc",
+            tag: { zh: "影视索引", en: "Media index" },
+            description: {
+              zh: "影视资源索引入口",
+              en: "Film and series resource index",
+            },
+          },
+          {
+            title: "flacdownloader.com",
+            url: "https://flacdownloader.com",
+            tag: { zh: "无损音乐", en: "Lossless music" },
+            description: {
+              zh: "FLAC 音乐资源检索入口",
+              en: "FLAC music search entry",
+            },
+          },
+        ],
       },
     ],
   },
@@ -266,6 +296,7 @@ export function InfoEntries({
         Icon={trendGroup.Icon}
         accentClass="bg-sky-500/10 text-sky-700 ring-sky-500/20 dark:text-sky-300"
         items={trendGroup.items}
+        sections={trendGroup.sections}
         lang={lang}
         chipAccent="trend"
       />
@@ -275,6 +306,7 @@ export function InfoEntries({
         Icon={toolGroup.Icon}
         accentClass="bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300"
         items={toolGroup.items}
+        sections={toolGroup.sections}
         lang={lang}
         chipAccent="tool"
       />
@@ -448,6 +480,7 @@ function ChipGroup({
   Icon,
   accentClass,
   items,
+  sections,
   lang,
   chipAccent,
 }: {
@@ -455,10 +488,13 @@ function ChipGroup({
   Icon: LucideIcon;
   // 分组标签的背景色/文字色 className (如 bg-sky-500 的半透明 + text-sky-700 + ring)
   accentClass: string;
-  items: CollectionItem[];
+  items?: CollectionItem[];
+  sections?: CollectionSection[];
   lang: "zh" | "en";
   chipAccent: "trend" | "tool";
 }) {
+  const hasSections = Boolean(sections?.length);
+
   return (
     <div className="space-y-2">
       {/* 分组标签独占一行，让其下方的卡片网格视觉对齐 */}
@@ -473,15 +509,42 @@ function ChipGroup({
           {label}
         </span>
       </div>
-      {/*
-        卡片自适应网格：每张卡片最小 200px，按容器宽度自动 1/2/3/4 列；
-        在 main col 720-1300px 区间会自然落到 3-4 列，每张卡片宽度足够显示标题 + 单行描述
-      */}
-      <div className="grid gap-1.5 [grid-template-columns:repeat(auto-fill,minmax(200px,1fr))]">
-        {items.map((it) => (
-          <ChipLink key={it.url} item={it} lang={lang} accent={chipAccent} />
-        ))}
-      </div>
+      {hasSections ? (
+        <div className="space-y-2">
+          {sections?.map((section) => (
+            <div key={section.title.en} className="space-y-1.5">
+              <div className="px-0.5 text-[10px] font-medium text-muted-foreground">
+                {section.title[lang]}
+              </div>
+              <ChipGrid items={section.items} lang={lang} accent={chipAccent} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <ChipGrid items={items ?? []} lang={lang} accent={chipAccent} />
+      )}
+    </div>
+  );
+}
+
+function ChipGrid({
+  items,
+  lang,
+  accent,
+}: {
+  items: CollectionItem[];
+  lang: "zh" | "en";
+  accent: "trend" | "tool";
+}) {
+  return (
+    /*
+      卡片自适应网格：每张卡片最小 200px，按容器宽度自动 1/2/3/4 列；
+      在 main col 720-1300px 区间会自然落到 3-4 列，每张卡片宽度足够显示标题 + 单行描述
+    */
+    <div className="grid gap-1.5 [grid-template-columns:repeat(auto-fill,minmax(200px,1fr))]">
+      {items.map((it) => (
+        <ChipLink key={it.url} item={it} lang={lang} accent={accent} />
+      ))}
     </div>
   );
 }
