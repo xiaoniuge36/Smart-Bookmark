@@ -18,6 +18,8 @@ type Copy = {
   en: string;
 };
 
+type SectionTone = "sky" | "emerald" | "amber" | "rose" | "cyan" | "slate";
+
 interface CollectionItem {
   title: string;
   url: string;
@@ -27,6 +29,7 @@ interface CollectionItem {
 
 interface CollectionSection {
   title: Copy;
+  tone?: SectionTone;
   items: CollectionItem[];
 }
 
@@ -45,6 +48,67 @@ const NEWSNOW_URL = "https://newsnow.busiyi.world/";
 // 文字相对 0.74 缩小 ~5%，几乎察觉不到，但能保证「无论屏宽多少 NewsNow 都 3 列」。
 // 大屏 (1440+) 主区 880px+ 原生 1257px+，已远超 3 列阈值，scale 偏低也无所谓。
 const NEWSNOW_FRAME_SCALE = 0.7;
+
+const SECTION_TONE_STYLES: Record<
+  SectionTone,
+  {
+    panel: string;
+    heading: string;
+    dot: string;
+    tag: string;
+    card: string;
+    icon: string;
+  }
+> = {
+  sky: {
+    panel: "bg-sky-500/[0.035] ring-sky-500/15",
+    heading: "text-sky-700 dark:text-sky-300",
+    dot: "bg-sky-500",
+    tag: "bg-sky-500/10 text-sky-700 ring-sky-500/20 dark:text-sky-300",
+    card: "hover:border-sky-500/35 hover:bg-sky-500/[0.035] focus-visible:ring-sky-500/30",
+    icon: "bg-sky-500/[0.08] ring-sky-500/15",
+  },
+  emerald: {
+    panel: "bg-emerald-500/[0.035] ring-emerald-500/15",
+    heading: "text-emerald-700 dark:text-emerald-300",
+    dot: "bg-emerald-500",
+    tag: "bg-emerald-500/10 text-emerald-700 ring-emerald-500/20 dark:text-emerald-300",
+    card: "hover:border-emerald-500/35 hover:bg-emerald-500/[0.035] focus-visible:ring-emerald-500/30",
+    icon: "bg-emerald-500/[0.08] ring-emerald-500/15",
+  },
+  amber: {
+    panel: "bg-amber-500/[0.045] ring-amber-500/15",
+    heading: "text-amber-700 dark:text-amber-300",
+    dot: "bg-amber-500",
+    tag: "bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300",
+    card: "hover:border-amber-500/35 hover:bg-amber-500/[0.04] focus-visible:ring-amber-500/30",
+    icon: "bg-amber-500/[0.1] ring-amber-500/15",
+  },
+  rose: {
+    panel: "bg-rose-500/[0.035] ring-rose-500/15",
+    heading: "text-rose-700 dark:text-rose-300",
+    dot: "bg-rose-500",
+    tag: "bg-rose-500/10 text-rose-700 ring-rose-500/20 dark:text-rose-300",
+    card: "hover:border-rose-500/35 hover:bg-rose-500/[0.035] focus-visible:ring-rose-500/30",
+    icon: "bg-rose-500/[0.08] ring-rose-500/15",
+  },
+  cyan: {
+    panel: "bg-cyan-500/[0.035] ring-cyan-500/15",
+    heading: "text-cyan-700 dark:text-cyan-300",
+    dot: "bg-cyan-500",
+    tag: "bg-cyan-500/10 text-cyan-700 ring-cyan-500/20 dark:text-cyan-300",
+    card: "hover:border-cyan-500/35 hover:bg-cyan-500/[0.035] focus-visible:ring-cyan-500/30",
+    icon: "bg-cyan-500/[0.08] ring-cyan-500/15",
+  },
+  slate: {
+    panel: "bg-slate-500/[0.035] ring-slate-500/15",
+    heading: "text-slate-700 dark:text-slate-300",
+    dot: "bg-slate-500",
+    tag: "bg-slate-500/10 text-slate-700 ring-slate-500/20 dark:text-slate-300",
+    card: "hover:border-slate-500/35 hover:bg-slate-500/[0.035] focus-visible:ring-slate-500/30",
+    icon: "bg-slate-500/[0.08] ring-slate-500/15",
+  },
+};
 
 const COLLECTIONS: CollectionGroup[] = [
   {
@@ -86,17 +150,18 @@ const COLLECTIONS: CollectionGroup[] = [
     ],
   },
   {
-    title: { zh: "信息差工具", en: "Resource tools" },
+    title: { zh: "资源工具", en: "Resource tools" },
     subtitle: {
-      zh: "AI 中转、格式转换与内容检索入口",
-      en: "AI relays, converters and useful indexes",
+      zh: "AI 比价、中转、账号入口、号池接码与素材检索",
+      en: "AI pricing, relays, account entries, number pools and content discovery",
     },
     Icon: Sparkles,
     accent:
       "from-amber-500/20 to-rose-500/20 text-amber-600 dark:text-amber-300",
     sections: [
       {
-        title: { zh: "AI / API", en: "AI / API" },
+        title: { zh: "AI 比价 / 中转", en: "AI pricing / relays" },
+        tone: "sky",
         items: [
           {
             title: "tokennav.cc",
@@ -125,6 +190,21 @@ const COLLECTIONS: CollectionGroup[] = [
               en: "AI API relay collection for comparing available services",
             },
           },
+          {
+            title: "GPT Bargain",
+            url: "https://gptbargain.highkay.qzz.io/search?code=linux_do_friend",
+            tag: { zh: "GPT 比价", en: "GPT bargain" },
+            description: {
+              zh: "带 code=linux_do_friend 的 GPT 比价入口",
+              en: "GPT bargain entry with code=linux_do_friend",
+            },
+          },
+        ],
+      },
+      {
+        title: { zh: "资源入口", en: "Resource entries" },
+        tone: "emerald",
+        items: [
           {
             title: "Codex Redeem",
             url: "https://codex.henhe.li/",
@@ -155,7 +235,32 @@ const COLLECTIONS: CollectionGroup[] = [
         ],
       },
       {
+        title: { zh: "号池 / 接码", en: "Number pools / SMS" },
+        tone: "amber",
+        items: [
+          {
+            title: "LiveTools Workspace",
+            url: "https://trade.livetools.top/workspace",
+            tag: { zh: "号池交易", en: "Pool trading" },
+            description: {
+              zh: "LiveTools 号池交易平台入口",
+              en: "LiveTools number pool trading platform",
+            },
+          },
+          {
+            title: "Hero SMS",
+            url: "https://hero-sms.com/cn",
+            tag: { zh: "短信接码", en: "SMS" },
+            description: {
+              zh: "Hero SMS 中文入口",
+              en: "Hero SMS Chinese entry",
+            },
+          },
+        ],
+      },
+      {
         title: { zh: "格式转换", en: "Converters" },
+        tone: "rose",
         items: [
           {
             title: "Sub / CPA 互转",
@@ -175,20 +280,21 @@ const COLLECTIONS: CollectionGroup[] = [
               en: "Local ChatGPT session export to CPA, sub2api, Cockpit, 9router and AxonHub",
             },
           },
+          {
+            title: "Codex Kedaya",
+            url: "https://codex.kedaya.xyz/",
+            tag: { zh: "格式转换", en: "Converter" },
+            description: {
+              zh: "Codex Kedaya 格式转换入口",
+              en: "Codex Kedaya conversion entry",
+            },
+          },
         ],
       },
       {
-        title: { zh: "内容检索", en: "Content search" },
+        title: { zh: "影视 / 视频", en: "Video / media" },
+        tone: "cyan",
         items: [
-          {
-            title: "wallhaven.cc",
-            url: "https://wallhaven.cc/",
-            tag: { zh: "图片素材", en: "Wallpapers" },
-            description: {
-              zh: "高质量壁纸和图片素材检索入口",
-              en: "High-quality wallpaper and image discovery",
-            },
-          },
           {
             title: "greenvideo.cc",
             url: "https://greenvideo.cc",
@@ -205,6 +311,21 @@ const COLLECTIONS: CollectionGroup[] = [
             description: {
               zh: "影视资源索引入口",
               en: "Film and series resource index",
+            },
+          },
+        ],
+      },
+      {
+        title: { zh: "图片 / 音乐", en: "Images / music" },
+        tone: "slate",
+        items: [
+          {
+            title: "wallhaven.cc",
+            url: "https://wallhaven.cc/",
+            tag: { zh: "图片素材", en: "Wallpapers" },
+            description: {
+              zh: "高质量壁纸和图片素材检索入口",
+              en: "High-quality wallpaper and image discovery",
             },
           },
           {
@@ -289,7 +410,7 @@ export function InfoEntries({
   return (
     <section
       className={cn(
-        "group/widget relative shrink-0 space-y-3 rounded-2xl border bg-card/40 p-3 ring-1 ring-black/[0.02] dark:ring-white/[0.04]",
+        "group/widget relative shrink-0 space-y-3 rounded-2xl border border-border/70 bg-background/80 p-3.5 shadow-sm ring-1 ring-black/[0.02] dark:bg-card/45 dark:ring-white/[0.04]",
         className,
       )}
     >
@@ -519,19 +640,56 @@ function ChipGroup({
         </span>
       </div>
       {hasSections ? (
-        <div className="space-y-2">
+        <div className="grid gap-2">
           {sections?.map((section) => (
-            <div key={section.title.en} className="space-y-1.5">
-              <div className="px-0.5 text-[10px] font-medium text-muted-foreground">
-                {section.title[lang]}
-              </div>
-              <ChipGrid items={section.items} lang={lang} accent={chipAccent} />
-            </div>
+            <SectionBlock
+              key={section.title.en}
+              section={section}
+              lang={lang}
+              fallbackTone={chipAccent === "trend" ? "sky" : "amber"}
+            />
           ))}
         </div>
       ) : (
-        <ChipGrid items={items ?? []} lang={lang} accent={chipAccent} />
+        <ChipGrid
+          items={items ?? []}
+          lang={lang}
+          tone={chipAccent === "trend" ? "sky" : "amber"}
+        />
       )}
+    </div>
+  );
+}
+
+function SectionBlock({
+  section,
+  lang,
+  fallbackTone,
+}: {
+  section: CollectionSection;
+  lang: "zh" | "en";
+  fallbackTone: SectionTone;
+}) {
+  const tone = section.tone ?? fallbackTone;
+  const style = SECTION_TONE_STYLES[tone];
+
+  return (
+    <div
+      className={cn(
+        "rounded-xl border px-2.5 py-2 ring-1",
+        style.panel,
+      )}
+    >
+      <div className="mb-1.5 flex items-center justify-between gap-2 px-0.5">
+        <div className={cn("inline-flex items-center gap-1.5 text-[11px] font-semibold", style.heading)}>
+          <span className={cn("h-1.5 w-1.5 rounded-full", style.dot)} />
+          <span>{section.title[lang]}</span>
+        </div>
+        <span className="rounded-full bg-background/80 px-1.5 py-0.5 text-[9px] font-medium text-muted-foreground ring-1 ring-border/50">
+          {section.items.length}
+        </span>
+      </div>
+      <ChipGrid items={section.items} lang={lang} tone={tone} />
     </div>
   );
 }
@@ -539,20 +697,20 @@ function ChipGroup({
 function ChipGrid({
   items,
   lang,
-  accent,
+  tone,
 }: {
   items: CollectionItem[];
   lang: "zh" | "en";
-  accent: "trend" | "tool";
+  tone: SectionTone;
 }) {
   return (
     /*
       卡片自适应网格：每张卡片最小 200px，按容器宽度自动 1/2/3/4 列；
       在 main col 720-1300px 区间会自然落到 3-4 列，每张卡片宽度足够显示标题 + 单行描述
     */
-    <div className="grid gap-1.5 [grid-template-columns:repeat(auto-fill,minmax(200px,1fr))]">
+    <div className="grid gap-2 [grid-template-columns:repeat(auto-fill,minmax(220px,1fr))]">
       {items.map((it) => (
-        <ChipLink key={it.url} item={it} lang={lang} accent={accent} />
+        <ChipLink key={it.url} item={it} lang={lang} tone={tone} />
       ))}
     </div>
   );
@@ -567,20 +725,13 @@ function ChipGrid({
 function ChipLink({
   item,
   lang,
-  accent,
+  tone,
 }: {
   item: CollectionItem;
   lang: "zh" | "en";
-  accent: "trend" | "tool";
+  tone: SectionTone;
 }) {
-  const hoverBorder =
-    accent === "trend"
-      ? "hover:border-sky-500/40"
-      : "hover:border-amber-500/40";
-  const tagClass =
-    accent === "trend"
-      ? "bg-sky-500/10 text-sky-700 ring-sky-500/20 dark:text-sky-300"
-      : "bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300";
+  const style = SECTION_TONE_STYLES[tone];
 
   return (
     <a
@@ -589,31 +740,34 @@ function ChipLink({
       rel="noreferrer"
       title={`${item.title} · ${hostnameOf(item.url)}`}
       className={cn(
-        "group/chipcard flex flex-col gap-1 rounded-xl border bg-card px-2.5 py-2 shadow-sm ring-1 ring-black/[0.02] transition dark:ring-white/[0.04]",
-        "hover:-translate-y-px hover:shadow-md",
-        hoverBorder,
+        "group/chipcard relative flex min-h-[64px] flex-col gap-1 overflow-hidden rounded-xl border border-border/70 bg-background/85 px-3 py-2.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02] transition-all duration-150 dark:bg-background/45 dark:ring-white/[0.04]",
+        "before:absolute before:inset-x-3 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-border before:to-transparent before:content-['']",
+        "hover:-translate-y-0.5 hover:shadow-[0_14px_28px_-22px_rgba(15,23,42,0.55)] focus-visible:outline-none focus-visible:ring-2",
+        style.card,
       )}
     >
-      <div className="flex min-w-0 items-center gap-1.5">
-        <img
-          src={faviconOf(item.url, 32)}
-          alt=""
-          className="h-3.5 w-3.5 shrink-0 rounded"
-          onError={(e) => (e.currentTarget.style.visibility = "hidden")}
-        />
+      <div className="flex min-w-0 items-center gap-2">
+        <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-lg ring-1", style.icon)}>
+          <img
+            src={faviconOf(item.url, 32)}
+            alt=""
+            className="h-4 w-4 rounded"
+            onError={(e) => (e.currentTarget.style.visibility = "hidden")}
+          />
+        </span>
         <span className="min-w-0 flex-1 truncate text-[12.5px] font-semibold tracking-tight text-foreground">
           {item.title}
         </span>
         <span
           className={cn(
             "shrink-0 rounded-full px-1.5 py-px text-[9.5px] font-medium ring-1",
-            tagClass,
+            style.tag,
           )}
         >
           {item.tag[lang]}
         </span>
       </div>
-      <div className="line-clamp-1 text-[10.5px] leading-snug text-muted-foreground">
+      <div className="line-clamp-1 pl-8 text-[10.5px] leading-snug text-muted-foreground">
         {item.description[lang]}
       </div>
     </a>
