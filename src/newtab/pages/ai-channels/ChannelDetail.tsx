@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { CheckCircle2, Clipboard, ExternalLink } from "lucide-react";
+import { CheckCircle2, Clipboard, ExternalLink, Folder, FolderSymlink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import type { AiChannelGroup, AiChannelPriceTag, AiChannelRecord, AiChannelStatus } from "@/types";
@@ -86,6 +86,16 @@ export default function ChannelDetail({
             </span>
           )}
         </div>
+        <div className="mt-2 grid grid-cols-2 gap-x-2 gap-y-0.5">
+          <div className="flex min-w-0 items-center gap-1 text-[11px] text-muted-foreground" title={`${t("channels.detail.folder")}: ${record.folderPath}`}>
+            <Folder className="h-3 w-3 shrink-0" />
+            <span className="truncate">{record.folderPath}</span>
+          </div>
+          <div className="flex min-w-0 items-center gap-1 text-[11px] text-muted-foreground" title={`${t("channels.detail.sourceFolder")}: ${record.sourceFolderPath}`}>
+            <FolderSymlink className="h-3 w-3 shrink-0" />
+            <span className="truncate">{record.sourceFolderPath}</span>
+          </div>
+        </div>
       </div>
 
       <div className="min-h-0 flex-1 space-y-3.5 overflow-auto p-3.5 scrollbar-thin">
@@ -113,13 +123,6 @@ export default function ChannelDetail({
               })
             }
           />
-        </Field>
-
-        <Field label={t("channels.detail.folder")}>
-          <span className="text-xs text-muted-foreground">{record.folderPath}</span>
-        </Field>
-        <Field label={t("channels.detail.sourceFolder")}>
-          <span className="text-xs text-muted-foreground">{record.sourceFolderPath}</span>
         </Field>
 
         <Field label={t("channels.detail.note")}>
