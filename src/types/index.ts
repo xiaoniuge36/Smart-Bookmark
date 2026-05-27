@@ -87,6 +87,75 @@ export interface CustomEngine {
   icon?: string;
 }
 
+export type AiChannelCategory =
+  | "gpt-subscription"
+  | "api-relay"
+  | "account"
+  | "tool"
+  | "decode"
+  | "unknown";
+
+export type AiChannelStatus =
+  | "pending"
+  | "active"
+  | "watching"
+  | "dead"
+  | "blocked";
+
+export type AiChannelRisk = "low" | "medium" | "high";
+
+/** Price-tier label for sorting; S=超值 A=推荐 B=备选 C=贵 none=未评 */
+export type AiChannelPriceTag = "S" | "A" | "B" | "C" | "none";
+
+export interface AiChannelGroup {
+  id: string;
+  name: string;
+  color: string;
+  collapsed?: boolean;
+  /** Keywords for auto-classification (case-insensitive match against title+url) */
+  keywords?: string[];
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface AiChannelGroupPref {
+  color?: string;
+  collapsed?: boolean;
+}
+
+export interface AiChannelRecord {
+  bookmarkId: string;
+  title: string;
+  url: string;
+  folderId?: string;
+  folderPath: string;
+  sourceRef: string;
+  sourceFolderId?: string;
+  sourceFolderPath: string;
+  category: AiChannelCategory;
+  groupId?: string;
+  status: AiChannelStatus;
+  risk: AiChannelRisk;
+  priceTag: AiChannelPriceTag;
+  note: string;
+  firstSeenAt: number;
+  lastSeenAt: number;
+  lastCheckedAt?: number;
+  present: boolean;
+  missingSince?: number;
+  /** Timestamp (ms) of the last local annotation change (note/status/priceTag/groupId). Used for sync conflict resolution. */
+  annotationUpdatedAt?: number;
+}
+
+export interface AiChannelStore {
+  recordsById: Record<string, AiChannelRecord>;
+  /** Derived from Chrome bookmark subfolders during scan — not persisted directly */
+  groups: AiChannelGroup[];
+  /** Local-only preferences keyed by Chrome folder ID (color, collapsed) */
+  groupPrefs?: Record<string, AiChannelGroupPref>;
+  lastScanAt?: number;
+}
+
 export interface Settings {
   theme: "system" | "light" | "dark";
   accentPreset: AccentPreset;
@@ -108,6 +177,8 @@ export interface Settings {
   customEngines: CustomEngine[];
   expandedFolders: string[];
   pinnedFolderIds: string[];
+  collectionBoardName: string;
+  aiChannelSources: string[];
   /** GitHub Personal Access Token（用于 Discover 拉 trending 提高配额） */
   githubToken?: string;
   /** Discover 页默认时段 */

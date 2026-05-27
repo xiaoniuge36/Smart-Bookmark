@@ -8,7 +8,7 @@ import type { AccentPreset, Settings, ThemePreset } from "@/types";
 import { useT } from "@/lib/i18n";
 import { testAi } from "@/lib/ai";
 import { BUILTIN_ENGINES, faviconFor } from "@/lib/engines";
-import { Check, CheckCircle2, XCircle, Loader2, Flame, ExternalLink } from "lucide-react";
+import { Check, CheckCircle2, XCircle, Loader2, Flame, ExternalLink, Tags } from "lucide-react";
 import { COMMON_LANGUAGES, clearTrendingCache } from "@/lib/github";
 import type { TrendingMode, TrendingRange, TrendingSort } from "@/types";
 import { toast } from "@/components/ui/toast";
@@ -27,6 +27,7 @@ export default function SettingsPage() {
     message: string;
   } | null>(null);
   const [testing, setTesting] = useState(false);
+  const [aiChannelInput, setAiChannelInput] = useState("");
 
   useEffect(() => {
     getSettings().then(setS);
@@ -421,6 +422,107 @@ export default function SettingsPage() {
           <div className="rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-700 dark:text-amber-300">
             {t("settings.apiKeyNotice")} OpenAI 兼容接口（DeepSeek/Moonshot Kimi/LM Studio/Ollama 等）可通过自定义 Base URL 使用。
           </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Tags className="h-4 w-4 text-primary" />
+            本地收藏工作台
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <Row label="工作台名称">
+            <Input
+              value={s.collectionBoardName ?? ""}
+              placeholder="收藏工作台 / AI 渠道 / 学习资料"
+              onChange={(e) => update({ collectionBoardName: e.target.value })}
+            />
+          </Row>
+          <Row label="来源文件夹">
+            <div className="space-y-2">
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <Input
+                  value={aiChannelInput}
+                  placeholder="输入文件夹 ID、标题或完整路径，回车添加"
+                  onChange={(e) => setAiChannelInput(e.target.value)}
+                  onKeyDown={async (e) => {
+                    if (e.key !== "Enter") return;
+                    e.preventDefault();
+                    const nextRef = aiChannelInput.trim();
+                    if (!nextRef) return;
+                    const next = Array.from(
+                      new Set([...(s.aiChannelSources ?? []), nextRef]),
+                    );
+                    setAiChannelInput("");
+                    await update({ aiChannelSources: next });
+                  }}
+                />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={async () => {
+                    const nextRef = aiChannelInput.trim();
+                    if (!nextRef) return;
+                    const next = Array.from(
+                      new Set([...(s.aiChannelSources ?? []), nextRef]),
+                    );
+                    setAiChannelInput("");
+                    await update({ aiChannelSources: next });
+                  }}
+                >
+                  添加
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() =>
+                    update({
+                      aiChannelSources: ["AI", "AI工具购买地址"],
+                    })
+                  }
+                >
+                  恢复默认
+                </Button>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {(s.aiChannelSources ?? []).length ? (
+                  (s.aiChannelSources ?? []).map((ref) => (
+                    <span
+                      key={ref}
+                      className="group inline-flex items-center gap-1 rounded-full border bg-muted/60 px-2.5 py-1 text-xs"
+                    >
+                      <span className="max-w-[220px] truncate font-medium">
+                        {ref}
+                      </span>
+                      <button
+                        type="button"
+                        className="ml-1 rounded-full p-0.5 text-muted-foreground transition hover:bg-background hover:text-foreground"
+                        title="移除"
+                        onClick={() =>
+                          update({
+                            aiChannelSources: (s.aiChannelSources ?? []).filter(
+                              (x) => x !== ref,
+                            ),
+                          })
+                        }
+                      >
+                        <XCircle className="h-3.5 w-3.5" />
+                      </button>
+                    </span>
+                  ))
+                ) : (
+                  <span className="text-xs text-muted-foreground">
+                    还没有配置源文件夹
+                  </span>
+                )}
+              </div>
+              <div className="text-xs text-muted-foreground">
+                这个工作台可以管理任意主题的书签集合，来源文件夹只读取，不会移动或改名原始书签。
+              </div>
+            </div>
+          </Row>
         </CardContent>
       </Card>
 

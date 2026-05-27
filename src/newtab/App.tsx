@@ -9,10 +9,12 @@ import {
   HardDriveDownload,
   Flame,
   Github,
+  Tags,
 } from "lucide-react";
 import Dashboard from "./pages/Dashboard";
 import Cleaner from "./pages/Cleaner";
 import AiPanel from "./pages/AiPanel";
+import AiChannels from "./pages/AiChannels";
 import SettingsPage from "./pages/Settings";
 import Compare from "./pages/Compare";
 import BackupPage from "./pages/Backup";
@@ -34,6 +36,7 @@ type TabId =
   | "discover"
   | "cleaner"
   | "ai"
+  | "channels"
   | "compare"
   | "backup"
   | "settings";
@@ -45,6 +48,7 @@ function readHashTab(): TabId {
   if (
     t === "cleaner" ||
     t === "ai" ||
+    t === "channels" ||
     t === "settings" ||
     t === "compare" ||
     t === "backup" ||
@@ -98,6 +102,8 @@ export default function App() {
   }, [settings?.wallpaper]);
 
   if (!settings) return null;
+  const collectionTabLabel =
+    settings.collectionBoardName?.trim() || t("tabs.channels");
 
   return (
     <div className="min-h-screen bg-cover bg-center bg-fixed" style={bg}>
@@ -130,6 +136,7 @@ export default function App() {
                 {(
                   [
                     ["dashboard", Bookmark, t("tabs.dashboard")],
+                    ["channels", Tags, collectionTabLabel],
                     ["discover", Flame, t("tabs.discover")],
                     ["cleaner", Wand2, t("tabs.cleaner")],
                     ["compare", Columns, t("tabs.compare")],
@@ -187,6 +194,11 @@ export default function App() {
           {tab === "cleaner" && <Cleaner />}
           {tab === "compare" && <Compare settings={settings} />}
           {tab === "ai" && <AiPanel settings={settings} />}
+          {tab === "channels" && (
+            <div className="h-[calc(100vh-10rem)]">
+              <AiChannels settings={settings} />
+            </div>
+          )}
           {tab === "backup" && <BackupPage />}
           {tab === "settings" && <SettingsPage />}
         </main>

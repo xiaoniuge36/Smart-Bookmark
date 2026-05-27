@@ -38,6 +38,14 @@ function formatMsgTime(
 }
 
 export default function AiPanel({ settings }: { settings: Settings }) {
+  return (
+    <div className="h-[calc(100vh-10rem)]">
+      <AiChatPanel settings={settings} />
+    </div>
+  );
+}
+
+function AiChatPanel({ settings }: { settings: Settings }) {
   const t = useT();
   const [messages, setMessages] = useState<AiMessage[]>([
     { role: "system", content: SYSTEM_PROMPT },
@@ -158,7 +166,7 @@ export default function AiPanel({ settings }: { settings: Settings }) {
   const isAiLive = settings.aiProvider !== "none";
 
   return (
-    <div className="mx-auto flex h-[calc(100vh-10rem)] w-full max-w-3xl flex-col">
+    <div className="mx-auto flex h-full w-full max-w-3xl flex-col">
       <header className="mb-3 flex items-center justify-between gap-3 px-1">
         <div className="flex items-center gap-2.5 font-serif text-[1.1rem] tracking-tight">
           <Sparkles

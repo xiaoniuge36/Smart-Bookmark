@@ -21,6 +21,8 @@ export const DEFAULT_SETTINGS: Settings = {
   customEngines: [],
   expandedFolders: [],
   pinnedFolderIds: [],
+  collectionBoardName: "收藏工作台",
+  aiChannelSources: ["AI", "AI工具购买地址"],
   githubToken: "",
   discoverDefaultRange: "weekly",
   discoverDefaultMode: "created",
