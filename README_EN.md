@@ -56,7 +56,20 @@
 - Supports OpenAI and Anthropic, API key stays local only
 - Streaming output with stop control
 
-### 📌 Side Panel
+### � AI Channel Board (🆕)
+
+> Built for "I saved a bunch of AI service bookmarks but have no idea which ones still work" — scan selected bookmark folders to surface every AI channel, then manage status, risk, price, and custom groups all in one place.
+
+- **Auto-scan**: Detect AI service URLs from selected bookmark folders; record status (Pending / Active / Watching / Dead / Blocked), risk (Low / Med / High), and price tag (S/A/B/C)
+- **Custom groups**: Create as many groups as you like with 6 preset colors or any custom HEX value
+- **Keyword auto-classify**: Attach keywords to a group and one-click auto-assign all bookmarks by title/URL match
+- **Batch create groups**: Paste a multi-line block to create many groups at once — format `group name: kw1, kw2`
+- **Batch assign**: Select multiple channels, then move them all to a group in one action
+- **Drag-to-reorder**: Rearrange the group list with drag-and-drop
+- **Group filter tabs**: Switch between All / Ungrouped / any custom group with one click
+- **Import / Export**: Export channel data (including groups) as JSON; auto-sync across devices via Chrome Sync
+
+### �📌 Side Panel
 - Open from any web page via **Alt+B** / **⌘+B**
 - Reacts to bookmark changes in real time, instant search filter
 
@@ -135,9 +148,15 @@ Done ✅ (0.2)
 - [x] Backup / export JSON / HTML
 - [x] English i18n
 
+Done ✅ (latest)
+- [x] AI Channel Board: auto-scan + status / risk / price-tag management
+- [x] Channel custom groups (color + keywords + drag-to-reorder)
+- [x] One-click keyword auto-classify + batch group create + batch group assign
+- [x] Channel data import / export (JSON) + Chrome Sync cross-device sync
+
 Next candidates
 - [ ] OAuth-based Google Bookmarks / Pocket / Raindrop sync
-- [ ] Bookmark tags & smart grouping
+- [ ] Universal bookmark tags & cross-folder smart search
 - [ ] AI-driven auto-categorization / dedup suggestions
 - [ ] Browser history timeline visualization
 - [ ] Export bookmarks as Markdown
