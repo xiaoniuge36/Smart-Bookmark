@@ -97,6 +97,7 @@ export type AiChannelCategory =
 
 export type AiChannelStatus =
   | "pending"
+  | "limited"
   | "active"
   | "watching"
   | "dead"

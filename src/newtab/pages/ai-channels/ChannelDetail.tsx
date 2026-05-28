@@ -2,12 +2,13 @@ import { useEffect, useState, type ReactNode } from "react";
 import { CheckCircle2, Clipboard, ExternalLink, Folder, FolderSymlink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import type { AiChannelGroup, AiChannelPriceTag, AiChannelRecord, AiChannelStatus } from "@/types";
+import type { AiChannelGroup, AiChannelPriceTag, AiChannelRecord } from "@/types";
 import { CATEGORY_KEY, PRICE_TAG_META, STATUS_META, UNGROUPED_ID, colorOptionDot, formatDateTime } from "./meta";
 import { cn, faviconOf, hostnameOf } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
 import { toast } from "@/components/ui/toast";
 import SelectMenu, { type SelectMenuOption } from "./SelectMenu";
+import { AI_CHANNEL_STATUS_ORDER } from "@/lib/aiChannelStatus";
 
 interface ChannelDetailProps {
   record?: AiChannelRecord;
@@ -153,7 +154,7 @@ export default function ChannelDetail({
 
         <Field label={t("channels.detail.status")}>
           <div className="flex flex-wrap gap-1.5">
-            {(Object.keys(STATUS_META) as AiChannelStatus[]).map((statusKey) => (
+            {AI_CHANNEL_STATUS_ORDER.map((statusKey) => (
               <Button
                 key={statusKey}
                 size="sm"

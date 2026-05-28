@@ -2,16 +2,7 @@ import { Loader2, RefreshCw, Search, Settings2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useT } from "@/lib/i18n";
-import { STATUS_META, type StatusFilter } from "./meta";
-
-const STATUS_FILTERS: StatusFilter[] = [
-  "all",
-  "pending",
-  "watching",
-  "active",
-  "dead",
-  "blocked",
-];
+import { STATUS_FILTER_ORDER, STATUS_META, type StatusFilter } from "./meta";
 
 interface ChannelToolbarProps {
   title: string;
@@ -101,7 +92,7 @@ export default function ChannelToolbar({
           )}
         </div>
         <div className="flex flex-wrap gap-1">
-          {STATUS_FILTERS.map((status) => (
+          {STATUS_FILTER_ORDER.map((status) => (
             <Button
               key={status}
               size="sm"

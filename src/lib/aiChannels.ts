@@ -11,6 +11,7 @@ import {
   normalizeGroups,
   suggestedGroupId,
 } from "@/lib/aiChannelGroups";
+import { AI_CHANNEL_STATUS_ORDER } from "@/lib/aiChannelStatus";
 
 const KEY = "smart-bookmark::ai-channels";
 const hasChromeStorage = typeof chrome !== "undefined" && !!chrome.storage?.local;
@@ -199,14 +200,8 @@ export function guessAiChannelMeta(
 }
 
 export function statusOrder(status: AiChannelStatus): number {
-  const order: Record<AiChannelStatus, number> = {
-    pending: 0,
-    watching: 1,
-    active: 2,
-    dead: 3,
-    blocked: 4,
-  };
-  return order[status];
+  const index = AI_CHANNEL_STATUS_ORDER.indexOf(status);
+  return index >= 0 ? index : AI_CHANNEL_STATUS_ORDER.length;
 }
 
 function collectBookmarksFromFolder(

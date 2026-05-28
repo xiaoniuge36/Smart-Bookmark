@@ -36,6 +36,7 @@ import {
   syncSave,
   type ChannelExportData,
 } from "@/lib/aiChannelSync";
+import { downloadAiChannelShareHtml } from "@/lib/aiChannelHtmlExport";
 import type { AiChannelRecord, AiChannelStore, BookmarkNode, Settings } from "@/types";
 import { toast } from "@/components/ui/toast";
 import ChannelManagePanel from "./ai-channels/ChannelManagePanel";
@@ -125,6 +126,11 @@ export default function AiChannels({ settings }: { settings: Settings }) {
     a.click();
     URL.revokeObjectURL(a.href);
   }, []);
+
+  const handleExportHtml = useCallback(() => {
+    const locale = document.documentElement.lang.startsWith("zh") ? "zh" : "en";
+    downloadAiChannelShareHtml(storeRef.current, { title, locale });
+  }, [title]);
 
   const handleImport = useCallback((file: File) => {
     const reader = new FileReader();
@@ -446,6 +452,7 @@ export default function AiChannels({ settings }: { settings: Settings }) {
             onBatchCreate={handleBatchCreate}
             onReorderGroups={reorderGroups}
             onExport={handleExport}
+            onExportHtml={handleExportHtml}
             onImport={handleImport}
           />
         </DialogContent>

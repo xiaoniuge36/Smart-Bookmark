@@ -2,6 +2,7 @@ import {
   AlertTriangle,
   CheckCircle2,
   CircleDashed,
+  PackageCheck,
   ShieldAlert,
   ShieldCheck,
   XCircle,
@@ -13,6 +14,7 @@ import type {
   AiChannelRisk,
   AiChannelStatus,
 } from "@/types";
+import { AI_CHANNEL_STATUS_ORDER } from "@/lib/aiChannelStatus";
 
 export const UNGROUPED_ID = "__ungrouped__";
 
@@ -88,15 +90,20 @@ export const STATUS_META: Record<
   AiChannelStatus,
   { labelKey: string; className: string; Icon: LucideIcon }
 > = {
-  pending: {
-    labelKey: "channels.status.pending",
-    className: "bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300",
-    Icon: CircleDashed,
-  },
   active: {
     labelKey: "channels.status.active",
     className: "bg-emerald-500/10 text-emerald-700 ring-emerald-500/20 dark:text-emerald-300",
     Icon: CheckCircle2,
+  },
+  limited: {
+    labelKey: "channels.status.limited",
+    className: "bg-lime-500/10 text-lime-700 ring-lime-500/20 dark:text-lime-300",
+    Icon: PackageCheck,
+  },
+  pending: {
+    labelKey: "channels.status.pending",
+    className: "bg-amber-500/10 text-amber-700 ring-amber-500/20 dark:text-amber-300",
+    Icon: CircleDashed,
   },
   watching: {
     labelKey: "channels.status.watching",
@@ -114,6 +121,8 @@ export const STATUS_META: Record<
     Icon: ShieldAlert,
   },
 };
+
+export const STATUS_FILTER_ORDER: StatusFilter[] = ["all", ...AI_CHANNEL_STATUS_ORDER];
 
 export const RISK_META: Record<
   AiChannelRisk,
