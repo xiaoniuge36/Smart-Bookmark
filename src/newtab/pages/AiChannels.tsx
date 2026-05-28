@@ -232,15 +232,15 @@ export default function AiChannels({ settings }: { settings: Settings }) {
 
   const records = useMemo(() => {
     return Object.values(store.recordsById).sort((a, b) => {
-      if (a.present !== b.present) return a.present ? -1 : 1;
       const byPrice = PRICE_TAG_ORDER[a.priceTag ?? "none"] - PRICE_TAG_ORDER[b.priceTag ?? "none"];
       if (byPrice) return byPrice;
-      const byNotePrice = compareNotePrice(a.note, b.note);
-      if (byNotePrice) return byNotePrice;
       const byStatus = statusOrder(a.status) - statusOrder(b.status);
       if (byStatus) return byStatus;
+      const byNotePrice = compareNotePrice(a.note, b.note);
+      if (byNotePrice) return byNotePrice;
       const byUpdated = (b.lastCheckedAt ?? 0) - (a.lastCheckedAt ?? 0);
       if (byUpdated) return byUpdated;
+      if (a.present !== b.present) return a.present ? -1 : 1;
       return a.title.localeCompare(b.title);
     });
   }, [store.recordsById]);

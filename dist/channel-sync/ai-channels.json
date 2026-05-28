@@ -2,7 +2,7 @@
   "app": "smart-bookmark",
   "kind": "ai-channel-project-sync",
   "version": 1,
-  "exportedAt": 1779935256820,
+  "exportedAt": 1779946725856,
   "groups": [
     {
       "collapsed": false,
@@ -15,7 +15,7 @@
         "廉价"
       ],
       "name": "gpt 优先低价",
-      "updatedAt": 1779849160309
+      "updatedAt": 1779937693962
     },
     {
       "collapsed": false,
@@ -42,6 +42,13 @@
       ],
       "name": "AI 中转",
       "updatedAt": 1779854751634
+    },
+    {
+      "color": "#b700fa",
+      "createdAt": 1779939929674,
+      "id": "对接上游货源",
+      "name": "对接上游货源",
+      "updatedAt": 1779939929674
     },
     {
       "collapsed": false,
@@ -111,8 +118,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-y4url7",
@@ -127,8 +135,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-94lkzi",
@@ -143,8 +152,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ak2e28",
@@ -159,8 +169,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-z203r5",
@@ -175,8 +186,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-14pqsoy",
@@ -191,8 +203,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1txw8up",
@@ -207,8 +220,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-cz0wrg",
@@ -224,8 +238,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1nkyiml",
@@ -241,8 +256,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1y6zbhs",
@@ -257,8 +273,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-7fdezg",
@@ -273,8 +290,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1stl97l",
@@ -285,14 +303,17 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "gpt-subscription",
       "groupId": "gpt-优先低价",
+      "secondaryGroupIds": [
+        "对接上游货源"
+      ],
       "status": "pending",
       "risk": "low",
       "priceTag": "S",
       "note": "5元 464",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
-      "annotationUpdatedAt": 1779864892711
+      "annotationUpdatedAt": 1779946713997
     },
     {
       "bookmarkId": "sync-58d6dy",
@@ -307,8 +328,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-5z6xxj",
@@ -323,8 +345,27 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-lr4sgr",
+      "title": "5jupe1的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/5jupe1_5",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-备选",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "A",
+      "note": "",
+      "firstSeenAt": 1779938548255,
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779938555131
     },
     {
       "bookmarkId": "sync-1gy05bq",
@@ -340,8 +381,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4oug7e",
@@ -356,8 +398,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1lpytc0",
@@ -373,9 +416,10 @@
       "priceTag": "S",
       "note": "4.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854378438,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-bm3jqp",
@@ -391,8 +435,9 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779854660440,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-p77vg7",
@@ -407,8 +452,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1j22txj",
@@ -423,8 +469,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-votq24",
@@ -440,7 +487,7 @@
       "priceTag": "S",
       "note": "3元 ChatGPT plus 会员日抛不包接码，真实有效",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779931617851,
       "present": true,
       "annotationUpdatedAt": 1779931617851
@@ -458,8 +505,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-l699lg",
@@ -474,8 +522,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779909504488,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-8k8ef1",
@@ -491,9 +540,10 @@
       "priceTag": "S",
       "note": "3",
       "firstSeenAt": 1779862768734,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779862893489,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1bmxnwg",
@@ -509,9 +559,10 @@
       "priceTag": "S",
       "note": "3",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854194648,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1wqdmrw",
@@ -526,8 +577,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-wcpwca",
@@ -543,8 +595,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860344424,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-5fgz0",
@@ -559,7 +612,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868324590
     },
@@ -577,9 +630,10 @@
       "priceTag": "S",
       "note": "2.9 元已接码合集",
       "firstSeenAt": 1779852987430,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853020940,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1j17w45",
@@ -594,8 +648,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1kx71fm",
@@ -611,8 +666,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-h2tzvi",
@@ -627,8 +683,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-d8cn2a",
@@ -644,8 +701,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-170pjde",
@@ -661,8 +719,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1488ryo",
@@ -678,8 +737,9 @@
       "priceTag": "none",
       "note": "123123",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1j2ki4",
@@ -694,8 +754,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-lum7kv",
@@ -710,8 +771,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-a0zh9v",
@@ -726,8 +788,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1327prw",
@@ -742,8 +805,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-sy9lco",
@@ -759,9 +823,10 @@
       "priceTag": "A",
       "note": "10",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854454753,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-qeu39d",
@@ -777,7 +842,7 @@
       "priceTag": "none",
       "note": "30",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779849067056,
       "present": true,
       "annotationUpdatedAt": 1779863445073
@@ -795,8 +860,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11p06u7",
@@ -811,8 +877,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1r96m6n",
@@ -827,8 +894,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ijy47",
@@ -843,8 +911,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860541269,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1mqmo4p",
@@ -859,8 +928,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1j5gii2",
@@ -875,8 +945,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-z18rxk",
@@ -892,7 +963,7 @@
       "priceTag": "A",
       "note": "5",
       "firstSeenAt": 1779877455197,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779877473553
     },
@@ -909,8 +980,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-pbofbu",
@@ -925,8 +997,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-kbvdmb",
@@ -942,8 +1015,9 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-18yme1b",
@@ -958,8 +1032,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1pr6dsi",
@@ -975,7 +1050,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868357013
     },
@@ -992,8 +1067,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779871203972,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-7izkvt",
@@ -1008,8 +1084,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1kao4zh",
@@ -1025,8 +1102,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1rhi64j",
@@ -1042,8 +1120,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-8w0foh",
@@ -1058,8 +1137,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1p8hq7h",
@@ -1074,8 +1154,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11l63u5",
@@ -1090,8 +1171,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1svv2oi",
@@ -1106,8 +1188,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-12hqy65",
@@ -1122,8 +1205,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-xm8cp4",
@@ -1139,9 +1223,10 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853559217,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1kyx1yp",
@@ -1157,9 +1242,10 @@
       "priceTag": "S",
       "note": "claude 中转",
       "firstSeenAt": 1779855121659,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855130561,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-27l5ek",
@@ -1175,8 +1261,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1pglnqd",
@@ -1191,7 +1278,24 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1s6bn4p",
+      "title": "购物 - 异次元店铺",
+      "url": "https://xzoo.shop/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1779936480329,
+      "lastSeenAt": 1779941040952,
       "present": true
     },
     {
@@ -1207,8 +1311,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779871015323,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ho12em",
@@ -1224,8 +1329,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1q5xtni",
@@ -1240,8 +1346,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1j1efpx",
@@ -1257,8 +1364,9 @@
       "priceTag": "A",
       "note": "5",
       "firstSeenAt": 1779854228443,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-69ap7",
@@ -1273,7 +1381,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868509792
     },
@@ -1290,8 +1398,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ycxtsv",
@@ -1307,9 +1416,10 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853542171,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1sm62tg",
@@ -1324,8 +1434,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-mdlx0v",
@@ -1340,8 +1451,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1dbx9wl",
@@ -1356,8 +1468,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-9r7r91",
@@ -1373,7 +1486,7 @@
       "priceTag": "S",
       "note": "直充",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779865379872,
       "present": true,
       "annotationUpdatedAt": 1779865379872
@@ -1391,8 +1504,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-mbqwqc",
@@ -1407,8 +1521,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1lq5ucr",
@@ -1424,8 +1539,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ps6lzk",
@@ -1440,8 +1556,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1gd8dgb",
@@ -1457,7 +1574,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860315891,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779864685744
     },
@@ -1475,7 +1592,7 @@
       "priceTag": "S",
       "note": "3.99",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853573850,
       "present": true,
       "annotationUpdatedAt": 1779930889254
@@ -1494,9 +1611,10 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853585026,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-cck35v",
@@ -1511,7 +1629,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779865215258
     },
@@ -1528,7 +1646,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779865213195
     },
@@ -1546,9 +1664,10 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853842134,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-es3y2p",
@@ -1563,8 +1682,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-7s7r9x",
@@ -1580,8 +1700,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860277893,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-v4lo3d",
@@ -1597,8 +1718,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1agk054",
@@ -1613,8 +1735,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-p6e9lu",
@@ -1629,8 +1752,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779842750930,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-r4vbns",
@@ -1646,8 +1770,9 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-cntxaq",
@@ -1662,8 +1787,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-qcedjv",
@@ -1679,9 +1805,10 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855048362,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-id9t1y",
@@ -1697,8 +1824,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-xbjg12",
@@ -1713,8 +1841,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4u01h4",
@@ -1730,9 +1859,10 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854258829,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-kff10g",
@@ -1747,8 +1877,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1vq63p9",
@@ -1763,8 +1894,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ocq5c2",
@@ -1779,8 +1911,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-cg25sl",
@@ -1796,8 +1929,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-17lkd4t",
@@ -1813,9 +1947,10 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854960569,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1tzpa7o",
@@ -1831,7 +1966,7 @@
       "priceTag": "S",
       "note": "4.9 rt",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779868750555,
       "present": true,
       "annotationUpdatedAt": 1779869670701
@@ -1849,8 +1984,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-22pff1",
@@ -1865,8 +2001,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1squ3gh",
@@ -1877,14 +2014,18 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "unknown",
       "groupId": "gpt-优先低价",
+      "secondaryGroupIds": [
+        "对接上游货源"
+      ],
       "status": "active",
       "risk": "low",
       "priceTag": "S",
       "note": "1",
       "firstSeenAt": 1779876232903,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
+      "lastCheckedAt": 1779938637707,
       "present": true,
-      "annotationUpdatedAt": 1779876424474
+      "annotationUpdatedAt": 1779946419878
     },
     {
       "bookmarkId": "sync-rm3f7y",
@@ -1899,8 +2040,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ra4o8s",
@@ -1916,7 +2058,7 @@
       "priceTag": "S",
       "note": "3.9",
       "firstSeenAt": 1779877302779,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779877310461
     },
@@ -1933,8 +2075,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4ju7lj",
@@ -1950,8 +2093,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-119rqmv",
@@ -1966,8 +2110,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1iliwm0",
@@ -1982,8 +2127,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ulw427",
@@ -1998,8 +2144,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1hxh94m",
@@ -2014,8 +2161,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1y9m1h2",
@@ -2030,24 +2178,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
-    },
-    {
-      "bookmarkId": "sync-1y9m1h2",
-      "title": "可莉莉ai小铺 - 自动发货平台",
-      "url": "https://xn--5kroo.com/",
-      "folderPath": "书签栏 / AI工具购买地址",
-      "sourceRef": "AI工具购买地址",
-      "sourceFolderPath": "书签栏 / AI工具购买地址",
-      "category": "unknown",
-      "status": "pending",
-      "risk": "low",
-      "priceTag": "none",
-      "note": "",
-      "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-kewbxw",
@@ -2062,8 +2195,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ipxlzr",
@@ -2078,8 +2212,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-lz79nq",
@@ -2094,8 +2229,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-r5k7hi",
@@ -2110,8 +2246,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1das80s",
@@ -2121,15 +2258,19 @@
       "sourceRef": "AI工具购买地址",
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "gpt-subscription",
-      "groupId": "gpt-备选",
+      "groupId": "gpt-优先低价",
+      "secondaryGroupIds": [
+        "对接上游货源"
+      ],
       "status": "active",
       "risk": "low",
       "priceTag": "S",
       "note": "4.4",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854183970,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779946702894
     },
     {
       "bookmarkId": "sync-nx097b",
@@ -2145,8 +2286,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-2deh1b",
@@ -2162,8 +2304,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-n0hgr3",
@@ -2178,8 +2321,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1lyg74v",
@@ -2195,8 +2339,9 @@
       "priceTag": "S",
       "note": "4 元",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-9k4efh",
@@ -2212,25 +2357,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
-    },
-    {
-      "bookmarkId": "sync-9k4efh",
-      "title": "麦当当plus的小店 - 链动小铺",
-      "url": "https://pay.ldxp.cn/shop/EOTZ17J2",
-      "folderPath": "书签栏 / AI工具购买地址",
-      "sourceRef": "AI工具购买地址",
-      "sourceFolderPath": "书签栏 / AI工具购买地址",
-      "category": "gpt-subscription",
-      "groupId": "gpt-备选",
-      "status": "pending",
-      "risk": "low",
-      "priceTag": "none",
-      "note": "",
-      "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1rrgb7b",
@@ -2246,9 +2375,10 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854802829,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ldzmu0",
@@ -2263,8 +2393,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-eahgct",
@@ -2279,8 +2410,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-14ko0ng",
@@ -2295,8 +2427,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1izr45f",
@@ -2311,8 +2444,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ox5bwe",
@@ -2327,8 +2461,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-m8l79s",
@@ -2344,7 +2479,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779843736838,
       "present": true,
       "annotationUpdatedAt": 1779864769164
@@ -2362,8 +2497,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1f2e9b4",
@@ -2378,8 +2514,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1qqiiib",
@@ -2394,8 +2531,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-815dfy",
@@ -2411,8 +2549,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1q5l1fe",
@@ -2427,8 +2566,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1pyw4zu",
@@ -2443,8 +2583,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-18jpqp6",
@@ -2460,9 +2601,10 @@
       "priceTag": "S",
       "note": "2.99",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853523632,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1czppu5",
@@ -2478,8 +2620,9 @@
       "priceTag": "S",
       "note": "4元低价",
       "firstSeenAt": 1779848276401,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1imikge",
@@ -2494,8 +2637,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-j6ggig",
@@ -2510,8 +2654,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ks4b78",
@@ -2527,7 +2672,7 @@
       "priceTag": "S",
       "note": "4.95",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779868947888,
       "present": true,
       "annotationUpdatedAt": 1779868947888
@@ -2546,9 +2691,10 @@
       "priceTag": "S",
       "note": "5.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854523318,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-hkgdfz",
@@ -2563,8 +2709,9 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-13wyfg",
@@ -2580,9 +2727,10 @@
       "priceTag": "A",
       "note": "7.99",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853501353,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-77k27",
@@ -2598,9 +2746,10 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855210850,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-veluqe",
@@ -2616,9 +2765,10 @@
       "priceTag": "A",
       "note": "3",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854218696,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1mgihbc",
@@ -2634,9 +2784,10 @@
       "priceTag": "S",
       "note": "三块",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853160660,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-13aved7",
@@ -2652,8 +2803,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-7p8fln",
@@ -2668,8 +2820,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ex3xx7",
@@ -2684,8 +2837,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-14mha7b",
@@ -2701,9 +2855,10 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779847445886,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-13ags7c",
@@ -2718,8 +2873,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1h5jphp",
@@ -2734,8 +2890,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-a6apla",
@@ -2750,8 +2907,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1fpmojr",
@@ -2767,8 +2925,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-10xb5u1",
@@ -2783,8 +2942,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-14p7x13",
@@ -2799,8 +2959,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ndo05y",
@@ -2815,8 +2976,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-uz24pi",
@@ -2831,8 +2993,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-149gptd",
@@ -2848,8 +3011,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1e5sml9",
@@ -2864,8 +3028,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-xsz4fu",
@@ -2880,8 +3045,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ja3vjy",
@@ -2897,9 +3063,10 @@
       "priceTag": "S",
       "note": "三块",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853259074,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1kanidh",
@@ -2914,8 +3081,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-16kdcbl",
@@ -2930,8 +3098,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-17cgr27",
@@ -2946,8 +3115,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1r8lr7g",
@@ -2962,8 +3132,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1xa07gf",
@@ -2979,8 +3150,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-bl226k",
@@ -2995,8 +3167,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1468y5r",
@@ -3011,8 +3184,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-3u21ly",
@@ -3027,8 +3201,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-qww1de",
@@ -3043,8 +3218,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1crq58e",
@@ -3059,8 +3235,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1aakpee",
@@ -3076,8 +3253,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-tfmymg",
@@ -3092,8 +3270,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-yosbho",
@@ -3108,8 +3287,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-g5f7jz",
@@ -3124,8 +3304,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1nttbyx",
@@ -3140,8 +3321,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-y8cafk",
@@ -3156,8 +3338,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11f4r0c",
@@ -3172,8 +3355,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-15phmds",
@@ -3189,8 +3373,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1cuvjk3",
@@ -3206,9 +3391,10 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855033609,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-3fq310",
@@ -3224,9 +3410,10 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779852947589,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-mjq7xx",
@@ -3241,8 +3428,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-aln7wq",
@@ -3257,8 +3445,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4cpby1",
@@ -3274,7 +3463,7 @@
       "priceTag": "S",
       "note": "1元接码",
       "firstSeenAt": 1779852864496,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779872675896
     },
@@ -3292,7 +3481,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868994166
     },
@@ -3309,8 +3498,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1jzb3hy",
@@ -3326,7 +3516,7 @@
       "priceTag": "A",
       "note": "2.7",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869018566
     },
@@ -3344,8 +3534,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-9642ht",
@@ -3360,8 +3551,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1tkwmvw",
@@ -3376,8 +3568,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1oi567y",
@@ -3393,8 +3586,28 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1hblcu4",
+      "title": "小坏蛋的店的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/1UK2JWE2",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "pending",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "2.9",
+      "firstSeenAt": 1779940511048,
+      "lastSeenAt": 1779941040952,
+      "lastCheckedAt": 1779940518388,
+      "present": true,
+      "annotationUpdatedAt": 1779940553931
     },
     {
       "bookmarkId": "sync-52tigo",
@@ -3410,8 +3623,9 @@
       "priceTag": "S",
       "note": "小猫低价全",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11eb9xz",
@@ -3426,8 +3640,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1u9i4gt",
@@ -3443,9 +3658,10 @@
       "priceTag": "S",
       "note": "2.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854009689,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-te7gp5",
@@ -3460,8 +3676,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ipinv1",
@@ -3476,8 +3693,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-tneo8v",
@@ -3492,8 +3710,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-tmk3nd",
@@ -3508,8 +3727,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4gxyy6",
@@ -3524,8 +3744,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-zwb36w",
@@ -3541,7 +3762,7 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779875246502,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779875253094
     },
@@ -3558,8 +3779,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1gwrhte",
@@ -3574,8 +3796,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-9r6299",
@@ -3590,8 +3813,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1tnxo0x",
@@ -3607,8 +3831,9 @@
       "priceTag": "S",
       "note": "team",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-17izrxi",
@@ -3623,8 +3848,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-zdvpic",
@@ -3639,8 +3865,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-166011l",
@@ -3655,8 +3882,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ydwv45",
@@ -3671,8 +3899,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-19d304x",
@@ -3687,8 +3916,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1li18ne",
@@ -3704,8 +3934,9 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779854649164,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-92ouwg",
@@ -3720,8 +3951,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1fp6e4c",
@@ -3737,8 +3969,27 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1fsl5ut",
+      "title": "仪表盘 - Kedaya",
+      "url": "https://sub.kedaya.xyz/dashboard",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "中转",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "鸭货中转",
+      "firstSeenAt": 1779937377008,
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779937394253
     },
     {
       "bookmarkId": "sync-s6prcb",
@@ -3754,9 +4005,10 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779854609779,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854614159,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ex7lvd",
@@ -3771,8 +4023,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-gufo0a",
@@ -3787,8 +4040,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-8kmnxk",
@@ -3804,8 +4058,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-180r1h2",
@@ -3821,9 +4076,10 @@
       "priceTag": "S",
       "note": "3.4",
       "firstSeenAt": 1779854621673,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854831177,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ldfppo",
@@ -3838,8 +4094,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-115ft00",
@@ -3854,8 +4111,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-toe34q",
@@ -3870,8 +4128,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-2b1tgq",
@@ -3887,8 +4146,9 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-no2j1y",
@@ -3903,8 +4163,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-t5p0zk",
@@ -3920,9 +4181,10 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779853677294,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853816522,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-g7gvui",
@@ -3937,8 +4199,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1vf7k09",
@@ -3953,9 +4216,10 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854083496,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-s2ykt5",
@@ -3970,8 +4234,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-pmaszi",
@@ -3987,8 +4252,27 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1gh3ugm",
+      "title": "云末AI的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/yunmo-ai",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "A",
+      "note": "7",
+      "firstSeenAt": 1779936971055,
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779936997891
     },
     {
       "bookmarkId": "sync-ps9f1l",
@@ -4003,8 +4287,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1s70lnu",
@@ -4019,8 +4304,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1h8nhf5",
@@ -4035,8 +4321,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-5x7ksk",
@@ -4051,8 +4338,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ghrf9w",
@@ -4067,8 +4355,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-jqjm72",
@@ -4083,8 +4372,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779846547435,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-15pu8k1",
@@ -4099,8 +4389,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-tsf95s",
@@ -4115,8 +4406,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-16un01e",
@@ -4131,8 +4423,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1djd9cj",
@@ -4147,8 +4440,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-p7by44",
@@ -4163,8 +4457,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-85fkaq",
@@ -4180,7 +4475,7 @@
       "priceTag": "S",
       "note": "7",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779876474266,
       "present": true,
       "annotationUpdatedAt": 1779876494449
@@ -4199,8 +4494,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1hm3h5u",
@@ -4215,8 +4511,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-o3s5ux",
@@ -4231,7 +4528,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868313350
     },
@@ -4248,8 +4545,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1rp1h3j",
@@ -4265,8 +4563,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1mtpxzn",
@@ -4281,8 +4580,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-13ppfsz",
@@ -4297,8 +4597,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-vsypx2",
@@ -4313,8 +4614,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-19pe5os",
@@ -4330,8 +4632,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-cmj8lw",
@@ -4347,8 +4650,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-qcmy63",
@@ -4363,25 +4667,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
-    },
-    {
-      "bookmarkId": "sync-koy6x3",
-      "title": "ai api调用 ",
-      "url": "https://foxcode.rjj.cc/",
-      "folderPath": "书签栏 / AI工具购买地址",
-      "sourceRef": "AI工具购买地址",
-      "sourceFolderPath": "书签栏 / AI工具购买地址",
-      "category": "api-relay",
-      "groupId": "中转",
-      "status": "pending",
-      "risk": "low",
-      "priceTag": "none",
-      "note": "",
-      "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11cr2f6",
@@ -4396,8 +4684,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-e063ly",
@@ -4412,8 +4701,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1lpgv59",
@@ -4428,8 +4718,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-fistbv",
@@ -4444,8 +4735,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-cemt8j",
@@ -4461,9 +4753,10 @@
       "priceTag": "A",
       "note": "38",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853455191,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-rom69w",
@@ -4479,8 +4772,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-etxq5",
@@ -4495,8 +4789,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-10kyxa6",
@@ -4511,8 +4806,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-193z1x3",
@@ -4527,8 +4823,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-xs9cow",
@@ -4544,8 +4841,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1cvff74",
@@ -4561,7 +4859,7 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779868410298,
       "present": true,
       "annotationUpdatedAt": 1779868410299
@@ -4579,8 +4877,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-u34vsi",
@@ -4595,8 +4894,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-c2uz21",
@@ -4611,8 +4911,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-fm5m8p",
@@ -4627,9 +4928,10 @@
       "priceTag": "S",
       "note": "3.89",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854583963,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-3wif21",
@@ -4644,8 +4946,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-18s0ltm",
@@ -4660,8 +4963,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ka2w1b",
@@ -4677,9 +4981,10 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853328128,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1rpctsu",
@@ -4695,9 +5000,10 @@
       "priceTag": "S",
       "note": "4.9接码",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854720331,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-12x4xm2",
@@ -4712,8 +5018,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-371ljk",
@@ -4729,9 +5036,10 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855070767,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-13ris1g",
@@ -4746,8 +5054,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-10l7xpw",
@@ -4763,7 +5072,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779869536254,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869559360
     },
@@ -4776,13 +5085,17 @@
       "sourceFolderPath": "书签栏 / AI",
       "category": "gpt-subscription",
       "groupId": "gpt-优先低价",
+      "secondaryGroupIds": [
+        "对接上游货源"
+      ],
       "status": "pending",
       "risk": "low",
       "priceTag": "S",
       "note": "4元PLUS (精品雅虎邮箱1卡1绑) 带rt，不带账密质保首登，sub2格式json",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779946688353
     },
     {
       "bookmarkId": "sync-1vwqdhf",
@@ -4798,8 +5111,9 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779854941951,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-fjoufv",
@@ -4814,9 +5128,10 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855156040,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-19q3dv1",
@@ -4832,9 +5147,10 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779854127401,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854135561,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ejgnqe",
@@ -4850,8 +5166,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1bdlq4w",
@@ -4867,9 +5184,10 @@
       "priceTag": "A",
       "note": "4.8",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853385146,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-z456ie",
@@ -4885,9 +5203,10 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854641730,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1a460jp",
@@ -4902,8 +5221,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1j9vnbw",
@@ -4919,7 +5239,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779864820266
     },
@@ -4936,8 +5256,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-12za3wp",
@@ -4953,8 +5274,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4lf37q",
@@ -4970,9 +5292,10 @@
       "priceTag": "A",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855009280,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-19rbfp",
@@ -4987,9 +5310,28 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854564635,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-dzyfjp",
+      "title": "AIplus小铺欢迎您~的小店 - gpt链动小铺",
+      "url": "https://pay.ldxp.cn/shop/AJ12EXWX",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "A",
+      "note": "4 未接码",
+      "firstSeenAt": 1779936657627,
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779936690676
     },
     {
       "bookmarkId": "sync-1pxguiy",
@@ -5004,8 +5346,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-y0jo5v",
@@ -5021,7 +5364,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779862655380,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779864691871
     },
@@ -5038,8 +5381,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ss3012",
@@ -5054,8 +5398,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1uzprs0",
@@ -5070,8 +5415,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-f3nabo",
@@ -5087,8 +5433,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1916226",
@@ -5104,8 +5451,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-etiabi",
@@ -5120,8 +5468,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1s1zypn",
@@ -5136,8 +5485,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1rkd6un",
@@ -5152,8 +5502,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1my612s",
@@ -5169,7 +5520,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868998939
     },
@@ -5186,8 +5537,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-16cxdxb",
@@ -5202,8 +5554,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-18bq59q",
@@ -5218,8 +5571,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1w4dgbe",
@@ -5234,8 +5588,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ld04zw",
@@ -5251,7 +5606,7 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779875167402,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779875177644
     },
@@ -5268,8 +5623,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-omy5ts",
@@ -5284,8 +5640,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-5vf2of",
@@ -5301,9 +5658,10 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854680398,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1h172tr",
@@ -5319,8 +5677,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-x38fdw",
@@ -5336,7 +5695,7 @@
       "priceTag": "S",
       "note": "6",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779869059217,
       "present": true,
       "annotationUpdatedAt": 1779869061504
@@ -5354,8 +5713,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-meuzjm",
@@ -5370,7 +5730,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869170196
     },
@@ -5387,27 +5747,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869121155
-    },
-    {
-      "bookmarkId": "sync-9eiu0d",
-      "title": "ChatGPT 公众号博主",
-      "url": "https://www.aiwzy.cn/#/settings",
-      "folderPath": "书签栏 / AI",
-      "sourceRef": "AI",
-      "sourceFolderPath": "书签栏 / AI",
-      "category": "gpt-subscription",
-      "groupId": "gpt-备选",
-      "status": "pending",
-      "risk": "low",
-      "priceTag": "none",
-      "note": "",
-      "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true,
-      "annotationUpdatedAt": 1779869163215
     },
     {
       "bookmarkId": "sync-1a054da",
@@ -5422,7 +5764,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869172186
     },
@@ -5440,7 +5782,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869166182
     },
@@ -5457,7 +5799,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869177371
     },
@@ -5474,7 +5816,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869180378
     },
@@ -5491,7 +5833,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868781455
     },
@@ -5508,7 +5850,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869183920
     },
@@ -5526,7 +5868,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868758814
     },
@@ -5543,7 +5885,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868299249
     },
@@ -5561,7 +5903,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868719621
     },
@@ -5579,7 +5921,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868709177
     },
@@ -5596,7 +5938,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868281640
     },
@@ -5613,8 +5955,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1fq7iu7",
@@ -5629,7 +5972,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868285374
     },
@@ -5646,7 +5989,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868257316
     },
@@ -5663,8 +6006,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-dam65j",
@@ -5679,8 +6023,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-uzd4yh",
@@ -5695,8 +6040,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-6vo88y",
@@ -5711,8 +6057,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-24hsc2",
@@ -5728,8 +6075,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-dryj4s",
@@ -5744,8 +6092,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-f6hvkf",
@@ -5760,8 +6109,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-a3i6u3",
@@ -5776,8 +6126,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-rksl15",
@@ -5793,8 +6144,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1yvgeca",
@@ -5810,8 +6162,9 @@
       "priceTag": "none",
       "note": "claude",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-tw5dv8",
@@ -5826,8 +6179,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1v1rofe",
@@ -5843,8 +6197,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1upila5",
@@ -5859,8 +6214,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1kvpbt7",
@@ -5875,8 +6231,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1qa64cq",
@@ -5892,7 +6249,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869363409
     },
@@ -5909,8 +6266,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-15jkvp0",
@@ -5926,8 +6284,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-mtejqo",
@@ -5942,8 +6301,9 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779854633464,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-mw52ip",
@@ -5958,8 +6318,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1mnppwa",
@@ -5974,8 +6335,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-vwopnw",
@@ -5990,8 +6352,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1u44pk4",
@@ -6006,8 +6369,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1yvtlh8",
@@ -6023,8 +6387,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-k60tss",
@@ -6039,8 +6404,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1dzj9lo",
@@ -6055,8 +6421,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-hdwjkd",
@@ -6071,8 +6438,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1unbtri",
@@ -6087,8 +6455,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ji8wc",
@@ -6103,8 +6472,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-m6i1hc",
@@ -6120,9 +6490,10 @@
       "priceTag": "S",
       "note": "3",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853409010,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1deqfrs",
@@ -6137,8 +6508,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-100aset",
@@ -6153,8 +6525,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-tr1opy",
@@ -6169,8 +6542,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ytjftj",
@@ -6185,8 +6559,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-810x1l",
@@ -6201,8 +6576,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1gtoluz",
@@ -6217,8 +6593,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1tj7a38",
@@ -6233,8 +6610,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-88ant8",
@@ -6250,8 +6628,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1q6e414",
@@ -6266,8 +6645,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-o7xl30",
@@ -6282,8 +6662,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-kic6by",
@@ -6298,8 +6679,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-xe74dd",
@@ -6314,8 +6696,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1yhgcj4",
@@ -6331,9 +6714,10 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854495940,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-5s045d",
@@ -6348,8 +6732,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1wm1k6r",
@@ -6364,8 +6749,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1v5886v",
@@ -6380,8 +6766,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1kv5xxh",
@@ -6396,8 +6783,26 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-i5yrkt",
+      "title": "fengqingyunai的小店 - 云猫寄售",
+      "url": "https://catfk.com/shop/fengqingyun",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "13",
+      "firstSeenAt": 1779936794234,
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779936804012
     },
     {
       "bookmarkId": "sync-53dp15",
@@ -6412,8 +6817,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11w4h12",
@@ -6428,8 +6834,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1omfmzo",
@@ -6444,8 +6851,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1h9eou2",
@@ -6460,8 +6868,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-q330iu",
@@ -6476,8 +6885,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-xsl6ru",
@@ -6492,8 +6902,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-wdhcmf",
@@ -6509,7 +6920,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868421136
     },
@@ -6527,8 +6938,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-tvqqeu",
@@ -6543,8 +6955,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1e2hyli",
@@ -6560,7 +6973,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779849076492,
       "present": true,
       "annotationUpdatedAt": 1779864774048
@@ -6579,9 +6992,10 @@
       "priceTag": "S",
       "note": "team",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854463619,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-tqkkod",
@@ -6596,8 +7010,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-b039f6",
@@ -6613,8 +7028,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-rdyj88",
@@ -6630,7 +7046,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868699139
     },
@@ -6648,8 +7064,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-9ksmo9",
@@ -6665,8 +7082,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1plzt9t",
@@ -6682,8 +7100,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4x4l8j",
@@ -6699,8 +7118,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-rsnv6h",
@@ -6716,8 +7136,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-15hbm1s",
@@ -6733,8 +7154,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1qfodmi",
@@ -6750,8 +7172,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-6z5kmt",
@@ -6767,7 +7190,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779876301860,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779876312836
     },
@@ -6784,7 +7207,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868268232
     },
@@ -6802,8 +7225,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-txaa05",
@@ -6818,8 +7242,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1eyh8sz",
@@ -6834,8 +7259,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-hzuuwk",
@@ -6850,8 +7276,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-jjsb4n",
@@ -6866,8 +7293,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-19kj16o",
@@ -6882,8 +7310,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-12dp1gd",
@@ -6899,8 +7328,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1osd55m",
@@ -6915,8 +7345,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-18bn4jl",
@@ -6932,8 +7363,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4bdyuw",
@@ -6948,7 +7380,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779865341749
     },
@@ -6966,9 +7398,10 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855171441,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-bxa1r1",
@@ -6984,7 +7417,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779868440366,
       "present": true,
       "annotationUpdatedAt": 1779868440366
@@ -7003,7 +7436,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779868423583
     },
@@ -7020,7 +7453,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779865276143
     },
@@ -7038,7 +7471,7 @@
       "priceTag": "S",
       "note": "4.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779868090040,
       "present": true,
       "annotationUpdatedAt": 1779868090040
@@ -7057,8 +7490,9 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779854846854,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1811few",
@@ -7074,7 +7508,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779865267748
     },
@@ -7092,7 +7526,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779864789332
     },
@@ -7109,7 +7543,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779863539501
     },
@@ -7126,7 +7560,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779863535078
     },
@@ -7144,7 +7578,7 @@
       "priceTag": "S",
       "note": "4.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779865249689,
       "present": true,
       "annotationUpdatedAt": 1779865249689
@@ -7162,8 +7596,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-lbpie5",
@@ -7179,8 +7614,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-5za60l",
@@ -7195,8 +7631,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-e3iiof",
@@ -7211,8 +7648,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-upohe2",
@@ -7227,8 +7665,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-uf8wer",
@@ -7243,8 +7682,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-rn2v5p",
@@ -7259,8 +7699,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-jw215s",
@@ -7275,8 +7716,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-4pn3bq",
@@ -7292,8 +7734,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11bdwvy",
@@ -7309,8 +7752,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1rt8vtk",
@@ -7325,8 +7769,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1wgc04e",
@@ -7341,8 +7786,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-m6wvx9",
@@ -7357,8 +7803,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ss9emo",
@@ -7373,8 +7820,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1xnc3l",
@@ -7389,8 +7837,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-lmax6g",
@@ -7406,9 +7855,10 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854167497,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-672jkp",
@@ -7423,8 +7873,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-a3ikzm",
@@ -7440,7 +7891,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779930901759,
       "present": true,
       "annotationUpdatedAt": 1779930901759
@@ -7458,8 +7909,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-dbscto",
@@ -7474,8 +7926,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1fhvx32",
@@ -7490,8 +7943,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-68ix4",
@@ -7507,8 +7961,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-nm4eta",
@@ -7523,8 +7978,43 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-u69335",
+      "title": "kaka AI的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/59FSBGJN",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1779937870834,
+      "lastSeenAt": 1779941040952,
       "present": true
+    },
+    {
+      "bookmarkId": "sync-1yeaa69",
+      "title": "KEDAYA的小店 - 云猫寄售",
+      "url": "https://catfk.com/shop/kedaya",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "3r 鸭货",
+      "firstSeenAt": 1779937246375,
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779937282990
     },
     {
       "bookmarkId": "sync-qlpbd9",
@@ -7539,8 +8029,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1tffcvf",
@@ -7555,8 +8046,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11r9zp8",
@@ -7571,8 +8063,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1cw9k3s",
@@ -7588,9 +8081,10 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854768190,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1mcwak8",
@@ -7606,9 +8100,10 @@
       "priceTag": "S",
       "note": "三块",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853294667,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1dbauay",
@@ -7624,8 +8119,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1bscqr2",
@@ -7640,8 +8136,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1nlqan8",
@@ -7657,8 +8154,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-uatnnq",
@@ -7674,8 +8172,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1275wg5",
@@ -7691,9 +8190,10 @@
       "priceTag": "S",
       "note": "5.5",
       "firstSeenAt": 1779854336466,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854347999,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-xmwets",
@@ -7708,8 +8208,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860494570,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-sga7go",
@@ -7724,8 +8225,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-12jjbx0",
@@ -7740,8 +8242,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-11x1k64",
@@ -7756,8 +8259,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-8wtri6",
@@ -7773,9 +8277,10 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854247044,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-zikmtz",
@@ -7790,8 +8295,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1i5m14n",
@@ -7806,8 +8312,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-lfto90",
@@ -7822,8 +8329,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1hsznm6",
@@ -7838,8 +8346,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-z5opqc",
@@ -7854,8 +8363,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ltvmv8",
@@ -7870,8 +8380,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-15tzv4b",
@@ -7886,8 +8397,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-2axaly",
@@ -7902,8 +8414,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1sxcrx0",
@@ -7918,8 +8431,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ubgmip",
@@ -7934,8 +8448,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1b2k8qy",
@@ -7950,8 +8465,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-g4pak1",
@@ -7966,8 +8482,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1vasrtl",
@@ -7982,8 +8499,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-awqm9w",
@@ -7999,8 +8517,9 @@
       "priceTag": "A",
       "note": "8.5",
       "firstSeenAt": 1779854041714,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-c4o85g",
@@ -8015,8 +8534,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-gkcznq",
@@ -8032,8 +8552,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-9mug7k",
@@ -8048,8 +8569,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-jzi3ip",
@@ -8064,7 +8586,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779863532488
     },
@@ -8082,8 +8604,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ldyjjj",
@@ -8098,8 +8621,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-15a1ifi",
@@ -8114,8 +8638,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1g2ryhg",
@@ -8130,8 +8655,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1k17x4q",
@@ -8147,7 +8673,7 @@
       "priceTag": "S",
       "note": "2.5",
       "firstSeenAt": 1779842750930,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779863496735,
       "present": true,
       "annotationUpdatedAt": 1779863496735
@@ -8166,9 +8692,10 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854100437,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1f4ed8r",
@@ -8183,8 +8710,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-3dwfmt",
@@ -8200,8 +8728,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-15367n1",
@@ -8217,8 +8746,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ghxdxi",
@@ -8234,8 +8764,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-5neq4l",
@@ -8251,8 +8782,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-koy6x3",
@@ -8267,8 +8799,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-10obzel",
@@ -8283,8 +8816,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-iajuks",
@@ -8300,7 +8834,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779865072706
     },
@@ -8318,9 +8852,10 @@
       "priceTag": "A",
       "note": "6.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779855222240,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ub94tg",
@@ -8335,8 +8870,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1pymblg",
@@ -8351,8 +8887,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1m6j8y8",
@@ -8367,8 +8904,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779842750930,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1s0awvd",
@@ -8383,8 +8921,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1meudzu",
@@ -8399,8 +8938,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1q9ntme",
@@ -8415,8 +8955,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1hk8j2a",
@@ -8432,8 +8973,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-13t2u8b",
@@ -8448,8 +8990,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1417ysz",
@@ -8464,8 +9007,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-nvm0ge",
@@ -8480,8 +9024,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ozdl5y",
@@ -8496,8 +9041,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1aroa2o",
@@ -8512,8 +9058,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-v9yw9l",
@@ -8529,7 +9076,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854701105,
       "present": true,
       "annotationUpdatedAt": 1779865025851
@@ -8547,8 +9094,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ctj40a",
@@ -8563,8 +9111,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ljm2iz",
@@ -8579,8 +9128,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1y0a654",
@@ -8596,8 +9146,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-2lfm6s",
@@ -8613,8 +9164,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-n5ivwg",
@@ -8630,9 +9182,10 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854534429,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ax8rre",
@@ -8648,8 +9201,9 @@
       "priceTag": "C",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-84x312",
@@ -8664,8 +9218,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-7sxr27",
@@ -8680,8 +9235,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-a030cz",
@@ -8696,8 +9252,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-csl9ef",
@@ -8712,8 +9269,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1bjhyev",
@@ -8728,8 +9286,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-13o5s9e",
@@ -8744,8 +9303,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-nxlbjd",
@@ -8760,8 +9320,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-164y31c",
@@ -8777,7 +9338,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779872541876,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779872564491
     },
@@ -8795,9 +9356,10 @@
       "priceTag": "A",
       "note": "6.9",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853491199,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1wyo519",
@@ -8812,8 +9374,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-u4m3uc",
@@ -8828,8 +9391,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-69hiaj",
@@ -8844,8 +9408,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1lazqtr",
@@ -8860,8 +9425,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-y7cgzp",
@@ -8876,8 +9442,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-o82uxl",
@@ -8893,8 +9460,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1fqroj4",
@@ -8910,7 +9478,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779869347266
     },
@@ -8928,8 +9496,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-18auh0t",
@@ -8944,8 +9513,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ttl3ne",
@@ -8960,8 +9530,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-b0mree",
@@ -8976,8 +9547,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-nlem6d",
@@ -8992,8 +9564,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-y3aaom",
@@ -9008,8 +9581,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-mnit4z",
@@ -9025,8 +9599,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1evj5gl",
@@ -9041,8 +9616,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ebso2b",
@@ -9057,8 +9633,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1h4t6r2",
@@ -9073,8 +9650,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-10t3i6z",
@@ -9089,8 +9667,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1kuaiwz",
@@ -9105,8 +9684,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ojvoxl",
@@ -9122,8 +9702,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1iarmrk",
@@ -9138,8 +9719,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1uul17h",
@@ -9154,8 +9736,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-y7fpbo",
@@ -9170,8 +9753,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-k3cced",
@@ -9186,8 +9770,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-17j3tn5",
@@ -9203,9 +9788,10 @@
       "priceTag": "S",
       "note": "三块",
       "firstSeenAt": 1779843487739,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853178403,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-lvs4b6",
@@ -9220,7 +9806,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779863536757
     },
@@ -9237,8 +9823,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1beu81h",
@@ -9253,8 +9840,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1bpwu4s",
@@ -9269,8 +9857,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1hxt83j",
@@ -9286,8 +9875,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1pbzmwl",
@@ -9303,8 +9893,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-7ins0m",
@@ -9319,8 +9910,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1sq87wv",
@@ -9335,7 +9927,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "present": true,
       "annotationUpdatedAt": 1779864765122
     },
@@ -9352,24 +9944,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
-    },
-    {
-      "bookmarkId": "sync-1ufi3pz",
-      "title": "Warp 续杯解决方案 | 上号器下载 | 多号切换器 | AI 终端工具",
-      "url": "https://warp.cursorvip.cn/#tutorial",
-      "folderPath": "书签栏 / AI",
-      "sourceRef": "AI",
-      "sourceFolderPath": "书签栏 / AI",
-      "category": "tool",
-      "status": "pending",
-      "risk": "low",
-      "priceTag": "none",
-      "note": "",
-      "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1ozh14n",
@@ -9384,8 +9961,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1839en4",
@@ -9400,8 +9978,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1rra009",
@@ -9416,8 +9995,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-z8oa1j",
@@ -9432,8 +10012,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-135esgr",
@@ -9448,8 +10029,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-pd4qeg",
@@ -9464,8 +10046,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1u5v25p",
@@ -9481,8 +10064,9 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-ypvyfy",
@@ -9493,13 +10077,15 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "unknown",
       "groupId": "windsurf-gemini",
-      "status": "pending",
+      "status": "active",
       "risk": "low",
-      "priceTag": "none",
-      "note": "",
+      "priceTag": "S",
+      "note": "3.2",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "lastCheckedAt": 1779938182218,
+      "present": true,
+      "annotationUpdatedAt": 1779938184770
     },
     {
       "bookmarkId": "sync-hk39gq",
@@ -9515,9 +10101,10 @@
       "priceTag": "S",
       "note": "3.18",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853311288,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-hk7qi6",
@@ -9532,8 +10119,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-10sinqs",
@@ -9548,8 +10136,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-g6dwiv",
@@ -9564,8 +10153,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-uiskm4",
@@ -9580,8 +10170,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1f9b5if",
@@ -9596,8 +10187,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779854820164,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-u75jom",
@@ -9613,8 +10205,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-18d6ibv",
@@ -9630,9 +10223,10 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779854926309,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1bdbi0s",
@@ -9648,9 +10242,10 @@
       "priceTag": "S",
       "note": "2.99",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
+      "lastSeenAt": 1779941040952,
       "lastCheckedAt": 1779853357164,
-      "present": true
+      "present": true,
+      "annotationUpdatedAt": 1779938205915
     },
     {
       "bookmarkId": "sync-u9fy3q",
@@ -9665,8 +10260,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779853339025,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1v4lxx1",
@@ -9681,8 +10277,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-lm8eui",
@@ -9697,8 +10294,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1779935252150,
-      "present": true
+      "lastSeenAt": 1779941040952,
+      "present": true,
+      "annotationUpdatedAt": 1779935256820
     }
   ]
 }
