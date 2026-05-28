@@ -12,6 +12,8 @@ import {
   suggestedGroupId,
 } from "@/lib/aiChannelGroups";
 import { AI_CHANNEL_STATUS_ORDER } from "@/lib/aiChannelStatus";
+import { PROJECT_SYNC_SOURCE_REF } from "@/lib/aiChannelProjectSync";
+import { normalizeUrl } from "@/lib/utils";
 
 const KEY = "smart-bookmark::ai-channels";
 const hasChromeStorage = typeof chrome !== "undefined" && !!chrome.storage?.local;
@@ -80,10 +82,16 @@ export function scanAiChannels(
     collectBookmarksFromFolder(source.folder!, source.folderPath!, source.ref, scanned, seenIds);
   }
 
+  const existingRecordsByUrl = new Map<string, AiChannelRecord>();
+  for (const record of Object.values(prev.recordsById)) {
+    if (record.url) existingRecordsByUrl.set(normalizeUrl(record.url), record);
+  }
+
   const nextRecords: Record<string, AiChannelRecord> = {};
   for (const item of scanned) {
-    const id = item.bookmark.id;
-    const existing = prev.recordsById[id];
+    const urlKey = normalizeUrl(item.bookmark.url ?? "");
+    const existing = prev.recordsById[item.bookmark.id] ?? existingRecordsByUrl.get(urlKey);
+    const id = existing?.bookmarkId ?? item.bookmark.id;
     const guessed = guessAiChannelMeta(item.bookmark.title, item.bookmark.url ?? "");
     nextRecords[id] = {
       bookmarkId: id,
@@ -99,6 +107,7 @@ export function scanAiChannels(
         existing?.groupId && groupIds.has(existing.groupId)
           ? existing.groupId
           : suggestedGroupId(groupIds, guessed.category),
+      secondaryGroupIds: existing?.secondaryGroupIds?.filter((id) => groupIds.has(id)),
       status: existing?.status ?? "active",
       risk: existing?.risk ?? guessed.risk,
       priceTag: existing?.priceTag ?? "none",
@@ -114,6 +123,10 @@ export function scanAiChannels(
 
   for (const old of Object.values(prev.recordsById)) {
     if (nextRecords[old.bookmarkId]) continue;
+    if (old.sourceRef === PROJECT_SYNC_SOURCE_REF) {
+      nextRecords[old.bookmarkId] = old;
+      continue;
+    }
     nextRecords[old.bookmarkId] = {
       ...old,
       present: false,
@@ -122,7 +135,12 @@ export function scanAiChannels(
   }
 
   return {
-    store: { recordsById: nextRecords, groups, lastScanAt: now },
+    store: {
+      recordsById: nextRecords,
+      groups,
+      lastScanAt: now,
+      projectSyncImportedAt: prev.projectSyncImportedAt,
+    },
     sources,
     scannedCount: scanned.length,
   };
@@ -269,7 +287,12 @@ function normalizeStore(raw: unknown): AiChannelStore {
       ];
     }),
   );
-  return { recordsById, groups, lastScanAt: maybe.lastScanAt };
+  return {
+    recordsById,
+    groups,
+    lastScanAt: maybe.lastScanAt,
+    projectSyncImportedAt: maybe.projectSyncImportedAt,
+  };
 }
 
 function countBookmarks(node: BookmarkNode): number {

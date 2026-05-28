@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef } from "react";
-import { ChevronDown, ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronDown, ChevronRight, Clock, ExternalLink } from "lucide-react";
 import {
-  CATEGORY_KEY,
   PRICE_TAG_META,
   STATUS_META,
   UNGROUPED_ID,
   colorDotProps,
   colorOptionDot,
+  formatDateTime,
 } from "./meta";
 import { cn, faviconOf, hostnameOf } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
@@ -250,12 +250,20 @@ function ChannelRow({
   return (
     <div
       className={cn(
-        "group/channel relative flex min-h-[128px] flex-col gap-2 rounded-lg border bg-background/80 px-2.5 py-2 transition hover:border-primary/30 hover:bg-accent/45 hover:shadow-sm",
-        selected && "border-primary/45 bg-primary/[0.06] ring-1 ring-primary/15",
-        batchSelected && "border-primary/60 bg-primary/8 ring-1 ring-primary/30",
+        "group/channel relative flex min-h-[128px] flex-col gap-2 rounded-xl border border-border/70 bg-card/95 px-3 py-2.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md hover:shadow-primary/5",
+        selected &&
+          "z-10 -translate-y-0.5 border-primary bg-primary/[0.12] shadow-lg shadow-primary/25 ring-1 ring-primary/40",
+        batchSelected &&
+          "border-primary/80 bg-primary/[0.10] ring-2 ring-primary/45",
         !record.present && "opacity-60",
       )}
     >
+      {selected && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-y-2 left-0 w-1 rounded-r-full bg-primary shadow-[0_0_6px_hsl(var(--primary)/0.55)]"
+        />
+      )}
       {/* Top row: checkbox + favicon + title + url */}
       <div
         role="button"
@@ -309,28 +317,51 @@ function ChannelRow({
         <ExternalLink className="h-3.5 w-3.5" />
       </button>
 
-      {/* Note */}
+      {/* Note (most often a price — give it a warm, highly-readable surface) */}
       {record.note?.trim() && (
-        <div className="rounded bg-amber-50 px-2 py-1 text-[11px] font-bold text-amber-800 dark:bg-amber-950/40 dark:text-amber-300 leading-snug">
-          {record.note}
+        <div className="relative overflow-hidden rounded-md border border-amber-200/70 bg-gradient-to-br from-amber-50 to-orange-50/70 px-2.5 py-1.5 text-[12px] font-bold leading-snug tracking-wide text-amber-900 shadow-[0_1px_2px_rgba(245,158,11,0.08)] dark:border-amber-500/30 dark:from-amber-500/[0.08] dark:to-orange-500/[0.08] dark:text-amber-200">
+          <span className="absolute inset-y-1 left-0 w-[3px] rounded-r-full bg-gradient-to-b from-amber-500 to-orange-500 shadow-[0_0_4px_rgba(245,158,11,0.4)]" />
+          <span className="block min-w-0 break-words pl-2">{record.note}</span>
         </div>
       )}
 
       {/* Tags row */}
-      <div className="flex flex-wrap gap-1">
+      <div className="flex flex-wrap items-center gap-1">
         <span className={cn("inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] ring-1", status.className)}>
           <StatusIcon className="mr-0.5 h-2.5 w-2.5" />
           {t(status.labelKey)}
         </span>
         {(record.priceTag ?? "none") !== "none" && (
-          <span className={cn("inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-bold ring-1", priceTag.className)}>
+          <span className={cn("inline-flex items-center rounded-full px-2 py-[3px] text-[11px] leading-none ring-1", priceTag.className)}>
             {t(priceTag.labelKey)}
           </span>
         )}
-        <span className="inline-flex items-center rounded-full bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground ring-1 ring-border">
-          {t(CATEGORY_KEY[record.category])}
-        </span>
       </div>
+
+      {/* Secondary groups */}
+      {(record.secondaryGroupIds ?? []).length > 0 && (
+        <div className="flex flex-wrap items-center gap-1">
+          {record.secondaryGroupIds!.map((sid) => {
+            const opt = groupOptions.find((o) => o.value === sid);
+            if (!opt) return null;
+            return (
+              <span key={sid} className="inline-flex items-center gap-1 rounded-full bg-muted/60 px-1.5 py-0.5 text-[10px] text-muted-foreground ring-1 ring-border/50">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary/50" />
+                {opt.label}
+              </span>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Update time */}
+      {record.lastCheckedAt && (
+        <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+          <Clock className="h-2.5 w-2.5" />
+          <span>{t("channels.detail.lastChecked")}</span>
+          <span className="tabular-nums">{formatDateTime(record.lastCheckedAt)}</span>
+        </div>
+      )}
 
       {/* Group selector */}
       <SelectMenu

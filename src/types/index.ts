@@ -135,6 +135,7 @@ export interface AiChannelRecord {
   sourceFolderPath: string;
   category: AiChannelCategory;
   groupId?: string;
+  secondaryGroupIds?: string[];
   status: AiChannelStatus;
   risk: AiChannelRisk;
   priceTag: AiChannelPriceTag;
@@ -155,6 +156,7 @@ export interface AiChannelStore {
   /** Local-only preferences keyed by Chrome folder ID (color, collapsed) */
   groupPrefs?: Record<string, AiChannelGroupPref>;
   lastScanAt?: number;
+  projectSyncImportedAt?: number;
 }
 
 export interface Settings {

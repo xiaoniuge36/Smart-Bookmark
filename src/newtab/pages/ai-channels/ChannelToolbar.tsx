@@ -12,9 +12,9 @@ interface ChannelToolbarProps {
   statusFilter: StatusFilter;
   stats: {
     total: number;
+    active: number;
     pending: number;
     ungrouped: number;
-    highRisk: number;
   };
   onScan: () => void;
   onOpenManage: () => void;
@@ -47,9 +47,9 @@ export default function ChannelToolbar({
         <div className="flex items-center gap-2">
           <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
             <SummaryPill label={t("channels.summary.total")} value={stats.total} />
+            <SummaryPill label={t("channels.status.active")} value={stats.active} />
             <SummaryPill label={t("channels.summary.pending")} value={stats.pending} />
             <SummaryPill label={t("channels.summary.ungrouped")} value={stats.ungrouped} />
-            <SummaryPill label={t("channels.summary.highRisk")} value={stats.highRisk} />
           </div>
           <Button
             size="sm"

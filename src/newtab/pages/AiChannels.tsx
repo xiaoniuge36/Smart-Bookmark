@@ -37,6 +37,12 @@ import {
   type ChannelExportData,
 } from "@/lib/aiChannelSync";
 import { downloadAiChannelShareHtml } from "@/lib/aiChannelHtmlExport";
+import {
+  applyProjectSyncData,
+  loadBundledProjectSyncData,
+  saveProjectSyncData,
+  shouldApplyProjectSyncData,
+} from "@/lib/aiChannelProjectSync";
 import type { AiChannelRecord, AiChannelStore, BookmarkNode, Settings } from "@/types";
 import { toast } from "@/components/ui/toast";
 import ChannelManagePanel from "./ai-channels/ChannelManagePanel";
@@ -132,6 +138,35 @@ export default function AiChannels({ settings }: { settings: Settings }) {
     downloadAiChannelShareHtml(storeRef.current, { title, locale });
   }, [title]);
 
+  const handleExportProjectSync = useCallback(async () => {
+    const result = await saveProjectSyncData(storeRef.current);
+    if (result === "saved") {
+      toast(t("channels.sync.projectSaved"), "success");
+      return;
+    }
+    if (result === "downloaded") {
+      toast(t("channels.sync.projectExported"), "info");
+      return;
+    }
+    toast(t("channels.sync.projectSaveCanceled"), "info");
+  }, [t]);
+
+  const handleImportProjectSync = useCallback(async () => {
+    try {
+      const data = await loadBundledProjectSyncData();
+      if (!data) {
+        toast(t("channels.sync.projectMissing"), "error");
+        return;
+      }
+      const next = applyProjectSyncData(storeRef.current, data);
+      const saved = await persistStore(next);
+      setSelectedId(Object.keys(saved.recordsById)[0] ?? "");
+      toast(t("channels.sync.projectImported", String(data.records.length)), "success");
+    } catch {
+      toast(t("channels.sync.projectMissing"), "error");
+    }
+  }, [persistStore, t]);
+
   const handleImport = useCallback((file: File) => {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -168,7 +203,16 @@ export default function AiChannels({ settings }: { settings: Settings }) {
     setScanning(true);
     try {
       const result = scanAiChannels(tree, sourceRefs, storeRef.current);
-      const saved = await persistStore(result.store);
+      let nextStore = result.store;
+      try {
+        const projectData = await loadBundledProjectSyncData();
+        if (projectData && shouldApplyProjectSyncData(nextStore, projectData)) {
+          nextStore = applyProjectSyncData(nextStore, projectData);
+        }
+      } catch {
+        // Project sync is optional; a missing or invalid bundled file should not block scan.
+      }
+      const saved = await persistStore(nextStore);
       setSelectedId((current) =>
         current && saved.recordsById[current]
           ? current
@@ -195,6 +239,8 @@ export default function AiChannels({ settings }: { settings: Settings }) {
       if (byNotePrice) return byNotePrice;
       const byStatus = statusOrder(a.status) - statusOrder(b.status);
       if (byStatus) return byStatus;
+      const byUpdated = (b.lastCheckedAt ?? 0) - (a.lastCheckedAt ?? 0);
+      if (byUpdated) return byUpdated;
       return a.title.localeCompare(b.title);
     });
   }, [store.recordsById]);
@@ -220,7 +266,9 @@ export default function AiChannels({ settings }: { settings: Settings }) {
   const visibleForSelection = useMemo(() => {
     if (activeGroupId === "all") return filtered;
     if (activeGroupId === UNGROUPED_ID) return filtered.filter((r) => !r.groupId);
-    return filtered.filter((r) => r.groupId === activeGroupId);
+    return filtered.filter(
+      (r) => r.groupId === activeGroupId || r.secondaryGroupIds?.includes(activeGroupId),
+    );
   }, [activeGroupId, filtered]);
 
   useEffect(() => {
@@ -364,8 +412,8 @@ export default function AiChannels({ settings }: { settings: Settings }) {
     const present = records.filter((record) => record.present);
     return {
       total: present.length,
+      active: present.filter((record) => record.status === "active").length,
       pending: present.filter((record) => record.status === "pending").length,
-      highRisk: present.filter((record) => record.risk === "high").length,
       ungrouped: present.filter((record) => !record.groupId).length,
     };
   }, [records]);
@@ -379,8 +427,15 @@ export default function AiChannels({ settings }: { settings: Settings }) {
     );
     for (const group of store.groups) counts.set(group.id, 0);
     for (const record of filtered) {
-      if (!record.present || !record.groupId) continue;
-      counts.set(record.groupId, (counts.get(record.groupId) ?? 0) + 1);
+      if (!record.present) continue;
+      if (record.groupId) {
+        counts.set(record.groupId, (counts.get(record.groupId) ?? 0) + 1);
+      }
+      for (const sid of record.secondaryGroupIds ?? []) {
+        if (sid !== record.groupId) {
+          counts.set(sid, (counts.get(sid) ?? 0) + 1);
+        }
+      }
     }
     return counts;
   }, [filtered, store.groups]);
@@ -453,6 +508,8 @@ export default function AiChannels({ settings }: { settings: Settings }) {
             onReorderGroups={reorderGroups}
             onExport={handleExport}
             onExportHtml={handleExportHtml}
+            onExportProjectSync={handleExportProjectSync}
+            onImportProjectSync={handleImportProjectSync}
             onImport={handleImport}
           />
         </DialogContent>

@@ -52,6 +52,13 @@ async function main() {
     console.warn("[postbuild] no _locales folder, skipping");
   }
 
+  const channelSyncSrc = path.join(root, "channel-sync");
+  try {
+    await copyDir(channelSyncSrc, path.join(dist, "channel-sync"));
+  } catch {
+    console.warn("[postbuild] no channel-sync folder, skipping");
+  }
+
   for (const page of ["newtab", "sidepanel", "popup"]) {
     await moveHtmlToRoot(page);
   }

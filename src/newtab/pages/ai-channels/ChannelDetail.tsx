@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { CheckCircle2, Clipboard, ExternalLink, Folder, FolderSymlink } from "lucide-react";
+import { CheckCircle2, Clipboard, ExternalLink, Folder, FolderSymlink, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import type { AiChannelGroup, AiChannelPriceTag, AiChannelRecord } from "@/types";
@@ -97,20 +97,18 @@ export default function ChannelDetail({
             <span className="truncate">{record.sourceFolderPath}</span>
           </div>
         </div>
+        <a
+          href={record.url}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-2 block truncate text-[11px] text-primary hover:underline"
+          title={record.url}
+        >
+          {record.url}
+        </a>
       </div>
 
       <div className="min-h-0 flex-1 space-y-3.5 overflow-auto p-3.5 scrollbar-thin">
-        <Field label={t("channels.detail.link")}>
-          <a
-            href={record.url}
-            target="_blank"
-            rel="noreferrer"
-            className="break-all text-xs text-primary hover:underline"
-          >
-            {record.url}
-          </a>
-        </Field>
-
         <Field label={t("channels.detail.group")}>
           <SelectMenu
             value={record.groupId ?? UNGROUPED_ID}
@@ -123,6 +121,53 @@ export default function ChannelDetail({
                 groupId: value === UNGROUPED_ID ? undefined : value,
               })
             }
+          />
+        </Field>
+
+        <Field label={t("channels.detail.secondaryGroups")}>
+          <p className="mb-1.5 text-[10px] text-muted-foreground">{t("channels.detail.secondaryGroupsHint")}</p>
+          {(record.secondaryGroupIds ?? []).length > 0 && (
+            <div className="mb-1.5 flex flex-wrap gap-1">
+              {(record.secondaryGroupIds ?? []).map((sid) => {
+                const group = groups.find((g) => g.id === sid);
+                if (!group) return null;
+                return (
+                  <span
+                    key={sid}
+                    className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[11px] font-medium ring-1 ring-border"
+                  >
+                    {group.name}
+                    <button
+                      type="button"
+                      className="ml-0.5 rounded-full p-0.5 hover:bg-destructive/15 hover:text-destructive"
+                      onClick={() => {
+                        const next = (record.secondaryGroupIds ?? []).filter((id) => id !== sid);
+                        onPatch(record.bookmarkId, { secondaryGroupIds: next.length ? next : undefined });
+                      }}
+                    >
+                      <X className="h-2.5 w-2.5" />
+                    </button>
+                  </span>
+                );
+              })}
+            </div>
+          )}
+          <SelectMenu
+            value=""
+            options={groupOptions.filter(
+              (opt) =>
+                opt.value !== UNGROUPED_ID &&
+                opt.value !== record.groupId &&
+                !(record.secondaryGroupIds ?? []).includes(opt.value),
+            )}
+            placeholder={t("channels.detail.addSecondaryGroup")}
+            className="w-full"
+            align="start"
+            onChange={(value) => {
+              if (!value) return;
+              const next = [...(record.secondaryGroupIds ?? []), value];
+              onPatch(record.bookmarkId, { secondaryGroupIds: next });
+            }}
           />
         </Field>
 
@@ -172,16 +217,18 @@ export default function ChannelDetail({
           </div>
         </Field>
 
-        <div className="grid grid-cols-2 gap-3 text-xs text-muted-foreground">
-          <InfoLine label={t("channels.detail.firstSeen")} value={formatDateTime(record.firstSeenAt)} />
-          <InfoLine label={t("channels.detail.lastSeen")} value={formatDateTime(record.lastSeenAt)} />
+        <div className="grid grid-cols-2 gap-2">
+          <InfoLine label={t("channels.detail.firstSeen")} value={formatDateTime(record.firstSeenAt)} accent="emerald" />
+          <InfoLine label={t("channels.detail.lastSeen")} value={formatDateTime(record.lastSeenAt)} accent="sky" />
           <InfoLine
             label={t("channels.detail.lastChecked")}
             value={record.lastCheckedAt ? formatDateTime(record.lastCheckedAt) : t("channels.detail.notChecked")}
+            accent="primary"
           />
           <InfoLine
             label={t("channels.detail.missingSince")}
             value={record.missingSince ? formatDateTime(record.missingSince) : "-"}
+            accent="rose"
           />
         </div>
       </div>
@@ -227,13 +274,22 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-function InfoLine({ label, value }: { label: string; value: string }) {
+const ACCENT_CLASSES: Record<string, { label: string; bar: string }> = {
+  emerald: { label: "text-emerald-600 dark:text-emerald-400", bar: "bg-emerald-500" },
+  sky:     { label: "text-sky-600 dark:text-sky-400",         bar: "bg-sky-500" },
+  primary: { label: "text-primary",                          bar: "bg-primary" },
+  rose:    { label: "text-rose-500 dark:text-rose-400",       bar: "bg-rose-500" },
+};
+
+function InfoLine({ label, value, accent = "primary" }: { label: string; value: string; accent?: string }) {
+  const a = ACCENT_CLASSES[accent] ?? ACCENT_CLASSES.primary;
   return (
-    <div className="rounded-lg border bg-muted/30 p-2">
-      <div className="text-[10px] uppercase tracking-wide text-muted-foreground">
+    <div className="relative overflow-hidden rounded-lg border bg-muted/20 px-2.5 py-2">
+      <span className={cn("absolute inset-y-1.5 left-0 w-[3px] rounded-r-full", a.bar)} />
+      <div className={cn("pl-1.5 text-[10px] font-medium tracking-wide", a.label)}>
         {label}
       </div>
-      <div className="mt-1 truncate text-xs text-foreground">{value}</div>
+      <div className="mt-0.5 truncate pl-1.5 text-xs font-semibold tabular-nums text-foreground">{value}</div>
     </div>
   );
 }

@@ -22,11 +22,30 @@ export const PRICE_TAG_META: Record<
   AiChannelPriceTag,
   { labelKey: string; className: string }
 > = {
-  S: { labelKey: "channels.price.S", className: "bg-emerald-500/15 text-emerald-700 ring-emerald-500/25 dark:text-emerald-300" },
-  A: { labelKey: "channels.price.A", className: "bg-sky-500/15 text-sky-700 ring-sky-500/25 dark:text-sky-300" },
-  B: { labelKey: "channels.price.B", className: "bg-amber-500/15 text-amber-700 ring-amber-500/25 dark:text-amber-300" },
-  C: { labelKey: "channels.price.C", className: "bg-rose-500/15 text-rose-700 ring-rose-500/25 dark:text-rose-300" },
-  none: { labelKey: "channels.price.none", className: "bg-muted text-muted-foreground ring-border" },
+  S: {
+    labelKey: "channels.price.S",
+    className:
+      "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-bold ring-emerald-400/50 shadow-sm shadow-emerald-500/30 hover:from-emerald-500 hover:to-emerald-600",
+  },
+  A: {
+    labelKey: "channels.price.A",
+    className:
+      "bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold ring-sky-400/50 shadow-sm shadow-sky-500/30 hover:from-sky-500 hover:to-sky-600",
+  },
+  B: {
+    labelKey: "channels.price.B",
+    className:
+      "bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 text-white font-bold tracking-wide ring-amber-400/70 shadow shadow-amber-500/40 hover:from-amber-400 hover:to-amber-500",
+  },
+  C: {
+    labelKey: "channels.price.C",
+    className:
+      "bg-gradient-to-r from-rose-500 to-rose-600 text-white font-bold ring-rose-400/50 shadow-sm shadow-rose-500/30 hover:from-rose-500 hover:to-rose-600",
+  },
+  none: {
+    labelKey: "channels.price.none",
+    className: "bg-muted text-muted-foreground ring-border",
+  },
 };
 
 export const PRICE_TAG_ORDER: Record<AiChannelPriceTag, number> = {

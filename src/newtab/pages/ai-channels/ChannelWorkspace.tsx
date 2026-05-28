@@ -54,7 +54,7 @@ export default function ChannelWorkspace({
   const visibleRecords = useMemo(() => {
     if (!isSingleGroup) return records;
     if (activeGroupId === UNGROUPED_ID) return records.filter((r) => !r.groupId);
-    return records.filter((r) => r.groupId === activeGroupId);
+    return records.filter((r) => r.groupId === activeGroupId || r.secondaryGroupIds?.includes(activeGroupId));
   }, [activeGroupId, isSingleGroup, records]);
 
   const groupOptions: SelectMenuOption[] = [
@@ -144,9 +144,14 @@ export default function ChannelWorkspace({
           {batchIds.length > 0 && (
             <div className="shrink-0 border-t bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-sm font-medium">
-                  {t("channels.batch.assignLabel")}
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium">
+                    {t("channels.batch.assignLabel")}
+                  </span>
+                  <span className="text-[10px] text-muted-foreground">
+                    {t("channels.batch.hint")}
+                  </span>
+                </div>
                 <SelectMenu
                   value={pendingGroupId}
                   options={groupOptions}
