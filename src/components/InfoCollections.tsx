@@ -199,6 +199,15 @@ const COLLECTIONS: CollectionGroup[] = [
               en: "GPT bargain entry with code=linux_do_friend",
             },
           },
+          {
+            title: "Nerver AC",
+            url: "https://cha.nerver.cc/",
+            tag: { zh: "资格检查", en: "Eligibility" },
+            description: {
+              zh: "ChatGPT accessToken 有效性与活动资格预检入口",
+              en: "Pre-check ChatGPT accessToken validity and activity eligibility",
+            },
+          },
         ],
       },
       {
