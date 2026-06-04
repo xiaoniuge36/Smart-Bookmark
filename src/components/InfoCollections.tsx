@@ -281,6 +281,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "CPA to Sub2API",
+            url: "https://conversion.nloop.cc/",
+            tag: { zh: "格式转换", en: "Converter" },
+            description: {
+              zh: "本地 JSON 转换器，导入 CLI Proxy API Auth.Json 或 Sub2API.Json 完成格式转换",
+              en: "Local JSON converter for CLI Proxy API Auth.Json and Sub2API.Json",
+            },
+          },
+          {
             title: "GPT Session Converter",
             url: "https://gtxx3600.github.io/GPTSession2CPAandSub2API/",
             tag: { zh: "Session 转换", en: "Session converter" },
