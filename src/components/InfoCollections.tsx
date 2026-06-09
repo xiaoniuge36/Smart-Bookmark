@@ -200,6 +200,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "dddd.mentoe.com",
+            url: "https://dddd.mentoe.com/",
+            tag: { zh: "AI 中转", en: "AI relay" },
+            description: {
+              zh: "AI 中转与比价补充入口，适合快速查看可用服务",
+              en: "Supplemental AI relay and pricing entry for quick service checks",
+            },
+          },
+          {
             title: "Nerver AC",
             url: "https://cha.nerver.cc/",
             tag: { zh: "资格检查", en: "Eligibility" },
