@@ -209,6 +209,24 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "VeriDrop",
+            url: "https://veridrop.org/",
+            tag: { zh: "AI 检测", en: "AI detector" },
+            description: {
+              zh: "AI 检测入口，适合快速核验文本或内容风险",
+              en: "AI detection entry for quick text and content checks",
+            },
+          },
+          {
+            title: "AIProbe",
+            url: "https://aiprobe.top/",
+            tag: { zh: "AI 比价", en: "AI prices" },
+            description: {
+              zh: "AI 服务比价入口，补充模型、订阅和中转价格参考",
+              en: "AI price comparison entry for model, subscription and relay references",
+            },
+          },
+          {
             title: "Nerver AC",
             url: "https://cha.nerver.cc/",
             tag: { zh: "资格检查", en: "Eligibility" },
