@@ -209,6 +209,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "KanLLM",
+            url: "https://www.kanllm.com/",
+            tag: { zh: "AI 中转评测", en: "AI relay review" },
+            description: {
+              zh: "AI 中转评测网站，用于查看中转服务对比和参考评价",
+              en: "AI relay review site for relay comparisons and reference ratings",
+            },
+          },
+          {
             title: "VeriDrop",
             url: "https://veridrop.org/",
             tag: { zh: "AI 检测", en: "AI detector" },

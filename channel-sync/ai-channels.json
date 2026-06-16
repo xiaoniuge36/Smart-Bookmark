@@ -2,7 +2,7 @@
   "app": "smart-bookmark",
   "kind": "ai-channel-project-sync",
   "version": 1,
-  "exportedAt": 1780049445270,
+  "exportedAt": 1781579716972,
   "groups": [
     {
       "collapsed": false,
@@ -44,11 +44,12 @@
       "updatedAt": 1780021163695
     },
     {
+      "collapsed": false,
       "color": "#b700fa",
       "createdAt": 1779939929674,
       "id": "对接上游货源",
       "name": "对接上游货源",
-      "updatedAt": 1779939929674
+      "updatedAt": 1781514849673
     },
     {
       "collapsed": false,
@@ -118,7 +119,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -135,7 +136,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -152,7 +153,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -169,7 +170,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -186,9 +187,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1lu43f5",
+      "title": "【伊莉雅】Gemini gpt grok【招代理】的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/ZM24RG4J",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-14pqsoy",
@@ -203,7 +220,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -220,7 +237,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -238,7 +255,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -255,8 +272,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779957847194,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-1nkyiml",
@@ -272,7 +290,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -289,7 +307,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -306,9 +324,27 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-14n0ev1",
+      "title": "464的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/VK6TGVU1",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1781484365117
     },
     {
       "bookmarkId": "sync-1stl97l",
@@ -327,7 +363,7 @@
       "priceTag": "S",
       "note": "5元 464",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779946713997
     },
@@ -344,7 +380,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -361,7 +397,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -379,7 +415,7 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779938548255,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779938555131
     },
@@ -397,7 +433,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -414,7 +450,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -432,7 +468,7 @@
       "priceTag": "S",
       "note": "4.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854378438,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -451,7 +487,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779854660440,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -468,7 +504,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -485,7 +521,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -503,7 +539,7 @@
       "priceTag": "S",
       "note": "3元 ChatGPT plus 会员日抛不包接码，真实有效",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779950300550,
       "present": true,
       "annotationUpdatedAt": 1779950300550
@@ -521,7 +557,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -538,7 +574,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779909504488,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -556,7 +592,7 @@
       "priceTag": "S",
       "note": "3 鸭货",
       "firstSeenAt": 1779862768734,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780038210230,
       "present": true,
       "annotationUpdatedAt": 1780038210230
@@ -575,10 +611,26 @@
       "priceTag": "S",
       "note": "3",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854194648,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1tgq11p",
+      "title": "八路奶粉的小店 - 云猫寄售",
+      "url": "https://catfk.com/shop/ajie",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1wqdmrw",
@@ -593,7 +645,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -611,7 +663,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860344424,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -628,7 +680,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868324590
     },
@@ -646,7 +698,7 @@
       "priceTag": "S",
       "note": "2.9 元已接码合集",
       "firstSeenAt": 1779852987430,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853020940,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -664,7 +716,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -682,7 +734,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -699,9 +751,27 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1xsyghi",
+      "title": "超级码少的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/cjms",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "对接上游货源",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781233012078,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1781233018723
     },
     {
       "bookmarkId": "sync-1eumjo9",
@@ -717,7 +787,7 @@
       "priceTag": "S",
       "note": "土区",
       "firstSeenAt": 1780042482866,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780042521391,
       "present": true,
       "annotationUpdatedAt": 1780042521391
@@ -735,8 +805,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1780047723224,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-d8cn2a",
@@ -752,7 +823,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -770,7 +841,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -788,7 +859,7 @@
       "priceTag": "none",
       "note": "123123",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -805,7 +876,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -822,7 +893,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -839,7 +910,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -856,7 +927,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -874,7 +945,7 @@
       "priceTag": "A",
       "note": "10",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854454753,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -893,7 +964,7 @@
       "priceTag": "none",
       "note": "30",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779849067056,
       "present": true,
       "annotationUpdatedAt": 1779863445073
@@ -911,9 +982,28 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1reu5in",
+      "title": "店铺收录",
+      "url": "https://goods.moo.kim/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "ai-合集",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "收录排名搜索",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780451532655,
+      "present": true,
+      "annotationUpdatedAt": 1780451532655
     },
     {
       "bookmarkId": "sync-11p06u7",
@@ -928,7 +1018,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -945,7 +1035,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -962,7 +1052,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860541269,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -979,7 +1069,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -996,7 +1086,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1014,7 +1104,7 @@
       "priceTag": "A",
       "note": "5",
       "firstSeenAt": 1779877455197,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779877473553
     },
@@ -1031,7 +1121,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1048,7 +1138,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1066,7 +1156,7 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1083,9 +1173,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-cdha00",
+      "title": "嘎子AI的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/YQUOBIW1",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1pr6dsi",
@@ -1101,7 +1207,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868357013
     },
@@ -1118,7 +1224,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779871203972,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1135,7 +1241,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1153,7 +1259,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1171,7 +1277,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1188,7 +1294,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1205,7 +1311,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1222,7 +1328,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1239,7 +1345,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1256,7 +1362,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1269,15 +1375,15 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "gpt-subscription",
       "groupId": "gpt-优先低价",
-      "status": "watching",
+      "status": "active",
       "risk": "low",
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
-      "lastCheckedAt": 1779950377936,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781077733215,
       "present": true,
-      "annotationUpdatedAt": 1779950377936
+      "annotationUpdatedAt": 1781077733215
     },
     {
       "bookmarkId": "sync-1kyx1yp",
@@ -1288,15 +1394,34 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "unknown",
       "groupId": "中转",
+      "secondaryGroupIds": [
+        "对接上游货源"
+      ],
       "status": "pending",
       "risk": "low",
       "priceTag": "S",
-      "note": "claude 中转",
+      "note": "claude 中转 口碑很差劲",
       "firstSeenAt": 1779855121659,
-      "lastSeenAt": 1780049417883,
-      "lastCheckedAt": 1779855130561,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780880904644,
       "present": true,
-      "annotationUpdatedAt": 1779935256820
+      "annotationUpdatedAt": 1780880904644
+    },
+    {
+      "bookmarkId": "sync-1mcki40",
+      "title": "购物 - 女娲AI 批发/源头 claude code",
+      "url": "https://www.vuvuva.com/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780772455541,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-27l5ek",
@@ -1312,9 +1437,27 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-jm2iln",
+      "title": "购物 - 虾仁谷歌邮箱批发商城",
+      "url": "https://xiareng.cc/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781501880610,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1781501892004
     },
     {
       "bookmarkId": "sync-1pglnqd",
@@ -1329,7 +1472,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1346,7 +1489,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779936480329,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779946725856
     },
@@ -1363,8 +1506,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779948787977,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-1o6uucz",
@@ -1374,14 +1518,16 @@
       "sourceRef": "AI工具购买地址",
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "gpt-subscription",
+      "groupId": "对接上游货源",
       "status": "active",
       "risk": "low",
-      "priceTag": "none",
-      "note": "",
+      "priceTag": "S",
+      "note": "上游rt plus",
       "firstSeenAt": 1779871015323,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780391979235,
       "present": true,
-      "annotationUpdatedAt": 1779935256820
+      "annotationUpdatedAt": 1780391979235
     },
     {
       "bookmarkId": "sync-1ho12em",
@@ -1397,7 +1543,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1414,7 +1560,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1432,7 +1578,7 @@
       "priceTag": "A",
       "note": "5",
       "firstSeenAt": 1779854228443,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1449,7 +1595,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868509792
     },
@@ -1466,7 +1612,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1484,7 +1630,7 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853542171,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -1502,7 +1648,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1519,7 +1665,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1536,7 +1682,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1554,7 +1700,7 @@
       "priceTag": "S",
       "note": "直充",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779865379872,
       "present": true,
       "annotationUpdatedAt": 1779865379872
@@ -1572,7 +1718,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1589,7 +1735,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1607,7 +1753,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1624,7 +1770,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1642,7 +1788,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860315891,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779864685744
     },
@@ -1658,12 +1804,12 @@
       "status": "active",
       "risk": "low",
       "priceTag": "S",
-      "note": "2.88 cdk 开自己号",
+      "note": "2.88 cdk 开自己号 上游",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
-      "lastCheckedAt": 1779952068134,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780880912514,
       "present": true,
-      "annotationUpdatedAt": 1779952068134
+      "annotationUpdatedAt": 1780880912514
     },
     {
       "bookmarkId": "sync-te1iwn",
@@ -1679,7 +1825,7 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779950352755,
       "present": true,
       "annotationUpdatedAt": 1779950352755
@@ -1697,7 +1843,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779952054109
     },
@@ -1714,7 +1860,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779865213195
     },
@@ -1732,7 +1878,7 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853842134,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -1750,7 +1896,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1768,7 +1914,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860277893,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1786,7 +1932,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1803,7 +1949,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1820,7 +1966,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779842750930,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1838,7 +1984,7 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1855,7 +2001,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1873,7 +2019,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779855048362,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -1892,7 +2038,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1909,9 +2055,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1splfax",
+      "title": "国际免费 SIM 卡 | giffgaff --- Internati 长期手机号国外onal Free SIM Cards | giffgaff",
+      "url": "https://www.giffgaff.com/freesim-international",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-4u01h4",
@@ -1927,7 +2089,7 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854258829,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -1945,7 +2107,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1962,7 +2124,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -1979,9 +2141,28 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1a7otrg",
+      "title": "黑到地的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/GAKCL5OC",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "对接上游货源",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "free",
+      "firstSeenAt": 1781486692921,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781486701576,
+      "present": true,
+      "annotationUpdatedAt": 1781486716481
     },
     {
       "bookmarkId": "sync-cg25sl",
@@ -1997,7 +2178,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2015,10 +2196,26 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854960569,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1ylfmy9",
+      "title": "华龙中转站 - AI API Gateway",
+      "url": "https://codex.hualong.site/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "status": "active",
+      "risk": "medium",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1tzpa7o",
@@ -2034,7 +2231,7 @@
       "priceTag": "S",
       "note": "4.9 rt",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779868750555,
       "present": true,
       "annotationUpdatedAt": 1779869670701
@@ -2053,7 +2250,7 @@
       "priceTag": "S",
       "note": "账号合集",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780020204995,
       "present": true,
       "annotationUpdatedAt": 1780020204995
@@ -2071,7 +2268,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2092,7 +2289,7 @@
       "priceTag": "S",
       "note": "1",
       "firstSeenAt": 1779876232903,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779950259841,
       "present": true,
       "annotationUpdatedAt": 1779950259841
@@ -2110,7 +2307,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2127,8 +2324,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779954475292,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-1ra4o8s",
@@ -2144,7 +2342,7 @@
       "priceTag": "S",
       "note": "3.9",
       "firstSeenAt": 1779877302779,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779877310461
     },
@@ -2161,7 +2359,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2179,9 +2377,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-vc24ll",
+      "title": "君の的公益",
+      "url": "https://muyuan.do/pricing",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780883148937,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-119rqmv",
@@ -2196,7 +2410,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2213,7 +2427,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2230,7 +2444,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2247,7 +2461,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2264,7 +2478,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2281,7 +2495,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2298,7 +2512,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2315,7 +2529,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2332,7 +2546,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2345,18 +2559,15 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "gpt-subscription",
       "groupId": "gpt-优先低价",
-      "secondaryGroupIds": [
-        "对接上游货源"
-      ],
       "status": "active",
       "risk": "low",
       "priceTag": "S",
       "note": "4.4",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854183970,
       "present": true,
-      "annotationUpdatedAt": 1779946702894
+      "annotationUpdatedAt": 1780367695561
     },
     {
       "bookmarkId": "sync-nx097b",
@@ -2372,7 +2583,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2390,7 +2601,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2407,7 +2618,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2425,9 +2636,27 @@
       "priceTag": "S",
       "note": "4 元",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1sdz166",
+      "title": "码愿AI部署的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/6YHGJOPN",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1780884587823,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780884593296
     },
     {
       "bookmarkId": "sync-9k4efh",
@@ -2443,7 +2672,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2461,7 +2690,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854802829,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -2479,9 +2708,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-z8hxzd",
+      "title": "蜜雪冰城，顶级批发（招代理）的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/2UXG1PDQ",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-eahgct",
@@ -2496,7 +2741,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2513,7 +2758,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2530,7 +2775,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2547,7 +2792,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2565,10 +2810,29 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779843736838,
       "present": true,
       "annotationUpdatedAt": 1779864769164
+    },
+    {
+      "bookmarkId": "sync-vmyyjp",
+      "title": "牧羊人的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/Z1WQCCGN",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "对接上游货源",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "team 上游",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781492180962,
+      "present": true,
+      "annotationUpdatedAt": 1781492180962
     },
     {
       "bookmarkId": "sync-hza3tl",
@@ -2583,7 +2847,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2600,7 +2864,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2617,9 +2881,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-10diycd",
+      "title": "派大星AI小店的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/CFPZC0FL",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1qot500",
@@ -2634,8 +2914,28 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779954192505,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
+    },
+    {
+      "bookmarkId": "sync-1najnuh",
+      "title": "晴天商店claude",
+      "url": "https://shop.tcshop.vip/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "claude",
+      "firstSeenAt": 1781076988894,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781076997192,
+      "present": true,
+      "annotationUpdatedAt": 1781076997192
     },
     {
       "bookmarkId": "sync-815dfy",
@@ -2651,7 +2951,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2668,7 +2968,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2685,7 +2985,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2703,10 +3003,26 @@
       "priceTag": "S",
       "note": "2.99",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779950293222,
       "present": true,
       "annotationUpdatedAt": 1779950293223
+    },
+    {
+      "bookmarkId": "sync-1ylg6gt",
+      "title": "三叶AI源头",
+      "url": "https://sanyeee.hnao.me/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1czppu5",
@@ -2717,14 +3033,17 @@
       "sourceFolderPath": "书签栏 / AI",
       "category": "gpt-subscription",
       "groupId": "gpt-优先低价",
+      "secondaryGroupIds": [
+        "对接上游货源"
+      ],
       "status": "pending",
       "risk": "low",
       "priceTag": "S",
-      "note": "4元低价",
+      "note": "4元低价 鲨鱼",
       "firstSeenAt": 1779848276401,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
-      "annotationUpdatedAt": 1779935256820
+      "annotationUpdatedAt": 1780367673500
     },
     {
       "bookmarkId": "sync-1imikge",
@@ -2739,7 +3058,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2756,7 +3075,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2774,7 +3093,7 @@
       "priceTag": "S",
       "note": "4.95",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779868947888,
       "present": true,
       "annotationUpdatedAt": 1779868947888
@@ -2793,7 +3112,7 @@
       "priceTag": "S",
       "note": "5.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854523318,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -2811,7 +3130,7 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2829,7 +3148,7 @@
       "priceTag": "A",
       "note": "7.99",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853501353,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -2848,7 +3167,7 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779855210850,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -2867,7 +3186,7 @@
       "priceTag": "A",
       "note": "3",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854218696,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -2886,7 +3205,7 @@
       "priceTag": "S",
       "note": "三块",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853160660,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -2900,15 +3219,15 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "unknown",
       "groupId": "gpt-优先低价",
-      "status": "pending",
+      "status": "active",
       "risk": "low",
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779951549893,
-      "lastSeenAt": 1780049417883,
-      "lastCheckedAt": 1779951565491,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781139675005,
       "present": true,
-      "annotationUpdatedAt": 1779951565491
+      "annotationUpdatedAt": 1781139675005
     },
     {
       "bookmarkId": "sync-13aved7",
@@ -2924,7 +3243,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2941,7 +3260,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2958,7 +3277,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -2976,7 +3295,7 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779847445886,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -2994,9 +3313,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1uz72x7",
+      "title": "商品列表",
+      "url": "https://goods.moo.kim/?keywords=plus",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781061086551,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1h5jphp",
@@ -3011,7 +3346,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3028,7 +3363,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3046,7 +3381,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3063,7 +3398,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3080,9 +3415,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1gju1ul",
+      "title": "神奇宝贝（🍋）的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/6Q8DVZ9B",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-ndo05y",
@@ -3097,7 +3448,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3114,9 +3465,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1twnrxq",
+      "title": "拾柒发卡",
+      "url": "https://shop.apihost.cn/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-149gptd",
@@ -3132,7 +3499,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3149,7 +3516,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3166,7 +3533,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3184,7 +3551,7 @@
       "priceTag": "S",
       "note": "三块",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853259074,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -3203,7 +3570,7 @@
       "priceTag": "S",
       "note": "账号合集",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780020271031,
       "present": true,
       "annotationUpdatedAt": 1780020271031
@@ -3221,7 +3588,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3238,7 +3605,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3255,7 +3622,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3273,7 +3640,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3290,7 +3657,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3307,7 +3674,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3324,9 +3691,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-10j6838",
+      "title": "数据总览 - 倍率监控用户端",
+      "url": "https://dddd.mentoe.com/user/dashboard/1",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781001194183,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-qww1de",
@@ -3341,7 +3724,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3358,7 +3741,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3376,7 +3759,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3393,7 +3776,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3410,7 +3793,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3427,7 +3810,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3444,7 +3827,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3461,7 +3844,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3478,7 +3861,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3496,9 +3879,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-xad267",
+      "title": "哇咔咔的AI小店的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/V2YZIFWM",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1cuvjk3",
@@ -3514,7 +3913,7 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779855033609,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -3533,7 +3932,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779852947589,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -3551,7 +3950,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3568,7 +3967,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3585,8 +3984,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779948787977,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-4cpby1",
@@ -3602,7 +4002,7 @@
       "priceTag": "S",
       "note": "1元接码",
       "firstSeenAt": 1779852864496,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779872675896
     },
@@ -3620,9 +4020,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868994166
+    },
+    {
+      "bookmarkId": "sync-4zuwel",
+      "title": "梧桐的小铺的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/JEN049AI",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781233012078,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-omj3hp",
@@ -3637,7 +4053,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3655,7 +4071,7 @@
       "priceTag": "A",
       "note": "2.7",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869018566
     },
@@ -3673,7 +4089,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3690,7 +4106,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3707,7 +4123,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3725,9 +4141,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-n09yzq",
+      "title": "小瓜瓜的小店 - 云猫寄售",
+      "url": "https://catfk.com/shop/T2GKMROB",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1hblcu4",
@@ -3743,10 +4175,26 @@
       "priceTag": "S",
       "note": "2.9",
       "firstSeenAt": 1779940511048,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779940518388,
       "present": true,
       "annotationUpdatedAt": 1779940553931
+    },
+    {
+      "bookmarkId": "sync-1evnt4r",
+      "title": "小鸡毛の公益支付长链生成器",
+      "url": "https://payurl.ark2.cn/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781001194183,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-52tigo",
@@ -3762,7 +4210,7 @@
       "priceTag": "S",
       "note": "小猫低价全",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3779,7 +4227,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3797,10 +4245,28 @@
       "priceTag": "S",
       "note": "2.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854009689,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-hsn5oq",
+      "title": "小兔SMS",
+      "url": "https://sms.xtacc.top/products",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "接码",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780536145764,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780536162596
     },
     {
       "bookmarkId": "sync-te7gp5",
@@ -3815,7 +4281,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3832,7 +4298,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3849,7 +4315,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3866,7 +4332,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3883,7 +4349,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3901,7 +4367,7 @@
       "priceTag": "S",
       "note": "邮箱代理",
       "firstSeenAt": 1780049417883,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780049436189,
       "present": true,
       "annotationUpdatedAt": 1780049436189
@@ -3920,7 +4386,7 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779875246502,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779875253094
     },
@@ -3937,8 +4403,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1780033596846,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-1jl6dxj",
@@ -3953,7 +4420,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3970,7 +4437,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -3987,7 +4454,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4005,7 +4472,7 @@
       "priceTag": "S",
       "note": "team",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4022,7 +4489,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4040,7 +4507,7 @@
       "priceTag": "S",
       "note": "冰佬公益站",
       "firstSeenAt": 1780021119054,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780021144941,
       "present": true,
       "annotationUpdatedAt": 1780021176639
@@ -4058,7 +4525,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4075,9 +4542,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1i4jyhp",
+      "title": "仪表盘 - 小蓝AI旗舰服务站 中转",
+      "url": "https://www.inroi.shop/dashboard",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "status": "active",
+      "risk": "medium",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-ydwv45",
@@ -4092,7 +4575,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4109,7 +4592,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4127,7 +4610,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779854649164,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4144,7 +4627,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4162,7 +4645,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4180,9 +4663,48 @@
       "priceTag": "S",
       "note": "鸭货中转",
       "firstSeenAt": 1779937377008,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780393697158,
       "present": true,
-      "annotationUpdatedAt": 1779937394253
+      "annotationUpdatedAt": 1780393697158
+    },
+    {
+      "bookmarkId": "sync-1kg25nx",
+      "title": "仪表盘 - Sub2API",
+      "url": "https://gpt.qinnaonao.com/dashboard",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "groupId": "中转",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "0.03 倍率纯血中转",
+      "firstSeenAt": 1780388035912,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780388051087,
+      "present": true,
+      "annotationUpdatedAt": 1780388719237
+    },
+    {
+      "bookmarkId": "sync-1y6yieg",
+      "title": "仪表盘 - Sub2API",
+      "url": "https://mdkj.lol/dashboard",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "groupId": "中转",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "0.035 倍率中转",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780388674381,
+      "present": true,
+      "annotationUpdatedAt": 1780388737424
     },
     {
       "bookmarkId": "sync-s6prcb",
@@ -4196,12 +4718,12 @@
       "status": "active",
       "risk": "low",
       "priceTag": "S",
-      "note": "",
+      "note": "全pro 号池",
       "firstSeenAt": 1779854609779,
-      "lastSeenAt": 1780049417883,
-      "lastCheckedAt": 1779854614159,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780388408924,
       "present": true,
-      "annotationUpdatedAt": 1779935256820
+      "annotationUpdatedAt": 1780388408924
     },
     {
       "bookmarkId": "sync-1ex7lvd",
@@ -4216,7 +4738,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4233,7 +4755,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4251,7 +4773,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4269,7 +4791,7 @@
       "priceTag": "S",
       "note": "3.4",
       "firstSeenAt": 1779854621673,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854831177,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -4287,7 +4809,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4304,7 +4826,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4321,7 +4843,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4339,7 +4861,7 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4357,7 +4879,7 @@
       "priceTag": "S",
       "note": "邮箱接收查看",
       "firstSeenAt": 1780025395054,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780025412978,
       "present": true,
       "annotationUpdatedAt": 1780025412978
@@ -4375,7 +4897,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4393,10 +4915,26 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779853677294,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853816522,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-zkulxu",
+      "title": "源头一线卡虚拟卡",
+      "url": "https://www.alckpay.online/#/home",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781001194183,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-g7gvui",
@@ -4411,9 +4949,31 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-gcl03b",
+      "title": "源头GPT的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/1DM0L7CR",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "groupId": "gpt-优先低价",
+      "secondaryGroupIds": [
+        "对接上游货源"
+      ],
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "上游plus",
+      "firstSeenAt": 1780882102006,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781514756651,
+      "present": true,
+      "annotationUpdatedAt": 1781514756651
     },
     {
       "bookmarkId": "sync-1vf7k09",
@@ -4428,7 +4988,7 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854083496,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -4446,7 +5006,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4464,7 +5024,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4482,9 +5042,25 @@
       "priceTag": "A",
       "note": "7",
       "firstSeenAt": 1779936971055,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779936997891
+    },
+    {
+      "bookmarkId": "sync-1ygitu9",
+      "title": "站点列表 - 倍率监控用户端",
+      "url": "https://dddd.mentoe.com/user/sites/2",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781001194183,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-ps9f1l",
@@ -4499,7 +5075,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4516,9 +5092,26 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-55y5o2",
+      "title": "猪猪AI小店的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/code",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781146090486,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1781146097919
     },
     {
       "bookmarkId": "sync-1h8nhf5",
@@ -4533,9 +5126,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1u9s5u5",
+      "title": "卓翔店铺 - 卓翔店铺",
+      "url": "http://sc.dididsw.cn/?#/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-5x7ksk",
@@ -4550,9 +5159,27 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-m3lkwd",
+      "title": "自营 AI 小铺的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/FGT2MO12/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "接码",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1780458420572,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780458431171
     },
     {
       "bookmarkId": "sync-ghrf9w",
@@ -4567,7 +5194,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4584,7 +5211,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779846547435,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4601,7 +5228,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4618,7 +5245,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4635,7 +5262,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4652,7 +5279,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4669,7 +5296,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4687,7 +5314,7 @@
       "priceTag": "S",
       "note": "7",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779876474266,
       "present": true,
       "annotationUpdatedAt": 1779876494449
@@ -4706,7 +5333,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4723,7 +5350,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4740,7 +5367,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868313350
     },
@@ -4757,7 +5384,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4775,7 +5402,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4792,7 +5419,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4809,7 +5436,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4826,7 +5453,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4844,7 +5471,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4862,7 +5489,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4879,9 +5506,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1sgkdp4",
+      "title": "AI API 中转站真假检测 - 验证 Claude / GPT / Gemini 是不是真的 | Veridrop",
+      "url": "https://veridrop.org/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "status": "active",
+      "risk": "medium",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-11cr2f6",
@@ -4896,7 +5539,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4913,7 +5556,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4930,9 +5573,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1ndqnfy",
+      "title": "ai1998的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/ai1998",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-fistbv",
@@ -4947,7 +5606,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -4965,7 +5624,7 @@
       "priceTag": "A",
       "note": "38",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853455191,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -4984,7 +5643,7 @@
       "priceTag": "A",
       "note": "代理",
       "firstSeenAt": 1780049316385,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780049333832,
       "present": true,
       "annotationUpdatedAt": 1780049333832
@@ -5003,7 +5662,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5020,7 +5679,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5037,7 +5696,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5054,7 +5713,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5072,7 +5731,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5090,10 +5749,44 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779868410298,
       "present": true,
       "annotationUpdatedAt": 1779868410299
+    },
+    {
+      "bookmarkId": "sync-gtcd8c",
+      "title": "AI金牌供应商 | 对接：t2j4ybta的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/F51WX60H",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "A",
+      "note": "",
+      "firstSeenAt": 1780882738545,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780882756836
+    },
+    {
+      "bookmarkId": "sync-1hp6t6x",
+      "title": "ai能量小铺的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/S5UL3UHI",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-8clc51",
@@ -5108,7 +5801,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5125,7 +5818,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5142,7 +5835,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5159,10 +5852,29 @@
       "priceTag": "S",
       "note": "3.89",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854583963,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-k2tufs",
+      "title": "ai小店的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/xiaoke",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "中转",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "team 上游",
+      "firstSeenAt": 1781513986723,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781513999409,
+      "present": true,
+      "annotationUpdatedAt": 1781513999409
     },
     {
       "bookmarkId": "sync-3wif21",
@@ -5177,7 +5889,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5194,7 +5906,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5212,9 +5924,42 @@
       "priceTag": "S",
       "note": "全土区",
       "firstSeenAt": 1780042486941,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1780042508099
+    },
+    {
+      "bookmarkId": "sync-rt0dl",
+      "title": "AI小店的小店 - QXVX Pay",
+      "url": "https://pay.qxvx.cn/shop/SJQ3EKW3",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
+    },
+    {
+      "bookmarkId": "sync-1rsn3sa",
+      "title": "Ai小伙计的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/153180461",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781139643641,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1781139661705
     },
     {
       "bookmarkId": "sync-ka2w1b",
@@ -5230,7 +5975,7 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853328128,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5249,7 +5994,7 @@
       "priceTag": "S",
       "note": "4.9接码",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854720331,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5267,7 +6012,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5285,7 +6030,7 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779855070767,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5303,9 +6048,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-cvyyi1",
+      "title": "AI源头的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/61KF391I",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781577440385,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-10l7xpw",
@@ -5321,7 +6082,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779869536254,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869559360
     },
@@ -5342,7 +6103,7 @@
       "priceTag": "S",
       "note": "4元PLUS (精品雅虎邮箱1卡1绑) 带rt，不带账密质保首登，sub2格式json",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779946688353
     },
@@ -5360,7 +6121,7 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779854941951,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5377,7 +6138,7 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779855156040,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5396,7 +6157,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779854127401,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854135561,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5415,7 +6176,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5433,7 +6194,7 @@
       "priceTag": "A",
       "note": "4.8",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853385146,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5452,10 +6213,28 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854641730,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1mgny47",
+      "title": "ai主理人的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/AV8G25IF",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "A",
+      "note": "",
+      "firstSeenAt": 1780882741005,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780882747480
     },
     {
       "bookmarkId": "sync-1a460jp",
@@ -5470,7 +6249,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5488,7 +6267,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1780021980669,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1780021998050
     },
@@ -5506,7 +6285,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779864820266
     },
@@ -5523,7 +6302,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5541,7 +6320,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5559,7 +6338,7 @@
       "priceTag": "A",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779855009280,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5577,7 +6356,7 @@
       "priceTag": "S",
       "note": "5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854564635,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5596,9 +6375,25 @@
       "priceTag": "A",
       "note": "4 未接码",
       "firstSeenAt": 1779936657627,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779936690676
+    },
+    {
+      "bookmarkId": "sync-137gxz0",
+      "title": "AIProbe",
+      "url": "https://aiprobe.top/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781514597655,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1pxguiy",
@@ -5613,7 +6408,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5631,7 +6426,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779862655380,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779864691871
     },
@@ -5648,7 +6443,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5665,7 +6460,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5682,7 +6477,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5700,7 +6495,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5718,7 +6513,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5735,7 +6530,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5752,7 +6547,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5769,7 +6564,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5787,7 +6582,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868998939
     },
@@ -5804,7 +6599,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5821,7 +6616,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5838,9 +6633,28 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1i4h6o5",
+      "title": "bestbuy365",
+      "url": "https://bestbuy365.monster/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "A",
+      "note": "",
+      "firstSeenAt": 1780541752684,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780541764749,
+      "present": true,
+      "annotationUpdatedAt": 1780541764749
     },
     {
       "bookmarkId": "sync-1w4dgbe",
@@ -5855,7 +6669,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5873,7 +6687,7 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779875167402,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779875177644
     },
@@ -5890,7 +6704,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5907,7 +6721,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5925,7 +6739,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854680398,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -5944,7 +6758,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5962,7 +6776,7 @@
       "priceTag": "S",
       "note": "6",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779869059217,
       "present": true,
       "annotationUpdatedAt": 1779869061504
@@ -5980,7 +6794,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -5997,7 +6811,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869170196
     },
@@ -6014,7 +6828,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869121155
     },
@@ -6031,7 +6845,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869172186
     },
@@ -6049,7 +6863,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869166182
     },
@@ -6066,7 +6880,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869177371
     },
@@ -6083,7 +6897,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869180378
     },
@@ -6100,7 +6914,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868781455
     },
@@ -6117,7 +6931,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869183920
     },
@@ -6135,7 +6949,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868758814
     },
@@ -6152,7 +6966,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868299249
     },
@@ -6170,7 +6984,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868719621
     },
@@ -6188,7 +7002,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868709177
     },
@@ -6205,7 +7019,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868281640
     },
@@ -6222,7 +7036,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6239,7 +7053,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868285374
     },
@@ -6256,7 +7070,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868257316
     },
@@ -6273,9 +7087,28 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-apl9k9",
+      "title": "China-Nb的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/China-Nb",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "groupId": "对接上游货源",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781245989026,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781246005851,
+      "present": true,
+      "annotationUpdatedAt": 1781246005851
     },
     {
       "bookmarkId": "sync-1cik6sa",
@@ -6291,7 +7124,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1780043320793,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1780043328398
     },
@@ -6308,7 +7141,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6325,7 +7158,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6342,7 +7175,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6360,7 +7193,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6377,7 +7210,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6394,7 +7227,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6411,7 +7244,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6429,7 +7262,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6447,7 +7280,7 @@
       "priceTag": "none",
       "note": "claude",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6464,7 +7297,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6482,7 +7315,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6499,7 +7332,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6516,7 +7349,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6534,7 +7367,7 @@
       "priceTag": "S",
       "note": "转换工具",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780025973235,
       "present": true,
       "annotationUpdatedAt": 1780025973235
@@ -6552,7 +7385,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6570,9 +7403,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-16xuinz",
+      "title": "Codex Relay Station",
+      "url": "https://blackaicoding.com/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "status": "active",
+      "risk": "medium",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781489606729,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-mtejqo",
@@ -6582,14 +7431,15 @@
       "sourceRef": "AI工具购买地址",
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "unknown",
+      "groupId": "中转",
       "status": "active",
       "risk": "low",
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779854633464,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
-      "annotationUpdatedAt": 1779935256820
+      "annotationUpdatedAt": 1781489616196
     },
     {
       "bookmarkId": "sync-mw52ip",
@@ -6604,7 +7454,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6621,7 +7471,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6638,9 +7488,43 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-368y2i",
+      "title": "CPA -> sub2api",
+      "url": "https://gtxx3600.github.io/CPA2sub2API/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781001194183,
+      "lastSeenAt": 1781579709109,
+      "present": true
+    },
+    {
+      "bookmarkId": "sync-5vuj7x",
+      "title": "CPA to Sub2API 格式转换",
+      "url": "https://conversion.nloop.cc/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "groupId": "ai-工具",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1780536181264,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780536188766
     },
     {
       "bookmarkId": "sync-1u44pk4",
@@ -6655,7 +7539,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6673,7 +7557,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6690,7 +7574,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6707,7 +7591,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6724,9 +7608,30 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-b3jsev",
+      "title": "Cursor 专卖的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/cursor-pro",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "secondaryGroupIds": [
+        "gpt-优先低价"
+      ],
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781514609865,
+      "present": true,
+      "annotationUpdatedAt": 1781514609865
     },
     {
       "bookmarkId": "sync-1unbtri",
@@ -6741,7 +7646,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6758,7 +7663,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6776,7 +7681,7 @@
       "priceTag": "S",
       "note": "3",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853409010,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -6794,7 +7699,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6811,7 +7716,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6828,7 +7733,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6845,7 +7750,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6862,7 +7767,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6879,7 +7784,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6896,7 +7801,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6914,7 +7819,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6931,7 +7836,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6948,7 +7853,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6965,7 +7870,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -6982,7 +7887,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7000,7 +7905,7 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854495940,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -7018,7 +7923,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7035,7 +7940,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7052,7 +7957,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7069,7 +7974,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7086,7 +7991,7 @@
       "priceTag": "S",
       "note": "13",
       "firstSeenAt": 1779936794234,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779936804012
     },
@@ -7103,7 +8008,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7120,7 +8025,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7137,7 +8042,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7154,7 +8059,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7171,7 +8076,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7188,7 +8093,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7206,7 +8111,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868421136
     },
@@ -7224,7 +8129,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7241,7 +8146,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7259,7 +8164,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779849076492,
       "present": true,
       "annotationUpdatedAt": 1779864774048
@@ -7278,7 +8183,7 @@
       "priceTag": "S",
       "note": "team",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854463619,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -7296,7 +8201,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7314,7 +8219,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7332,9 +8237,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868699139
+    },
+    {
+      "bookmarkId": "sync-1gnud4",
+      "title": "gemini gpt grok的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/ARA7KSEY",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781484358506,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-o7upid",
@@ -7350,7 +8271,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7368,7 +8289,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7386,7 +8307,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7404,7 +8325,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7422,7 +8343,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7440,7 +8361,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7458,7 +8379,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7476,7 +8397,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779876301860,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779876312836
     },
@@ -7493,7 +8414,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868268232
     },
@@ -7511,7 +8432,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7528,7 +8449,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7545,7 +8466,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7562,7 +8483,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7579,7 +8500,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7596,7 +8517,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7614,7 +8535,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7631,7 +8552,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7649,7 +8570,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7667,7 +8588,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779960206442,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1780029099584
     },
@@ -7684,7 +8605,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779865341749
     },
@@ -7702,7 +8623,7 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779855171441,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -7721,10 +8642,29 @@
       "priceTag": "S",
       "note": "可达鸭新中转站：https://sub.kedaya.xyz\n\n云猫发卡网：https://catfk.com/shop/kedaya\n独角兽发卡网：https://shop.kedaya.xyz/\n\n交流群：https://t.me/gpt_kedaya\n\n凭证导出：https://codex.kedaya.xyz\n账号提取：https://gpt.kedaya.xyz",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1780035098117,
       "present": true,
       "annotationUpdatedAt": 1780035098117
+    },
+    {
+      "bookmarkId": "sync-1lt8jgb",
+      "title": "GPT PLUS Team",
+      "url": "https://pay.ldxp.cn/shop/ainx",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "groupId": "对接上游货源",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "货源team",
+      "firstSeenAt": 1781167667757,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781167681476,
+      "present": true,
+      "annotationUpdatedAt": 1781167681476
     },
     {
       "bookmarkId": "sync-zo2aec",
@@ -7740,7 +8680,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779868423583
     },
@@ -7757,7 +8697,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779865276143
     },
@@ -7775,7 +8715,7 @@
       "priceTag": "S",
       "note": "4.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779868090040,
       "present": true,
       "annotationUpdatedAt": 1779868090040
@@ -7794,7 +8734,7 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779854846854,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7812,9 +8752,47 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779865267748
+    },
+    {
+      "bookmarkId": "sync-1jknqnu",
+      "title": "gpt源头的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/1ELUEL0C",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781247617012,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781247622605,
+      "present": true,
+      "annotationUpdatedAt": 1781247622605
+    },
+    {
+      "bookmarkId": "sync-ot3ar7",
+      "title": "gpt专卖店的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/N6OY2XFP",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "groupId": "中转",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "中转对接0.25倍率",
+      "firstSeenAt": 1780567412684,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780567427015,
+      "present": true,
+      "annotationUpdatedAt": 1780567427015
     },
     {
       "bookmarkId": "sync-4iy3t8",
@@ -7830,7 +8808,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779864789332
     },
@@ -7847,9 +8825,43 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779863539501
+    },
+    {
+      "bookmarkId": "sync-1pu8cac",
+      "title": "GPTplus会员 新渠道 手搓版的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/DTAY1FFD",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "groupId": "对接上游货源",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781244738046,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1781247491052
+    },
+    {
+      "bookmarkId": "sync-19uxfd2",
+      "title": "‌‍⁢⁢‬﻿⁤﻿⁣﻿⁢‍​⁡⁡⁡⁤⁤⁤‌​‬‬⁤‌‬​⁣‍​⁡⁣⁢⁡﻿﻿​​⁤‌​‬⁡​⁡‌⁡​‍​GPTplus试用开通教程（y） - 飞书云文档",
+      "url": "https://my.feishu.cn/wiki/WjVewb95cijTN3kDnNRcSaaunsh",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780395205781,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1hz1zeu",
@@ -7864,7 +8876,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779863535078
     },
@@ -7882,7 +8894,7 @@
       "priceTag": "S",
       "note": "4.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779865249689,
       "present": true,
       "annotationUpdatedAt": 1779865249689
@@ -7901,7 +8913,7 @@
       "priceTag": "S",
       "note": "6.8 rt",
       "firstSeenAt": 1779952292027,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779952303413,
       "present": true,
       "annotationUpdatedAt": 1779952303413
@@ -7919,7 +8931,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7937,7 +8949,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7954,7 +8966,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7971,7 +8983,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -7988,7 +9000,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8005,7 +9017,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8022,7 +9034,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8039,7 +9051,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8057,7 +9069,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8075,7 +9087,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8092,7 +9104,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8109,7 +9121,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8126,7 +9138,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8143,7 +9155,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8160,7 +9172,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8178,7 +9190,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854167497,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -8196,9 +9208,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-sembv0",
+      "title": "Ice Ai X的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/iceaix",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781577440385,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-a3ikzm",
@@ -8214,7 +9242,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779930901759,
       "present": true,
       "annotationUpdatedAt": 1779930901759
@@ -8232,7 +9260,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8249,7 +9277,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8266,7 +9294,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8284,7 +9312,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8301,7 +9329,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8318,7 +9346,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779937870834,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779946725856
     },
@@ -8336,7 +9364,7 @@
       "priceTag": "S",
       "note": "3r 鸭货",
       "firstSeenAt": 1779937246375,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779937282990
     },
@@ -8353,7 +9381,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8370,7 +9398,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8387,7 +9415,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8405,7 +9433,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854768190,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -8424,7 +9452,7 @@
       "priceTag": "S",
       "note": "三块",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853294667,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -8443,7 +9471,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8460,7 +9488,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8478,7 +9506,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8495,8 +9523,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1780018597325,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-uatnnq",
@@ -8512,7 +9541,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8530,7 +9559,7 @@
       "priceTag": "S",
       "note": "5.5",
       "firstSeenAt": 1779854336466,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854347999,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -8548,7 +9577,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779860494570,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8565,7 +9594,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8582,7 +9611,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8599,7 +9628,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8620,7 +9649,7 @@
       "priceTag": "S",
       "note": "3.5 有中转",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779950338357,
       "present": true,
       "annotationUpdatedAt": 1779950338358
@@ -8638,7 +9667,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8655,7 +9684,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8672,9 +9701,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-l63xvo",
+      "title": "LLM Monitor 地址",
+      "url": "https://www.kanllm.com/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781577440385,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1hsznm6",
@@ -8689,7 +9734,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8706,7 +9751,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8723,9 +9768,27 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1mb9a2l",
+      "title": "LYAPI",
+      "url": "https://free.lyclaude.site/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "groupId": "gpt-优先低价",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1780883952699,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780883958657
     },
     {
       "bookmarkId": "sync-15tzv4b",
@@ -8740,7 +9803,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8757,7 +9820,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8774,7 +9837,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8791,9 +9854,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1501oug",
+      "title": "mengma的ai小店的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/PE351NXM",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780879348996,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1b2k8qy",
@@ -8808,7 +9887,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8825,7 +9904,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8842,7 +9921,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8860,7 +9939,7 @@
       "priceTag": "A",
       "note": "8.5",
       "firstSeenAt": 1779854041714,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8877,7 +9956,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8895,7 +9974,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8912,7 +9991,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8929,7 +10008,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779863532488
     },
@@ -8947,7 +10026,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8964,7 +10043,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -8981,13 +10060,13 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
     {
       "bookmarkId": "sync-1g2ryhg",
-      "title": "NameSilo - Dashboard",
+      "title": "NameSilo - Dashboard 域名购买",
       "url": "https://www.namesilo.com/account/",
       "folderPath": "书签栏 / AI工具购买地址",
       "sourceRef": "AI工具购买地址",
@@ -8998,9 +10077,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1p1qzfp",
+      "title": "Nerver · AC 资格预检榜单合集",
+      "url": "https://cha.nerver.cc/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "tool",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1k17x4q",
@@ -9011,15 +10106,18 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "unknown",
       "groupId": "gpt-优先低价",
-      "status": "pending",
+      "secondaryGroupIds": [
+        "对接上游货源"
+      ],
+      "status": "active",
       "risk": "high",
       "priceTag": "S",
-      "note": "2.5",
+      "note": "2.5 鲨鱼渠道货源",
       "firstSeenAt": 1779842750930,
-      "lastSeenAt": 1780049417883,
-      "lastCheckedAt": 1779950271233,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780370375985,
       "present": true,
-      "annotationUpdatedAt": 1779950271233
+      "annotationUpdatedAt": 1780370375985
     },
     {
       "bookmarkId": "sync-1g0xyb8",
@@ -9035,7 +10133,7 @@
       "priceTag": "S",
       "note": "3.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854100437,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -9053,7 +10151,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9071,7 +10169,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9089,7 +10187,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9107,9 +10205,28 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-1m5xhet",
+      "title": "New API",
+      "url": "https://codexapis.com/console",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "groupId": "中转",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "0.04 刀哥中转",
+      "firstSeenAt": 1780390344904,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780390358771,
+      "present": true,
+      "annotationUpdatedAt": 1780390369869
     },
     {
       "bookmarkId": "sync-5neq4l",
@@ -9125,7 +10242,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9142,7 +10259,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9159,7 +10276,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9177,7 +10294,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779865072706
     },
@@ -9195,10 +10312,29 @@
       "priceTag": "A",
       "note": "6.5",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779855222240,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-hjry2k",
+      "title": "OAIPro API",
+      "url": "https://api.oaipro.com/pricing",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "api-relay",
+      "groupId": "中转",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "始皇的中转",
+      "firstSeenAt": 1780901577411,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1780901593517,
+      "present": true,
+      "annotationUpdatedAt": 1780901593517
     },
     {
       "bookmarkId": "sync-1ub94tg",
@@ -9213,7 +10349,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9230,7 +10366,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9247,7 +10383,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779842750930,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9264,7 +10400,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9281,7 +10417,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9298,9 +10434,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-c2ez6u",
+      "title": "Outlook 快速取件 | IMAP + Graph 双协议",
+      "url": "https://mail.chatai.codes/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-1hk8j2a",
@@ -9316,7 +10468,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9333,7 +10485,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9350,7 +10502,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9367,7 +10519,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9384,7 +10536,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9401,7 +10553,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9419,7 +10571,7 @@
       "priceTag": "S",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854701105,
       "present": true,
       "annotationUpdatedAt": 1779865025851
@@ -9437,7 +10589,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9454,7 +10606,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9471,7 +10623,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9489,7 +10641,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9507,9 +10659,42 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-9m5lqk",
+      "title": "PLUS 账号",
+      "url": "https://faka.aiceo.dev/",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "status": "active",
+      "risk": "medium",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1781233012078,
+      "lastSeenAt": 1781579709109,
+      "present": true
+    },
+    {
+      "bookmarkId": "sync-a5v0sy",
+      "title": "plus源头的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/IY16OXB7",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "gpt-subscription",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "S",
+      "note": "",
+      "firstSeenAt": 1781139643641,
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1781139646324
     },
     {
       "bookmarkId": "sync-n5ivwg",
@@ -9525,7 +10710,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854534429,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -9544,7 +10729,7 @@
       "priceTag": "C",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9561,7 +10746,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9578,7 +10763,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9595,7 +10780,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9612,7 +10797,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9629,7 +10814,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9646,7 +10831,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9663,7 +10848,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9681,7 +10866,7 @@
       "priceTag": "S",
       "note": "4",
       "firstSeenAt": 1779872541876,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779872564491
     },
@@ -9699,7 +10884,7 @@
       "priceTag": "A",
       "note": "6.9",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853491199,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -9717,7 +10902,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9734,7 +10919,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9751,7 +10936,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9768,7 +10953,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9785,9 +10970,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-18eope3",
+      "title": "smallbanana的小店 - 链动小铺",
+      "url": "https://pay.ldxp.cn/shop/FPG7WKL2",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780367650703,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-o82uxl",
@@ -9803,7 +11004,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9820,8 +11021,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779953831700,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-1fqroj4",
@@ -9837,7 +11039,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779869347266
     },
@@ -9855,9 +11057,25 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
+    },
+    {
+      "bookmarkId": "sync-13qwbv7",
+      "title": "SubRouter",
+      "url": "https://subrouter.ai/rankings",
+      "folderPath": "书签栏 / AI工具购买地址",
+      "sourceRef": "AI工具购买地址",
+      "sourceFolderPath": "书签栏 / AI工具购买地址",
+      "category": "unknown",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 1780772455541,
+      "lastSeenAt": 1781579709109,
+      "present": true
     },
     {
       "bookmarkId": "sync-2gi8mr",
@@ -9872,8 +11090,9 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779960597434,
-      "lastSeenAt": 1780049417883,
-      "present": true
+      "lastSeenAt": 1781579709109,
+      "present": true,
+      "annotationUpdatedAt": 1780049445270
     },
     {
       "bookmarkId": "sync-18auh0t",
@@ -9888,7 +11107,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9905,7 +11124,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9922,7 +11141,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9939,7 +11158,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9956,7 +11175,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9974,7 +11193,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -9991,7 +11210,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10008,7 +11227,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10025,7 +11244,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10042,7 +11261,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10059,7 +11278,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10077,7 +11296,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10094,7 +11313,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10111,7 +11330,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10128,7 +11347,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10145,7 +11364,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10163,7 +11382,7 @@
       "priceTag": "S",
       "note": "三块",
       "firstSeenAt": 1779843487739,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853178403,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -10181,7 +11400,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779863536757
     },
@@ -10198,7 +11417,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10215,7 +11434,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10232,7 +11451,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10250,7 +11469,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10263,14 +11482,15 @@
       "sourceFolderPath": "书签栏 / AI工具购买地址",
       "category": "unknown",
       "groupId": "windsurf-gemini",
-      "status": "pending",
+      "status": "active",
       "risk": "low",
-      "priceTag": "none",
-      "note": "",
+      "priceTag": "S",
+      "note": "gpt 充值",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
+      "lastCheckedAt": 1781167955012,
       "present": true,
-      "annotationUpdatedAt": 1779935256820
+      "annotationUpdatedAt": 1781167955012
     },
     {
       "bookmarkId": "sync-7ins0m",
@@ -10285,7 +11505,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10302,7 +11522,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779864765122
     },
@@ -10319,7 +11539,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10336,7 +11556,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10353,7 +11573,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10370,7 +11590,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10387,7 +11607,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10404,7 +11624,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10421,7 +11641,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10439,7 +11659,7 @@
       "priceTag": "B",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10457,7 +11677,7 @@
       "priceTag": "S",
       "note": "3.2",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779938182218,
       "present": true,
       "annotationUpdatedAt": 1779938184770
@@ -10476,7 +11696,7 @@
       "priceTag": "S",
       "note": "3.18",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853311288,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -10494,7 +11714,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10511,7 +11731,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10528,7 +11748,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10545,7 +11765,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10562,7 +11782,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779854820164,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10580,7 +11800,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10598,7 +11818,7 @@
       "priceTag": "A",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779854926309,
       "present": true,
       "annotationUpdatedAt": 1779935256820
@@ -10617,7 +11837,7 @@
       "priceTag": "S",
       "note": "2.99",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "lastCheckedAt": 1779853357164,
       "present": true,
       "annotationUpdatedAt": 1779938205915
@@ -10635,7 +11855,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779853339025,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10652,7 +11872,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     },
@@ -10669,7 +11889,7 @@
       "priceTag": "none",
       "note": "",
       "firstSeenAt": 1779786069871,
-      "lastSeenAt": 1780049417883,
+      "lastSeenAt": 1781579709109,
       "present": true,
       "annotationUpdatedAt": 1779935256820
     }
