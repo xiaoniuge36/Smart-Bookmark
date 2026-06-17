@@ -301,6 +301,15 @@ const COLLECTIONS: CollectionGroup[] = [
               en: "Hero SMS Chinese entry",
             },
           },
+          {
+            title: "SMSBower",
+            url: "https://smsbower.app/",
+            tag: { zh: "短信接码", en: "SMS" },
+            description: {
+              zh: "虚拟号码接码平台，覆盖 Telegram、Google、WhatsApp 等服务",
+              en: "Virtual number SMS platform for Telegram, Google, WhatsApp and more",
+            },
+          },
         ],
       },
       {
