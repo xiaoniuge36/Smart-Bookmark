@@ -2,14 +2,12 @@ import { Loader2, RefreshCw, Search, Settings2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useT } from "@/lib/i18n";
-import { STATUS_FILTER_ORDER, STATUS_META, type StatusFilter } from "./meta";
 
 interface ChannelToolbarProps {
   title: string;
   loading: boolean;
   scanning: boolean;
   query: string;
-  statusFilter: StatusFilter;
   stats: {
     total: number;
     active: number;
@@ -19,7 +17,6 @@ interface ChannelToolbarProps {
   onScan: () => void;
   onOpenManage: () => void;
   onQueryChange: (value: string) => void;
-  onStatusFilterChange: (status: StatusFilter) => void;
 }
 
 export default function ChannelToolbar({
@@ -27,12 +24,10 @@ export default function ChannelToolbar({
   loading,
   scanning,
   query,
-  statusFilter,
   stats,
   onScan,
   onOpenManage,
   onQueryChange,
-  onStatusFilterChange,
 }: ChannelToolbarProps) {
   const t = useT();
   return (
@@ -90,19 +85,6 @@ export default function ChannelToolbar({
               <X className="h-4 w-4" />
             </button>
           )}
-        </div>
-        <div className="flex flex-wrap gap-1">
-          {STATUS_FILTER_ORDER.map((status) => (
-            <Button
-              key={status}
-              size="sm"
-              variant={statusFilter === status ? "default" : "ghost"}
-              className="h-8 rounded-full px-3 text-xs"
-              onClick={() => onStatusFilterChange(status)}
-            >
-              {status === "all" ? t("channels.status.all") : t(STATUS_META[status].labelKey)}
-            </Button>
-          ))}
         </div>
       </div>
     </div>

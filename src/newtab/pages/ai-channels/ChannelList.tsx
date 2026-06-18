@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef } from "react";
-import { ChevronDown, ChevronRight, Clock, ExternalLink } from "lucide-react";
+import { ChevronDown, ChevronRight, Clock, ExternalLink, Plus, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   PRICE_TAG_META,
   STATUS_META,
@@ -10,8 +11,10 @@ import {
 } from "./meta";
 import { cn, faviconOf, hostnameOf } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
-import type { AiChannelGroup, AiChannelRecord } from "@/types";
+import type { AiChannelGroup, AiChannelPriceTag, AiChannelRecord } from "@/types";
+import { AI_CHANNEL_STATUS_ORDER } from "@/lib/aiChannelStatus";
 import SelectMenu, { type SelectMenuOption } from "./SelectMenu";
+import { getChannelRecordUpdateTime } from "./viewModel";
 
 interface ChannelListProps {
   records: AiChannelRecord[];
@@ -241,11 +244,25 @@ function ChannelRow({
   onToggleBatch: (id: string) => void;
 }) {
   const t = useT();
-  const status = STATUS_META[record.status];
-  const priceTag = PRICE_TAG_META[record.priceTag ?? "none"];
-  const StatusIcon = status.Icon;
+  const updateTime = getChannelRecordUpdateTime(record);
+  const secondaryOptions = groupOptions.filter(
+    (option) =>
+      option.value !== UNGROUPED_ID &&
+      option.value !== record.groupId &&
+      !(record.secondaryGroupIds ?? []).includes(option.value),
+  );
   const openRecord = () => {
     window.open(record.url, "_blank", "noopener,noreferrer");
+  };
+  const addSecondaryGroup = (value: string) => {
+    if (!value) return;
+    onPatch(record.bookmarkId, {
+      secondaryGroupIds: [...(record.secondaryGroupIds ?? []), value],
+    });
+  };
+  const removeSecondaryGroup = (value: string) => {
+    const next = (record.secondaryGroupIds ?? []).filter((id) => id !== value);
+    onPatch(record.bookmarkId, { secondaryGroupIds: next.length ? next : undefined });
   };
   return (
     <div
@@ -317,51 +334,65 @@ function ChannelRow({
         <ExternalLink className="h-3.5 w-3.5" />
       </button>
 
-      {/* Note (most often a price — give it a warm, highly-readable surface) */}
-      {record.note?.trim() && (
-        <div className="relative overflow-hidden rounded-md border border-amber-200/70 bg-gradient-to-br from-amber-50 to-orange-50/70 px-2.5 py-1.5 text-[12px] font-bold leading-snug tracking-wide text-amber-900 shadow-[0_1px_2px_rgba(245,158,11,0.08)] dark:border-amber-500/30 dark:from-amber-500/[0.08] dark:to-orange-500/[0.08] dark:text-amber-200">
-          <span className="absolute inset-y-1 left-0 w-[3px] rounded-r-full bg-gradient-to-b from-amber-500 to-orange-500 shadow-[0_0_4px_rgba(245,158,11,0.4)]" />
-          <span className="block min-w-0 break-words pl-2">{record.note}</span>
-        </div>
-      )}
+      {/* Note */}
+      <textarea
+        value={record.note}
+        onChange={(event) => onPatch(record.bookmarkId, { note: event.target.value })}
+        onClick={(event) => event.stopPropagation()}
+        placeholder={t("channels.detail.notePlaceholder")}
+        className="min-h-[46px] w-full resize-none rounded-md border border-amber-200/70 bg-amber-50/70 px-2.5 py-1.5 text-[12px] font-medium leading-snug text-amber-950 outline-none transition placeholder:text-amber-800/45 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 dark:border-amber-500/30 dark:bg-amber-500/[0.08] dark:text-amber-100 dark:placeholder:text-amber-200/35"
+      />
 
       {/* Tags row */}
       <div className="flex flex-wrap items-center gap-1">
-        <span className={cn("inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] ring-1", status.className)}>
-          <StatusIcon className="mr-0.5 h-2.5 w-2.5" />
-          {t(status.labelKey)}
-        </span>
-        {(record.priceTag ?? "none") !== "none" && (
-          <span className={cn("inline-flex items-center rounded-full px-2 py-[3px] text-[11px] leading-none ring-1", priceTag.className)}>
-            {t(priceTag.labelKey)}
-          </span>
-        )}
+        {AI_CHANNEL_STATUS_ORDER.map((statusKey) => {
+          const meta = STATUS_META[statusKey];
+          const Icon = meta.Icon;
+          return (
+            <Button
+              key={statusKey}
+              type="button"
+              size="sm"
+              variant="ghost"
+              title={t(meta.labelKey)}
+              aria-label={t(meta.labelKey)}
+              className={cn(
+                "h-6 rounded-full px-1.5 text-[10px] ring-1",
+                record.status === statusKey
+                  ? meta.className
+                  : "bg-muted/40 text-muted-foreground ring-border hover:bg-muted",
+              )}
+              onClick={() =>
+                onPatch(record.bookmarkId, {
+                  status: statusKey,
+                  lastCheckedAt: Date.now(),
+                })
+              }
+            >
+              <Icon className="h-2.5 w-2.5" />
+            </Button>
+          );
+        })}
       </div>
 
-      {/* Secondary groups */}
-      {(record.secondaryGroupIds ?? []).length > 0 && (
-        <div className="flex flex-wrap items-center gap-1">
-          {record.secondaryGroupIds!.map((sid) => {
-            const opt = groupOptions.find((o) => o.value === sid);
-            if (!opt) return null;
-            return (
-              <span key={sid} className="inline-flex items-center gap-1 rounded-full bg-muted/60 px-1.5 py-0.5 text-[10px] text-muted-foreground ring-1 ring-border/50">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary/50" />
-                {opt.label}
-              </span>
-            );
-          })}
-        </div>
-      )}
-
-      {/* Update time */}
-      {record.lastCheckedAt && (
-        <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
-          <Clock className="h-2.5 w-2.5" />
-          <span>{t("channels.detail.lastChecked")}</span>
-          <span className="tabular-nums">{formatDateTime(record.lastCheckedAt)}</span>
-        </div>
-      )}
+      <div className="grid grid-cols-5 gap-1">
+        {(Object.keys(PRICE_TAG_META) as AiChannelPriceTag[]).map((key) => (
+          <button
+            key={key}
+            type="button"
+            onClick={() => onPatch(record.bookmarkId, { priceTag: key })}
+            className={cn(
+              "h-6 rounded-full px-1.5 text-[10px] font-medium ring-1 transition",
+              (record.priceTag ?? "none") === key
+                ? priceTagButtonClass(key)
+                : "bg-muted/40 text-muted-foreground ring-border hover:bg-muted hover:text-foreground",
+            )}
+            title={t(PRICE_TAG_META[key].labelKey)}
+          >
+            {key === "none" ? t("channels.price.none") : key}
+          </button>
+        ))}
+      </div>
 
       {/* Group selector */}
       <SelectMenu
@@ -376,6 +407,57 @@ function ChannelRow({
           })
         }
       />
+
+      {/* Secondary groups */}
+      {(record.secondaryGroupIds ?? []).length > 0 && (
+        <div className="flex flex-wrap items-center gap-1">
+          {record.secondaryGroupIds!.map((sid) => {
+            const opt = groupOptions.find((o) => o.value === sid);
+            if (!opt) return null;
+            return (
+              <span key={sid} className="inline-flex items-center gap-1 rounded-full bg-muted/60 px-1.5 py-0.5 text-[10px] text-muted-foreground ring-1 ring-border/50">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary/50" />
+                {opt.label}
+                <button
+                  type="button"
+                  className="rounded-full p-0.5 hover:bg-destructive/15 hover:text-destructive"
+                  onClick={() => removeSecondaryGroup(sid)}
+                  aria-label={`${t("channels.detail.removeSecondaryGroup")} ${opt.label}`}
+                >
+                  <X className="h-2.5 w-2.5" />
+                </button>
+              </span>
+            );
+          })}
+        </div>
+      )}
+
+      <div className="flex items-center gap-1">
+        <SelectMenu
+          value=""
+          options={secondaryOptions}
+          placeholder={t("channels.detail.addSecondaryGroup")}
+          className="h-7 min-w-0 flex-1 justify-between rounded-lg text-[11px]"
+          contentClassName="min-w-[11rem]"
+          align="start"
+          onChange={addSecondaryGroup}
+        />
+        <Plus className="h-3.5 w-3.5 text-muted-foreground" />
+      </div>
+
+      {/* Update time */}
+      {updateTime > 0 && (
+        <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+          <Clock className="h-2.5 w-2.5" />
+          <span>{t("channels.detail.lastChecked")}</span>
+          <span className="tabular-nums">{formatDateTime(updateTime)}</span>
+        </div>
+      )}
     </div>
   );
+}
+
+function priceTagButtonClass(key: AiChannelPriceTag): string {
+  if (key === "none") return PRICE_TAG_META.none.className;
+  return PRICE_TAG_META[key].className;
 }

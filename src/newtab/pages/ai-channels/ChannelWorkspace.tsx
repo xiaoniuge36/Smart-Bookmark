@@ -1,14 +1,23 @@
 import { useMemo, useState } from "react";
-import { CheckSquare2, X } from "lucide-react";
+import { ArrowDownUp, CheckSquare2, SlidersHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
-import { colorDotProps, colorOptionDot, UNGROUPED_ID } from "./meta";
+import {
+  PRICE_TAG_META,
+  STATUS_FILTER_ORDER,
+  STATUS_META,
+  colorDotProps,
+  colorOptionDot,
+  UNGROUPED_ID,
+  type StatusFilter,
+} from "./meta";
 import type { AiChannelGroup, AiChannelRecord } from "@/types";
 import ChannelDetail from "./ChannelDetail";
 import ChannelList from "./ChannelList";
 import SelectMenu, { type SelectMenuOption } from "./SelectMenu";
+import type { ChannelSortMode, PriceFilter } from "./viewModel";
 
 interface ChannelWorkspaceProps {
   loading: boolean;
@@ -16,11 +25,17 @@ interface ChannelWorkspaceProps {
   selected?: AiChannelRecord;
   selectedId: string;
   activeGroupId: string;
+  statusFilter: StatusFilter;
+  priceFilter: PriceFilter;
+  sortMode: ChannelSortMode;
   groupFocusVersion: number;
   groups: AiChannelGroup[];
   groupCounts: Map<string, number>;
   batchIds: string[];
   onGroupChange: (groupId: string) => void;
+  onStatusFilterChange: (status: StatusFilter) => void;
+  onPriceFilterChange: (price: PriceFilter) => void;
+  onSortModeChange: (mode: ChannelSortMode) => void;
   onSelect: (id: string) => void;
   onToggleGroup: (id: string) => void;
   onPatch: (id: string, patch: Partial<AiChannelRecord>) => void;
@@ -35,11 +50,17 @@ export default function ChannelWorkspace({
   selected,
   selectedId,
   activeGroupId,
+  statusFilter,
+  priceFilter,
+  sortMode,
   groupFocusVersion,
   groups,
   groupCounts,
   batchIds,
   onGroupChange,
+  onStatusFilterChange,
+  onPriceFilterChange,
+  onSortModeChange,
   onSelect,
   onToggleGroup,
   onPatch,
@@ -67,6 +88,26 @@ export default function ChannelWorkspace({
   ];
 
   const batchSet = useMemo(() => new Set(batchIds), [batchIds]);
+  const priceOptions = useMemo<SelectMenuOption[]>(
+    () => [
+      { value: "all", label: t("channels.price.all") },
+      ...Object.entries(PRICE_TAG_META).map(([value, meta]) => ({
+        value,
+        label: t(meta.labelKey),
+      })),
+    ],
+    [t],
+  );
+  const sortOptions = useMemo<SelectMenuOption[]>(
+    () => [
+      { value: "smart", label: t("channels.sort.smart") },
+      { value: "updated-desc", label: t("channels.sort.updatedDesc") },
+      { value: "updated-asc", label: t("channels.sort.updatedAsc") },
+      { value: "price-asc", label: t("channels.sort.priceAsc") },
+      { value: "price-desc", label: t("channels.sort.priceDesc") },
+    ],
+    [t],
+  );
 
   const handleBatchApply = () => {
     onBatchAssign(pendingGroupId === UNGROUPED_ID ? undefined : pendingGroupId);
@@ -104,6 +145,48 @@ export default function ChannelWorkspace({
             );
           })}
         </div>
+      </div>
+
+      <div className="flex shrink-0 flex-wrap items-center gap-2 rounded-xl border bg-card/70 px-3 py-2 shadow-sm">
+        <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
+          <SlidersHorizontal className="h-3.5 w-3.5" />
+          {t("channels.filter.title")}
+        </span>
+        <div className="flex flex-wrap gap-1">
+          {STATUS_FILTER_ORDER.map((status) => (
+            <Button
+              key={status}
+              size="sm"
+              variant={statusFilter === status ? "default" : "ghost"}
+              className="h-7 rounded-full px-2.5 text-[11px]"
+              onClick={() => onStatusFilterChange(status)}
+            >
+              {status === "all" ? t("channels.status.all") : t(STATUS_META[status].labelKey)}
+            </Button>
+          ))}
+        </div>
+        <SelectMenu
+          value={priceFilter}
+          options={priceOptions}
+          placeholder={t("channels.filter.price")}
+          onChange={(value) => onPriceFilterChange(value as PriceFilter)}
+          className="h-7 min-w-[112px] rounded-full text-[11px]"
+          contentClassName="min-w-[10rem]"
+          align="start"
+        />
+        <span className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
+          <ArrowDownUp className="h-3.5 w-3.5" />
+          {t("channels.sort.title")}
+        </span>
+        <SelectMenu
+          value={sortMode}
+          options={sortOptions}
+          placeholder={t("channels.sort.title")}
+          onChange={(value) => onSortModeChange(value as ChannelSortMode)}
+          className="h-7 min-w-[132px] rounded-full text-[11px]"
+          contentClassName="min-w-[11rem]"
+          align="end"
+        />
       </div>
 
       <div className="relative grid min-h-0 flex-1 gap-3 xl:grid-cols-[minmax(0,1fr)_340px] 2xl:grid-cols-[minmax(0,1fr)_360px]">

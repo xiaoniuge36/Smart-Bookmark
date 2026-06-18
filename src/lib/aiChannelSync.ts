@@ -21,11 +21,12 @@ const SYNC_KEY_LIMIT  = 7800; // safely under chrome's 8192-byte per-key limit
 /* ---------- Types ---------- */
 
 export interface SyncAnnotation {
-  n?:   string; // note
-  pt?:  string; // priceTag
-  st?:  string; // status (omitted when default "active")
-  gid?: string; // groupId
-  ts?:  number; // annotationUpdatedAt — for conflict resolution
+  n?:   string | null; // note; null clears a previous note
+  pt?:  string | null; // priceTag; null clears to "none"
+  st?:  string | null; // status; null clears to "active"
+  gid?: string | null; // groupId; null clears main group
+  sg?:  string[];      // secondaryGroupIds; [] clears secondary groups
+  ts?:  number;        // annotationUpdatedAt — for conflict resolution
 }
 
 export interface SyncPayload {
@@ -48,18 +49,11 @@ export async function syncSave(store: AiChannelStore): Promise<void> {
   PENDING_NONCES.add(nonce);
   const now = Date.now();
 
-  // Build annotationmap with ts
+  // Build annotation map with ts
   const ann: Record<string, SyncAnnotation> = {};
   for (const [id, r] of Object.entries(store.recordsById)) {
-    const entry: SyncAnnotation = {};
-    if (r.note?.trim())                        entry.n   = r.note.trim();
-    if (r.priceTag && r.priceTag !== "none")   entry.pt  = r.priceTag;
-    if (r.status   && r.status   !== "active") entry.st  = r.status;
-    if (r.groupId)                             entry.gid = r.groupId;
-    if (Object.keys(entry).length) {
-      entry.ts = r.annotationUpdatedAt ?? now;
-      ann[id] = entry;
-    }
+    const entry = toSyncAnnotation(r, now);
+    if (entry) ann[id] = entry;
   }
 
   const payload: Record<string, unknown> = {
@@ -190,10 +184,11 @@ function _mergePayload(
 
       recordsById[id] = {
         ...r,
-        ...(ann.n   !== undefined ? { note:      ann.n                   } : {}),
-        ...(ann.pt  !== undefined ? { priceTag:  ann.pt as AiChannelPriceTag  } : {}),
-        ...(ann.st  !== undefined ? { status:    ann.st as AiChannelStatus    } : {}),
-        ...(ann.gid !== undefined ? { groupId:   ann.gid                 } : {}),
+        ...(ann.n   !== undefined ? { note:      ann.n ?? "" } : {}),
+        ...(ann.pt  !== undefined ? { priceTag:  (ann.pt ?? "none") as AiChannelPriceTag } : {}),
+        ...(ann.st  !== undefined ? { status:    (ann.st ?? "active") as AiChannelStatus } : {}),
+        ...(ann.gid !== undefined ? { groupId:   ann.gid ?? undefined } : {}),
+        ...(ann.sg  !== undefined ? { secondaryGroupIds: ann.sg.length ? ann.sg : undefined } : {}),
         annotationUpdatedAt: remoteTs,
       };
       changed = true;
@@ -253,15 +248,8 @@ export interface ChannelExportData {
 export function buildExportData(store: AiChannelStore): ChannelExportData {
   const annotations: Record<string, SyncAnnotation> = {};
   for (const [id, r] of Object.entries(store.recordsById)) {
-    const entry: SyncAnnotation = {};
-    if (r.note?.trim())                        entry.n   = r.note.trim();
-    if (r.priceTag && r.priceTag !== "none")   entry.pt  = r.priceTag;
-    if (r.status   && r.status   !== "active") entry.st  = r.status;
-    if (r.groupId)                             entry.gid = r.groupId;
-    if (Object.keys(entry).length) {
-      entry.ts = r.annotationUpdatedAt ?? Date.now();
-      annotations[id] = entry;
-    }
+    const entry = toSyncAnnotation(r, Date.now());
+    if (entry) annotations[id] = entry;
   }
   return { version: 2, exportedAt: Date.now(), groups: store.groups, annotations };
 }
@@ -275,4 +263,33 @@ export function applyImportData(
     groups:      data.groups,
     annotations: data.annotations,
   });
+}
+
+function toSyncAnnotation(
+  record: AiChannelStore["recordsById"][string],
+  now: number,
+): SyncAnnotation | null {
+  const entry: SyncAnnotation = {};
+  const note = record.note?.trim() ?? "";
+  const priceTag = record.priceTag ?? "none";
+  const secondaryGroupIds = Array.from(new Set(record.secondaryGroupIds ?? []));
+  const hasLocalTimestamp = record.annotationUpdatedAt !== undefined;
+
+  if (hasLocalTimestamp) {
+    entry.n = note || null;
+    entry.pt = priceTag !== "none" ? priceTag : null;
+    entry.st = record.status !== "active" ? record.status : null;
+    entry.gid = record.groupId ?? null;
+    entry.sg = secondaryGroupIds;
+  } else {
+    if (note) entry.n = note;
+    if (priceTag !== "none") entry.pt = priceTag;
+    if (record.status !== "active") entry.st = record.status;
+    if (record.groupId) entry.gid = record.groupId;
+    if (secondaryGroupIds.length) entry.sg = secondaryGroupIds;
+  }
+
+  if (!Object.keys(entry).length) return null;
+  entry.ts = record.annotationUpdatedAt ?? now;
+  return entry;
 }

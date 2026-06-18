@@ -227,6 +227,24 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "禾维 AI",
+            url: "https://hvoy.ai/",
+            tag: { zh: "中转检测", en: "Relay checker" },
+            description: {
+              zh: "API 中转站真假检测、价格对比与推荐入口",
+              en: "API relay authenticity checks, pricing comparison and recommendations",
+            },
+          },
+          {
+            title: "猫眼检测",
+            url: "https://md.catfree.me/",
+            tag: { zh: "中转检测", en: "Relay checker" },
+            description: {
+              zh: "中转检测补充入口，适合核验中转站可用性与参考结果",
+              en: "Supplemental relay checker for availability checks and reference results",
+            },
+          },
+          {
             title: "AIProbe",
             url: "https://aiprobe.top/",
             tag: { zh: "AI 比价", en: "AI prices" },

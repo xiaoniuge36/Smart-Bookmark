@@ -14,7 +14,6 @@ import {
   resolveAiChannelSources,
   saveAiChannelStore,
   scanAiChannels,
-  statusOrder,
 } from "@/lib/aiChannels";
 import {
   autoClassifyRecords,
@@ -48,7 +47,13 @@ import { toast } from "@/components/ui/toast";
 import ChannelManagePanel from "./ai-channels/ChannelManagePanel";
 import ChannelToolbar from "./ai-channels/ChannelToolbar";
 import ChannelWorkspace from "./ai-channels/ChannelWorkspace";
-import { PRICE_TAG_ORDER, UNGROUPED_ID, compareNotePrice, type StatusFilter } from "./ai-channels/meta";
+import { UNGROUPED_ID, type StatusFilter } from "./ai-channels/meta";
+import {
+  filterChannelRecords,
+  sortChannelRecords,
+  type ChannelSortMode,
+  type PriceFilter,
+} from "./ai-channels/viewModel";
 
 export default function AiChannels({ settings }: { settings: Settings }) {
   const t = useT();
@@ -68,6 +73,8 @@ export default function AiChannels({ settings }: { settings: Settings }) {
   useEffect(() => { storeRef.current = store; }, [store]);
   const [query, setQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [priceFilter, setPriceFilter] = useState<PriceFilter>("all");
+  const [sortMode, setSortMode] = useState<ChannelSortMode>("smart");
   const [activeGroupId, setActiveGroupId] = useState("all");
   const [selectedId, setSelectedId] = useState("");
   const title = settings.collectionBoardName?.trim() || t("tabs.channels");
@@ -231,32 +238,12 @@ export default function AiChannels({ settings }: { settings: Settings }) {
   }, [loading, performScan, tree.length]);
 
   const records = useMemo(() => {
-    return Object.values(store.recordsById).sort((a, b) => {
-      const byPrice = PRICE_TAG_ORDER[a.priceTag ?? "none"] - PRICE_TAG_ORDER[b.priceTag ?? "none"];
-      if (byPrice) return byPrice;
-      const byStatus = statusOrder(a.status) - statusOrder(b.status);
-      if (byStatus) return byStatus;
-      const byNotePrice = compareNotePrice(a.note, b.note);
-      if (byNotePrice) return byNotePrice;
-      const byUpdated = (b.lastCheckedAt ?? 0) - (a.lastCheckedAt ?? 0);
-      if (byUpdated) return byUpdated;
-      if (a.present !== b.present) return a.present ? -1 : 1;
-      return a.title.localeCompare(b.title);
-    });
-  }, [store.recordsById]);
+    return sortChannelRecords(Object.values(store.recordsById), sortMode);
+  }, [sortMode, store.recordsById]);
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return records.filter((record) => {
-      if (statusFilter !== "all" && record.status !== statusFilter) {
-        return false;
-      }
-      if (!q) return true;
-      return `${record.title} ${record.url} ${record.folderPath} ${record.sourceFolderPath} ${record.note}`
-        .toLowerCase()
-        .includes(q);
-    });
-  }, [query, records, statusFilter]);
+    return filterChannelRecords(records, { query, statusFilter, priceFilter });
+  }, [priceFilter, query, records, statusFilter]);
 
   const selected = useMemo(
     () => records.find((record) => record.bookmarkId === selectedId),
@@ -291,9 +278,11 @@ export default function AiChannels({ settings }: { settings: Settings }) {
       setStore((current) => {
         const prev = current.recordsById[id];
         if (!prev) return current;
+        const nextRecord = applyRecordPatch(prev, patch, Date.now());
+        if (nextRecord === prev) return current;
         const next = {
           ...current,
-          recordsById: { ...current.recordsById, [id]: { ...prev, ...patch, annotationUpdatedAt: Date.now() } },
+          recordsById: { ...current.recordsById, [id]: nextRecord },
         };
         void saveAiChannelStore(next);
         debouncedSyncSave(next);
@@ -396,11 +385,20 @@ export default function AiChannels({ settings }: { settings: Settings }) {
       if (!batchIds.length) return;
       setStore((current) => {
         const recordsById = { ...current.recordsById };
+        const now = Date.now();
+        let changed = false;
         for (const id of batchIds) {
-          if (recordsById[id]) recordsById[id] = { ...recordsById[id], groupId };
+          const record = recordsById[id];
+          if (!record) continue;
+          const nextRecord = applyRecordPatch(record, { groupId }, now);
+          if (nextRecord === record) continue;
+          recordsById[id] = nextRecord;
+          changed = true;
         }
+        if (!changed) return current;
         const next = { ...current, recordsById };
         void saveAiChannelStore(next);
+        void syncSave(next);
         return next;
       });
       setBatchIds([]);
@@ -453,12 +451,10 @@ export default function AiChannels({ settings }: { settings: Settings }) {
           loading={loading}
           scanning={scanning}
           query={query}
-          statusFilter={statusFilter}
           stats={stats}
           onScan={performScan}
           onOpenManage={() => setShowManageDialog(true)}
           onQueryChange={setQuery}
-          onStatusFilterChange={setStatusFilter}
         />
       </Card>
 
@@ -468,11 +464,17 @@ export default function AiChannels({ settings }: { settings: Settings }) {
         selected={selected}
         selectedId={selectedId}
         activeGroupId={activeGroupId}
+        statusFilter={statusFilter}
+        priceFilter={priceFilter}
+        sortMode={sortMode}
         groupFocusVersion={0}
         groups={store.groups}
         groupCounts={groupCounts}
         batchIds={batchIds}
         onGroupChange={changeGroup}
+        onStatusFilterChange={setStatusFilter}
+        onPriceFilterChange={setPriceFilter}
+        onSortModeChange={setSortMode}
         onSelect={setSelectedId}
         onToggleGroup={toggleGroupCollapsed}
         onPatch={patchRecord}
@@ -516,4 +518,69 @@ export default function AiChannels({ settings }: { settings: Settings }) {
       </Dialog>
     </div>
   );
+}
+
+function applyRecordPatch(
+  record: AiChannelRecord,
+  patch: Partial<AiChannelRecord>,
+  now: number,
+): AiChannelRecord {
+  const patched: AiChannelRecord = { ...record, ...patch };
+  if ("note" in patch) patched.note = patch.note ?? "";
+  if ("secondaryGroupIds" in patch) {
+    patched.secondaryGroupIds = normalizeSecondaryGroupIds(
+      patch.secondaryGroupIds,
+      patched.groupId,
+    );
+  }
+  if ("groupId" in patch && patched.secondaryGroupIds?.length) {
+    patched.secondaryGroupIds = normalizeSecondaryGroupIds(
+      patched.secondaryGroupIds,
+      patched.groupId,
+    );
+  }
+
+  if (sameRecordEditableState(record, patched)) return record;
+  if (sameRecordAnnotations(record, patched)) return patched;
+  return { ...patched, annotationUpdatedAt: now };
+}
+
+function normalizeSecondaryGroupIds(
+  groupIds: string[] | undefined,
+  mainGroupId: string | undefined,
+): string[] | undefined {
+  const next = Array.from(
+    new Set((groupIds ?? []).filter((id) => id && id !== mainGroupId)),
+  );
+  return next.length ? next : undefined;
+}
+
+function sameRecordAnnotations(
+  prev: AiChannelRecord,
+  next: AiChannelRecord,
+): boolean {
+  return (
+    prev.groupId === next.groupId &&
+    prev.status === next.status &&
+    prev.priceTag === next.priceTag &&
+    prev.note === next.note &&
+    sameStringList(prev.secondaryGroupIds, next.secondaryGroupIds)
+  );
+}
+
+function sameRecordEditableState(
+  prev: AiChannelRecord,
+  next: AiChannelRecord,
+): boolean {
+  return (
+    sameRecordAnnotations(prev, next) &&
+    prev.lastCheckedAt === next.lastCheckedAt
+  );
+}
+
+function sameStringList(a?: string[], b?: string[]): boolean {
+  const left = a ?? [];
+  const right = b ?? [];
+  if (left.length !== right.length) return false;
+  return left.every((value, index) => value === right[index]);
 }
