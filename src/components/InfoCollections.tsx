@@ -254,6 +254,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "98-XJ 订阅查询",
+            url: "https://cdk.98-xj.com/subscription",
+            tag: { zh: "订阅查询", en: "Subscription" },
+            description: {
+              zh: "CDK 订阅状态查询入口，适合快速核验订阅有效期与可用状态",
+              en: "CDK subscription lookup for quickly checking validity and status",
+            },
+          },
+          {
             title: "Nerver AC",
             url: "https://cha.nerver.cc/",
             tag: { zh: "资格检查", en: "Eligibility" },
