@@ -254,6 +254,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "AI 全球最低价",
+            url: "https://appstoreprice.org/zh",
+            tag: { zh: "AI 比价", en: "AI prices" },
+            description: {
+              zh: "全球 AI 服务价格查询入口，适合横向对比订阅和购买成本",
+              en: "Global AI service price entry for comparing subscriptions and purchase costs",
+            },
+          },
+          {
             title: "98-XJ 订阅查询",
             url: "https://cdk.98-xj.com/subscription",
             tag: { zh: "订阅查询", en: "Subscription" },
