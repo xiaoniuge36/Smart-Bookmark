@@ -296,6 +296,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "LinuxDo Awesome Skills",
+            url: "http://linuxdo-awesome-skills.tencents.ltd/",
+            tag: { zh: "Skills 合集", en: "Skills" },
+            description: {
+              zh: "LinuxDo 社区 Skills 资源合集，适合快速查找和复用可用技能",
+              en: "LinuxDo skills collection for quick lookup and reuse",
+            },
+          },
+          {
             title: "1key.me",
             url: "https://1key.me/",
             tag: { zh: "维护入口", en: "Maintenance" },
