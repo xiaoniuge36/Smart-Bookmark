@@ -152,8 +152,8 @@ const COLLECTIONS: CollectionGroup[] = [
   {
     title: { zh: "资源工具", en: "Resource tools" },
     subtitle: {
-      zh: "AI 比价、中转、账号入口、号池接码与素材检索",
-      en: "AI pricing, relays, account entries, number pools and content discovery",
+      zh: "AI 比价、中转、IP 检测、账号入口、号池接码与素材检索",
+      en: "AI pricing, relays, IP checks, account entries, number pools and content discovery",
     },
     Icon: Sparkles,
     accent:
@@ -278,6 +278,57 @@ const COLLECTIONS: CollectionGroup[] = [
             description: {
               zh: "ChatGPT accessToken 有效性与活动资格预检入口",
               en: "Pre-check ChatGPT accessToken validity and activity eligibility",
+            },
+          },
+        ],
+      },
+      {
+        title: { zh: "IP 检测", en: "IP checks" },
+        tone: "cyan",
+        items: [
+          {
+            title: "Claude AI Check",
+            url: "https://ipinfo.cv/claude-ai-check",
+            tag: { zh: "Claude 检测", en: "Claude IP" },
+            description: {
+              zh: "Claude AI 访问环境检测入口，适合快速查看 IP 与网络可用性",
+              en: "Claude AI environment check for IP and network availability",
+            },
+          },
+          {
+            title: "NetCoffee Claude",
+            url: "https://ip.net.coffee/claude/",
+            tag: { zh: "Claude 检测", en: "Claude check" },
+            description: {
+              zh: "Claude 访问环境补充检测，辅助判断当前网络与 IP 状态",
+              en: "Supplemental Claude access check for current network and IP status",
+            },
+          },
+          {
+            title: "IPPure",
+            url: "https://ippure.com/",
+            tag: { zh: "纯净度检测", en: "IP purity" },
+            description: {
+              zh: "IP 纯净度、代理风险与综合信誉检测入口",
+              en: "IP purity, proxy risk and reputation check entry",
+            },
+          },
+          {
+            title: "Ping0",
+            url: "https://ping0.cc/",
+            tag: { zh: "IP 检测", en: "IP check" },
+            description: {
+              zh: "IP 归属、连通性与网络质量检测工具",
+              en: "IP location, connectivity and network quality checker",
+            },
+          },
+          {
+            title: "IP.cn",
+            url: "https://ip.cn/",
+            tag: { zh: "IP 查询", en: "IP lookup" },
+            description: {
+              zh: "国内常用 IP 查询入口，快速查看归属地与运营商信息",
+              en: "Common IP lookup for location and carrier details",
             },
           },
         ],
