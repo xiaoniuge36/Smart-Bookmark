@@ -100,9 +100,24 @@ npm run zip       # 构建并打包 dist.zip，可上传商店
 git clone https://github.com/xiaoniuge36/Smart-Bookmark.git
 ```
 
-1. Chrome / Edge 打开 `chrome://extensions` 或 `edge://extensions`
-2. 开启「开发者模式」→ 点击「加载已解压的扩展程序」→ 选择克隆后的 `dist/` 目录
-3. 打开新标签页即可看到 Smart Bookmark
+> ⚠️ 必须选择项目里的 `dist/` 文件夹，不要选择仓库根目录。  
+> 例如应选择 `Smart-Bookmark/dist/`，而不是 `Smart-Bookmark/`。如果选错根目录，浏览器可能会报 `Side panel file path must exist`。
+
+#### Chrome 本地导入
+
+1. 打开 Chrome，地址栏输入 `chrome://extensions`
+2. 右上角开启「开发者模式」
+3. 点击「加载已解压的扩展程序」
+4. 在文件选择窗口中进入克隆后的项目目录，选择里面的 `dist/` 文件夹
+5. 打开新标签页，即可看到 Smart Bookmark
+
+#### Edge 本地导入
+
+1. 打开 Edge，地址栏输入 `edge://extensions`
+2. 左侧或右侧开启「开发人员模式」
+3. 点击「加载解压缩的扩展」
+4. 在文件选择窗口中进入克隆后的项目目录，选择里面的 `dist/` 文件夹
+5. 打开新标签页，即可看到 Smart Bookmark
 
 ### 本地开发 / 自行构建
 
