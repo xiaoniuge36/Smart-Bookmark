@@ -13,3 +13,5 @@ dist.zip
 .idea/
 *.swp
 Thumbs.db
+# 指定文件
+channel-sync/ai-channels.json
