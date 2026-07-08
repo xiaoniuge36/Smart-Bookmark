@@ -254,6 +254,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "CCTest AI",
+            url: "https://cctest.ai/zh",
+            tag: { zh: "模型真假检测", en: "Model checker" },
+            description: {
+              zh: "模型真假检测入口，适合核验 AI 服务模型响应与真实性",
+              en: "Model authenticity checker for verifying AI service responses and identity",
+            },
+          },
+          {
             title: "AIProbe",
             url: "https://aiprobe.top/",
             tag: { zh: "AI 比价", en: "AI prices" },

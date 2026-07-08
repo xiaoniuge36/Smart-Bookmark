@@ -1,0 +1,34 @@
+{
+  "app": "smart-bookmark",
+  "kind": "ai-channel-project-sync",
+  "version": 1,
+  "exportedAt": 0,
+  "groups": [
+    {
+      "id": "example",
+      "name": "Example",
+      "color": "indigo",
+      "createdAt": 0,
+      "updatedAt": 0
+    }
+  ],
+  "records": [
+    {
+      "bookmarkId": "sync-example",
+      "title": "Example link",
+      "url": "https://example.com/",
+      "folderPath": "Project Sync",
+      "sourceRef": "Project Sync",
+      "sourceFolderPath": "Project Sync",
+      "category": "unknown",
+      "groupId": "example",
+      "status": "active",
+      "risk": "low",
+      "priceTag": "none",
+      "note": "",
+      "firstSeenAt": 0,
+      "lastSeenAt": 0,
+      "present": true
+    }
+  ]
+}
