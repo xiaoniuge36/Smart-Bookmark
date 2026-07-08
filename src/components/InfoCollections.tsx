@@ -182,6 +182,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "buygptpuls.com",
+            url: "https://buygptpuls.com/",
+            tag: { zh: "货源查询", en: "Supply lookup" },
+            description: {
+              zh: "AI 货源查询入口，适合快速查看供货与中转资源参考",
+              en: "AI supply lookup entry for checking suppliers and relay resources",
+            },
+          },
+          {
             title: "HelpAIO Transit",
             url: "https://www.helpaio.com/transit",
             tag: { zh: "AI 中转合集", en: "AI relays" },
