@@ -365,6 +365,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "Codex Pet Gallery",
+            url: "https://codex-pet.org/zh/",
+            tag: { zh: "像素宠物", en: "Pixel pets" },
+            description: {
+              zh: "浏览、预览并下载可用于 Codex 的自定义像素宠物包",
+              en: "Browse, preview and download custom pixel pet packages for Codex",
+            },
+          },
+          {
             title: "LinuxDo Awesome Skills",
             url: "http://linuxdo-awesome-skills.tencents.ltd/",
             tag: { zh: "Skills 合集", en: "Skills" },
