@@ -182,6 +182,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "PriceAI",
+            url: "https://priceai.cc/",
+            tag: { zh: "AI 比价", en: "AI prices" },
+            description: {
+              zh: "聚合官方订阅、卡网订阅与官方／中转 API 的价格、库存和来源",
+              en: "Compare official and marketplace subscriptions plus official and relay API prices",
+            },
+          },
+          {
             title: "buygptpuls.com",
             url: "https://buygptpuls.com/",
             tag: { zh: "货源查询", en: "Supply lookup" },
