@@ -285,12 +285,9 @@ export default function Dashboard({
     }
   };
 
-  const onToggleBookmarkView = () => {
-    setBookmarkView((current) => {
-      const next = current === "all" ? "direct" : "all";
-      localStorage.setItem("sb_bookmarkView", next);
-      return next;
-    });
+  const selectBookmarkView = (next: "all" | "direct") => {
+    setBookmarkView(next);
+    localStorage.setItem("sb_bookmarkView", next);
   };
 
   const onChangeEngine = async (id: string) => {
@@ -1085,15 +1082,44 @@ export default function Dashboard({
               <h2 className="text-sm font-semibold tracking-tight">
                 {t("dash.myBookmarks")}
               </h2>
-              <button
-                type="button"
-                onClick={onToggleBookmarkView}
-                className="rounded-md border bg-card px-2 py-1 text-[11px] text-muted-foreground transition hover:bg-accent hover:text-foreground"
-                title={bookmarkView === "all" ? t("dash.viewToggleTitleAll") : t("dash.viewToggleTitleDirect")}
+              <div
+                role="radiogroup"
                 aria-label={t("dash.viewToggleAria")}
+                onKeyDown={(e) => {
+                  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+                  e.preventDefault();
+                  selectBookmarkView(bookmarkView === "all" ? "direct" : "all");
+                }}
+                className="inline-flex rounded-md bg-muted/60 p-0.5"
               >
-                {bookmarkView === "all" ? t("dash.viewAll") : t("dash.viewDirect")}
-              </button>
+                {(
+                  [
+                    ["direct", t("dash.viewDirect"), t("dash.viewToggleTitleDirect")],
+                    ["all", t("dash.viewAll"), t("dash.viewToggleTitleAll")],
+                  ] as const
+                ).map(([v, label, tip]) => {
+                  const active = bookmarkView === v;
+                  return (
+                    <button
+                      key={v}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      tabIndex={active ? 0 : -1}
+                      title={tip}
+                      onClick={() => selectBookmarkView(v)}
+                      className={cn(
+                        "rounded-[5px] px-2 py-1 text-[11px] font-medium transition",
+                        active
+                          ? "bg-card text-foreground shadow-sm ring-1 ring-border/40"
+                          : "text-muted-foreground hover:text-foreground",
+                      )}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
               <span className="text-[11px] text-muted-foreground">
                 {t("dash.countTotal", String(filtered.length))}
                 {query.trim() ? t("dash.filteredTag") : ""}
