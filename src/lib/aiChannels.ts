@@ -255,7 +255,7 @@ function listFolders(tree: BookmarkNode[]): FolderEntry[] {
   const walk = (node: BookmarkNode, parts: string[]) => {
     if (node.url) return;
     const nextParts = node.title ? [...parts, node.title] : parts;
-    if (node.id !== "0") out.push({ node, path: nextParts.join(" / ") || "(root)" });
+    if (node.parentId) out.push({ node, path: nextParts.join(" / ") || "(root)" });
     for (const child of node.children ?? []) walk(child, nextParts);
   };
   for (const node of tree) walk(node, []);

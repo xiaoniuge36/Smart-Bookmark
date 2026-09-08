@@ -381,7 +381,7 @@ function flattenForTree(
     depth: number,
     parentChain: string[],
   ) => {
-    if (!node.url && node.id !== "0") {
+    if (!node.url && node.parentId) {
       const children = node.children ?? [];
       const subFolders = children.filter((c) => !c.url);
       const count = countBookmarks(node);
@@ -397,7 +397,7 @@ function flattenForTree(
       if (expanded.has(node.id)) {
         for (const c of subFolders) walk(c, depth + 1, [...parentChain, node.id]);
       }
-    } else if (node.id === "0") {
+    } else if (!node.parentId) {
       for (const c of node.children ?? []) walk(c, 1, []);
     }
   };

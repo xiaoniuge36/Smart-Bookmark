@@ -79,7 +79,7 @@ export function allFolders(nodes: BookmarkNode[]): FolderStat[] {
   const out: FolderStat[] = [];
   const walk = (node: BookmarkNode, path: string) => {
     const here = node.title ? (path ? `${path} / ${node.title}` : node.title) : path;
-    if (!node.url && node.id !== "0") {
+    if (!node.url && node.parentId) {
       const count = countBookmarks(node);
       out.push({ id: node.id, title: node.title || "(root)", path: here, count });
     }
