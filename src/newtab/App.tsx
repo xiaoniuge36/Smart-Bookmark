@@ -228,6 +228,7 @@ export default function App() {
 }
 
 function YearProgress() {
+  const t = useT();
   const now = new Date();
   const year = now.getFullYear();
   const start = new Date(year, 0, 1).getTime();
@@ -237,7 +238,7 @@ function YearProgress() {
   const done = Math.round((pct / 100) * cells);
   return (
     <div className="mx-auto flex max-w-md items-center justify-center gap-2 py-4 text-[11px] text-muted-foreground">
-      <span>{year} 年过去</span>
+      <span>{t("app.yearProgress", String(year))}</span>
       <div className="flex gap-1">
         {Array.from({ length: cells }).map((_, i) => (
           <span

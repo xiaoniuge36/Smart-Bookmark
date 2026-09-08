@@ -150,7 +150,7 @@ function AiChatPanel({ settings }: { settings: Settings }) {
         const last = copy[copy.length - 1];
         copy[copy.length - 1] = {
           role: "assistant",
-          content: `⚠️ ${err?.message ?? "请求失败"}`,
+          content: `⚠️ ${err?.message ?? t("common.requestFailed")}`,
           at: last?.at,
         };
         return copy;

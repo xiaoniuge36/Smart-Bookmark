@@ -231,7 +231,7 @@ export default function SidePanel() {
 
             <section className="mt-4 px-3 pb-3">
               <div className="mb-2 px-1 text-xs font-medium text-muted-foreground">
-                收藏夹栏
+                {t("side.bookmarksBar")}
               </div>
               <div className="space-y-1.5">
                 {topLevel.map((f) => (
@@ -269,6 +269,7 @@ function SidepanelFolder({
   subFoldersOf: (n: BookmarkNode) => BookmarkNode[];
   depth: number;
 }) {
+  const t = useT();
   const isOpen = openedIds.has(folder.id);
   const links = isOpen ? linksOf(folder) : [];
   const subs = isOpen ? subFoldersOf(folder) : [];
@@ -296,7 +297,7 @@ function SidepanelFolder({
           depth === 0 && "font-medium",
         )}
       >
-        {folder.title || "(未命名)"}
+        {folder.title || t("common.unnamed")}
       </span>
       <span className="text-xs text-muted-foreground">{count}</span>
       <ChevronRight
@@ -350,7 +351,7 @@ function SidepanelFolder({
           )}
           {links.length === 0 && subs.length === 0 && (
             <div className="px-3 py-1 text-[11px] text-muted-foreground">
-              空
+              {t("side.emptyFolder")}
             </div>
           )}
         </div>
@@ -380,7 +381,7 @@ function SearchResults({
       {hasBookmarks && (
         <div>
           <div className="px-3 pt-2 pb-1 text-[10px] uppercase tracking-wide text-muted-foreground">
-            <Bookmark className="mr-1 inline h-3 w-3" /> 书签
+            <Bookmark className="mr-1 inline h-3 w-3" /> {t("side.bookmarks")}
           </div>
           {items.map((b) => (
             <a
@@ -410,7 +411,7 @@ function SearchResults({
       {hasHistory && (
         <div className="mt-2">
           <div className="px-3 pt-2 pb-1 text-[10px] uppercase tracking-wide text-muted-foreground">
-            <HistoryIcon className="mr-1 inline h-3 w-3" /> 浏览历史
+            <HistoryIcon className="mr-1 inline h-3 w-3" /> {t("side.history")}
           </div>
           {historyHits.map((h) => (
             <a

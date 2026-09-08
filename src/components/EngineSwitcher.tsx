@@ -5,6 +5,7 @@ import type { CustomEngine, Settings } from "@/types";
 import { cn } from "@/lib/utils";
 import { setSettings } from "@/lib/storage";
 import EngineIcon from "@/components/EngineIcon";
+import { useT } from "@/lib/i18n";
 
 interface Props {
   settings: Settings;
@@ -19,6 +20,7 @@ export default function EngineSwitcher({
   onChange,
   onOpenChange,
 }: Props) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [adding, setAdding] = useState(false);
   const [nName, setNName] = useState("");
@@ -75,7 +77,7 @@ export default function EngineSwitcher({
         type="button"
         onClick={() => setSwitcherOpen(!open)}
         className="flex h-10 items-center gap-1 rounded-full bg-background px-2 transition hover:bg-accent"
-        title="切换搜索引擎"
+        title={t("engine.switchTitle")}
       >
         {current && (
           <EngineIcon engine={current} className="h-5 w-5" />
@@ -116,14 +118,14 @@ export default function EngineSwitcher({
               onClick={() => setAdding((v) => !v)}
             >
               <Plus className="h-6 w-6" />
-              <span className="text-xs">{adding ? "取消" : "添加"}</span>
+              <span className="text-xs">{adding ? t("common.cancel") : t("common.add")}</span>
             </button>
           </div>
 
           {settings.customEngines?.length > 0 && (
             <div className="mt-3 border-t pt-2">
               <div className="mb-1 text-xs text-muted-foreground">
-                自定义引擎
+                {t("engine.customEngines")}
               </div>
               <div className="space-y-1">
                 {settings.customEngines.map((customEngine) => (
@@ -141,7 +143,7 @@ export default function EngineSwitcher({
                       type="button"
                       onClick={() => removeEngine(customEngine.id)}
                       className="text-muted-foreground hover:text-destructive"
-                      title="删除"
+                      title={t("common.delete")}
                     >
                       <X className="h-3 w-3" />
                     </button>
@@ -154,13 +156,13 @@ export default function EngineSwitcher({
           {adding && (
             <div className="mt-3 space-y-2 border-t pt-3">
               <div className="text-xs text-muted-foreground">
-                添加自定义引擎：URL 中用 <code>%s</code>{" "}
-                代表关键词占位符；没有则追加 <code>?q=</code>。
+                {t("engine.addHintPre")}<code>%s</code>{" "}
+                {t("engine.addHintMid")}<code>?q=</code>{t("engine.addHintPost")}
               </div>
               <input
                 value={nName}
                 onChange={(e) => setNName(e.target.value)}
-                placeholder="名称（例如：谷歌学术）"
+                placeholder={t("engine.namePlaceholder")}
                 className="w-full rounded-md border bg-background px-3 py-1.5 text-sm"
               />
               <input
@@ -175,14 +177,14 @@ export default function EngineSwitcher({
                   onClick={() => setAdding(false)}
                   className="rounded-md border px-3 py-1 text-xs"
                 >
-                  取消
+                  {t("common.cancel")}
                 </button>
                 <button
                   type="button"
                   onClick={addEngine}
                   className="rounded-md bg-primary px-3 py-1 text-xs text-primary-foreground"
                 >
-                  保存
+                  {t("common.save")}
                 </button>
               </div>
             </div>

@@ -108,15 +108,15 @@ export default function Compare({ settings }: { settings: Settings }) {
               />
             </div>
             <Button type="submit" className="gap-2">
-              <ExternalLink className="h-4 w-4" /> 一键全引擎打开
+              <ExternalLink className="h-4 w-4" /> {t("compare.openAllEngines")}
             </Button>
             <Button type="button" variant="outline" onClick={runEmbed}>
-              展示内嵌结果
+              {t("compare.showEmbed")}
             </Button>
           </form>
 
           <div className="space-y-2">
-            <div className="text-xs text-muted-foreground">选择对比的搜索引擎（可多选）</div>
+            <div className="text-xs text-muted-foreground">{t("compare.selectEngines")}</div>
             <div className="flex flex-wrap gap-2">
               {engines.map((e) => {
                 const on = selectedIds.includes(e.id);
@@ -144,7 +144,7 @@ export default function Compare({ settings }: { settings: Settings }) {
             <div className="space-y-2 border-t pt-3">
               <div className="flex items-center justify-between text-xs text-muted-foreground">
                 <span className="flex items-center gap-1">
-                  <HistoryIcon className="h-3 w-3" /> 最近对比搜索
+                  <HistoryIcon className="h-3 w-3" /> {t("compare.recentSearches")}
                 </span>
                 <button
                   onClick={clearHistory}
@@ -207,7 +207,7 @@ function EngineColumn({
 
   const copyUrl = async () => {
     await navigator.clipboard.writeText(url);
-    toast("已复制", "success");
+    toast(t("common.copied"), "success");
   };
 
   return (
@@ -221,7 +221,7 @@ function EngineColumn({
           <button
             onClick={copyUrl}
             className="text-muted-foreground hover:text-primary"
-            title="复制 URL"
+            title={t("compare.copyUrl")}
           >
             <Copy className="h-3.5 w-3.5" />
           </button>
@@ -249,7 +249,7 @@ function EngineColumn({
               <EngineIcon engine={engine} className="h-7 w-7" />
             </div>
             <div className="text-muted-foreground">
-              {engine.name} 不支持内嵌，请在新标签页查看结果
+              {t("compare.noEmbed", engine.name)}
             </div>
             <a
               href={url}
@@ -257,7 +257,7 @@ function EngineColumn({
               rel="noreferrer"
               className="rounded-md bg-primary px-4 py-2 text-primary-foreground shadow hover:opacity-90"
             >
-              打开 {engine.name}
+              {t("compare.openEngine", engine.name)}
             </a>
             <code className="max-w-full break-all rounded bg-background/60 px-2 py-1 text-[10px] text-muted-foreground">
               {url}
@@ -276,6 +276,7 @@ function AiAnswer({
   query: string;
   settings: Settings;
 }) {
+  const t = useT();
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
   const [triggered, setTriggered] = useState(false);
@@ -310,7 +311,7 @@ function AiAnswer({
         onDelta: (d) => setAnswer((prev) => prev + d),
       });
     } catch (err: any) {
-      setAnswer(`⚠️ ${err?.message ?? "请求失败"}`);
+      setAnswer(`⚠️ ${err?.message ?? t("common.requestFailed")}`);
     } finally {
       setLoading(false);
       abortRef.current = null;
@@ -325,22 +326,22 @@ function AiAnswer({
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 py-3">
         <CardTitle className="flex items-center gap-2 text-sm">
-          <Sparkles className="h-4 w-4 text-primary" /> AI 解答
+          <Sparkles className="h-4 w-4 text-primary" /> {t("compare.aiAnswer")}
           <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
             {settings.aiProvider} · {settings.aiModel}
           </span>
         </CardTitle>
         {!triggered || (!loading && !answer) ? (
           <Button size="sm" className="gap-1.5" onClick={run}>
-            <Send className="h-3.5 w-3.5" /> 让 AI 回答
+            <Send className="h-3.5 w-3.5" /> {t("compare.askAi")}
           </Button>
         ) : loading ? (
           <Button size="sm" variant="outline" className="gap-1.5" onClick={stop}>
-            <Loader2 className="h-3.5 w-3.5 animate-spin" /> 停止
+            <Loader2 className="h-3.5 w-3.5 animate-spin" /> {t("compare.stop")}
           </Button>
         ) : (
           <Button size="sm" variant="outline" onClick={run}>
-            重新回答
+            {t("compare.regenerate")}
           </Button>
         )}
       </CardHeader>

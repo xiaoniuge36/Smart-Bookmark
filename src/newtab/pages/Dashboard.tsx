@@ -36,7 +36,7 @@ import {
   Wand2,
 } from "lucide-react";
 import { setSettings } from "@/lib/storage";
-import { useT } from "@/lib/i18n";
+import { useT, t } from "@/lib/i18n";
 import { toast } from "@/components/ui/toast";
 import QrDialog from "./QrDialog";
 import FolderTree from "@/components/FolderTree";
@@ -269,7 +269,7 @@ export default function Dashboard({
       await reload();
     } catch (err) {
       console.warn("folder reorder failed", err);
-      toast("文件夹排序失败", "error");
+      toast(t("dash.folderReorderFailed"), "error");
     }
   };
 
@@ -375,7 +375,7 @@ export default function Dashboard({
       }
     } catch (err) {
       console.warn("reorder failed", err, srcIdx, dstIdx);
-      toast("排序失败", "error");
+      toast(t("dash.reorderFailed"), "error");
       reload();
     } finally {
       setDragId(null);
@@ -487,8 +487,8 @@ export default function Dashboard({
     if (q && currentEngine) {
       out.push({
         id: "engine-default",
-        title: `用 ${currentEngine.name} 搜索 "${q}"`,
-        subtitle: "默认回车执行搜索，书签结果可用方向键选择",
+        title: t("dash.cmd.searchWith", currentEngine.name, q),
+        subtitle: t("dash.cmd.searchWithHint"),
         badge: "Enter",
         engine: currentEngine,
         onRun: () => runEngineSearch(q),
@@ -496,8 +496,8 @@ export default function Dashboard({
       if (settings.compareEngines.length > 1) {
         out.push({
           id: "engine-compare",
-          title: `在对比搜索中打开 "${q}"`,
-          subtitle: `${settings.compareEngines.length} 个搜索引擎并行查询`,
+          title: t("dash.cmd.compareOpen", q),
+          subtitle: t("dash.cmd.compareCount", String(settings.compareEngines.length)),
           badge: isMac ? "⌘ Enter" : "Ctrl Enter",
           Icon: Columns,
           onRun: () => runCompareSearch(q),
@@ -558,40 +558,40 @@ export default function Dashboard({
     const actions: SearchCommandItem[] = [
       {
         id: "action-cleaner",
-        title: "打开清理中心",
-        subtitle: "重复、失效、空文件夹扫描",
+        title: t("dash.cmd.cleaner"),
+        subtitle: t("dash.cmd.cleanerHint"),
         badge: "action",
         Icon: Wand2,
         onRun: () => openDashboardTab("cleaner"),
       },
       {
         id: "action-compare",
-        title: "打开对比搜索",
-        subtitle: "多个搜索引擎并排查询",
+        title: t("dash.cmd.compare"),
+        subtitle: t("dash.cmd.compareDesc"),
         badge: "action",
         Icon: Columns,
         onRun: () => openDashboardTab("compare"),
       },
       {
         id: "action-ai",
-        title: "打开 AI 助手",
-        subtitle: "基于书签快照整理和检索",
+        title: t("dash.cmd.ai"),
+        subtitle: t("dash.cmd.aiHint"),
         badge: "action",
         Icon: Bot,
         onRun: () => openDashboardTab("ai"),
       },
       {
         id: "action-backup",
-        title: "打开备份",
-        subtitle: "导入、导出 JSON 或 HTML",
+        title: t("dash.cmd.backup"),
+        subtitle: t("dash.cmd.backupHint"),
         badge: "action",
         Icon: HardDriveDownload,
         onRun: () => openDashboardTab("backup"),
       },
       {
         id: "action-settings",
-        title: "打开设置",
-        subtitle: "主题、搜索引擎、AI 和扩展功能",
+        title: t("dash.cmd.settings"),
+        subtitle: t("dash.cmd.settingsHint"),
         badge: "action",
         Icon: Settings2,
         onRun: () => openDashboardTab("settings"),
@@ -664,7 +664,7 @@ export default function Dashboard({
         {pinnedFolders.length > 0 && (
           <Card className="p-2">
             <div className="mb-1 flex items-center gap-2 px-1 text-xs font-medium text-muted-foreground">
-              <Pin className="h-3.5 w-3.5" /> 置顶
+              <Pin className="h-3.5 w-3.5" /> {t("dash.pinned")}
             </div>
             <div className="space-y-0.5 text-sm">
               {pinnedFolders.map((f) => (
@@ -1008,7 +1008,7 @@ export default function Dashboard({
         {!showHero && breadcrumb.length > 0 && (
           <nav className="flex items-center gap-1 text-sm text-muted-foreground">
             <button onClick={() => onSelectFolder("")} className="hover:text-foreground">
-              全部书签
+              {t("dash.allBookmarks")}
             </button>
             {breadcrumb.map((b) => (
               <span key={b.id} className="flex items-center gap-1">
@@ -1036,7 +1036,7 @@ export default function Dashboard({
                   <Folder className="h-3.5 w-3.5" />
                 </div>
                 <span className="max-w-[140px] truncate">
-                  {f.title || "(未命名)"}
+                  {f.title || t("common.unnamed")}
                 </span>
               </button>
             ))}
@@ -1050,25 +1050,28 @@ export default function Dashboard({
                 <Folder className="h-3.5 w-3.5" />
               </div>
               <h2 className="text-sm font-semibold tracking-tight">
-                我的书签
+                {t("dash.myBookmarks")}
               </h2>
               <button
                 type="button"
                 onClick={onToggleBookmarkView}
                 className="rounded-md border bg-card px-2 py-1 text-[11px] text-muted-foreground transition hover:bg-accent hover:text-foreground"
-                title={bookmarkView === "all" ? "切换为仅当前文件夹" : "切换为包含子文件夹"}
-                aria-label="切换书签展示模式"
+                title={bookmarkView === "all" ? t("dash.viewToggleTitleAll") : t("dash.viewToggleTitleDirect")}
+                aria-label={t("dash.viewToggleAria")}
               >
-                {bookmarkView === "all" ? "含子文件夹" : "当前文件夹"}
+                {bookmarkView === "all" ? t("dash.viewAll") : t("dash.viewDirect")}
               </button>
               <span className="text-[11px] text-muted-foreground">
-                · 共 {filtered.length} 个
-                {query.trim() ? "（已过滤）" : ""}
+                {t("dash.countTotal", String(filtered.length))}
+                {query.trim() ? t("dash.filteredTag") : ""}
               </span>
               {pageSize !== Infinity && filtered.length > pageSize && (
                 <span className="text-[11px] text-muted-foreground/70">
-                  · 第 {(page - 1) * pageSize + 1}-
-                  {Math.min(page * pageSize, filtered.length)} 条
+                  {t(
+                    "dash.pageRange",
+                    String((page - 1) * pageSize + 1),
+                    String(Math.min(page * pageSize, filtered.length)),
+                  )}
                 </span>
               )}
             </div>
@@ -1227,7 +1230,7 @@ export default function Dashboard({
             <div className="flex items-center justify-center gap-3 pt-2">
               <Pager page={page} pageCount={pageCount} onChange={setPage} />
               <span className="text-[11px] text-muted-foreground">
-                共 {filtered.length} 条
+                {t("dash.totalCount", String(filtered.length))}
               </span>
             </div>
           )}
@@ -1282,17 +1285,17 @@ function SearchCommandPalette({
         onMouseDown={(e) => e.preventDefault()}
         onClick={onClose}
         className="absolute right-2 top-1.5 z-10 flex h-6 w-6 items-center justify-center rounded-full text-muted-foreground transition hover:bg-accent hover:text-foreground"
-        title="关闭"
-        aria-label="关闭搜索结果"
+        title={t("common.close")}
+        aria-label={t("dash.closeResults")}
       >
         <X className="h-3.5 w-3.5" />
       </button>
       <div className="flex items-center justify-between gap-3 border-b border-border/60 bg-muted/40 px-3 py-2 pr-10 text-[11px] text-muted-foreground">
         <span className="inline-flex items-center gap-1.5">
           <Command className="h-3.5 w-3.5" />
-          {query.trim() ? "统一搜索" : "快捷入口"}
+          {query.trim() ? t("dash.unifiedSearch") : t("dash.quickAccess")}
         </span>
-        <span>↑↓ 选择 · Enter 打开</span>
+        <span>{t("dash.paletteHint")}</span>
       </div>
       <div className="max-h-[360px] overflow-auto px-1.5 py-1 scrollbar-thin">
         <div className="divide-y divide-border/60">
@@ -1365,12 +1368,12 @@ function SearchCommandPalette({
 }
 
 function searchBadgeLabel(item: SearchCommandItem): string {
-  if (item.id === "engine-default") return "回车";
-  if (item.id === "engine-compare") return "对比";
-  if (item.id.startsWith("bookmark-")) return "书签";
-  if (item.id.startsWith("history-")) return "历史";
-  if (item.id.startsWith("top-")) return "常去";
-  if (item.id.startsWith("action-")) return "动作";
+  if (item.id === "engine-default") return t("dash.badge.enter");
+  if (item.id === "engine-compare") return t("dash.badge.compare");
+  if (item.id.startsWith("bookmark-")) return t("dash.badge.bookmark");
+  if (item.id.startsWith("history-")) return t("dash.badge.history");
+  if (item.id.startsWith("top-")) return t("dash.badge.top");
+  if (item.id.startsWith("action-")) return t("dash.badge.action");
   return item.badge;
 }
 
@@ -1419,12 +1422,12 @@ function buildBreadcrumb(
 
 function useGreeting(): string {
   const h = new Date().getHours();
-  if (h < 5) return "深夜好";
-  if (h < 11) return "早上好";
-  if (h < 14) return "中午好";
-  if (h < 18) return "下午好";
-  if (h < 22) return "晚上好";
-  return "夜深了";
+  if (h < 5) return t("dash.greet.lateNight");
+  if (h < 11) return t("dash.greet.morning");
+  if (h < 14) return t("dash.greet.noon");
+  if (h < 18) return t("dash.greet.afternoon");
+  if (h < 22) return t("dash.greet.evening");
+  return t("dash.greet.night");
 }
 
 function PageSizePicker({
@@ -1439,7 +1442,7 @@ function PageSizePicker({
     { v: 60, label: "60" },
     { v: 120, label: "120" },
     { v: 240, label: "240" },
-    { v: Infinity, label: "全部" },
+    { v: Infinity, label: t("common.all") },
   ];
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -1459,9 +1462,9 @@ function PageSizePicker({
         type="button"
         onClick={() => setOpen((v) => !v)}
         className="inline-flex items-center gap-1 rounded-md border bg-card px-2 py-1 text-[11px] text-muted-foreground transition hover:bg-accent hover:text-foreground"
-        title="每页条数"
+        title={t("dash.pageSizeTitle")}
       >
-        每页 {current}
+        {t("dash.pageSize", current)}
         <ChevronRight
           className={cn("h-3 w-3 transition-transform", open && "rotate-90")}
         />
@@ -1561,7 +1564,7 @@ function Pager({
         disabled={page <= 1}
         onClick={prev}
         className="flex h-7 w-7 items-center justify-center rounded-md border bg-card text-muted-foreground transition hover:border-primary/30 hover:bg-accent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:bg-card disabled:hover:text-muted-foreground"
-        aria-label="上一页"
+        aria-label={t("dash.prevPage")}
       >
         <ChevronRight className="h-3.5 w-3.5 rotate-180" />
       </button>
@@ -1580,7 +1583,7 @@ function Pager({
                   setJumpValue("");
                 }}
                 className="flex h-7 min-w-[28px] items-center justify-center rounded-md text-[12px] text-muted-foreground/80 transition hover:bg-accent hover:text-foreground"
-                title="跳转页"
+                title={t("dash.jumpPage")}
               >
                 …
               </button>
@@ -1609,7 +1612,7 @@ function Pager({
                       onClick={doJump}
                       className="h-7 rounded-md bg-primary px-2 text-[11px] font-medium text-primary-foreground transition hover:opacity-90"
                     >
-                      跳转
+                      {t("dash.jump")}
                     </button>
                   </div>
                 </div>
@@ -1640,7 +1643,7 @@ function Pager({
         disabled={page >= pageCount}
         onClick={next}
         className="flex h-7 w-7 items-center justify-center rounded-md border bg-card text-muted-foreground transition hover:border-primary/30 hover:bg-accent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:bg-card disabled:hover:text-muted-foreground"
-        aria-label="下一页"
+        aria-label={t("dash.nextPage")}
       >
         <ChevronRight className="h-3.5 w-3.5" />
       </button>
@@ -1685,13 +1688,13 @@ function BookmarkCtxMenu({
         className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left hover:bg-accent"
         onClick={onCopy}
       >
-        复制链接
+        {t("dash.copyLink")}
       </button>
       <button
         className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left hover:bg-accent"
         onClick={onQr}
       >
-        生成二维码
+        {t("dash.genQr")}
       </button>
     </div>
   );

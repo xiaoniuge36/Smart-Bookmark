@@ -2,6 +2,7 @@ import { useId, useMemo, useState } from "react";
 import type { BookmarkNode } from "@/types";
 import { cn } from "@/lib/utils";
 import { ChevronRight, GripVertical, Pin, PinOff } from "lucide-react";
+import { useT, t } from "@/lib/i18n";
 
 /**
  * 扁平 3D 风格的彩色文件夹图标。统一品牌色（indigo/violet），与整体设计系统一致。
@@ -129,6 +130,7 @@ export default function FolderTree(props: FolderTreeProps) {
     onTogglePin,
     onMove,
   } = props;
+  const t = useT();
   const [dragId, setDragId] = useState<string | null>(null);
   const [overId, setOverId] = useState<string | null>(null);
 
@@ -152,7 +154,7 @@ export default function FolderTree(props: FolderTreeProps) {
             !selectedId ? "scale-105" : "opacity-90",
           )}
         />
-        <span className="flex-1 truncate">全部书签</span>
+        <span className="flex-1 truncate">{t("dash.allBookmarks")}</span>
       </button>
 
       {items.map((f) => {
@@ -231,7 +233,7 @@ export default function FolderTree(props: FolderTreeProps) {
               <span
                 className={cn("flex-1 truncate", isSelected && "font-medium")}
               >
-                {f.title || "(未命名)"}
+                {f.title || t("common.unnamed")}
               </span>
               <span
                 className={cn(
@@ -257,7 +259,7 @@ export default function FolderTree(props: FolderTreeProps) {
                 "h-6 w-6 rounded text-muted-foreground opacity-0 transition group-hover:opacity-100 hover:bg-background/60",
                 isPinned && "opacity-100 text-primary",
               )}
-              title={isPinned ? "取消置顶" : "置顶"}
+              title={isPinned ? t("common.unpin") : t("common.pin")}
             >
               {isPinned ? (
                 <Pin className="mx-auto h-3.5 w-3.5" />
@@ -288,7 +290,7 @@ function flattenForTree(
       const count = countBookmarks(node);
       out.push({
         id: node.id,
-        title: node.title || "(未命名)",
+        title: node.title || t("common.unnamed"),
         depth,
         count,
         hasChildren: subFolders.length > 0,
