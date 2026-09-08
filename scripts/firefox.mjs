@@ -30,8 +30,9 @@ async function copyDir(src, dest) {
  * 从主（Chrome）manifest 派生 Firefox 版：
  * - background.service_worker -> background.scripts（事件页）
  * - side_panel -> sidebar_action
- * - 增加 browser_specific_settings.gecko（id / strict_min_version）
- * - 移除 minimum_chrome_version 及 Firefox 不支持的权限（favicon / sidePanel）
+ * - 增加 browser_specific_settings.gecko（id / strict_min_version / data_collection_permissions）
+ * - 移除 minimum_chrome_version、optional_host_permissions
+ *   及 Firefox 不支持的权限（favicon / sidePanel）
  */
 function toFirefoxManifest(m) {
   const fx = JSON.parse(JSON.stringify(m));
@@ -47,9 +48,21 @@ function toFirefoxManifest(m) {
   };
 
   fx.browser_specific_settings = {
-    gecko: { id: GECKO_ID, strict_min_version: GECKO_MIN },
+    gecko: {
+      id: GECKO_ID,
+      strict_min_version: GECKO_MIN,
+      // AMO 自 2025-11-03 起要求所有新扩展申报数据收集类别，缺失会直接判定验证失败。
+      // 本扩展无遥测、无开发者后端、不收集任何用户数据，故声明 none；
+      // 书签摘要仅在你主动发起 AI 对话时由浏览器直连你自选的 Provider
+      //（详见 PRIVACY.md 第 4 节）。
+      data_collection_permissions: { required: ["none"] },
+    },
   };
   delete fx.minimum_chrome_version;
+  // optional_host_permissions 需 Firefox 128+，与 strict_min_version 115 冲突（AMO 会告警）；
+  // 且代码中并无 permissions.request/contains/remove 调用，属死配置——
+  // 直接移除即可消除告警，同时保留 Firefox 115 ESR 支持。
+  delete fx.optional_host_permissions;
 
   fx.permissions = (fx.permissions || []).filter(
     (p) => !["favicon", "sidePanel"].includes(p),

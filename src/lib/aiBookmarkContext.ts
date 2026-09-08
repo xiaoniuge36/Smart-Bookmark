@@ -1,7 +1,11 @@
 import { allFolders, flatten, getTree } from "@/lib/bookmarks";
 
 /**
- * 供 AI 调用的本机书签摘要（仅扩展内读取，不经过第三方）。
+ * 供 AI 调用的本机书签摘要。
+ *
+ * 注意：返回值会被 AiPanel 拼进 system prompt 一并发送给你自选的 AI Provider，
+ * 即最多 60 条书签的标题与 URL、以及最多 24 个文件夹的路径与条数会离开本机。
+ * 未启用 AI 助手（未填 API Key）时不会产生任何外发。详见 PRIVACY.md 第 4 节。
  */
 export async function getBookmarkContextForAi(): Promise<string> {
   const tree = await getTree();
