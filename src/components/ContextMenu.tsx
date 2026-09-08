@@ -36,11 +36,11 @@ export default function ContextMenu({
       });
     }
     const close = () => onClose();
+    // 仅监听「点击外部」关闭。不监听 scroll：hero 视图下异步内容会引起
+    // 滚动/布局事件（捕获阶段会抓到任意可滚动元素），会把刚打开的菜单瞬间关掉。
     window.addEventListener("click", close);
-    window.addEventListener("scroll", close, true);
     return () => {
       window.removeEventListener("click", close);
-      window.removeEventListener("scroll", close, true);
     };
   }, [x, y, onClose]);
 

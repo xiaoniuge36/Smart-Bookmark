@@ -395,12 +395,12 @@ export default function Dashboard({
   const closeCtx = useCallback(() => setCtxMenu(null), []);
   useEffect(() => {
     if (!ctxMenu) return;
+    // 仅监听「点击外部」关闭。不再监听 resize：hero(全部书签)视图下
+    // iframe/小组件异步加载会引起布局抖动触发 resize，会把刚打开的菜单瞬间关掉。
     const fn = () => closeCtx();
     window.addEventListener("click", fn);
-    window.addEventListener("resize", fn);
     return () => {
       window.removeEventListener("click", fn);
-      window.removeEventListener("resize", fn);
     };
   }, [ctxMenu, closeCtx]);
 

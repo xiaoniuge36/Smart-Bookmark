@@ -106,8 +106,15 @@ export default function App() {
     settings.collectionBoardName?.trim() || t("tabs.channels");
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-fixed" style={bg}>
-      <div className="min-h-screen bg-background/85 backdrop-blur-sm">
+    <div className="relative min-h-screen bg-cover bg-center bg-fixed" style={bg}>
+      {/* 磨砂背景层：固定铺满视口、仅模糊+着色壁纸；pointer-events-none 且不包裹内容，
+          避免 backdrop-filter 为内部 position:fixed 元素（右键菜单等）创建包含块，
+          导致菜单随页面滚动跑位、被卡片遮挡（ Radix 弹窗因 portal 到 body 而不受影响）。 */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 bg-background/85 backdrop-blur-sm"
+      />
+      <div className="relative min-h-screen">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-indigo-500/8 via-fuchsia-500/5 to-transparent" />
         <header className="sticky top-0 z-20 border-b bg-background/75 backdrop-blur">
           <div className="mx-auto flex max-w-[1600px] items-center gap-4 px-5 py-3 sm:px-6 2xl:px-8">
