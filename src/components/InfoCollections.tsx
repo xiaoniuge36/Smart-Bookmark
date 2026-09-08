@@ -464,6 +464,15 @@ const COLLECTIONS: CollectionGroup[] = [
               en: "Public AI sites and free trial resource navigation",
             },
           },
+          {
+            title: "千禧冲浪站",
+            url: "https://nav.tcmiku.cc.cd/",
+            tag: { zh: "网站导航", en: "Web directory" },
+            description: {
+              zh: "千禧复古风的网站导航合集，收录值得收藏的互联网站点",
+              en: "Retro millennium-style directory of collectible websites",
+            },
+          },
         ],
       },
       {
