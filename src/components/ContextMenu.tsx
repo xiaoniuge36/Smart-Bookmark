@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
 
 export interface ContextMenuItem {
@@ -8,8 +9,14 @@ export interface ContextMenuItem {
 }
 
 /**
- * 轻量右键菜单：固定定位于 (x, y)，自动做视口边界收敛，
- * 点击外部 / 滚动时关闭。
+ * 轻量右键菜单：portal 到 document.body，固定定位于视口 (clientX/clientY)，
+ * 自动做视口边界收敛。
+ *
+ * portal 是必要的——否则菜单会被渲染进调用方所在的层叠上下文（如 sticky 侧栏
+ * 会创建 stacking context），导致向右延伸时被中栏卡片/组件遮挡。
+ * 关闭用「点击外部(mousedown)」+ ref 命中判定：portal 到 body 后，容器上的
+ * stopPropagation 对 body 级原生冒泡不可靠，故改为 ref 判定。延迟一帧绑定，
+ * 避免打开菜单的那次右键(mousedown)立即把自己关掉。
  */
 export default function ContextMenu({
   x,
@@ -24,6 +31,8 @@ export default function ContextMenu({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ left: x, top: y });
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   useEffect(() => {
     const el = ref.current;
@@ -35,19 +44,23 @@ export default function ContextMenu({
         top: Math.min(y, window.innerHeight - r.height - pad),
       });
     }
-    const close = () => onClose();
-    // 仅监听「点击外部」关闭。不监听 scroll：hero 视图下异步内容会引起
-    // 滚动/布局事件（捕获阶段会抓到任意可滚动元素），会把刚打开的菜单瞬间关掉。
-    window.addEventListener("click", close);
-    return () => {
-      window.removeEventListener("click", close);
+    const onDown = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        onCloseRef.current();
+      }
     };
-  }, [x, y, onClose]);
+    const timer = window.setTimeout(() => {
+      window.addEventListener("mousedown", onDown);
+    }, 0);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("mousedown", onDown);
+    };
+  }, [x, y]);
 
-  return (
+  return createPortal(
     <div
       ref={ref}
-      onClick={(e) => e.stopPropagation()}
       className="fixed z-[60] min-w-[160px] rounded-lg border bg-popover p-1 text-sm shadow-lg"
       style={{ left: pos.left, top: pos.top }}
     >
@@ -61,12 +74,13 @@ export default function ContextMenu({
           )}
           onClick={() => {
             it.onClick();
-            onClose();
+            onCloseRef.current();
           }}
         >
           {it.label}
         </button>
       ))}
-    </div>
+    </div>,
+    document.body,
   );
 }
