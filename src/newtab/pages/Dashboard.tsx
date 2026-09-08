@@ -1179,8 +1179,8 @@ export default function Dashboard({
                   id: b.id,
                   url: b.url,
                   title: b.title,
-                  x: e.clientX,
-                  y: e.clientY,
+                  x: e.pageX,
+                  y: e.pageY,
                 });
               }}
               className={cn(
@@ -1250,8 +1250,8 @@ export default function Dashboard({
                     id: b.id,
                     url: b.url,
                     title: b.title,
-                    x: e.clientX,
-                    y: e.clientY,
+                    x: e.pageX,
+                    y: e.pageY,
                   });
                 }}
                 className={cn(
@@ -1792,15 +1792,23 @@ function BookmarkCtxMenu({
     if (!el) return;
     const r = el.getBoundingClientRect();
     const pad = 8;
-    const left = Math.min(x, window.innerWidth - r.width - pad);
-    const top = Math.min(y, window.innerHeight - r.height - pad);
+    const sx = window.scrollX;
+    const sy = window.scrollY;
+    const left = Math.max(
+      sx + pad,
+      Math.min(x, sx + window.innerWidth - r.width - pad),
+    );
+    const top = Math.max(
+      sy + pad,
+      Math.min(y, sy + window.innerHeight - r.height - pad),
+    );
     setPos({ left, top });
   }, [x, y]);
   return (
     <div
       ref={ref}
       onClick={(e) => e.stopPropagation()}
-      className="fixed z-[60] min-w-[180px] rounded-lg border bg-popover p-1 text-sm shadow-lg"
+      className="absolute z-[60] min-w-[180px] rounded-lg border bg-popover p-1 text-sm shadow-lg"
       style={{ left: pos.left, top: pos.top }}
     >
       <button
