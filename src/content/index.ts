@@ -14,6 +14,8 @@ interface MiniSettings {
 function faviconOf(url: string, size = 32): string {
   try {
     new URL(url);
+    // Firefox 无 _favicon API：返回空，避免加载不存在的资源
+    if (typeof navigator !== "undefined" && /firefox/i.test(navigator.userAgent)) return "";
     return chrome.runtime.getURL(
       `_favicon/?pageUrl=${encodeURIComponent(url)}&size=${size}`,
     );

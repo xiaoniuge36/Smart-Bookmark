@@ -13,6 +13,32 @@ const MENU_IDS = {
 
 const SETTINGS_KEY = "smart-bookmark::settings";
 
+/**
+ * 跨浏览器打开侧边栏（内联以保持 background 为自包含经典脚本，
+ * 避免被拆成 ESM chunk 导致 Firefox 事件页无法加载）：
+ * - Chrome/Edge：chrome.sidePanel.open({ windowId })
+ * - Firefox：browser.sidebarAction.open()（127+；旧版静默降级）
+ */
+async function openSidebar(windowId?: number): Promise<void> {
+  try {
+    const isFF =
+      typeof navigator !== "undefined" && /firefox/i.test(navigator.userAgent);
+    if (!isFF) {
+      const sp = (chrome as unknown as {
+        sidePanel?: { open?: (o: { windowId?: number }) => Promise<void> };
+      })?.sidePanel;
+      if (sp?.open) await sp.open(windowId != null ? { windowId } : {});
+      return;
+    }
+    const b = (globalThis as unknown as {
+      browser?: { sidebarAction?: { open?: () => Promise<void> } };
+    })?.browser;
+    if (b?.sidebarAction?.open) await b.sidebarAction.open();
+  } catch {
+    // 无侧边栏能力时静默降级
+  }
+}
+
 chrome.runtime.onInstalled.addListener(() => {
   setupContextMenus();
   try {
@@ -148,9 +174,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     }
     case MENU_IDS.OPEN_SIDEPANEL: {
       if (tab?.windowId) {
-        await chrome.sidePanel
-          ?.open?.({ windowId: tab.windowId })
-          .catch(() => {});
+        await openSidebar(tab.windowId);
       }
       break;
     }
@@ -164,9 +188,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 chrome.commands.onCommand.addListener(async (command, tab) => {
   if (command === "open-side-panel") {
     if (tab?.windowId) {
-      await chrome.sidePanel
-        ?.open?.({ windowId: tab.windowId })
-        .catch(() => {});
+      await openSidebar(tab.windowId);
     }
   } else if (command === "open-cleaner") {
     await chrome.tabs.create({
@@ -187,9 +209,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       }
       if (msg?.type === "open-sidepanel") {
         if (sender.tab?.windowId) {
-          await chrome.sidePanel
-            ?.open?.({ windowId: sender.tab.windowId })
-            .catch(() => {});
+          await openSidebar(sender.tab.windowId);
         }
         sendResponse({ ok: true });
         return;
