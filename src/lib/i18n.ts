@@ -611,6 +611,15 @@ const zh: Dict = {
   "side.bookmarks": "书签",
   "side.history": "浏览历史",
   "app.yearProgress": (year: string) => `${year} 年过去`,
+  "dash.editBookmark": "编辑书签",
+  "dash.fieldName": "名称",
+  "dash.fieldUrl": "链接",
+  "dash.editSaved": "已保存修改",
+  "dash.editSaveFailed": "保存失败",
+  "dash.deleteBookmarkTitle": "删除书签",
+  "dash.deleteBookmarkConfirm": (title: string) => `确定要删除「${title}」吗？此操作不可撤销。`,
+  "dash.deleted": "已删除",
+  "dash.deleteFailed": "删除失败",
 };
 
 const en: Dict = {
@@ -1225,6 +1234,15 @@ const en: Dict = {
   "side.bookmarks": "Bookmarks",
   "side.history": "Browsing history",
   "app.yearProgress": (year: string) => `${year} elapsed`,
+  "dash.editBookmark": "Edit bookmark",
+  "dash.fieldName": "Name",
+  "dash.fieldUrl": "URL",
+  "dash.editSaved": "Changes saved",
+  "dash.editSaveFailed": "Failed to save",
+  "dash.deleteBookmarkTitle": "Delete bookmark",
+  "dash.deleteBookmarkConfirm": (title: string) => `Delete "${title}"? This can't be undone.`,
+  "dash.deleted": "Deleted",
+  "dash.deleteFailed": "Failed to delete",
 };
 
 const DICTS: Record<"zh" | "en", Dict> = { zh, en };

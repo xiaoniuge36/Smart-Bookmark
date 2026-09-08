@@ -11,6 +11,8 @@ import {
   findFolder,
   moveBookmark,
   moveFolderBefore,
+  updateBookmark,
+  removeBookmark,
 } from "@/lib/bookmarks";
 import type { BookmarkNode, FlatBookmark, Settings, TrendingMode, TrendingRange } from "@/types";
 import { Card } from "@/components/ui/card";
@@ -39,6 +41,10 @@ import { setSettings } from "@/lib/storage";
 import { useT, t } from "@/lib/i18n";
 import { toast } from "@/components/ui/toast";
 import QrDialog from "./QrDialog";
+import EditBookmarkDialog, {
+  type EditBookmarkTarget,
+} from "@/components/EditBookmarkDialog";
+import ConfirmDialog from "@/components/ConfirmDialog";
 import FolderTree from "@/components/FolderTree";
 import EngineSwitcher from "@/components/EngineSwitcher";
 import EngineIcon from "@/components/EngineIcon";
@@ -118,6 +124,11 @@ export default function Dashboard({
     | null
   >(null);
   const [qrUrl, setQrUrl] = useState<string | null>(null);
+  const [editTarget, setEditTarget] = useState<EditBookmarkTarget | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<{
+    id: string;
+    title: string;
+  } | null>(null);
   const [topSites, setTopSites] = useState<TopSite[]>([]);
   const [historyHits, setHistoryHits] = useState<HistoryHit[]>([]);
   const [searchFocused, setSearchFocused] = useState(false);
@@ -1248,11 +1259,67 @@ export default function Dashboard({
             setQrUrl(ctxMenu.url);
             setCtxMenu(null);
           }}
+          onEdit={() => {
+            setEditTarget({
+              id: ctxMenu.id,
+              title: ctxMenu.title,
+              url: ctxMenu.url,
+            });
+            setCtxMenu(null);
+          }}
+          onDelete={() => {
+            setDeleteTarget({ id: ctxMenu.id, title: ctxMenu.title });
+            setCtxMenu(null);
+          }}
           onClose={() => setCtxMenu(null)}
         />
       )}
 
       {qrUrl && <QrDialog url={qrUrl} onClose={() => setQrUrl(null)} />}
+
+      <EditBookmarkDialog
+        open={!!editTarget}
+        onOpenChange={(v) => {
+          if (!v) setEditTarget(null);
+        }}
+        target={editTarget}
+        onSave={async (id, title, url) => {
+          try {
+            await updateBookmark(id, { title, url });
+            await reload();
+            toast(t("dash.editSaved"), "success");
+            setEditTarget(null);
+          } catch (err) {
+            console.warn("edit bookmark failed", err);
+            toast(t("dash.editSaveFailed"), "error");
+          }
+        }}
+      />
+
+      {deleteTarget && (
+        <ConfirmDialog
+          open
+          onOpenChange={(v) => {
+            if (!v) setDeleteTarget(null);
+          }}
+          destructive
+          title={t("dash.deleteBookmarkTitle")}
+          description={t("dash.deleteBookmarkConfirm", deleteTarget.title)}
+          confirmLabel={t("common.delete")}
+          onConfirm={async () => {
+            try {
+              await removeBookmark(deleteTarget.id);
+              await reload();
+              toast(t("dash.deleted"), "success");
+            } catch (err) {
+              console.warn("delete bookmark failed", err);
+              toast(t("dash.deleteFailed"), "error");
+            } finally {
+              setDeleteTarget(null);
+            }
+          }}
+        />
+      )}
     </div>
   );
 }
@@ -1656,6 +1723,8 @@ function BookmarkCtxMenu({
   y,
   onCopy,
   onQr,
+  onEdit,
+  onDelete,
 }: {
   id: string;
   url: string;
@@ -1664,6 +1733,8 @@ function BookmarkCtxMenu({
   y: number;
   onCopy: () => void;
   onQr: () => void;
+  onEdit: () => void;
+  onDelete: () => void;
   onClose: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -1695,6 +1766,19 @@ function BookmarkCtxMenu({
         onClick={onQr}
       >
         {t("dash.genQr")}
+      </button>
+      <div className="my-1 h-px bg-border" />
+      <button
+        className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left hover:bg-accent"
+        onClick={onEdit}
+      >
+        {t("common.edit")}
+      </button>
+      <button
+        className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left text-destructive hover:bg-destructive/10"
+        onClick={onDelete}
+      >
+        {t("common.delete")}
       </button>
     </div>
   );
