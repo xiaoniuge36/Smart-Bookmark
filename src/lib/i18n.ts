@@ -620,6 +620,15 @@ const zh: Dict = {
   "dash.deleteBookmarkConfirm": (title: string) => `确定要删除「${title}」吗？此操作不可撤销。`,
   "dash.deleted": "已删除",
   "dash.deleteFailed": "删除失败",
+  "folder.rename": "重命名",
+  "folder.delete": "删除文件夹",
+  "folder.renameTitle": "重命名文件夹",
+  "folder.renameLabel": "文件夹名称",
+  "folder.deleteTitle": "删除文件夹",
+  "folder.deleteConfirm": (name: string, count: string) => `确定要删除「${name}」吗？将同时删除其内部 ${count} 个书签及子文件夹，此操作不可撤销。`,
+  "folder.renamed": "已重命名",
+  "folder.deleted": "已删除文件夹",
+  "folder.opFailed": "操作失败",
 };
 
 const en: Dict = {
@@ -1243,6 +1252,15 @@ const en: Dict = {
   "dash.deleteBookmarkConfirm": (title: string) => `Delete "${title}"? This can't be undone.`,
   "dash.deleted": "Deleted",
   "dash.deleteFailed": "Failed to delete",
+  "folder.rename": "Rename",
+  "folder.delete": "Delete folder",
+  "folder.renameTitle": "Rename folder",
+  "folder.renameLabel": "Folder name",
+  "folder.deleteTitle": "Delete folder",
+  "folder.deleteConfirm": (name: string, count: string) => `Delete "${name}"? This also removes its ${count} bookmark(s) and subfolders. This can't be undone.`,
+  "folder.renamed": "Renamed",
+  "folder.deleted": "Folder deleted",
+  "folder.opFailed": "Operation failed",
 };
 
 const DICTS: Record<"zh" | "en", Dict> = { zh, en };

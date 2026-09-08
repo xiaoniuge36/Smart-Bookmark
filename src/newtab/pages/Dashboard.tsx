@@ -13,6 +13,7 @@ import {
   moveFolderBefore,
   updateBookmark,
   removeBookmark,
+  removeTree,
 } from "@/lib/bookmarks";
 import type { BookmarkNode, FlatBookmark, Settings, TrendingMode, TrendingRange } from "@/types";
 import { Card } from "@/components/ui/card";
@@ -707,6 +708,27 @@ export default function Dashboard({
             onSelect={(id) => onSelectFolder(id)}
             onTogglePin={onTogglePin}
             onMove={onMoveFolder}
+            onRename={async (id, title) => {
+              try {
+                await updateBookmark(id, { title });
+                await reload();
+                toast(t("folder.renamed"), "success");
+              } catch (err) {
+                console.warn("rename folder failed", err);
+                toast(t("folder.opFailed"), "error");
+              }
+            }}
+            onDelete={async (id) => {
+              try {
+                await removeTree(id);
+                if (selected === id) onSelectFolder("");
+                await reload();
+                toast(t("folder.deleted"), "success");
+              } catch (err) {
+                console.warn("delete folder failed", err);
+                toast(t("folder.opFailed"), "error");
+              }
+            }}
           />
         </Card>
       </aside>

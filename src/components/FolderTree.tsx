@@ -3,6 +3,9 @@ import type { BookmarkNode } from "@/types";
 import { cn } from "@/lib/utils";
 import { ChevronRight, GripVertical, Pin, PinOff } from "lucide-react";
 import { useT, t } from "@/lib/i18n";
+import ContextMenu from "@/components/ContextMenu";
+import PromptDialog from "@/components/PromptDialog";
+import ConfirmDialog from "@/components/ConfirmDialog";
 
 /**
  * 扁平 3D 风格的彩色文件夹图标。统一品牌色（indigo/violet），与整体设计系统一致。
@@ -108,11 +111,14 @@ export interface FolderTreeProps {
   onSelect: (id: string | "") => void;
   onTogglePin: (id: string) => void;
   onMove?: (id: string, targetId: string) => Promise<void> | void;
+  onRename?: (id: string, title: string) => Promise<void> | void;
+  onDelete?: (id: string) => Promise<void> | void;
 }
 
 interface FolderItem {
   id: string;
   title: string;
+  rawTitle: string;
   depth: number;
   count: number;
   hasChildren: boolean;
@@ -129,10 +135,29 @@ export default function FolderTree(props: FolderTreeProps) {
     onSelect,
     onTogglePin,
     onMove,
+    onRename,
+    onDelete,
   } = props;
   const t = useT();
   const [dragId, setDragId] = useState<string | null>(null);
   const [overId, setOverId] = useState<string | null>(null);
+  const [menu, setMenu] = useState<{
+    id: string;
+    title: string;
+    rawTitle: string;
+    count: number;
+    x: number;
+    y: number;
+  } | null>(null);
+  const [renameTarget, setRenameTarget] = useState<{
+    id: string;
+    title: string;
+  } | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<{
+    id: string;
+    title: string;
+    count: number;
+  } | null>(null);
 
   const items = useMemo(() => flattenForTree(tree, expanded), [tree, expanded]);
 
@@ -165,6 +190,17 @@ export default function FolderTree(props: FolderTreeProps) {
           <div
             key={f.id}
             draggable={!!onMove && f.depth > 1}
+            onContextMenu={(e) => {
+              e.preventDefault();
+              setMenu({
+                id: f.id,
+                title: f.title,
+                rawTitle: f.rawTitle,
+                count: f.count,
+                x: e.clientX,
+                y: e.clientY,
+              });
+            }}
             onDragStart={(e) => {
               if (!onMove || f.depth <= 1) return;
               setDragId(f.id);
@@ -270,6 +306,67 @@ export default function FolderTree(props: FolderTreeProps) {
           </div>
         );
       })}
+
+      {menu && (
+        <ContextMenu
+          x={menu.x}
+          y={menu.y}
+          onClose={() => setMenu(null)}
+          items={[
+            {
+              label: t("folder.rename"),
+              onClick: () =>
+                setRenameTarget({ id: menu.id, title: menu.rawTitle }),
+            },
+            {
+              label: t("folder.delete"),
+              destructive: true,
+              onClick: () =>
+                setDeleteTarget({
+                  id: menu.id,
+                  title: menu.title,
+                  count: menu.count,
+                }),
+            },
+          ]}
+        />
+      )}
+      <PromptDialog
+        open={!!renameTarget}
+        onOpenChange={(v) => {
+          if (!v) setRenameTarget(null);
+        }}
+        title={t("folder.renameTitle")}
+        label={t("folder.renameLabel")}
+        initialValue={renameTarget?.title ?? ""}
+        onSave={async (value) => {
+          if (renameTarget) await onRename?.(renameTarget.id, value);
+          setRenameTarget(null);
+        }}
+      />
+      {deleteTarget && (
+        <ConfirmDialog
+          open
+          onOpenChange={(v) => {
+            if (!v) setDeleteTarget(null);
+          }}
+          destructive
+          title={t("folder.deleteTitle")}
+          description={t(
+            "folder.deleteConfirm",
+            deleteTarget.title,
+            String(deleteTarget.count),
+          )}
+          confirmLabel={t("common.delete")}
+          onConfirm={async () => {
+            try {
+              await onDelete?.(deleteTarget.id);
+            } finally {
+              setDeleteTarget(null);
+            }
+          }}
+        />
+      )}
     </div>
   );
 }
@@ -291,6 +388,7 @@ function flattenForTree(
       out.push({
         id: node.id,
         title: node.title || t("common.unnamed"),
+        rawTitle: node.title || "",
         depth,
         count,
         hasChildren: subFolders.length > 0,
