@@ -150,7 +150,7 @@ function AiChatPanel({ settings }: { settings: Settings }) {
         const last = copy[copy.length - 1];
         copy[copy.length - 1] = {
           role: "assistant",
-          content: `⚠️ ${err?.message ?? "请求失败"}`,
+          content: `⚠️ ${err?.message ?? t("common.requestFailed")}`,
           at: last?.at,
         };
         return copy;
@@ -168,13 +168,13 @@ function AiChatPanel({ settings }: { settings: Settings }) {
   return (
     <div className="mx-auto flex h-full w-full max-w-3xl flex-col">
       <header className="mb-3 flex items-center justify-between gap-3 px-1">
-        <div className="flex items-center gap-2.5 font-serif text-[1.1rem] tracking-tight">
+        <div className="flex items-center gap-2.5 text-[1.1rem] tracking-tight">
           <Sparkles
             className="h-4 w-4"
             style={{ color: "hsl(var(--claude-accent))" }}
             strokeWidth={1.8}
           />
-          <span className="font-semibold">{t("ai.title")}</span>
+          <span className="font-serif font-semibold">{t("ai.title")}</span>
         </div>
         <div className="flex items-center gap-2">
           <Button
@@ -259,7 +259,7 @@ function AiChatPanel({ settings }: { settings: Settings }) {
                     key={s}
                     type="button"
                     onClick={() => send(s)}
-                    className="rounded-full border px-3 py-1.5 font-serif text-[12.5px] transition hover:bg-background/70"
+                    className="rounded-full border px-3 py-1.5 text-[12.5px] transition hover:bg-background/70"
                     style={{
                       borderColor: "hsl(var(--claude-rule))",
                       color: "hsl(var(--claude-ink-muted))",
@@ -289,7 +289,7 @@ function AiChatPanel({ settings }: { settings: Settings }) {
                   style={{ color: "hsl(var(--claude-ink-muted))" }}
                 >
                   <span
-                    className="font-serif text-[13px] font-semibold tracking-tight text-foreground"
+                    className="text-[13px] font-semibold tracking-tight text-foreground"
                     style={isUser ? undefined : { color: rail }}
                   >
                     {isUser ? t("ai.userLabel") : t("ai.assistantLabel")}

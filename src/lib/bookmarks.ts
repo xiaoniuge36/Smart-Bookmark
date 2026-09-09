@@ -28,6 +28,20 @@ export async function moveBookmark(id: string, parentId: string, index?: number)
   await chrome.bookmarks.move(id, { parentId, index });
 }
 
+export async function moveFolderBefore(id: string, targetId: string): Promise<void> {
+  if (!hasChromeBookmarks || id === targetId) return;
+  const target = await chrome.bookmarks.get(targetId);
+  const source = await chrome.bookmarks.get(id);
+  const parentId = target[0]?.parentId;
+  if (!parentId || source[0]?.parentId !== parentId) return;
+  const children = await chrome.bookmarks.getChildren(parentId);
+  const sourceIndex = children.findIndex((child) => child.id === id);
+  const targetIndex = children.findIndex((child) => child.id === targetId);
+  if (sourceIndex < 0 || targetIndex < 0) return;
+  // Chrome calculates the destination index after removing the source node.
+  await chrome.bookmarks.move(id, { parentId, index: targetIndex - (sourceIndex < targetIndex ? 1 : 0) });
+}
+
 export async function createFolder(parentId: string, title: string): Promise<BookmarkNode | null> {
   if (!hasChromeBookmarks) return null;
   return (await chrome.bookmarks.create({ parentId, title })) as BookmarkNode;
@@ -65,7 +79,7 @@ export function allFolders(nodes: BookmarkNode[]): FolderStat[] {
   const out: FolderStat[] = [];
   const walk = (node: BookmarkNode, path: string) => {
     const here = node.title ? (path ? `${path} / ${node.title}` : node.title) : path;
-    if (!node.url && node.id !== "0") {
+    if (!node.url && node.parentId) {
       const count = countBookmarks(node);
       out.push({ id: node.id, title: node.title || "(root)", path: here, count });
     }

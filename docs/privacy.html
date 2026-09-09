@@ -14,7 +14,8 @@
       th,td{border:1px solid #e5e7eb;padding:.5rem .75rem;text-align:left;vertical-align:top}
       th{background:#f9fafb;font-weight:600}
       code{background:#f3f4f6;padding:2px 6px;border-radius:4px;font-size:.9em}
-      .meta{color:#6b7280;font-size:.9rem;margin-bottom:2rem}
+      .meta{color:#6b7280;font-size:.9rem;margin-bottom:1rem}
+      .note{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:.75rem 1rem;font-size:.92rem;margin:0 0 1.5rem}
       .lang-switch{position:sticky;top:0;background:#fff;padding:.5rem 0;border-bottom:1px solid #e5e7eb;margin-bottom:1rem;text-align:right}
       .lang-switch a{margin-left:.75rem}
       footer{margin:3rem 0 1rem;color:#6b7280;font-size:.85rem;text-align:center}
@@ -28,48 +29,91 @@
     </div>
 
     <h1 id="zh">Smart Bookmark · 隐私政策</h1>
-    <p class="meta">生效日期: 2025-01-15 · 版本 0.2.0 · 开发者 xiaoniuge36</p>
+    <p class="meta">生效日期: 2026-09-08 · 版本 0.2.0 · 开发者 xiaoniuge36</p>
+
+    <div class="note">
+      <b>2026-09-08 修订</b>：补充此前未如实披露的数据去向——站点图标（favicon）第三方服务、首页内嵌的 NewsNow iframe 与 GitHub 公开接口、AI 对话会携带本机书签摘要；并补齐 <code>cookies</code>、<code>favicon</code> 两项权限说明。<b>开发者侧立场未变：零收集、零遥测、无后端。</b>
+    </div>
 
     <h2>1. 总则</h2>
-    <p>Smart Bookmark 是一个<b>本地优先</b>的浏览器扩展，<b>不运营任何服务器</b>，<b>不收集任何用户数据</b>，<b>不分析用户行为</b>。本政策解释扩展所使用的权限与数据去向。</p>
+    <p>Smart Bookmark 是一个<b>本地优先</b>的浏览器扩展，<b>不运营任何服务器</b>，<b>不收集任何用户数据</b>，<b>不分析用户行为</b>，扩展内没有任何遥测或统计上报代码。</p>
+    <p>但「我们不收集」不等于「数据从不离开你的浏览器」：为显示站点图标、加载首页资讯小组件与可选的 AI 问答，扩展会<b>直接从你的浏览器</b>向第三方服务发起请求（见第 4 节）。这些请求不经过我们，我们也无从获取其内容。</p>
 
     <h2>2. 我们处理的数据</h2>
     <table>
       <tr><th>数据类别</th><th>用途</th><th>存储位置</th><th>是否上传</th></tr>
-      <tr><td>书签（bookmarks）</td><td>展示 / 搜索 / 清理 / 画像</td><td>浏览器本地书签库</td><td>❌ 永不上传</td></tr>
+      <tr><td>书签（bookmarks）</td><td>展示 / 搜索 / 清理 / 编辑 / 画像</td><td>浏览器本地书签库</td><td>⚠️ 默认不上传，两处例外见下</td></tr>
       <tr><td>浏览历史（history）</td><td>统一搜索</td><td>浏览器本地历史库</td><td>❌ 永不上传</td></tr>
       <tr><td>常用站点（topSites）</td><td>新标签页快捷入口</td><td>仅内存读取</td><td>❌ 永不上传</td></tr>
       <tr><td>扩展设置</td><td>个性化 UI</td><td><code>chrome.storage.local</code></td><td>❌ 永不上传</td></tr>
-      <tr><td>AI API Key（可选）</td><td>调用你自己的 OpenAI / Anthropic 账户</td><td><code>chrome.storage.local</code></td><td>❌ 仅发往对应厂商的 API，直连不经我们</td></tr>
-      <tr><td>AI 对话消息</td><td>流式显示</td><td>不落盘</td><td>➡️ 仅当你主动点发送时发给你选择的 Provider</td></tr>
+      <tr><td>AI API Key（可选）</td><td>调用你自己的 OpenAI / Anthropic / 自定义端点账户</td><td><code>chrome.storage.local</code></td><td>❌ 仅用于向该端点鉴权，我们不经手、不存储</td></tr>
+      <tr><td>AI 对话消息</td><td>流式显示</td><td>不落盘</td><td>➡️ 仅当你主动点发送时发给你选择的 Provider，并附带书签摘要（见 4.3）</td></tr>
+      <tr><td>NewsNow 登录状态</td><td>判断是否已登录内嵌 NewsNow，以决定是否提示「需登录同步」</td><td>读取该站 cookie，结果仅存本机 <code>localStorage</code></td><td>❌ 不上传</td></tr>
     </table>
+    <p><b>书签的两处例外：</b></p>
+    <ul>
+      <li><b>显示站点图标时</b>：书签的<b>域名</b>随图标请求发给第三方 favicon 服务（4.1）；不含完整 URL、书签标题或其他信息。</li>
+      <li><b>你主动使用 AI 助手时</b>：最多 60 条书签的标题与 URL、最多 24 个文件夹的路径与条数，作为上下文直连你自选的 Provider（4.3）。未启用 AI 助手则完全不会发生。</li>
+    </ul>
 
     <h2>3. 权限使用说明</h2>
     <table>
       <tr><th>权限</th><th>用途</th></tr>
-      <tr><td><code>bookmarks</code></td><td>核心功能：清理、画像、搜索</td></tr>
+      <tr><td><code>bookmarks</code></td><td>核心功能：清理、画像、搜索、增删改</td></tr>
       <tr><td><code>storage</code></td><td>保存设置与 API Key（仅本机）</td></tr>
       <tr><td><code>contextMenus</code></td><td>右键菜单</td></tr>
-      <tr><td><code>sidePanel</code></td><td>Alt+B 打开侧边栏</td></tr>
+      <tr><td><code>sidePanel</code>（Chrome / Edge）</td><td>Alt+B 打开侧边栏；Firefox 侧使用 <code>sidebar_action</code></td></tr>
       <tr><td><code>history</code></td><td>搜索历史记录</td></tr>
       <tr><td><code>topSites</code></td><td>新标签页常用站点</td></tr>
       <tr><td><code>tabs</code></td><td>打开新标签页</td></tr>
+      <tr><td><code>favicon</code>（Chrome / Edge）</td><td>读取浏览器<b>本地已缓存</b>的站点图标，作为在线图标加载失败时的兜底；纯本地读取，不联网</td></tr>
       <tr><td><code>scripting</code></td><td>注入悬浮球（可关闭）</td></tr>
-      <tr><td><code>https://*/*</code></td><td>失效链接检测（HEAD 探测） + 悬浮球</td></tr>
+      <tr><td><code>cookies</code></td><td>仅读取 <code>newsnow.busiyi.world</code> 的 cookie 以判断是否已登录；不上传、不用于其他用途</td></tr>
+      <tr><td><code>https://*/*</code></td><td>失效链接检测（HEAD 探测）+ 悬浮球 + 图标加载；不读取网页正文</td></tr>
     </table>
 
     <h2>4. 第三方服务</h2>
-    <p>默认零第三方。仅在你<b>主动启用 AI 助手</b>并填入 API Key 时，扩展从你的浏览器直接向 <code>api.openai.com</code> 或 <code>api.anthropic.com</code> 发起请求。请求内容为你输入的对话文本，不包含书签数据。</p>
+
+    <h3>4.1 站点图标（favicon）服务 —— 默认启用</h3>
+    <p>为在书签卡片与搜索引擎图标上显示站点图标，扩展会<b>默认</b>按候选链依次向下列第三方发起图片请求，URL 中仅包含<b>域名</b>：</p>
+    <ul>
+      <li><code>https://favicon.so/{域名}</code></li>
+      <li><code>https://ico.faviconkit.net/favicon/{域名}</code></li>
+      <li><code>https://{域名}/favicon.ico</code>（站点自身）</li>
+      <li><code>https://www.google.com/s2/favicons?domain={域名}&amp;sz=64</code>（仅当前面候选都失败时回退）</li>
+    </ul>
+    <p>上述服务可能按各自隐私政策记录被请求的域名。若你不希望发起此类请求，可断开网络使用，或在浏览器层面限制扩展联网；此时图标会回退为浏览器本地 favicon 或站点首字母，其余功能不受影响。</p>
+
+    <h3>4.2 首页资讯小组件 —— 默认启用，可在设置中逐项关闭</h3>
+    <ul>
+      <li><b>NewsNow 实时热点</b>：首页以 <code>&lt;iframe&gt;</code> 内嵌 <code>https://newsnow.busiyi.world/</code>。框架内内容由该第三方站点自行渲染，其数据收集行为受<b>该站点</b>隐私政策约束，与本扩展无关。iframe 已设置 <code>referrerPolicy="no-referrer"</code>（不发送来源页）与 <code>sandbox</code> 权限限制。</li>
+      <li><b>GitHub 热门</b>：向公开接口 <code>https://api.github.com/search/repositories</code> 请求热门仓库列表；查询参数仅为时间范围与编程语言，<b>不含任何用户数据或个人标识</b>。</li>
+    </ul>
+
+    <h3>4.3 AI 助手 —— 需你主动启用</h3>
+    <p>仅当你<b>主动选择 Provider 并填入自己的 API Key</b> 时，扩展才会<b>从你的浏览器直接</b>向 <code>api.openai.com</code>、<code>api.anthropic.com</code> 或你自行填写的 OpenAI 兼容端点发起请求。每次请求的内容包括：</p>
+    <ol>
+      <li>你输入的对话文本；</li>
+      <li>作为 system prompt 上下文的<b>本机书签摘要</b>——书签总数、最多 24 个文件夹的路径与条数、最多 60 条书签的标题与 URL。</li>
+    </ol>
+    <p><b>不启用 AI 助手（未填 API Key）则不会产生任何此类请求，书签数据也不会离开本机。</b> 服务商隐私政策：
+      <a href="https://openai.com/policies/privacy-policy">OpenAI</a> ·
+      <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>
+    </p>
+
+    <h3>4.4 失效链接检测 —— 需你主动触发</h3>
+    <p>在「书签清理」中执行失效链接扫描时，扩展会向你书签里记录的<b>目标网址本身</b>发起 <code>HEAD</code> 探测以判断链接是否可达；不读取网页正文，也不经由任何中间服务转发。</p>
 
     <h2>5. 数据保留与删除</h2>
     <ul>
       <li>卸载扩展 → 所有 <code>chrome.storage.local</code> 数据清除</li>
       <li>书签由浏览器管理</li>
-      <li>随时可在"设置"清空 API Key</li>
+      <li>随时可在「设置」清空 API Key</li>
+      <li>第三方服务（4.1 / 4.2）可能按其自身政策留存请求日志，我们无法代为删除；如需行使相关权利请直接联系对应服务方</li>
     </ul>
 
     <h2>6. 儿童隐私</h2>
-    <p>本扩展不针对 13 岁以下儿童，亦不会主动收集任何个人数据。</p>
+    <p>本扩展不针对 13 岁以下儿童，开发者亦不主动收集任何个人数据。</p>
 
     <h2>7. 政策变更</h2>
     <p>通过 GitHub commit 历史公开追踪；不会降低对已有用户的保护。</p>
@@ -80,48 +124,91 @@
     <hr />
 
     <h1 id="en">Privacy Policy</h1>
-    <p class="meta">Effective: 2025-01-15 · Version 0.2.0 · Developer: xiaoniuge36</p>
+    <p class="meta">Effective: 2026-09-08 · Version 0.2.0 · Developer: xiaoniuge36</p>
+
+    <div class="note">
+      <b>Revised 2026-09-08</b>: discloses data flows that were previously omitted — third-party favicon services, the embedded NewsNow iframe and GitHub public API on the home page, and the fact that AI chats carry a local bookmark summary; also documents the <code>cookies</code> and <code>favicon</code> permissions. <b>Our own stance is unchanged: zero collection, zero telemetry, no backend.</b>
+    </div>
 
     <h2>1. Overview</h2>
-    <p>Smart Bookmark is a <b>local-first</b> browser extension. <b>We run no servers, collect no user data, and deploy no analytics.</b> This policy explains permissions and data flows.</p>
+    <p>Smart Bookmark is a <b>local-first</b> browser extension. <b>We run no servers, collect no user data, and deploy no analytics</b> — there is no tracking code in the extension.</p>
+    <p>That said, "we don't collect" is not the same as "data never leaves your browser": to render site icons, load the home-page widgets and power the optional AI assistant, the extension makes requests <b>directly from your browser</b> to third-party services (see Section 4). Those requests never pass through us.</p>
 
     <h2>2. Data We Process</h2>
     <table>
       <tr><th>Category</th><th>Purpose</th><th>Storage</th><th>Uploaded?</th></tr>
-      <tr><td>Bookmarks</td><td>Display / search / clean / profile</td><td>Browser local store</td><td>❌ Never</td></tr>
+      <tr><td>Bookmarks</td><td>Display / search / clean / edit / profile</td><td>Browser local store</td><td>⚠️ Not by default; two exceptions below</td></tr>
       <tr><td>History</td><td>Unified search</td><td>Browser local store</td><td>❌ Never</td></tr>
       <tr><td>Top sites</td><td>Quick links on new tab</td><td>In-memory</td><td>❌ Never</td></tr>
       <tr><td>Settings</td><td>UI personalization</td><td><code>chrome.storage.local</code></td><td>❌ Never</td></tr>
-      <tr><td>AI API Key (optional)</td><td>Access YOUR OpenAI / Anthropic account</td><td><code>chrome.storage.local</code></td><td>❌ Only sent to the chosen vendor, direct from your browser</td></tr>
-      <tr><td>AI chat messages</td><td>Streamed display</td><td>Not persisted</td><td>➡️ Only when you press Send</td></tr>
+      <tr><td>AI API Key (optional)</td><td>Access YOUR OpenAI / Anthropic / custom endpoint account</td><td><code>chrome.storage.local</code></td><td>❌ Used only to authenticate to that endpoint; never handled or stored by us</td></tr>
+      <tr><td>AI chat messages</td><td>Streamed display</td><td>Not persisted</td><td>➡️ Only when you press Send, together with a bookmark summary (see 4.3)</td></tr>
+      <tr><td>NewsNow login state</td><td>Tell whether you are signed in to the embedded NewsNow feed, to decide if a "login required" hint is shown</td><td>Reads that site's cookie; verdict kept in local <code>localStorage</code></td><td>❌ Not uploaded</td></tr>
     </table>
+    <p><b>The two bookmark exceptions:</b></p>
+    <ul>
+      <li><b>When rendering site icons</b>: the bookmark's <b>domain</b> is sent to a third-party favicon service (4.1). No full URL, no title, nothing else.</li>
+      <li><b>When you actively use the AI assistant</b>: up to 60 bookmark titles + URLs, plus up to 24 folder paths with counts, are sent as context to the provider you chose (4.3). This never happens if the AI assistant is not enabled.</li>
+    </ul>
 
     <h2>3. Permissions</h2>
     <table>
       <tr><th>Permission</th><th>Purpose</th></tr>
-      <tr><td><code>bookmarks</code></td><td>Core functionality: clean / profile / search</td></tr>
-      <tr><td><code>storage</code></td><td>Persist settings & key (local only)</td></tr>
+      <tr><td><code>bookmarks</code></td><td>Core functionality: clean / profile / search / CRUD</td></tr>
+      <tr><td><code>storage</code></td><td>Persist settings &amp; key (local only)</td></tr>
       <tr><td><code>contextMenus</code></td><td>Right-click actions</td></tr>
-      <tr><td><code>sidePanel</code></td><td>Open side panel with Alt+B</td></tr>
+      <tr><td><code>sidePanel</code> (Chrome / Edge)</td><td>Open side panel with Alt+B; Firefox uses <code>sidebar_action</code></td></tr>
       <tr><td><code>history</code></td><td>Search history records</td></tr>
       <tr><td><code>topSites</code></td><td>Show popular sites</td></tr>
       <tr><td><code>tabs</code></td><td>Open new tabs</td></tr>
+      <tr><td><code>favicon</code> (Chrome / Edge)</td><td>Read the browser's <b>locally cached</b> site icons as a fallback when online icon loading fails; purely local, no network</td></tr>
       <tr><td><code>scripting</code></td><td>Inject the floating widget (toggleable)</td></tr>
-      <tr><td><code>https://*/*</code></td><td>HEAD probes for link liveness + widget</td></tr>
+      <tr><td><code>cookies</code></td><td>Reads cookies for <code>newsnow.busiyi.world</code> only, to detect sign-in; not uploaded, not used for anything else</td></tr>
+      <tr><td><code>https://*/*</code></td><td>HEAD probes for link liveness + widget injection + icon loading; page bodies are not read</td></tr>
     </table>
 
     <h2>4. Third-Party Services</h2>
-    <p>None by default. Only when you opt in to the AI assistant and provide an API key, the extension sends requests <b>directly from your browser</b> to <code>api.openai.com</code> or <code>api.anthropic.com</code>.</p>
 
-    <h2>5. Retention & Deletion</h2>
+    <h3>4.1 Favicon services — enabled by default</h3>
+    <p>To display site icons on bookmark cards and search-engine entries, the extension walks a candidate chain <b>by default</b>. Only the <b>domain</b> appears in these request URLs:</p>
+    <ul>
+      <li><code>https://favicon.so/{domain}</code></li>
+      <li><code>https://ico.faviconkit.net/favicon/{domain}</code></li>
+      <li><code>https://{domain}/favicon.ico</code> (the site itself)</li>
+      <li><code>https://www.google.com/s2/favicons?domain={domain}&amp;sz=64</code> (fallback only, after the above all fail)</li>
+    </ul>
+    <p>These services may log requested domains under their own privacy policies. If you'd rather not make these requests, use the extension offline or restrict its network access at the browser level; icons then fall back to the browser's local favicon or the site's initial letter, and everything else keeps working.</p>
+
+    <h3>4.2 Home-page widgets — enabled by default, individually toggleable in Settings</h3>
+    <ul>
+      <li><b>NewsNow live feed</b>: the dashboard embeds <code>https://newsnow.busiyi.world/</code> in an <code>&lt;iframe&gt;</code>. Content inside that frame is rendered by the third-party site and governed by <b>that site's</b> privacy policy, not ours. The iframe sets <code>referrerPolicy="no-referrer"</code> (no referring page sent) and is restricted by a <code>sandbox</code> attribute.</li>
+      <li><b>GitHub Trending</b>: queries the public endpoint <code>https://api.github.com/search/repositories</code>. The only parameters are a time range and a programming language — <b>no user data or personal identifiers</b>.</li>
+    </ul>
+
+    <h3>4.3 AI assistant — requires your explicit opt-in</h3>
+    <p>Only when you <b>choose a provider and enter your own API key</b> does the extension send requests <b>directly from your browser</b> to <code>api.openai.com</code>, <code>api.anthropic.com</code>, or any OpenAI-compatible endpoint you enter yourself. Each request contains:</p>
+    <ol>
+      <li>The chat text you typed;</li>
+      <li>A <b>local bookmark summary</b> used as system-prompt context — total bookmark count, up to 24 folder paths with their counts, and up to 60 bookmark titles + URLs.</li>
+    </ol>
+    <p><b>If you don't enable the AI assistant (no API key), no such request is ever made and your bookmark data never leaves this machine.</b> Provider policies:
+      <a href="https://openai.com/policies/privacy-policy">OpenAI</a> ·
+      <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>
+    </p>
+
+    <h3>4.4 Link-liveness check — requires your explicit action</h3>
+    <p>When you run an invalid-link scan in the Bookmark Cleaner, the extension sends <code>HEAD</code> probes to <b>the target URLs recorded in your own bookmarks</b>. Page bodies are not read, and nothing is relayed through any intermediary.</p>
+
+    <h2>5. Retention &amp; Deletion</h2>
     <ul>
       <li>Uninstall → all local data wiped</li>
       <li>Bookmarks are managed by the browser</li>
       <li>Clear your API key anytime in Settings</li>
+      <li>Third-party services (4.1 / 4.2) may retain request logs under their own policies; we cannot delete those on your behalf — contact the respective provider to exercise such rights</li>
     </ul>
 
     <h2>6. Children's Privacy</h2>
-    <p>Not designed for children under 13. No personal data is intentionally collected.</p>
+    <p>Not designed for children under 13. No personal data is intentionally collected by the developer.</p>
 
     <h2>7. Changes</h2>
     <p>Changes are tracked publicly via Git commits. Protections already granted will not be reduced.</p>

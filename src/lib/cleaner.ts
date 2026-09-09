@@ -1,6 +1,7 @@
 import type { BookmarkNode, CleanIssue, FlatBookmark } from "@/types";
 import { flatten, allFolders, countBookmarks, getTree } from "@/lib/bookmarks";
 import { normalizeUrl } from "@/lib/utils";
+import { t } from "@/lib/i18n";
 
 export interface ScanProgress {
   total: number;
@@ -50,7 +51,7 @@ export function scanEmptyFolders(tree: BookmarkNode[]): CleanIssue[] {
     .map((f) => ({
       id: `empty-${f.id}`,
       kind: "empty-folder" as const,
-      title: `空文件夹：${f.title || "(未命名)"}`,
+      title: t("cleaner.issue.emptyFolder", f.title || t("common.unnamed")),
       detail: f.path,
       folderId: f.id,
     }));
@@ -72,7 +73,7 @@ export function scanDuplicates(flat: FlatBookmark[]): CleanIssue[] {
         id: `dup-${dup.id}`,
         kind: "duplicate",
         title: dup.title,
-        detail: `与「${keep.title}」重复（${keep.path}）`,
+        detail: t("cleaner.issue.duplicate", keep.title, keep.path),
         bookmark: dup,
         group: key,
       });
@@ -92,7 +93,7 @@ export function scanBrokenUrls(flat: FlatBookmark[]): CleanIssue[] {
             id: `broken-${b.id}`,
             kind: "broken-url",
             title: b.title,
-            detail: `不常见协议：${u.protocol}`,
+            detail: t("cleaner.issue.uncommonProtocol", u.protocol),
             bookmark: b,
           });
         }
@@ -102,7 +103,7 @@ export function scanBrokenUrls(flat: FlatBookmark[]): CleanIssue[] {
         id: `broken-${b.id}`,
         kind: "broken-url",
         title: b.title,
-        detail: `URL 无法解析：${b.url}`,
+        detail: t("cleaner.issue.unparsable", b.url),
         bookmark: b,
       });
     }
@@ -132,7 +133,7 @@ export async function scanInvalid(
           id: `invalid-${b.id}`,
           kind: "invalid",
           title: b.title,
-          detail: `无法访问：${b.url}`,
+          detail: t("cleaner.issue.inaccessible", b.url),
           bookmark: b,
         });
       }
@@ -269,7 +270,7 @@ export async function buildProfile(): Promise<Profile> {
   >(
     (acc, f) =>
       !acc || f.count > acc.count
-        ? { title: f.title || "(未命名)", count: f.count }
+        ? { title: f.title || t("common.unnamed"), count: f.count }
         : acc,
     undefined,
   );
@@ -377,16 +378,16 @@ export async function buildProfile(): Promise<Profile> {
 
 function calcLevel(total: number): { index: number; label: string } {
   const tiers = [
-    { min: 0, label: "Lv.1 新手收藏家" },
-    { min: 50, label: "Lv.2 练习生" },
-    { min: 200, label: "Lv.3 业余选手" },
-    { min: 500, label: "Lv.4 资深玩家" },
-    { min: 1000, label: "Lv.5 高级收藏家" },
-    { min: 1500, label: "Lv.6 资深分享家" },
-    { min: 2500, label: "Lv.7 专家收藏家" },
-    { min: 4000, label: "Lv.8 书签大师" },
-    { min: 7000, label: "Lv.9 互联网图书馆员" },
-    { min: 12000, label: "Lv.10 传奇收藏家" },
+    { min: 0, label: t("cleaner.level.1") },
+    { min: 50, label: t("cleaner.level.2") },
+    { min: 200, label: t("cleaner.level.3") },
+    { min: 500, label: t("cleaner.level.4") },
+    { min: 1000, label: t("cleaner.level.5") },
+    { min: 1500, label: t("cleaner.level.6") },
+    { min: 2500, label: t("cleaner.level.7") },
+    { min: 4000, label: t("cleaner.level.8") },
+    { min: 7000, label: t("cleaner.level.9") },
+    { min: 12000, label: t("cleaner.level.10") },
   ];
   let idx = 0;
   for (let i = 0; i < tiers.length; i++) if (total >= tiers[i].min) idx = i;
@@ -413,38 +414,38 @@ function makeBadges(x: BadgeInput): Profile["badges"] {
   if (hasDomain("github") || hasKw("github", "api", "code", "dev"))
     out.push({
       id: "tech",
-      label: "技术达人",
-      detail: "GitHub / API / 开发资料占比高",
+      label: t("cleaner.badge.tech"),
+      detail: t("cleaner.badge.techDetail"),
     });
   if (hasDomain("youtube") || hasDomain("bilibili") || hasKw("课程", "教程"))
     out.push({
       id: "learn",
-      label: "终身学习",
-      detail: "视频/课程/教程积累",
+      label: t("cleaner.badge.learn"),
+      detail: t("cleaner.badge.learnDetail"),
     });
   if (hasKw("tool", "工具", "生成器", "convert"))
     out.push({
       id: "tool",
-      label: "工具控",
-      detail: "工具类关键词丰富",
+      label: t("cleaner.badge.tool"),
+      detail: t("cleaner.badge.toolDetail"),
     });
   if (x.uniqueDomains >= 150 && x.total >= 500)
     out.push({
       id: "wide",
-      label: "博学广闻",
-      detail: `${x.uniqueDomains} 个不同域名`,
+      label: t("cleaner.badge.wide"),
+      detail: t("cleaner.badge.wideDetail", String(x.uniqueDomains)),
     });
   if (x.addedThisMonth >= 50)
     out.push({
       id: "active",
-      label: "收藏狂魔",
-      detail: `近 30 天收藏 ${x.addedThisMonth} 条`,
+      label: t("cleaner.badge.active"),
+      detail: t("cleaner.badge.activeDetail", String(x.addedThisMonth)),
     });
   if (x.folders >= 20 && x.emptyFolders / Math.max(1, x.folders) < 0.1)
     out.push({
       id: "organizer",
-      label: "整理达人",
-      detail: "文件夹多且空闲率低",
+      label: t("cleaner.badge.organizer"),
+      detail: t("cleaner.badge.organizerDetail"),
     });
   return out;
 }

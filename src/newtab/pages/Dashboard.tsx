@@ -10,12 +10,17 @@ import {
   flatten,
   findFolder,
   moveBookmark,
+  moveFolderBefore,
+  updateBookmark,
+  removeBookmark,
+  removeTree,
 } from "@/lib/bookmarks";
 import type { BookmarkNode, FlatBookmark, Settings, TrendingMode, TrendingRange } from "@/types";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { cn, faviconOf, hostnameOf } from "@/lib/utils";
+import { cn, hostnameOf } from "@/lib/utils";
+import BookmarkIconComponent from "@/components/BookmarkIcon";
 import {
   Search,
   Bookmark as BookmarkIcon,
@@ -34,12 +39,18 @@ import {
   Wand2,
 } from "lucide-react";
 import { setSettings } from "@/lib/storage";
-import { useT } from "@/lib/i18n";
+import { useT, t } from "@/lib/i18n";
 import { toast } from "@/components/ui/toast";
 import QrDialog from "./QrDialog";
+import EditBookmarkDialog, {
+  type EditBookmarkTarget,
+} from "@/components/EditBookmarkDialog";
+import ConfirmDialog from "@/components/ConfirmDialog";
+import ContextMenu from "@/components/ContextMenu";
 import FolderTree from "@/components/FolderTree";
 import EngineSwitcher from "@/components/EngineSwitcher";
-import { faviconFor, findEngine } from "@/lib/engines";
+import EngineIcon from "@/components/EngineIcon";
+import { findEngine, type EngineDef } from "@/lib/engines";
 import { InfoEntries, InfoLiveNews } from "@/components/InfoCollections";
 import { isHomeWidgetVisible } from "@/lib/homeWidgets";
 import TopSitesSidebar from "@/components/widgets/TopSitesSidebar";
@@ -83,6 +94,8 @@ interface SearchCommandItem {
   subtitle: string;
   badge: string;
   iconUrl?: string;
+  url?: string; // 用于 BookmarkIcon 组件的原始 URL
+  engine?: EngineDef;
   Icon?: React.ComponentType<{ className?: string }>;
   onRun: () => void;
 }
@@ -99,6 +112,9 @@ export default function Dashboard({
   );
   const [items, setItems] = useState<FolderBookmark[]>([]);
   const [subFolders, setSubFolders] = useState<BookmarkNode[]>([]);
+  const [bookmarkView, setBookmarkView] = useState<"all" | "direct">(() =>
+    localStorage.getItem("sb_bookmarkView") === "direct" ? "direct" : "all",
+  );
   const [breadcrumb, setBreadcrumb] = useState<
     Array<{ id: string; title: string }>
   >([]);
@@ -110,6 +126,11 @@ export default function Dashboard({
     | null
   >(null);
   const [qrUrl, setQrUrl] = useState<string | null>(null);
+  const [editTarget, setEditTarget] = useState<EditBookmarkTarget | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<{
+    id: string;
+    title: string;
+  } | null>(null);
   const [topSites, setTopSites] = useState<TopSite[]>([]);
   const [historyHits, setHistoryHits] = useState<HistoryHit[]>([]);
   const [searchFocused, setSearchFocused] = useState(false);
@@ -185,7 +206,16 @@ export default function Dashboard({
       }
       const subs = (folder.children ?? []).filter((c) => !c.url);
       setSubFolders(subs);
-      const all = flatten([folder], "");
+      const all = bookmarkView === "direct"
+        ? (folder.children ?? []).filter((c) => !!c.url).map((b) => ({
+            id: b.id,
+            parentId: b.parentId,
+            title: b.title || b.url || "",
+            url: b.url || "",
+            path: folder.title || "Bookmarks",
+            dateAdded: b.dateAdded,
+          }))
+        : flatten([folder], "");
       setItems(all.map((b, i) => ({ ...b, index: i })));
       setBreadcrumb(buildBreadcrumb(tree, folder.id));
     } else {
@@ -194,7 +224,7 @@ export default function Dashboard({
       setSubFolders([]);
       setBreadcrumb([]);
     }
-  }, [tree, selected]);
+  }, [tree, selected, bookmarkView]);
 
   const filtered = useMemo(() => {
     const q = query.trim();
@@ -244,6 +274,21 @@ export default function Dashboard({
     const next = new Set(pinnedIds);
     next.has(id) ? next.delete(id) : next.add(id);
     await setSettings({ pinnedFolderIds: [...next] });
+  };
+
+  const onMoveFolder = async (id: string, targetId: string) => {
+    try {
+      await moveFolderBefore(id, targetId);
+      await reload();
+    } catch (err) {
+      console.warn("folder reorder failed", err);
+      toast(t("dash.folderReorderFailed"), "error");
+    }
+  };
+
+  const selectBookmarkView = (next: "all" | "direct") => {
+    setBookmarkView(next);
+    localStorage.setItem("sb_bookmarkView", next);
   };
 
   const onChangeEngine = async (id: string) => {
@@ -340,25 +385,13 @@ export default function Dashboard({
       }
     } catch (err) {
       console.warn("reorder failed", err, srcIdx, dstIdx);
-      toast("排序失败", "error");
+      toast(t("dash.reorderFailed"), "error");
       reload();
     } finally {
       setDragId(null);
       setOverId(null);
     }
   };
-
-  const closeCtx = useCallback(() => setCtxMenu(null), []);
-  useEffect(() => {
-    if (!ctxMenu) return;
-    const fn = () => closeCtx();
-    window.addEventListener("click", fn);
-    window.addEventListener("resize", fn);
-    return () => {
-      window.removeEventListener("click", fn);
-      window.removeEventListener("resize", fn);
-    };
-  }, [ctxMenu, closeCtx]);
 
   useEffect(() => {
     if (!searchFocused) return;
@@ -452,17 +485,17 @@ export default function Dashboard({
     if (q && currentEngine) {
       out.push({
         id: "engine-default",
-        title: `用 ${currentEngine.name} 搜索 "${q}"`,
-        subtitle: "默认回车执行搜索，书签结果可用方向键选择",
+        title: t("dash.cmd.searchWith", currentEngine.name, q),
+        subtitle: t("dash.cmd.searchWithHint"),
         badge: "Enter",
-        iconUrl: faviconFor(currentEngine),
+        engine: currentEngine,
         onRun: () => runEngineSearch(q),
       });
       if (settings.compareEngines.length > 1) {
         out.push({
           id: "engine-compare",
-          title: `在对比搜索中打开 "${q}"`,
-          subtitle: `${settings.compareEngines.length} 个搜索引擎并行查询`,
+          title: t("dash.cmd.compareOpen", q),
+          subtitle: t("dash.cmd.compareCount", String(settings.compareEngines.length)),
           badge: isMac ? "⌘ Enter" : "Ctrl Enter",
           Icon: Columns,
           onRun: () => runCompareSearch(q),
@@ -479,7 +512,7 @@ export default function Dashboard({
           ? `${hostnameOf(b.url)} · ${b.path}`
           : hostnameOf(b.url),
         badge: "bookmark",
-        iconUrl: faviconOf(b.url, 32),
+        url: b.url,
         onRun: () => openExternal(b.url),
       });
     }
@@ -497,7 +530,7 @@ export default function Dashboard({
         title: h.title,
         subtitle: hostnameOf(h.url),
         badge: "history",
-        iconUrl: faviconOf(h.url, 32),
+        url: h.url,
         onRun: () => openExternal(h.url),
       });
     }
@@ -515,7 +548,7 @@ export default function Dashboard({
         title: s.title || hostnameOf(s.url),
         subtitle: hostnameOf(s.url),
         badge: "top site",
-        iconUrl: faviconOf(s.url, 32),
+        url: s.url,
         onRun: () => openExternal(s.url),
       });
     }
@@ -523,40 +556,40 @@ export default function Dashboard({
     const actions: SearchCommandItem[] = [
       {
         id: "action-cleaner",
-        title: "打开清理中心",
-        subtitle: "重复、失效、空文件夹扫描",
+        title: t("dash.cmd.cleaner"),
+        subtitle: t("dash.cmd.cleanerHint"),
         badge: "action",
         Icon: Wand2,
         onRun: () => openDashboardTab("cleaner"),
       },
       {
         id: "action-compare",
-        title: "打开对比搜索",
-        subtitle: "多个搜索引擎并排查询",
+        title: t("dash.cmd.compare"),
+        subtitle: t("dash.cmd.compareDesc"),
         badge: "action",
         Icon: Columns,
         onRun: () => openDashboardTab("compare"),
       },
       {
         id: "action-ai",
-        title: "打开 AI 助手",
-        subtitle: "基于书签快照整理和检索",
+        title: t("dash.cmd.ai"),
+        subtitle: t("dash.cmd.aiHint"),
         badge: "action",
         Icon: Bot,
         onRun: () => openDashboardTab("ai"),
       },
       {
         id: "action-backup",
-        title: "打开备份",
-        subtitle: "导入、导出 JSON 或 HTML",
+        title: t("dash.cmd.backup"),
+        subtitle: t("dash.cmd.backupHint"),
         badge: "action",
         Icon: HardDriveDownload,
         onRun: () => openDashboardTab("backup"),
       },
       {
         id: "action-settings",
-        title: "打开设置",
-        subtitle: "主题、搜索引擎、AI 和扩展功能",
+        title: t("dash.cmd.settings"),
+        subtitle: t("dash.cmd.settingsHint"),
         badge: "action",
         Icon: Settings2,
         onRun: () => openDashboardTab("settings"),
@@ -629,7 +662,7 @@ export default function Dashboard({
         {pinnedFolders.length > 0 && (
           <Card className="p-2">
             <div className="mb-1 flex items-center gap-2 px-1 text-xs font-medium text-muted-foreground">
-              <Pin className="h-3.5 w-3.5" /> 置顶
+              <Pin className="h-3.5 w-3.5" /> {t("dash.pinned")}
             </div>
             <div className="space-y-0.5 text-sm">
               {pinnedFolders.map((f) => (
@@ -660,6 +693,28 @@ export default function Dashboard({
             onToggle={onToggleExpand}
             onSelect={(id) => onSelectFolder(id)}
             onTogglePin={onTogglePin}
+            onMove={onMoveFolder}
+            onRename={async (id, title) => {
+              try {
+                await updateBookmark(id, { title });
+                await reload();
+                toast(t("folder.renamed"), "success");
+              } catch (err) {
+                console.warn("rename folder failed", err);
+                toast(t("folder.opFailed"), "error");
+              }
+            }}
+            onDelete={async (id) => {
+              try {
+                await removeTree(id);
+                if (selected === id) onSelectFolder("");
+                await reload();
+                toast(t("folder.deleted"), "success");
+              } catch (err) {
+                console.warn("delete folder failed", err);
+                toast(t("folder.opFailed"), "error");
+              }
+            }}
           />
         </Card>
       </aside>
@@ -822,13 +877,10 @@ export default function Dashboard({
                 title={s.url}
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-background shadow-sm ring-1 ring-border transition group-hover:-translate-y-0.5 group-hover:shadow-md">
-                  <img
-                    src={faviconOf(s.url, 64)}
-                    alt=""
+                  <BookmarkIconComponent
+                    url={s.url}
+                    size={64}
                     className="h-7 w-7 rounded-full"
-                    onError={(e) =>
-                      (e.currentTarget.style.visibility = "hidden")
-                    }
                   />
                 </div>
                 <div className="w-full truncate text-center text-[11px] text-muted-foreground">
@@ -975,7 +1027,7 @@ export default function Dashboard({
         {!showHero && breadcrumb.length > 0 && (
           <nav className="flex items-center gap-1 text-sm text-muted-foreground">
             <button onClick={() => onSelectFolder("")} className="hover:text-foreground">
-              全部书签
+              {t("dash.allBookmarks")}
             </button>
             {breadcrumb.map((b) => (
               <span key={b.id} className="flex items-center gap-1">
@@ -1003,30 +1055,71 @@ export default function Dashboard({
                   <Folder className="h-3.5 w-3.5" />
                 </div>
                 <span className="max-w-[140px] truncate">
-                  {f.title || "(未命名)"}
+                  {f.title || t("common.unnamed")}
                 </span>
               </button>
             ))}
           </div>
         )}
 
-        {filtered.length > 0 && (
+        {selected && (
           <div className="flex flex-wrap items-end justify-between gap-2 border-b pb-1.5 pt-2">
             <div className="flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 text-primary">
                 <Folder className="h-3.5 w-3.5" />
               </div>
               <h2 className="text-sm font-semibold tracking-tight">
-                我的书签
+                {t("dash.myBookmarks")}
               </h2>
+              <div
+                role="radiogroup"
+                aria-label={t("dash.viewToggleAria")}
+                onKeyDown={(e) => {
+                  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+                  e.preventDefault();
+                  selectBookmarkView(bookmarkView === "all" ? "direct" : "all");
+                }}
+                className="inline-flex rounded-md bg-muted/60 p-0.5"
+              >
+                {(
+                  [
+                    ["direct", t("dash.viewDirect"), t("dash.viewToggleTitleDirect")],
+                    ["all", t("dash.viewAll"), t("dash.viewToggleTitleAll")],
+                  ] as const
+                ).map(([v, label, tip]) => {
+                  const active = bookmarkView === v;
+                  return (
+                    <button
+                      key={v}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      tabIndex={active ? 0 : -1}
+                      title={tip}
+                      onClick={() => selectBookmarkView(v)}
+                      className={cn(
+                        "rounded-[5px] px-2 py-1 text-[11px] font-medium transition",
+                        active
+                          ? "bg-card text-foreground shadow-sm ring-1 ring-border/40"
+                          : "text-muted-foreground hover:text-foreground",
+                      )}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
               <span className="text-[11px] text-muted-foreground">
-                · 共 {filtered.length} 个
-                {query.trim() ? "（已过滤）" : ""}
+                {t("dash.countTotal", String(filtered.length))}
+                {query.trim() ? t("dash.filteredTag") : ""}
               </span>
               {pageSize !== Infinity && filtered.length > pageSize && (
                 <span className="text-[11px] text-muted-foreground/70">
-                  · 第 {(page - 1) * pageSize + 1}-
-                  {Math.min(page * pageSize, filtered.length)} 条
+                  {t(
+                    "dash.pageRange",
+                    String((page - 1) * pageSize + 1),
+                    String(Math.min(page * pageSize, filtered.length)),
+                  )}
                 </span>
               )}
             </div>
@@ -1048,9 +1141,13 @@ export default function Dashboard({
         <div
           className={cn(
             "grid gap-3",
-            settings.cardDensity === "compact"
-              ? "grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8"
-              : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6",
+            settings.cardLayout === "horizontal"
+              ? settings.cardDensity === "compact"
+                ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
+                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              : settings.cardDensity === "compact"
+                ? "grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8"
+                : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6",
           )}
         >
           {pagedItems.map((b) => (
@@ -1071,13 +1168,19 @@ export default function Dashboard({
                   id: b.id,
                   url: b.url,
                   title: b.title,
-                  x: e.clientX,
-                  y: e.clientY,
+                  x: e.pageX,
+                  y: e.pageY,
                 });
               }}
               className={cn(
-                "group relative flex flex-col items-center gap-2 rounded-2xl border border-border/60 bg-card p-3 text-center shadow-[0_1px_0_rgba(0,0,0,0.02)] transition-all duration-200 ease-out",
+                "group relative flex rounded-2xl border border-border/60 bg-card shadow-[0_1px_0_rgba(0,0,0,0.02)] transition-all duration-200 ease-out",
                 "hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_8px_24px_-12px_hsl(var(--primary)/0.25)] hover:ring-1 hover:ring-primary/20",
+                settings.cardLayout === "horizontal"
+                  ? cn(
+                      "flex-row items-center gap-3 py-2.5 pr-7",
+                      canReorder ? "pl-5" : "pl-2.5",
+                    )
+                  : "flex-col items-center gap-2 p-3 text-center",
                 canReorder && "cursor-grab",
                 dragId === b.id && "cursor-grabbing opacity-50",
                 overId === b.id && dragId !== b.id && "ring-2 ring-primary/60",
@@ -1089,28 +1192,44 @@ export default function Dashboard({
                 target="_blank"
                 rel="noreferrer"
                 className={cn(
-                  "flex w-full flex-col items-center gap-2",
+                  "flex w-full",
+                  settings.cardLayout === "horizontal"
+                    ? "flex-row items-center gap-3"
+                    : "flex-col items-center gap-2",
                   canReorder && "cursor-inherit",
                 )}
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 ring-1 ring-inset ring-black/5 transition-all duration-200 group-hover:ring-primary/30 group-hover:shadow-sm dark:from-slate-800 dark:to-slate-900 dark:ring-white/5">
-                  <img
-                    src={faviconOf(b.url)}
-                    alt=""
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 ring-1 ring-inset ring-black/5 transition-all duration-200 group-hover:ring-primary/30 group-hover:shadow-sm dark:from-slate-800 dark:to-slate-900 dark:ring-white/5">
+                  <BookmarkIconComponent
+                    url={b.url}
+                    size={32}
                     className="h-5 w-5"
-                    onError={(e) =>
-                      (e.currentTarget.style.visibility = "hidden")
-                    }
                   />
                 </div>
-                <div className="w-full truncate text-sm font-medium">
-                  {b.title}
-                </div>
-                <div className="w-full truncate text-[11px] text-muted-foreground">
-                  {hostnameOf(b.url)}
+                <div
+                  className={cn(
+                    "flex flex-col min-w-0",
+                    settings.cardLayout === "horizontal"
+                      ? "flex-1 items-start justify-center gap-0.5 text-left"
+                      : "w-full items-center gap-2 text-center",
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "w-full text-sm font-medium",
+                      settings.cardLayout === "horizontal"
+                        ? "line-clamp-2"
+                        : "truncate",
+                    )}
+                  >
+                    {b.title}
+                  </div>
+                  <div className="w-full truncate text-[11px] text-muted-foreground">
+                    {hostnameOf(b.url)}
+                  </div>
                 </div>
               </a>
-              <ExternalLink className="absolute right-2 top-2 h-3 w-3 text-muted-foreground opacity-0 transition group-hover:opacity-70" />
+              <ExternalLink className="pointer-events-none absolute right-2 top-2 h-3 w-3 text-muted-foreground opacity-0 transition group-hover:opacity-70" />
               <button
                 type="button"
                 onClick={(e) => {
@@ -1120,17 +1239,29 @@ export default function Dashboard({
                     id: b.id,
                     url: b.url,
                     title: b.title,
-                    x: e.clientX,
-                    y: e.clientY,
+                    x: e.pageX,
+                    y: e.pageY,
                   });
                 }}
-                className="absolute bottom-2 right-2 rounded p-1 text-muted-foreground opacity-0 hover:bg-accent group-hover:opacity-100"
+                className={cn(
+                  "absolute rounded p-1 text-muted-foreground opacity-0 hover:bg-accent group-hover:opacity-100",
+                  settings.cardLayout === "horizontal"
+                    ? "bottom-1 right-1"
+                    : "bottom-2 right-2",
+                )}
                 aria-label="more"
               >
                 <MoreHorizontal className="h-3.5 w-3.5" />
               </button>
               {canReorder && (
-                <GripVertical className="pointer-events-none absolute left-2 top-2 h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-60" />
+                <GripVertical
+                  className={cn(
+                    "pointer-events-none absolute h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-60",
+                    settings.cardLayout === "horizontal"
+                      ? "left-1 top-1/2 -translate-y-1/2"
+                      : "left-2 top-2",
+                  )}
+                />
               )}
             </div>
           ))}
@@ -1147,29 +1278,95 @@ export default function Dashboard({
             <div className="flex items-center justify-center gap-3 pt-2">
               <Pager page={page} pageCount={pageCount} onChange={setPage} />
               <span className="text-[11px] text-muted-foreground">
-                共 {filtered.length} 条
+                {t("dash.totalCount", String(filtered.length))}
               </span>
             </div>
           )}
       </section>
 
       {ctxMenu && (
-        <BookmarkCtxMenu
-          {...ctxMenu}
-          onCopy={async () => {
-            await navigator.clipboard.writeText(ctxMenu.url);
-            toast(t("common.copied"), "success");
-            setCtxMenu(null);
-          }}
-          onQr={() => {
-            setQrUrl(ctxMenu.url);
-            setCtxMenu(null);
-          }}
+        <ContextMenu
+          anchor="page"
+          x={ctxMenu.x}
+          y={ctxMenu.y}
           onClose={() => setCtxMenu(null)}
+          items={[
+            {
+              label: t("dash.copyLink"),
+              onClick: async () => {
+                await navigator.clipboard.writeText(ctxMenu.url);
+                toast(t("common.copied"), "success");
+              },
+            },
+            {
+              label: t("dash.genQr"),
+              onClick: () => setQrUrl(ctxMenu.url),
+            },
+            { separator: true },
+            {
+              label: t("common.edit"),
+              onClick: () =>
+                setEditTarget({
+                  id: ctxMenu.id,
+                  title: ctxMenu.title,
+                  url: ctxMenu.url,
+                }),
+            },
+            {
+              label: t("common.delete"),
+              destructive: true,
+              onClick: () =>
+                setDeleteTarget({ id: ctxMenu.id, title: ctxMenu.title }),
+            },
+          ]}
         />
       )}
 
       {qrUrl && <QrDialog url={qrUrl} onClose={() => setQrUrl(null)} />}
+
+      <EditBookmarkDialog
+        open={!!editTarget}
+        onOpenChange={(v) => {
+          if (!v) setEditTarget(null);
+        }}
+        target={editTarget}
+        onSave={async (id, title, url) => {
+          try {
+            await updateBookmark(id, { title, url });
+            await reload();
+            toast(t("dash.editSaved"), "success");
+            setEditTarget(null);
+          } catch (err) {
+            console.warn("edit bookmark failed", err);
+            toast(t("dash.editSaveFailed"), "error");
+          }
+        }}
+      />
+
+      {deleteTarget && (
+        <ConfirmDialog
+          open
+          onOpenChange={(v) => {
+            if (!v) setDeleteTarget(null);
+          }}
+          destructive
+          title={t("dash.deleteBookmarkTitle")}
+          description={t("dash.deleteBookmarkConfirm", deleteTarget.title)}
+          confirmLabel={t("common.delete")}
+          onConfirm={async () => {
+            try {
+              await removeBookmark(deleteTarget.id);
+              await reload();
+              toast(t("dash.deleted"), "success");
+            } catch (err) {
+              console.warn("delete bookmark failed", err);
+              toast(t("dash.deleteFailed"), "error");
+            } finally {
+              setDeleteTarget(null);
+            }
+          }}
+        />
+      )}
     </div>
   );
 }
@@ -1202,17 +1399,17 @@ function SearchCommandPalette({
         onMouseDown={(e) => e.preventDefault()}
         onClick={onClose}
         className="absolute right-2 top-1.5 z-10 flex h-6 w-6 items-center justify-center rounded-full text-muted-foreground transition hover:bg-accent hover:text-foreground"
-        title="关闭"
-        aria-label="关闭搜索结果"
+        title={t("common.close")}
+        aria-label={t("dash.closeResults")}
       >
         <X className="h-3.5 w-3.5" />
       </button>
       <div className="flex items-center justify-between gap-3 border-b border-border/60 bg-muted/40 px-3 py-2 pr-10 text-[11px] text-muted-foreground">
         <span className="inline-flex items-center gap-1.5">
           <Command className="h-3.5 w-3.5" />
-          {query.trim() ? "统一搜索" : "快捷入口"}
+          {query.trim() ? t("dash.unifiedSearch") : t("dash.quickAccess")}
         </span>
-        <span>↑↓ 选择 · Enter 打开</span>
+        <span>{t("dash.paletteHint")}</span>
       </div>
       <div className="max-h-[360px] overflow-auto px-1.5 py-1 scrollbar-thin">
         <div className="divide-y divide-border/60">
@@ -1237,7 +1434,15 @@ function SearchCommandPalette({
                   )}
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-background shadow-[0_1px_0_rgba(15,23,42,0.03)] ring-1 ring-border/80">
-                    {item.iconUrl ? (
+                    {item.engine ? (
+                      <EngineIcon engine={item.engine} className="h-4 w-4" />
+                    ) : item.url ? (
+                      <BookmarkIconComponent
+                        url={item.url}
+                        size={32}
+                        className="h-4 w-4 rounded"
+                      />
+                    ) : item.iconUrl ? (
                       <img
                         src={item.iconUrl}
                         alt=""
@@ -1277,12 +1482,12 @@ function SearchCommandPalette({
 }
 
 function searchBadgeLabel(item: SearchCommandItem): string {
-  if (item.id === "engine-default") return "回车";
-  if (item.id === "engine-compare") return "对比";
-  if (item.id.startsWith("bookmark-")) return "书签";
-  if (item.id.startsWith("history-")) return "历史";
-  if (item.id.startsWith("top-")) return "常去";
-  if (item.id.startsWith("action-")) return "动作";
+  if (item.id === "engine-default") return t("dash.badge.enter");
+  if (item.id === "engine-compare") return t("dash.badge.compare");
+  if (item.id.startsWith("bookmark-")) return t("dash.badge.bookmark");
+  if (item.id.startsWith("history-")) return t("dash.badge.history");
+  if (item.id.startsWith("top-")) return t("dash.badge.top");
+  if (item.id.startsWith("action-")) return t("dash.badge.action");
   return item.badge;
 }
 
@@ -1331,12 +1536,12 @@ function buildBreadcrumb(
 
 function useGreeting(): string {
   const h = new Date().getHours();
-  if (h < 5) return "深夜好";
-  if (h < 11) return "早上好";
-  if (h < 14) return "中午好";
-  if (h < 18) return "下午好";
-  if (h < 22) return "晚上好";
-  return "夜深了";
+  if (h < 5) return t("dash.greet.lateNight");
+  if (h < 11) return t("dash.greet.morning");
+  if (h < 14) return t("dash.greet.noon");
+  if (h < 18) return t("dash.greet.afternoon");
+  if (h < 22) return t("dash.greet.evening");
+  return t("dash.greet.night");
 }
 
 function PageSizePicker({
@@ -1351,7 +1556,7 @@ function PageSizePicker({
     { v: 60, label: "60" },
     { v: 120, label: "120" },
     { v: 240, label: "240" },
-    { v: Infinity, label: "全部" },
+    { v: Infinity, label: t("common.all") },
   ];
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -1371,9 +1576,9 @@ function PageSizePicker({
         type="button"
         onClick={() => setOpen((v) => !v)}
         className="inline-flex items-center gap-1 rounded-md border bg-card px-2 py-1 text-[11px] text-muted-foreground transition hover:bg-accent hover:text-foreground"
-        title="每页条数"
+        title={t("dash.pageSizeTitle")}
       >
-        每页 {current}
+        {t("dash.pageSize", current)}
         <ChevronRight
           className={cn("h-3 w-3 transition-transform", open && "rotate-90")}
         />
@@ -1473,7 +1678,7 @@ function Pager({
         disabled={page <= 1}
         onClick={prev}
         className="flex h-7 w-7 items-center justify-center rounded-md border bg-card text-muted-foreground transition hover:border-primary/30 hover:bg-accent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:bg-card disabled:hover:text-muted-foreground"
-        aria-label="上一页"
+        aria-label={t("dash.prevPage")}
       >
         <ChevronRight className="h-3.5 w-3.5 rotate-180" />
       </button>
@@ -1492,7 +1697,7 @@ function Pager({
                   setJumpValue("");
                 }}
                 className="flex h-7 min-w-[28px] items-center justify-center rounded-md text-[12px] text-muted-foreground/80 transition hover:bg-accent hover:text-foreground"
-                title="跳转页"
+                title={t("dash.jumpPage")}
               >
                 …
               </button>
@@ -1521,7 +1726,7 @@ function Pager({
                       onClick={doJump}
                       className="h-7 rounded-md bg-primary px-2 text-[11px] font-medium text-primary-foreground transition hover:opacity-90"
                     >
-                      跳转
+                      {t("dash.jump")}
                     </button>
                   </div>
                 </div>
@@ -1552,58 +1757,9 @@ function Pager({
         disabled={page >= pageCount}
         onClick={next}
         className="flex h-7 w-7 items-center justify-center rounded-md border bg-card text-muted-foreground transition hover:border-primary/30 hover:bg-accent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:bg-card disabled:hover:text-muted-foreground"
-        aria-label="下一页"
+        aria-label={t("dash.nextPage")}
       >
         <ChevronRight className="h-3.5 w-3.5" />
-      </button>
-    </div>
-  );
-}
-
-function BookmarkCtxMenu({
-  x,
-  y,
-  onCopy,
-  onQr,
-}: {
-  id: string;
-  url: string;
-  title: string;
-  x: number;
-  y: number;
-  onCopy: () => void;
-  onQr: () => void;
-  onClose: () => void;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ left: x, top: y });
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const pad = 8;
-    const left = Math.min(x, window.innerWidth - r.width - pad);
-    const top = Math.min(y, window.innerHeight - r.height - pad);
-    setPos({ left, top });
-  }, [x, y]);
-  return (
-    <div
-      ref={ref}
-      onClick={(e) => e.stopPropagation()}
-      className="fixed z-[60] min-w-[180px] rounded-lg border bg-popover p-1 text-sm shadow-lg"
-      style={{ left: pos.left, top: pos.top }}
-    >
-      <button
-        className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left hover:bg-accent"
-        onClick={onCopy}
-      >
-        复制链接
-      </button>
-      <button
-        className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left hover:bg-accent"
-        onClick={onQr}
-      >
-        生成二维码
       </button>
     </div>
   );

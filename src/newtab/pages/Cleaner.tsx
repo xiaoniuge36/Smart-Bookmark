@@ -6,7 +6,8 @@ import { Switch } from "@/components/ui/switch";
 import { scanAll, buildProfile, type Profile } from "@/lib/cleaner";
 import type { CleanIssue } from "@/types";
 import { removeBookmark, removeTree } from "@/lib/bookmarks";
-import { faviconOf, hostnameOf, formatDate } from "@/lib/utils";
+import { hostnameOf, formatDate } from "@/lib/utils";
+import BookmarkIcon from "@/components/BookmarkIcon";
 import {
   AlertTriangle,
   Copy,
@@ -23,7 +24,7 @@ import {
   Globe,
   Clock,
 } from "lucide-react";
-import { useT } from "@/lib/i18n";
+import { useT, t } from "@/lib/i18n";
 import LineChart from "@/components/LineChart";
 
 const KIND_ICON: Record<CleanIssue["kind"], React.ComponentType<any>> = {
@@ -243,7 +244,7 @@ export default function Cleaner() {
                       className="border-emerald-500/50 text-emerald-600 hover:bg-emerald-500/10 dark:text-emerald-400"
                       onClick={dedupKeepNewest}
                     >
-                      保留最新
+                      {t("cleaner.keepNewest")}
                     </Button>
                     <Button
                       size="sm"
@@ -251,14 +252,14 @@ export default function Cleaner() {
                       className="border-sky-500/50 text-sky-600 hover:bg-sky-500/10 dark:text-sky-400"
                       onClick={dedupKeepOldest}
                     >
-                      保留最早
+                      {t("cleaner.keepOldest")}
                     </Button>
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={dedupClearSelection}
                     >
-                      取消选择
+                      {t("cleaner.clearSelection")}
                     </Button>
                   </>
                 )}
@@ -343,11 +344,10 @@ function IssueRow({
         className="mt-1 h-4 w-4 accent-primary"
       />
       {it.bookmark && (
-        <img
-          src={faviconOf(it.bookmark.url)}
-          alt=""
-          className="mt-0.5 h-4 w-4 rounded"
-          onError={(e) => (e.currentTarget.style.display = "none")}
+        <BookmarkIcon
+          url={it.bookmark.url}
+          size={16}
+          className="mt-0.5 h-4 w-4"
         />
       )}
       <div className="min-w-0 flex-1">
@@ -374,7 +374,7 @@ function DuplicateGroup({
   return (
     <div className="rounded-lg border border-destructive/20 bg-destructive/5 p-2">
       <div className="mb-1 flex items-center gap-2 px-1 text-xs text-destructive/80">
-        <Copy className="h-3 w-3" /> {items.length} 条重复
+        <Copy className="h-3 w-3" /> {t("cleaner.dupCount", String(items.length))}
         <a
           href={url}
           target="_blank"
@@ -406,38 +406,38 @@ function ProfileCard({ profile }: { profile: Profile }) {
       <CardHeader className="bg-gradient-to-br from-indigo-500/10 via-fuchsia-500/5 to-transparent">
         <CardTitle className="flex items-center gap-2">
           <Sparkles className="h-5 w-5 text-primary" />
-          书签画像
+          {t("cleaner.profile")}
           <span className="ml-2 rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-3 py-0.5 text-xs text-white">
             {profile.level.label}
           </span>
           {profile.orgScore > 0 && (
             <span className="ml-auto flex items-center gap-1 rounded-full bg-background px-3 py-0.5 text-xs shadow-sm">
               <Award className="h-3.5 w-3.5 text-amber-500" />
-              组织评分 {profile.orgScore}/10
+              {t("cleaner.orgScore", String(profile.orgScore))}
             </span>
           )}
         </CardTitle>
       </CardHeader>
       <CardContent className="grid grid-cols-12 gap-4 py-5">
         <div className="col-span-12 grid grid-cols-2 gap-3 md:col-span-7 md:grid-cols-3">
-          <Stat icon={<Sparkles className="h-4 w-4 text-indigo-500" />} label="总书签" value={profile.totalBookmarks} />
-          <Stat icon={<FolderMinus className="h-4 w-4 text-amber-500" />} label="文件夹" value={`${profile.totalFolders} · 空 ${profile.emptyFolders}`} />
-          <Stat icon={<Calendar className="h-4 w-4 text-emerald-500" />} label="收藏天数" value={profile.collectDays} />
-          <Stat icon={<TrendingUp className="h-4 w-4 text-fuchsia-500" />} label="近 30 天" value={profile.addedThisMonth} />
-          <Stat icon={<Clock className="h-4 w-4 text-sky-500" />} label="今日收藏" value={profile.addedToday} />
-          <Stat icon={<Globe className="h-4 w-4 text-rose-500" />} label="不同域名" value={profile.uniqueDomains} />
-          <Stat icon={<ShieldCheck className="h-4 w-4 text-green-500" />} label="HTTPS 比例" value={`${Math.round(profile.httpsRatio * 100)}%`} />
-          <Stat icon={<Copy className="h-4 w-4 text-red-500" />} label="重复 URL 组" value={profile.duplicateUrls} />
-          <Stat icon={<Award className="h-4 w-4 text-amber-500" />} label="平均/文件夹" value={profile.avgPerFolder} />
+          <Stat icon={<Sparkles className="h-4 w-4 text-indigo-500" />} label={t("cleaner.stat.total")} value={profile.totalBookmarks} />
+          <Stat icon={<FolderMinus className="h-4 w-4 text-amber-500" />} label={t("cleaner.stat.folders")} value={t("cleaner.stat.foldersValue", String(profile.totalFolders), String(profile.emptyFolders))} />
+          <Stat icon={<Calendar className="h-4 w-4 text-emerald-500" />} label={t("cleaner.stat.collectDays")} value={profile.collectDays} />
+          <Stat icon={<TrendingUp className="h-4 w-4 text-fuchsia-500" />} label={t("cleaner.stat.last30")} value={profile.addedThisMonth} />
+          <Stat icon={<Clock className="h-4 w-4 text-sky-500" />} label={t("cleaner.stat.today")} value={profile.addedToday} />
+          <Stat icon={<Globe className="h-4 w-4 text-rose-500" />} label={t("cleaner.stat.uniqueDomains")} value={profile.uniqueDomains} />
+          <Stat icon={<ShieldCheck className="h-4 w-4 text-green-500" />} label={t("cleaner.stat.httpsRatio")} value={`${Math.round(profile.httpsRatio * 100)}%`} />
+          <Stat icon={<Copy className="h-4 w-4 text-red-500" />} label={t("cleaner.stat.dupUrls")} value={profile.duplicateUrls} />
+          <Stat icon={<Award className="h-4 w-4 text-amber-500" />} label={t("cleaner.stat.avgPerFolder")} value={profile.avgPerFolder} />
         </div>
 
         <div className="col-span-12 md:col-span-5 space-y-3">
           <div>
             <div className="mb-1 flex items-center justify-between text-xs text-muted-foreground">
-              <span>收藏年份趋势</span>
+              <span>{t("cleaner.yearTrend")}</span>
               {profile.busiestDay && (
                 <span>
-                  收藏高峰 {profile.busiestDay.date} · {profile.busiestDay.count}
+                  {t("cleaner.busiestDay", String(profile.busiestDay.date), String(profile.busiestDay.count))}
                 </span>
               )}
             </div>
@@ -447,7 +447,7 @@ function ProfileCard({ profile }: { profile: Profile }) {
           </div>
           {profile.monthBuckets.length > 1 && (
             <div>
-              <div className="mb-1 text-xs text-muted-foreground">近 12 个月</div>
+              <div className="mb-1 text-xs text-muted-foreground">{t("cleaner.last12Months")}</div>
               <div className="text-fuchsia-500">
                 <LineChart data={profile.monthBuckets} />
               </div>
@@ -463,7 +463,7 @@ function ProfileCard({ profile }: { profile: Profile }) {
 
         <div className="col-span-12 grid gap-3 md:grid-cols-2">
           <div>
-            <div className="mb-2 text-xs text-muted-foreground">Top 10 域名</div>
+            <div className="mb-2 text-xs text-muted-foreground">{t("cleaner.topDomains")}</div>
             <div className="flex flex-wrap gap-1.5">
               {profile.topDomains.map((d) => (
                 <span
@@ -476,7 +476,7 @@ function ProfileCard({ profile }: { profile: Profile }) {
             </div>
           </div>
           <div>
-            <div className="mb-2 text-xs text-muted-foreground">热门关键词</div>
+            <div className="mb-2 text-xs text-muted-foreground">{t("cleaner.topKeywords")}</div>
             <div className="flex flex-wrap gap-1.5">
               {profile.topKeywords.map((k) => (
                 <span
@@ -495,7 +495,7 @@ function ProfileCard({ profile }: { profile: Profile }) {
 
         {profile.badges.length > 0 && (
           <div className="col-span-12">
-            <div className="mb-2 text-xs text-muted-foreground">成就徽章</div>
+            <div className="mb-2 text-xs text-muted-foreground">{t("cleaner.badges")}</div>
             <div className="flex flex-wrap gap-2">
               {profile.badges.map((b) => (
                 <span
@@ -513,7 +513,7 @@ function ProfileCard({ profile }: { profile: Profile }) {
         {(profile.oldest || profile.newest || profile.maxFolder) && (
           <div className="col-span-12 grid gap-3 md:grid-cols-3 text-xs">
             {profile.oldest && (
-              <Mini label="最早书签">
+              <Mini label={t("cleaner.oldest")}>
                 <div className="truncate font-medium">{profile.oldest.title}</div>
                 <div className="truncate text-muted-foreground">
                   {formatDate(profile.oldest.dateAdded)}
@@ -521,7 +521,7 @@ function ProfileCard({ profile }: { profile: Profile }) {
               </Mini>
             )}
             {profile.newest && (
-              <Mini label="最新书签">
+              <Mini label={t("cleaner.newest")}>
                 <div className="truncate font-medium">{profile.newest.title}</div>
                 <div className="truncate text-muted-foreground">
                   {formatDate(profile.newest.dateAdded)}
@@ -529,10 +529,10 @@ function ProfileCard({ profile }: { profile: Profile }) {
               </Mini>
             )}
             {profile.maxFolder && (
-              <Mini label="最大文件夹">
+              <Mini label={t("cleaner.maxFolder")}>
                 <div className="truncate font-medium">{profile.maxFolder.title}</div>
                 <div className="text-muted-foreground">
-                  {profile.maxFolder.count} 条
+                  {t("cleaner.countItems", String(profile.maxFolder.count))}
                 </div>
               </Mini>
             )}

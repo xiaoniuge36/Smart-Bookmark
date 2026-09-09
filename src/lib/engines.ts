@@ -141,11 +141,29 @@ export function findEngine(
   return allEngines(settings).find((engine) => engine.id === id);
 }
 
-export function faviconFor(engine: EngineDef): string {
-  return `https://www.google.com/s2/favicons?domain=${engine.host}&sz=64`;
+export function faviconCandidates(engine: EngineDef): string[] {
+  return faviconCandidatesForHost(engine.host);
 }
 
-function hostOf(url: string): string {
+export function faviconCandidatesForHost(host: string): string[] {
+  return [
+    // 易连接
+    `https://favicon.so/${host}`,
+    `https://ico.faviconkit.net/favicon/${host}`,
+    // 网站自身
+    `https://${host}/favicon.ico`,
+    // 不易连接
+    `https://www.google.com/s2/favicons?domain=${host}&sz=64`,
+    // 易返回未知图标
+    // `https://faviconsnap.com/api/favicon?url=${host}`,
+    // `https://favicon.im/${host}`,
+    // `https://favicon.vemetric.com/${host}`,
+    // `https://icon.horse/icon/${host}`,
+    // `https://icons.duckduckgo.com/ip3/${host}.ico`,
+  ];
+}
+
+export function hostOf(url: string): string {
   try {
     return new URL(url).hostname.replace(/^www\./, "");
   } catch {

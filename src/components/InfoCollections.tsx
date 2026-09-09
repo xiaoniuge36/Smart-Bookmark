@@ -7,11 +7,12 @@ import {
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
-import { cn, faviconOf, hostnameOf } from "@/lib/utils";
+import { cn, hostnameOf } from "@/lib/utils";
 import { resolveLanguage } from "@/lib/i18n";
 import type { Language } from "@/types";
 import { useNewsNowAuth } from "@/hooks/useNewsNowAuth";
 import HideWidgetButton from "@/components/HideWidgetButton";
+import BookmarkIcon from "@/components/BookmarkIcon";
 
 type Copy = {
   zh: string;
@@ -1006,11 +1007,10 @@ function ChipLink({
     >
       <div className="flex min-w-0 items-center gap-2">
         <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-lg ring-1", style.icon)}>
-          <img
-            src={faviconOf(item.url, 32)}
-            alt=""
+          <BookmarkIcon
+            url={item.url}
+            size={32}
             className="h-4 w-4 rounded"
-            onError={(e) => (e.currentTarget.style.visibility = "hidden")}
           />
         </span>
         <span className="min-w-0 flex-1 truncate text-[12.5px] font-semibold tracking-tight text-foreground">

@@ -3,20 +3,31 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { getSettings, setSettings } from "@/lib/storage";
+import { getSettings, setSettings, defaultAiChannelSources } from "@/lib/storage";
 import type { AccentPreset, Settings, ThemePreset } from "@/types";
 import { useT } from "@/lib/i18n";
 import { testAi } from "@/lib/ai";
-import { BUILTIN_ENGINES, faviconFor } from "@/lib/engines";
-import { Check, CheckCircle2, XCircle, Loader2, Flame, ExternalLink, Tags } from "lucide-react";
+import { allEngines } from "@/lib/engines";
+import EngineIcon from "@/components/EngineIcon";
+import {
+  Check,
+  CheckCircle2,
+  XCircle,
+  Loader2,
+  Flame,
+  ExternalLink,
+  Tags,
+  Palette,
+  Search,
+  SlidersHorizontal,
+  Bot,
+} from "lucide-react";
 import { COMMON_LANGUAGES, clearTrendingCache } from "@/lib/github";
 import type { TrendingMode, TrendingRange, TrendingSort } from "@/types";
 import { toast } from "@/components/ui/toast";
 import { THEME_PRESETS } from "@/lib/themePresets";
 import { HOME_WIDGETS } from "@/lib/homeWidgets";
 import { cn } from "@/lib/utils";
-
-const ENGINE_LIST = BUILTIN_ENGINES.slice(0, 10);
 
 export default function SettingsPage() {
   const t = useT();
@@ -28,10 +39,52 @@ export default function SettingsPage() {
   } | null>(null);
   const [testing, setTesting] = useState(false);
   const [aiChannelInput, setAiChannelInput] = useState("");
+  const [activeSection, setActiveSection] = useState("settings-appearance");
 
   useEffect(() => {
     getSettings().then(setS);
   }, []);
+
+  useEffect(() => {
+    if (!s) return;
+    const sectionIds = [
+      "settings-appearance",
+      "settings-search",
+      "settings-extras",
+      "settings-ai",
+      "settings-collection",
+      "settings-discover",
+    ];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+    if (!sections.length) return;
+
+    let frame = 0;
+    const updateActiveSection = () => {
+      frame = 0;
+      const offset = 96;
+      let current = sections[0].id;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= offset) current = section.id;
+        else break;
+      }
+      setActiveSection((previous) => (previous === current ? previous : current));
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [s]);
 
   if (!s) return null;
 
@@ -47,6 +100,8 @@ export default function SettingsPage() {
     await update({ compareEngines: Array.from(cur) });
   };
 
+  const engineList = allEngines(s);
+
   const onTestAi = async () => {
     setTesting(true);
     setTestResult(null);
@@ -55,9 +110,50 @@ export default function SettingsPage() {
     setTesting(false);
   };
 
+  const sections = [
+    { id: "settings-appearance", label: t("settings.appearance"), Icon: Palette },
+    { id: "settings-search", label: t("settings.search"), Icon: Search },
+    { id: "settings-extras", label: t("settings.extras"), Icon: SlidersHorizontal },
+    { id: "settings-ai", label: t("settings.ai"), Icon: Bot },
+    { id: "settings-collection", label: t("settings.collection"), Icon: Tags },
+    { id: "settings-discover", label: t("settings.discover"), Icon: Flame },
+  ];
+
+  const jumpTo = (id: string) => {
+    setActiveSection(id);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
-    <div className="mx-auto max-w-3xl space-y-4">
-      <Card>
+    <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-5 lg:grid-cols-[210px_minmax(0,1fr)]">
+      <aside className="lg:sticky lg:top-20">
+        <Card className="p-2">
+          <div className="mb-1 px-2 text-xs font-medium text-muted-foreground">
+            {t("settings.navTitle")}
+          </div>
+          <nav className="flex gap-1 overflow-x-auto pb-0.5 lg:block lg:space-y-0.5 lg:overflow-visible">
+            {sections.map(({ id, label, Icon }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => jumpTo(id)}
+                className={cn(
+                  "group relative flex shrink-0 items-center gap-2 rounded-md px-2 py-2 text-left text-sm transition-colors hover:bg-muted/60 lg:w-full",
+                  activeSection === id
+                    ? "bg-primary/10 font-medium text-primary before:absolute before:inset-y-1 before:left-0 before:w-[2px] before:rounded-full before:bg-primary"
+                    : "text-foreground/85",
+                )}
+              >
+                <Icon className="h-[18px] w-[18px] shrink-0 text-primary/80 transition-transform group-hover:scale-105" />
+                <span className="truncate">{label}</span>
+              </button>
+            ))}
+          </nav>
+        </Card>
+      </aside>
+
+      <div className="min-w-0 space-y-4">
+      <Card id="settings-appearance" className="scroll-mt-24">
         <CardHeader>
           <CardTitle>{t("settings.appearance")}</CardTitle>
         </CardHeader>
@@ -192,6 +288,27 @@ export default function SettingsPage() {
               ))}
             </div>
           </Row>
+          <Row label={t("settings.cardLayout")}>
+            <div className="flex gap-2">
+              {(
+                [
+                  ["vertical", t("settings.cardLayoutVertical")],
+                  ["horizontal", t("settings.cardLayoutHorizontal")],
+                ] as const
+              ).map(([v, label]) => (
+                <Button
+                  key={v}
+                  size="sm"
+                  variant={(s.cardLayout ?? "vertical") === v ? "default" : "outline"}
+                  onClick={() =>
+                    update({ cardLayout: v as Settings["cardLayout"] })
+                  }
+                >
+                  {label}
+                </Button>
+              ))}
+            </div>
+          </Row>
           <Row label={t("settings.wallpaper")}>
             <Input
               placeholder={t("settings.wallpaperPh")}
@@ -204,14 +321,14 @@ export default function SettingsPage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card id="settings-search" className="scroll-mt-24">
         <CardHeader>
           <CardTitle>{t("settings.search")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <Row label={t("settings.defaultEngine")}>
             <div className="flex flex-wrap gap-2">
-              {ENGINE_LIST.slice(0, 6).map((e) => (
+              {engineList.map((e) => (
                 <Button
                   key={e.id}
                   size="sm"
@@ -219,11 +336,7 @@ export default function SettingsPage() {
                   onClick={() => update({ searchEngine: e.id })}
                   className="gap-1.5"
                 >
-                  <img
-                    src={faviconFor(e)}
-                    alt=""
-                    className="h-3.5 w-3.5 rounded"
-                  />
+                  <EngineIcon engine={e} className="h-3.5 w-3.5" />
                   {e.name}
                 </Button>
               ))}
@@ -231,7 +344,7 @@ export default function SettingsPage() {
           </Row>
           <Row label={t("settings.compareEngines")}>
             <div className="flex flex-wrap gap-2">
-              {ENGINE_LIST.map((e) => {
+              {engineList.map((e) => {
                 const on = s.compareEngines.includes(e.id);
                 return (
                   <Button
@@ -241,11 +354,7 @@ export default function SettingsPage() {
                     onClick={() => toggleCompareEngine(e.id)}
                     className="gap-1.5"
                   >
-                    <img
-                      src={faviconFor(e)}
-                      alt=""
-                      className="h-3.5 w-3.5 rounded"
-                    />
+                    <EngineIcon engine={e} className="h-3.5 w-3.5" />
                     {e.name}
                   </Button>
                 );
@@ -255,7 +364,7 @@ export default function SettingsPage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card id="settings-extras" className="scroll-mt-24">
         <CardHeader>
           <CardTitle>{t("settings.extras")}</CardTitle>
         </CardHeader>
@@ -328,7 +437,7 @@ export default function SettingsPage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card id="settings-ai" className="scroll-mt-24">
         <CardHeader>
           <CardTitle>{t("settings.ai")}</CardTitle>
         </CardHeader>
@@ -367,8 +476,8 @@ export default function SettingsPage() {
               value={s.aiBaseUrl}
               placeholder={
                 s.aiProvider === "anthropic"
-                  ? "https://api.anthropic.com（留空用默认）"
-                  : "https://api.openai.com/v1（留空用默认，可填 DeepSeek/Kimi/自建代理等 OpenAI 兼容地址）"
+                  ? t("settings.baseUrlPhAnthropic")
+                  : t("settings.baseUrlPhOpenAI")
               }
               onChange={(e) => update({ aiBaseUrl: e.target.value })}
             />
@@ -381,7 +490,7 @@ export default function SettingsPage() {
               onChange={(e) => update({ aiApiKey: e.target.value })}
             />
           </Row>
-          <Row label="连通性">
+          <Row label={t("settings.connectivity")}>
             <div className="flex items-center gap-2">
               <Button
                 size="sm"
@@ -395,7 +504,7 @@ export default function SettingsPage() {
                 ) : (
                   <CheckCircle2 className="h-3.5 w-3.5" />
                 )}
-                测试连接
+                {t("settings.testConnection")}
               </Button>
               {testResult && (
                 <span
@@ -411,7 +520,7 @@ export default function SettingsPage() {
                   ) : (
                     <XCircle className="h-3.5 w-3.5" />
                   )}
-                  {testResult.ok ? "成功" : "失败"} · {testResult.latencyMs}ms
+                  {testResult.ok ? t("settings.testOk") : t("settings.testFail")} · {testResult.latencyMs}ms
                   <span className="max-w-[240px] truncate opacity-80">
                     · {testResult.message}
                   </span>
@@ -420,32 +529,32 @@ export default function SettingsPage() {
             </div>
           </Row>
           <div className="rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-700 dark:text-amber-300">
-            {t("settings.apiKeyNotice")} OpenAI 兼容接口（DeepSeek/Moonshot Kimi/LM Studio/Ollama 等）可通过自定义 Base URL 使用。
+            {t("settings.apiKeyNotice")} {t("settings.baseUrlNotice")}
           </div>
         </CardContent>
       </Card>
 
-      <Card>
+      <Card id="settings-collection" className="scroll-mt-24">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Tags className="h-4 w-4 text-primary" />
-            本地收藏工作台
+            {t("settings.collection")}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Row label="工作台名称">
+          <Row label={t("settings.boardName")}>
             <Input
               value={s.collectionBoardName ?? ""}
-              placeholder="收藏工作台 / AI 渠道 / 学习资料"
+              placeholder={t("settings.boardNamePh")}
               onChange={(e) => update({ collectionBoardName: e.target.value })}
             />
           </Row>
-          <Row label="来源文件夹">
+          <Row label={t("settings.sourceFolders")}>
             <div className="space-y-2">
               <div className="flex flex-col gap-2 sm:flex-row">
                 <Input
                   value={aiChannelInput}
-                  placeholder="输入文件夹 ID、标题或完整路径，回车添加"
+                  placeholder={t("settings.sourceFolderPh")}
                   onChange={(e) => setAiChannelInput(e.target.value)}
                   onKeyDown={async (e) => {
                     if (e.key !== "Enter") return;
@@ -472,18 +581,18 @@ export default function SettingsPage() {
                     await update({ aiChannelSources: next });
                   }}
                 >
-                  添加
+                  {t("common.add")}
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
                   onClick={() =>
                     update({
-                      aiChannelSources: ["AI", "AI工具购买地址"],
+                      aiChannelSources: defaultAiChannelSources(s.language),
                     })
                   }
                 >
-                  恢复默认
+                  {t("common.restoreDefaults")}
                 </Button>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -499,7 +608,7 @@ export default function SettingsPage() {
                       <button
                         type="button"
                         className="ml-1 rounded-full p-0.5 text-muted-foreground transition hover:bg-background hover:text-foreground"
-                        title="移除"
+                        title={t("common.remove")}
                         onClick={() =>
                           update({
                             aiChannelSources: (s.aiChannelSources ?? []).filter(
@@ -514,19 +623,19 @@ export default function SettingsPage() {
                   ))
                 ) : (
                   <span className="text-xs text-muted-foreground">
-                    还没有配置源文件夹
+                    {t("settings.noSourceFolders")}
                   </span>
                 )}
               </div>
               <div className="text-xs text-muted-foreground">
-                这个工作台可以管理任意主题的书签集合，来源文件夹只读取，不会移动或改名原始书签。
+                {t("settings.collectionHint")}
               </div>
             </div>
           </Row>
         </CardContent>
       </Card>
 
-      <Card>
+      <Card id="settings-discover" className="scroll-mt-24">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Flame className="h-4 w-4 text-rose-500" />
@@ -604,10 +713,10 @@ export default function SettingsPage() {
                   variant="outline"
                   onClick={async () => {
                     await clearTrendingCache();
-                    toast("已清空 GitHub Trending 缓存", "success");
+                    toast(t("settings.trendingCacheCleared"), "success");
                   }}
                 >
-                  清空缓存
+                  {t("settings.clearCache")}
                 </Button>
               </div>
               <div className="text-xs text-muted-foreground">
@@ -717,6 +826,7 @@ export default function SettingsPage() {
           </Row>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 }

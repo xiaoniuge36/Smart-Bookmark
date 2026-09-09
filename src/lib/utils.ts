@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { isFirefox } from "@/lib/browser";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -7,8 +8,13 @@ export function cn(...inputs: ClassValue[]) {
 
 export function faviconOf(url: string, size = 32): string {
   try {
-    const u = new URL(url);
-    return `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=${size}`;
+    new URL(url);
+    // Firefox 无 _favicon API：返回空，由 BookmarkIcon 的在线候选回退
+    if (isFirefox) return "";
+    if (typeof chrome === "undefined" || !chrome.runtime?.getURL) return "";
+    return chrome.runtime.getURL(
+      `_favicon/?pageUrl=${encodeURIComponent(url)}&size=${size}`,
+    );
   } catch {
     return "";
   }
