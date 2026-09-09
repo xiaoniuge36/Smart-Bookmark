@@ -260,7 +260,7 @@ const zh: Dict = {
   "qr.title": "二维码",
   "qr.scan": "扫码访问",
   "qr.copyUrl": "复制链接",
-  "qr.download": "下载 PNG",
+  "qr.download": "下载：",
 
   "float.search": "搜索书签",
   "float.openSidePanel": "打开侧边栏",
@@ -893,7 +893,7 @@ const en: Dict = {
   "qr.title": "QR code",
   "qr.scan": "Scan to visit",
   "qr.copyUrl": "Copy URL",
-  "qr.download": "Download PNG",
+  "qr.download": "Download:",
 
   "float.search": "Search bookmarks",
   "float.openSidePanel": "Open side panel",

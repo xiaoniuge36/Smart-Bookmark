@@ -8,9 +8,19 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Copy, Download } from "lucide-react";
-import { toDataUrl } from "@/lib/qr";
+import {
+  toDataUrl,
+  toDownloadPng,
+  toSvgString,
+  type QrFormat,
+} from "@/lib/qr";
 import { useT } from "@/lib/i18n";
 import { toast } from "@/components/ui/toast";
+
+const QR_FORMATS: { id: QrFormat; label: string }[] = [
+  { id: "png", label: "PNG" },
+  { id: "svg", label: "SVG" },
+];
 
 export default function QrDialog({
   url,
@@ -23,21 +33,29 @@ export default function QrDialog({
   const [img, setImg] = useState<string>("");
 
   useEffect(() => {
-    const dark = document.documentElement.classList.contains("dark");
-    toDataUrl(url, 320, dark).then(setImg);
+    toDataUrl(url, 320).then(setImg);
   }, [url]);
-
-  const download = () => {
-    if (!img) return;
-    const a = document.createElement("a");
-    a.href = img;
-    a.download = "qrcode.png";
-    a.click();
-  };
 
   const copyUrl = async () => {
     await navigator.clipboard.writeText(url);
     toast(t("common.copied"), "success");
+  };
+
+  const download = async (format: QrFormat) => {
+    try {
+      const href =
+        format === "svg"
+          ? `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+              await toSvgString(url),
+            )}`
+          : await toDownloadPng(url);
+      const a = document.createElement("a");
+      a.href = href;
+      a.download = `qrcode.${format}`;
+      a.click();
+    } catch (err) {
+      console.warn("qr download failed", format, err);
+    }
   };
 
   return (
@@ -54,7 +72,7 @@ export default function QrDialog({
         </DialogHeader>
 
         <div className="flex justify-center py-1">
-          <div className="rounded-xl border border-border bg-white p-3 shadow-sm dark:bg-[hsl(var(--card))]">
+          <div className="rounded-xl border border-border bg-white p-3 shadow-sm">
             {img ? (
               <img
                 src={img}
@@ -68,13 +86,25 @@ export default function QrDialog({
           </div>
         </div>
 
-        <div className="flex justify-end gap-2 pt-1">
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
           <Button variant="outline" size="sm" className="gap-2" onClick={copyUrl}>
             <Copy className="h-4 w-4" /> {t("qr.copyUrl")}
           </Button>
-          <Button size="sm" className="gap-2" onClick={download}>
-            <Download className="h-4 w-4" /> {t("qr.download")}
-          </Button>
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="flex items-center gap-1 text-xs text-muted-foreground">
+              <Download className="h-3.5 w-3.5" /> {t("qr.download")}
+            </span>
+            {QR_FORMATS.map((f) => (
+              <Button
+                key={f.id}
+                variant="outline"
+                size="sm"
+                onClick={() => void download(f.id)}
+              >
+                {f.label}
+              </Button>
+            ))}
+          </div>
         </div>
       </DialogContent>
     </Dialog>
