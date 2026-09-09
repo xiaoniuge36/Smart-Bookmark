@@ -43,7 +43,7 @@ export default function QrDialog({
   return (
     <Dialog open onOpenChange={(o) => !o && onClose()}>
       <DialogContent className="max-w-md p-5 sm:p-6">
-        <DialogHeader>
+        <DialogHeader className="min-w-0">
           <DialogTitle>{t("qr.title")}</DialogTitle>
           <DialogDescription
             className="truncate text-xs text-muted-foreground"
