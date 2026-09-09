@@ -45,7 +45,7 @@ export default function EditBookmarkDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md" aria-describedby={undefined}>
         <DialogHeader>
           <DialogTitle>{t("dash.editBookmark")}</DialogTitle>
         </DialogHeader>
