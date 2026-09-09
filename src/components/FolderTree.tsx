@@ -269,7 +269,7 @@ export default function FolderTree(props: FolderTreeProps) {
               <span
                 className={cn("flex-1 truncate", isSelected && "font-medium")}
               >
-                {f.title || t("common.unnamed")}
+                {f.title}
               </span>
               <span
                 className={cn(

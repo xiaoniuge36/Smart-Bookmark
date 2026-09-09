@@ -141,10 +141,6 @@ export function findEngine(
   return allEngines(settings).find((engine) => engine.id === id);
 }
 
-export function faviconFor(engine: EngineDef): string {
-  return faviconCandidates(engine)[0];
-}
-
 export function faviconCandidates(engine: EngineDef): string[] {
   return faviconCandidatesForHost(engine.host);
 }
