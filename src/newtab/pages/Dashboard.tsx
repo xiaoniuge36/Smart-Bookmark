@@ -46,6 +46,7 @@ import EditBookmarkDialog, {
   type EditBookmarkTarget,
 } from "@/components/EditBookmarkDialog";
 import ConfirmDialog from "@/components/ConfirmDialog";
+import ContextMenu from "@/components/ContextMenu";
 import FolderTree from "@/components/FolderTree";
 import EngineSwitcher from "@/components/EngineSwitcher";
 import EngineIcon from "@/components/EngineIcon";
@@ -391,18 +392,6 @@ export default function Dashboard({
       setOverId(null);
     }
   };
-
-  const closeCtx = useCallback(() => setCtxMenu(null), []);
-  useEffect(() => {
-    if (!ctxMenu) return;
-    // 仅监听「点击外部」关闭。不再监听 resize：hero(全部书签)视图下
-    // iframe/小组件异步加载会引起布局抖动触发 resize，会把刚打开的菜单瞬间关掉。
-    const fn = () => closeCtx();
-    window.addEventListener("click", fn);
-    return () => {
-      window.removeEventListener("click", fn);
-    };
-  }, [ctxMenu, closeCtx]);
 
   useEffect(() => {
     if (!searchFocused) return;
@@ -1296,30 +1285,40 @@ export default function Dashboard({
       </section>
 
       {ctxMenu && (
-        <BookmarkCtxMenu
-          {...ctxMenu}
-          onCopy={async () => {
-            await navigator.clipboard.writeText(ctxMenu.url);
-            toast(t("common.copied"), "success");
-            setCtxMenu(null);
-          }}
-          onQr={() => {
-            setQrUrl(ctxMenu.url);
-            setCtxMenu(null);
-          }}
-          onEdit={() => {
-            setEditTarget({
-              id: ctxMenu.id,
-              title: ctxMenu.title,
-              url: ctxMenu.url,
-            });
-            setCtxMenu(null);
-          }}
-          onDelete={() => {
-            setDeleteTarget({ id: ctxMenu.id, title: ctxMenu.title });
-            setCtxMenu(null);
-          }}
+        <ContextMenu
+          anchor="page"
+          x={ctxMenu.x}
+          y={ctxMenu.y}
           onClose={() => setCtxMenu(null)}
+          items={[
+            {
+              label: t("dash.copyLink"),
+              onClick: async () => {
+                await navigator.clipboard.writeText(ctxMenu.url);
+                toast(t("common.copied"), "success");
+              },
+            },
+            {
+              label: t("dash.genQr"),
+              onClick: () => setQrUrl(ctxMenu.url),
+            },
+            { separator: true },
+            {
+              label: t("common.edit"),
+              onClick: () =>
+                setEditTarget({
+                  id: ctxMenu.id,
+                  title: ctxMenu.title,
+                  url: ctxMenu.url,
+                }),
+            },
+            {
+              label: t("common.delete"),
+              destructive: true,
+              onClick: () =>
+                setDeleteTarget({ id: ctxMenu.id, title: ctxMenu.title }),
+            },
+          ]}
         />
       )}
 
@@ -1761,80 +1760,6 @@ function Pager({
         aria-label={t("dash.nextPage")}
       >
         <ChevronRight className="h-3.5 w-3.5" />
-      </button>
-    </div>
-  );
-}
-
-function BookmarkCtxMenu({
-  x,
-  y,
-  onCopy,
-  onQr,
-  onEdit,
-  onDelete,
-}: {
-  id: string;
-  url: string;
-  title: string;
-  x: number;
-  y: number;
-  onCopy: () => void;
-  onQr: () => void;
-  onEdit: () => void;
-  onDelete: () => void;
-  onClose: () => void;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ left: x, top: y });
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const pad = 8;
-    const sx = window.scrollX;
-    const sy = window.scrollY;
-    const left = Math.max(
-      sx + pad,
-      Math.min(x, sx + window.innerWidth - r.width - pad),
-    );
-    const top = Math.max(
-      sy + pad,
-      Math.min(y, sy + window.innerHeight - r.height - pad),
-    );
-    setPos({ left, top });
-  }, [x, y]);
-  return (
-    <div
-      ref={ref}
-      onClick={(e) => e.stopPropagation()}
-      className="absolute z-[60] min-w-[180px] rounded-lg border bg-popover p-1 text-sm shadow-lg"
-      style={{ left: pos.left, top: pos.top }}
-    >
-      <button
-        className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left hover:bg-accent"
-        onClick={onCopy}
-      >
-        {t("dash.copyLink")}
-      </button>
-      <button
-        className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left hover:bg-accent"
-        onClick={onQr}
-      >
-        {t("dash.genQr")}
-      </button>
-      <div className="my-1 h-px bg-border" />
-      <button
-        className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left hover:bg-accent"
-        onClick={onEdit}
-      >
-        {t("common.edit")}
-      </button>
-      <button
-        className="flex w-full items-center gap-2 rounded px-3 py-1.5 text-left text-destructive hover:bg-destructive/10"
-        onClick={onDelete}
-      >
-        {t("common.delete")}
       </button>
     </div>
   );

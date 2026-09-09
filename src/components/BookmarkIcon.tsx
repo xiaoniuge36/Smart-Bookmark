@@ -1,42 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { faviconCandidatesForHost, hostOf } from "@/lib/engines";
 import { faviconOf, cn } from "@/lib/utils";
-import { validateIconImage } from "@/lib/iconValidation";
-
-const LOAD_TIMEOUT_MS = 2000;
-const candidateResults = new Map<string, boolean>();
-const candidateLoads = new Map<string, Promise<boolean>>();
-
-function loadCandidate(url: string): Promise<boolean> {
-  const cached = candidateResults.get(url);
-  if (cached !== undefined) return Promise.resolve(cached);
-
-  const existing = candidateLoads.get(url);
-  if (existing) return existing;
-
-  const promise = new Promise<boolean>((resolve) => {
-    const image = new Image();
-    let settled = false;
-    const finish = (valid: boolean) => {
-      if (settled) return;
-      settled = true;
-      window.clearTimeout(timer);
-      candidateResults.set(url, valid);
-      candidateLoads.delete(url);
-      resolve(valid);
-    };
-    const timer = window.setTimeout(() => finish(false), LOAD_TIMEOUT_MS);
-    image.onload = () => finish(validateIconImage(image));
-    image.onerror = () => finish(false);
-    image.src = url;
-  });
-  candidateLoads.set(url, promise);
-  return promise;
-}
-
-function cachedCandidateIndex(candidates: string[]): number {
-  return candidates.findIndex((url) => candidateResults.get(url) === true);
-}
+import { cachedCandidateIndex, loadCandidate } from "@/lib/faviconLoader";
 
 export default function BookmarkIcon({
   url,
