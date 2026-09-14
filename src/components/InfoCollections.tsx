@@ -299,6 +299,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "满血.ai",
+            url: "https://manxue.ai/",
+            tag: { zh: "模型质量检测", en: "Model QA" },
+            description: {
+              zh: "AI 模型质量自动检测，每 10 分钟运行一轮，展示 24h 通过率与异常记录",
+              en: "Automated model quality checks every 10 minutes with 24h pass rates and anomaly logs",
+            },
+          },
+          {
             title: "BazaarLink Probe",
             url: "https://bazaarlink.ai/probe",
             tag: { zh: "中转检测", en: "Relay probe" },
