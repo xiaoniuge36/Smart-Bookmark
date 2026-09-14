@@ -308,6 +308,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "ModelTrace",
+            url: "https://xqy2006.github.io/ModelTrace/",
+            tag: { zh: "模型归因", en: "Model trace" },
+            description: {
+              zh: "纯本地运行的模型归因工具，三条长整数挑战提取输出指纹，自动判断中转站背后的模型家族与版本",
+              en: "Local model attribution tool: three long-integer challenges produce output fingerprints that identify the model family and version behind a relay",
+            },
+          },
+          {
             title: "BazaarLink Probe",
             url: "https://bazaarlink.ai/probe",
             tag: { zh: "中转检测", en: "Relay probe" },
