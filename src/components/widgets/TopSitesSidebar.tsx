@@ -2,7 +2,9 @@ import { Clock } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Tooltip } from "@/components/ui/tooltip";
 import HideWidgetButton from "@/components/HideWidgetButton";
-import { faviconOf, hostnameOf } from "@/lib/utils";
+import { hostnameOf } from "@/lib/utils";
+import BookmarkIcon from "@/components/BookmarkIcon";
+import { useT } from "@/lib/i18n";
 
 export interface TopSitesItem {
   url: string;
@@ -39,11 +41,15 @@ export default function TopSitesSidebar({
   onHide,
   hideLabel,
   hideTooltip,
-  autoLabel = "浏览器按访问频率自动更新",
-  badgeTooltip = "由 Chrome 浏览器自动统计的常访问站点",
-  title = "常去",
+  autoLabel,
+  badgeTooltip,
+  title,
 }: Props) {
+  const t = useT();
   const list = items.slice(0, limit);
+  const titleText = title ?? t("widget.topSites.title");
+  const autoLabelText = autoLabel ?? t("widget.topSites.autoLabel");
+  const badgeTooltipText = badgeTooltip ?? t("widget.topSites.badgeTooltip");
   if (list.length === 0) return null;
 
   return (
@@ -52,25 +58,25 @@ export default function TopSitesSidebar({
         <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500/20 to-indigo-500/20 text-sky-600 dark:text-sky-400">
           <Clock className="h-3.5 w-3.5" />
         </div>
-        <h2 className="text-sm font-semibold tracking-tight">{title}</h2>
-        <Tooltip content={badgeTooltip}>
+        <h2 className="text-sm font-semibold tracking-tight">{titleText}</h2>
+        <Tooltip content={badgeTooltipText}>
           <span className="rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
             TOP {list.length}
           </span>
         </Tooltip>
         <span className="ml-auto text-[10px] text-muted-foreground/70 transition group-hover/widget:opacity-0">
-          自动
+          {t("widget.topSites.auto")}
         </span>
       </div>
       {onHide && (
         <HideWidgetButton
           onHide={onHide}
-          label={hideLabel ?? "隐藏"}
+          label={hideLabel ?? t("common.hide")}
           tooltip={hideTooltip}
         />
       )}
       <p className="mb-2 shrink-0 px-1 text-[10.5px] leading-relaxed text-muted-foreground/70">
-        {autoLabel}
+        {autoLabelText}
       </p>
       <div className="divide-y divide-border/60">
         {list.map((s) => (
@@ -83,13 +89,10 @@ export default function TopSitesSidebar({
             className="group flex items-center gap-2.5 rounded-md px-2 py-2 transition hover:bg-accent/70"
           >
             <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-background shadow-[0_1px_0_rgba(15,23,42,0.03)] ring-1 ring-border/80">
-              <img
-                src={faviconOf(s.url, 32)}
-                alt=""
+              <BookmarkIcon
+                url={s.url}
+                size={32}
                 className="h-4 w-4 rounded"
-                onError={(e) =>
-                  (e.currentTarget.style.visibility = "hidden")
-                }
               />
             </div>
             <div className="min-w-0 flex-1">

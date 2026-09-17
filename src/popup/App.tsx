@@ -7,6 +7,7 @@ import {
   HardDriveDownload,
 } from "lucide-react";
 import { useT } from "@/lib/i18n";
+import { openSidebar } from "@/lib/browser";
 
 export default function Popup() {
   const t = useT();
@@ -16,7 +17,7 @@ export default function Popup() {
   const openSidePanel = async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (tab?.windowId) {
-      await chrome.sidePanel?.open?.({ windowId: tab.windowId }).catch(() => {});
+      await openSidebar(tab.windowId);
       window.close();
     }
   };

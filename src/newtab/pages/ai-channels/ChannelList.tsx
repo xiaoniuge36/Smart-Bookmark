@@ -9,12 +9,13 @@ import {
   colorOptionDot,
   formatDateTime,
 } from "./meta";
-import { cn, faviconOf, hostnameOf } from "@/lib/utils";
+import { cn, hostnameOf } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
 import type { AiChannelGroup, AiChannelPriceTag, AiChannelRecord } from "@/types";
 import { AI_CHANNEL_STATUS_ORDER } from "@/lib/aiChannelStatus";
 import SelectMenu, { type SelectMenuOption } from "./SelectMenu";
 import { getChannelRecordUpdateTime } from "./viewModel";
+import BookmarkIcon from "@/components/BookmarkIcon";
 
 interface ChannelListProps {
   records: AiChannelRecord[];
@@ -309,11 +310,10 @@ function ChannelRow({
             <svg viewBox="0 0 10 8" className="h-2 w-2 fill-current"><path d="M1 4l2.5 2.5L9 1" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
           )}
         </button>
-        <img
-          src={faviconOf(record.url)}
-          alt=""
+        <BookmarkIcon
+          url={record.url}
+          size={32}
           className="h-5 w-5 shrink-0 rounded"
-          onError={(e) => (e.currentTarget.style.visibility = "hidden")}
         />
         <div className="min-w-0 flex-1">
           <div className="truncate text-xs font-semibold leading-snug">{record.title}</div>

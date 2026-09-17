@@ -1,3 +1,5 @@
+import { useT } from "@/lib/i18n";
+
 interface Point {
   label: string;
   count: number;
@@ -10,8 +12,9 @@ export default function LineChart({
   data: Point[];
   height?: number;
 }) {
+  const t = useT();
   if (data.length === 0) {
-    return <div className="text-xs text-muted-foreground">暂无数据</div>;
+    return <div className="text-xs text-muted-foreground">{t("common.noData")}</div>;
   }
   const width = 440;
   const padding = { left: 28, right: 12, top: 8, bottom: 22 };

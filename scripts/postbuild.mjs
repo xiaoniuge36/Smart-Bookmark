@@ -28,6 +28,8 @@ async function moveHtmlToRoot(pageName) {
   try {
     let html = await fs.readFile(from, "utf8");
     html = html.replace(/(src|href)="\.\.\/\.\.\//g, '$1="./');
+    // Remove modulepreload links to avoid cross-world extension resource mismatch in Thorium/Edge
+    html = html.replace(/<link\s+rel="modulepreload"[^>]*>/g, '');
     await fs.writeFile(to, html);
     await fs.rm(path.join(dist, "src", pageName), { recursive: true, force: true });
   } catch (err) {

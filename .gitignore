@@ -1,5 +1,7 @@
 node_modules
 dist.zip
+dist-firefox.zip
+dist-firefox/
 .vite
 *.log
 .DS_Store

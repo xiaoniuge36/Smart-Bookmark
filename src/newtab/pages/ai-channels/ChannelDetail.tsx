@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import type { AiChannelGroup, AiChannelPriceTag, AiChannelRecord } from "@/types";
 import { CATEGORY_KEY, PRICE_TAG_META, STATUS_META, UNGROUPED_ID, colorOptionDot, formatDateTime } from "./meta";
-import { cn, faviconOf, hostnameOf } from "@/lib/utils";
+import { cn, hostnameOf } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
 import { toast } from "@/components/ui/toast";
 import SelectMenu, { type SelectMenuOption } from "./SelectMenu";
 import { AI_CHANNEL_STATUS_ORDER } from "@/lib/aiChannelStatus";
+import BookmarkIcon from "@/components/BookmarkIcon";
 
 interface ChannelDetailProps {
   record?: AiChannelRecord;
@@ -53,11 +54,10 @@ export default function ChannelDetail({
     <Card className="flex h-full min-h-0 flex-col overflow-hidden border-border/80 bg-card/90 shadow-sm">
       <div className="border-b bg-muted/15 p-3.5">
         <div className="flex items-start gap-3">
-          <img
-            src={faviconOf(record.url)}
-            alt=""
+          <BookmarkIcon
+            url={record.url}
+            size={32}
             className="mt-1 h-8 w-8 rounded-lg"
-            onError={(e) => (e.currentTarget.style.visibility = "hidden")}
           />
           <div className="min-w-0 flex-1">
             <h3 className="line-clamp-2 font-semibold leading-snug">

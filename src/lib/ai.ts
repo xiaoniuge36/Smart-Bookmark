@@ -1,4 +1,5 @@
 import type { AiMessage, Settings } from "@/types";
+import { t as tr } from "@/lib/i18n";
 
 function toApiMessages(messages: AiMessage[]) {
   return messages.map((m) => ({ role: m.role, content: m.content }));
@@ -14,11 +15,11 @@ export interface ChatOptions {
 export async function chat({ settings, messages, signal, onDelta }: ChatOptions): Promise<string> {
   if (settings.aiProvider === "openai") return chatOpenAI({ settings, messages, signal, onDelta });
   if (settings.aiProvider === "anthropic") return chatAnthropic({ settings, messages, signal, onDelta });
-  throw new Error("AI 未启用，请在设置中配置 Provider 与 API Key。");
+  throw new Error(tr("ai.err.notEnabled"));
 }
 
 async function chatOpenAI({ settings, messages, signal, onDelta }: ChatOptions): Promise<string> {
-  if (!settings.aiApiKey) throw new Error("缺少 OpenAI API Key");
+  if (!settings.aiApiKey) throw new Error(tr("ai.err.missingOpenAiKey"));
   const base = (settings.aiBaseUrl || "https://api.openai.com/v1").replace(
     /\/+$/,
     "",
@@ -53,7 +54,7 @@ async function chatOpenAI({ settings, messages, signal, onDelta }: ChatOptions):
 }
 
 async function chatAnthropic({ settings, messages, signal, onDelta }: ChatOptions): Promise<string> {
-  if (!settings.aiApiKey) throw new Error("缺少 Anthropic API Key");
+  if (!settings.aiApiKey) throw new Error(tr("ai.err.missingAnthropicKey"));
   const sys = messages.find((m) => m.role === "system")?.content ?? "";
   const rest = messages.filter((m) => m.role !== "system");
   const base = (settings.aiBaseUrl || "https://api.anthropic.com").replace(
@@ -102,7 +103,7 @@ export async function testAi(settings: Settings): Promise<{
   const start = performance.now();
   try {
     if (settings.aiProvider === "openai") {
-      if (!settings.aiApiKey) throw new Error("缺少 API Key");
+      if (!settings.aiApiKey) throw new Error(tr("ai.err.missingKey"));
       const base = (settings.aiBaseUrl || "https://api.openai.com/v1").replace(
         /\/+$/,
         "",
@@ -136,11 +137,11 @@ export async function testAi(settings: Settings): Promise<{
       const txt =
         j.choices?.[0]?.message?.content ??
         j.choices?.[0]?.text ??
-        "(空响应)";
+        tr("ai.emptyResponse");
       return { ok: true, latencyMs: ms, message: String(txt).slice(0, 80) };
     }
     if (settings.aiProvider === "anthropic") {
-      if (!settings.aiApiKey) throw new Error("缺少 API Key");
+      if (!settings.aiApiKey) throw new Error(tr("ai.err.missingKey"));
       const base = (settings.aiBaseUrl || "https://api.anthropic.com").replace(
         /\/+$/,
         "",
@@ -168,10 +169,10 @@ export async function testAi(settings: Settings): Promise<{
         content?: Array<{ text?: string }>;
       };
       const ms = Math.round(performance.now() - start);
-      const txt = j.content?.[0]?.text ?? "(空响应)";
+      const txt = j.content?.[0]?.text ?? tr("ai.emptyResponse");
       return { ok: true, latencyMs: ms, message: String(txt).slice(0, 80) };
     }
-    throw new Error("请先选择 Provider");
+    throw new Error(tr("ai.err.selectProvider"));
   } catch (err: any) {
     const ms = Math.round(performance.now() - start);
     return {
@@ -185,17 +186,15 @@ export async function testAi(settings: Settings): Promise<{
 /** 测试连接/解析响应：避免把站点首页的 HTML 误当 JSON。 */
 function parseOpenAiJsonBody(raw: string): unknown {
   const t = raw.trim();
-  if (!t) throw new Error("空响应体");
+  if (!t) throw new Error(tr("ai.err.emptyBody"));
   if (t.startsWith("<") || t.toLowerCase().startsWith("<!doctype")) {
-    throw new Error(
-      "返回了 HTML 而非 API JSON。请把 Base URL 设为 OpenAI 兼容接口根路径，通常以 /v1 结尾（如 https://api.openai.com/v1 或你的网关 https://…/v1），不要填官网首页。",
-    );
+    throw new Error(tr("ai.err.htmlNotJson"));
   }
   try {
     return JSON.parse(t) as unknown;
   } catch {
     throw new Error(
-      `响应不是合法 JSON: ${t.slice(0, 100)}${t.length > 100 ? "…" : ""}`,
+      tr("ai.err.invalidJson", `${t.slice(0, 100)}${t.length > 100 ? "…" : ""}`),
     );
   }
 }
