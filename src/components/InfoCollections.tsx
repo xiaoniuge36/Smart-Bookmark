@@ -147,6 +147,15 @@ const COLLECTIONS: CollectionGroup[] = [
           en: "A-share close recap with sentiment, limit-up ladder and watch points",
         },
       },
+      {
+        title: "线报精选",
+        url: "https://www.autoxb.com/",
+        tag: { zh: "优惠线报", en: "Deal tips" },
+        description: {
+          zh: "实时汇总购物线报、优惠活动与实用攻略，并附去水印、API 节点等工具入口",
+          en: "Live shopping deal tips, campaigns and guides, plus watermark, API and node tools",
+        },
+      },
     ],
   },
   {
