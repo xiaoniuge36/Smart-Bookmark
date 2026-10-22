@@ -10,6 +10,8 @@
     "build": "node scripts/icons.mjs && tsc -b && vite build && node scripts/postbuild.mjs",
     "preview": "vite preview",
     "zip": "npm run build && node scripts/zip.mjs",
+    "build:firefox": "npm run build && node scripts/firefox.mjs",
+    "zip:firefox": "npm run build:firefox && node scripts/zip.mjs firefox",
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {

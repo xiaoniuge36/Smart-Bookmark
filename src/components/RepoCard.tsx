@@ -91,7 +91,7 @@ export default function RepoCard({
     e.stopPropagation();
     try {
       if (!chrome?.bookmarks?.create) {
-        toast("浏览器不支持 bookmarks API", "error");
+        toast(t("repo.noBookmarksApi"), "error");
         return;
       }
       await new Promise<void>((resolve, reject) => {
@@ -379,7 +379,7 @@ export function RepoRow({
                 <TrendingUp className="h-2.5 w-2.5" />
               )}
               {formatVelocity(velocityValue)}
-              ★/天
+              {t("repo.starsPerDay")}
             </span>
           )}
           <span className="inline-flex items-center gap-0.5">

@@ -474,7 +474,7 @@ function LanguagePicker({
           </div>
           <div className="mt-2 border-t pt-2">
             <div className="mb-1 text-[10px] text-muted-foreground">
-              自定义语言（GitHub linguist 名称）
+              {t("trending.customLang")}
             </div>
             <div className="flex items-center gap-1">
               <input

@@ -16,6 +16,7 @@ import {
   THEME_PRESETS,
 } from "@/lib/themePresets";
 import type { ThemePreset } from "@/types";
+import { useT } from "@/lib/i18n";
 
 interface ThemeSwitcherProps {
   /** 显示模式：`button` 全尺寸按钮 / `icon` 仅图标圆钮 */
@@ -34,6 +35,7 @@ export default function ThemeSwitcher({
   variant = "button",
   className,
 }: ThemeSwitcherProps) {
+  const t = useT();
   const [activeKey, setActiveKey] =
     useState<ThemePreset>(DEFAULT_THEME_PRESET);
   const [isDark, setIsDark] = useState<boolean>(() =>
@@ -74,7 +76,7 @@ export default function ThemeSwitcher({
     variant === "icon" ? (
       <button
         type="button"
-        title={`设计主题：${active.shortLabel}`}
+        title={t("theme.designThemeTitle", active.shortLabel)}
         className={cn(
           "inline-flex h-8 w-8 items-center justify-center rounded-full border bg-background/60 text-muted-foreground transition hover:bg-accent hover:text-accent-foreground",
           className,
@@ -89,7 +91,7 @@ export default function ThemeSwitcher({
           "inline-flex h-8 items-center gap-2 rounded-full border bg-background/60 px-3 text-xs text-muted-foreground transition hover:bg-accent hover:text-accent-foreground",
           className,
         )}
-        title={`设计主题：${active.shortLabel}`}
+        title={t("theme.designThemeTitle", active.shortLabel)}
       >
         <Swatch color={isDark ? active.swatchDark : active.swatchLight} />
         <span className="max-w-[64px] truncate font-medium">
@@ -105,7 +107,7 @@ export default function ThemeSwitcher({
       <DropdownMenuContent align="end" className="w-[280px] max-h-[68vh] overflow-y-auto">
         <DropdownMenuLabel className="flex items-center gap-2">
           <Palette className="h-3.5 w-3.5" />
-          <span>设计主题</span>
+          <span>{t("theme.designTheme")}</span>
         </DropdownMenuLabel>
         {grouped.map((group, idx) => (
           <div key={group.family}>

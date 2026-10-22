@@ -11,6 +11,19 @@ interface MiniSettings {
   searchEngine?: string;
 }
 
+function faviconOf(url: string, size = 32): string {
+  try {
+    new URL(url);
+    // Firefox 无 _favicon API：返回空，避免加载不存在的资源
+    if (typeof navigator !== "undefined" && /firefox/i.test(navigator.userAgent)) return "";
+    return chrome.runtime.getURL(
+      `_favicon/?pageUrl=${encodeURIComponent(url)}&size=${size}`,
+    );
+  } catch {
+    return "";
+  }
+}
+
 const STRINGS = {
   zh: {
     placeholder: "搜索书签或命令…",
@@ -689,7 +702,7 @@ async function mount() {
             kind: "bookmark",
             label: b.title || hostname,
             meta: hostname,
-            iconImg: `https://www.google.com/s2/favicons?domain=${hostname}&sz=32`,
+            iconImg: faviconOf(b.url, 32),
             onRun: () => {
               window.location.href = b.url;
             },

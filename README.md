@@ -2,7 +2,7 @@
 
 > **中文** · [English](./README_EN.md)
 
-> 书签清理 + 新标签页看板 + AI 搜索 + 对比搜索 + 悬浮球 + 二维码 + 备份，一站式 Chrome / Edge 浏览器扩展。  
+> 书签清理 + 新标签页看板 + AI 搜索 + 对比搜索 + 悬浮球 + 二维码 + 备份，一站式 Chrome / Edge / Firefox 浏览器扩展。  
 > 致敬 [LazyCat Bookmark Cleaner](https://github.com/Alanrk/LazyCat-Bookmark-Cleaner) 和 [TabMark](https://github.com/Alanrk/TabMark-Bookmark-New-Tab)。
 
 ## ✨ 功能
@@ -18,8 +18,12 @@
 ### 📑 新标签页看板
 - 侧边栏文件夹列表，一键指定常用文件夹作为主页
 - **🆕 首页组件按需显隐** —— GitHub 热门 / 信息差雷达 / 常去 三个首页组件均支持鼠标悬停后一键「隐藏」，在「设置 → 首页组件」卡片网格里可随时恢复
-- **🆕 拖拽排序** —— 在指定文件夹视图下按住卡片拖动，顺序会同步写回书签
-- **🆕 卡片右键菜单** —— 复制链接 / 生成二维码
+- **🆕 拖拽排序** —— 书签卡片与左侧文件夹均可拖动排序，顺序同步写回书签
+- **🆕 展示范围切换** —— 「仅当前文件夹 / 包含子文件夹」分段单选，随时切换
+- **🆕 卡片右键 / 三点菜单** —— 复制链接 / 生成二维码 / 编辑（改名称、链接）/ 删除（二次确认）
+- **🆕 文件夹右键菜单** —— 重命名 / 删除（二次确认，并提示内含书签数量）
+- **🆕 卡片内部布局** —— 上下 / 左右（favicon 在左、标题链接在右）两种布局，设置页可切换
+- **🆕 在线 favicon** —— 书签与搜索引擎图标走多级回退候选链在线加载，含图标有效性检测（过滤全透明 / 纯色假图标），失败回退浏览器本地 favicon 或首字母
 - 舒适 / 紧凑卡片密度
 - 自定义壁纸（本地 URL 或远程链接）
 - 暗黑模式（跟随系统 / 浅色 / 深色）
@@ -44,8 +48,8 @@
 
 ### 🔳 二维码（0.2 新增）
 - 卡片菜单、悬浮球、右键菜单均可生成二维码
-- 支持浅色 / 深色自动适配
-- 一键下载 PNG / 复制 URL
+- 统一黑码白底（标准、利于扫码 / 打印 / 分享），不随深色模式反色
+- 下载 PNG（分辨率按二维码复杂度自适应：每模块 8px 基准，边长夹在 256–1024px）或 SVG（矢量、无损缩放），并可一键复制 URL
 
 ### 🌐 i18n（0.2 新增）
 - 中文 / English 全 UI 覆盖，跟随系统自动切换
@@ -86,10 +90,13 @@
 
 ```bash
 npm install
-npm run icons     # 从 icon.svg 生成四个 PNG
-npm run dev       # Vite dev server（非扩展环境，仅用于 UI 调试）
-npm run build     # 构建到 dist/（自动生成图标 + tsc + vite + postbuild）
-npm run zip       # 构建并打包 dist.zip，可上传商店
+npm run icons         # 从 icon.svg 生成四个 PNG
+npm run dev           # Vite dev server（非扩展环境，仅用于 UI 调试）
+npm run typecheck     # tsc -b --noEmit 类型检查
+npm run build         # 构建到 dist/（自动生成图标 + tsc + vite + postbuild）
+npm run zip           # 构建并打包 dist.zip，可上传 Chrome / Edge 商店
+npm run build:firefox # 从 dist/ 派生 Firefox 版到 dist-firefox/（改写 manifest）
+npm run zip:firefox   # 构建 Firefox 版并打包为可上传 AMO 的 zip
 ```
 
 ### 直接安装（零构建，推荐）
@@ -119,6 +126,17 @@ git clone https://github.com/xiaoniuge36/Smart-Bookmark.git
 4. 在文件选择窗口中进入克隆后的项目目录，选择里面的 `dist/` 文件夹
 5. 打开新标签页，即可看到 Smart Bookmark
 
+#### Firefox 本地导入
+
+> Firefox 产物 `dist-firefox/` 不随仓库提交，需自行构建：`npm install && npm run build:firefox`。
+
+1. 地址栏输入 `about:debugging#/runtime/this-firefox`
+2. 点击「临时载入附加组件…」(Load Temporary Add-on)
+3. 选择 `dist-firefox/manifest.json`
+4. 打开新标签页，即可看到 Smart Bookmark
+
+> 临时加载在浏览器重启后失效；永久安装需经 AMO 签名（`npm run zip:firefox` 产出可上传的 zip）。
+
 ### 本地开发 / 自行构建
 
 ```bash
@@ -138,7 +156,8 @@ smart-bookmark/
 ├── scripts/
 │   ├── icons.mjs            # sharp 批量导出 PNG
 │   ├── postbuild.mjs        # 把 manifest & icons 拷贝到 dist/，HTML 上移到根
-│   └── zip.mjs              # 打包 dist.zip
+│   ├── firefox.mjs          # 从主 manifest 派生 Firefox 版到 dist-firefox/
+│   └── zip.mjs              # 打包 dist.zip / dist-firefox.zip
 ├── src/
 │   ├── background/          # Service Worker（上下文菜单、快捷键、消息代理）
 │   ├── content/             # 网页内悬浮球（Shadow DOM）
@@ -146,8 +165,8 @@ smart-bookmark/
 │   ├── sidepanel/           # 侧边栏
 │   ├── popup/               # 工具栏弹窗
 │   ├── components/ui/       # shadcn/ui 组件 + toast
-│   ├── lib/                 # bookmarks / cleaner / ai / storage / theme
-│   │                        # backup / i18n / qr / utils
+│   ├── lib/                 # bookmarks / cleaner / ai / storage / theme / backup
+│   │                        # i18n / qr / engines / browser / faviconLoader / iconValidation / utils
 │   ├── types/               # 共享类型
 │   └── styles/              # Tailwind globals
 └── vite.config.ts
@@ -169,20 +188,28 @@ smart-bookmark/
 - [x] 关键词一键自动分组 + 批量新建分组 + 批量指定分组
 - [x] 渠道数据导入 / 导出（JSON）+ Chrome Sync 跨设备同步
 
+已完成 ✅（增强）
+- [x] Firefox 适配（独立构建目标 `dist-firefox` + 运行时浏览器分支）
+- [x] 书签 / 文件夹的编辑、删除、重命名（右键 / 三点菜单，删除二次确认）
+- [x] 卡片上下 / 左右内部布局；展示范围切换（仅当前 / 含子文件夹）；文件夹拖动排序
+- [x] 在线 favicon 多级回退 + 图标有效性检测（书签与搜索引擎图标）
+- [x] 二维码下载 PNG（分辨率按复杂度自适应）/ SVG（矢量）
+
 下一步候选
 - [ ] OAuth 版 Google Bookmarks / Pocket / Raindrop 同步
 - [ ] 通用书签 Tag 与跨文件夹智能搜索
 - [ ] 基于 AI 的书签自动分类 / 去重建议
 - [ ] 浏览器历史可视化时间线
 - [ ] 书签导出为 Markdown
-- [ ] PWA 版本 / Firefox 适配
+- [ ] PWA 版本
 
 ## 🔐 隐私
 
-- 书签数据 100% 本地处理
+- **本地优先**：不运营服务器、无遥测、无行为分析；书签 / 历史 / 设置均存于本机
+- 书签默认不上传，两处例外：① 显示站点图标时书签**域名**会发给第三方 favicon 服务（favicon.so / faviconkit / 站点自身 / Google s2；可断网或在浏览器层限制联网以关闭，图标回退本地 favicon 或首字母）；② 主动使用 AI 助手时，最多 60 条书签标题+URL 作为上下文直连你自选的 Provider
 - AI API Key 仅保存在 `chrome.storage.local`
-- 失效链接检测会向对应域名发起 HEAD/GET 请求，可在扫描时选择关闭
-- 悬浮球只在你开启时才会注入；注入时不发任何请求，搜索走本地书签
+- 失效链接检测向对应域名发起 HEAD 请求（可在扫描时关闭）；首页资讯小组件（NewsNow iframe / GitHub 公开接口）默认启用、可在设置中逐项关闭
+- 悬浮球只在你开启时才注入；注入时不发请求，搜索走本地书签
 - 完整隐私政策：[PRIVACY.md](./PRIVACY.md) · [在线版](https://xiaoniuge36.github.io/Smart-Bookmark/privacy.html)
 
 ## 🏪 商店上架

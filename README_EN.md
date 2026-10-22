@@ -2,7 +2,7 @@
 
 > [中文](./README.md) · **English**
 
-> Bookmark cleaner + new tab dashboard + AI search + multi-engine compare search + floating ball + QR code + backup, an all-in-one Chrome / Edge browser extension.
+> Bookmark cleaner + new tab dashboard + AI search + multi-engine compare search + floating ball + QR code + backup, an all-in-one Chrome / Edge / Firefox browser extension.
 > Inspired by [LazyCat Bookmark Cleaner](https://github.com/Alanrk/LazyCat-Bookmark-Cleaner) and [TabMark](https://github.com/Alanrk/TabMark-Bookmark-New-Tab).
 
 ## ✨ Features
@@ -18,8 +18,12 @@
 ### 📑 New Tab Dashboard
 - Sidebar folder list, set any folder as your home view with one click
 - **🆕 Home widgets on demand** — Three home widgets (GitHub Trending / Signal Radar / Frequent Sites) all support hover-to-hide, and can be restored at any time from the "Settings → Home Widgets" card grid
-- **🆕 Drag-and-drop reorder** — In any folder view, hold and drag a card to reorder; the order is written back to bookmarks
-- **🆕 Card context menu** — Copy link / Generate QR code
+- **🆕 Drag-and-drop reorder** — Reorder both bookmark cards and sidebar folders by dragging; the order is written back to bookmarks
+- **🆕 Display-scope toggle** — "Current folder only / Include subfolders" segmented radio, switch anytime
+- **🆕 Card context / three-dot menu** — Copy link / Generate QR code / Edit (name, URL) / Delete (with confirmation)
+- **🆕 Folder context menu** — Rename / Delete (with confirmation, shows the bookmark count inside)
+- **🆕 Card inner layout** — Vertical / horizontal (favicon left, title + URL right), switchable in Settings
+- **🆕 Online favicon** — Bookmark and search-engine icons load online via a multi-level fallback chain with icon-validity detection (filters fully-transparent / solid-color fake icons), falling back to the browser's local favicon or the site's initial
 - Comfy / compact card density
 - Custom wallpaper (local URL or remote link)
 - Dark mode (follow system / light / dark)
@@ -44,8 +48,8 @@
 
 ### 🔳 QR Code (added in 0.2)
 - Generate QR codes from card menus, the floating ball, or right-click menu
-- Auto-adapts to light / dark theme
-- One-click download PNG / copy URL
+- Always black-on-white (standard; best for scanning / printing / sharing) — no dark-mode inversion
+- Download PNG (resolution adapts to QR complexity: 8px/module baseline, edge clamped to 256–1024px) or SVG (vector, lossless scaling); one-click copy URL
 
 ### 🌐 i18n (added in 0.2)
 - Full UI coverage in 中文 / English, automatically follows your system language
@@ -86,10 +90,13 @@
 
 ```bash
 npm install
-npm run icons     # Generate the four PNG icons from icon.svg
-npm run dev       # Vite dev server (no extension runtime; UI debugging only)
-npm run build     # Build into dist/ (icons + tsc + vite + postbuild)
-npm run zip       # Build and pack dist.zip (for store upload)
+npm run icons         # Generate the four PNG icons from icon.svg
+npm run dev           # Vite dev server (no extension runtime; UI debugging only)
+npm run typecheck     # tsc -b --noEmit type check
+npm run build         # Build into dist/ (icons + tsc + vite + postbuild)
+npm run zip           # Build and pack dist.zip (for Chrome / Edge store upload)
+npm run build:firefox # Derive the Firefox build into dist-firefox/ (rewrites manifest)
+npm run zip:firefox   # Build Firefox and pack an AMO-ready zip
 ```
 
 ### Install directly (zero-build, recommended)
@@ -103,6 +110,8 @@ git clone https://github.com/xiaoniuge36/Smart-Bookmark.git
 1. Open `chrome://extensions` or `edge://extensions`
 2. Enable "Developer mode" → click "Load unpacked" → select the cloned `dist/` directory
 3. Open a new tab and Smart Bookmark is ready
+
+**Firefox**: `dist-firefox/` is not committed — build it yourself with `npm install && npm run build:firefox`, then open `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on" → select `dist-firefox/manifest.json`. Temporary loads are cleared on restart; a permanent install requires AMO signing (`npm run zip:firefox` produces an uploadable zip).
 
 ### Local development / Build it yourself
 
@@ -123,7 +132,8 @@ smart-bookmark/
 ├── scripts/
 │   ├── icons.mjs            # Batch-export PNGs via sharp
 │   ├── postbuild.mjs        # Copy manifest & icons into dist/, hoist HTML to root
-│   └── zip.mjs              # Pack dist.zip
+│   ├── firefox.mjs          # Derive the Firefox manifest into dist-firefox/
+│   └── zip.mjs              # Pack dist.zip / dist-firefox.zip
 ├── src/
 │   ├── background/          # Service Worker (context menus, shortcuts, message proxy)
 │   ├── content/             # In-page floating ball (Shadow DOM)
@@ -131,8 +141,8 @@ smart-bookmark/
 │   ├── sidepanel/           # Side panel
 │   ├── popup/               # Toolbar popup
 │   ├── components/ui/       # shadcn/ui components + toast
-│   ├── lib/                 # bookmarks / cleaner / ai / storage / theme
-│   │                        # backup / i18n / qr / utils
+│   ├── lib/                 # bookmarks / cleaner / ai / storage / theme / backup
+│   │                        # i18n / qr / engines / browser / faviconLoader / iconValidation / utils
 │   ├── types/               # Shared types
 │   └── styles/              # Tailwind globals
 └── vite.config.ts
@@ -154,19 +164,27 @@ Done ✅ (latest)
 - [x] One-click keyword auto-classify + batch group create + batch group assign
 - [x] Channel data import / export (JSON) + Chrome Sync cross-device sync
 
+Done ✅ (enhancements)
+- [x] Firefox support (separate `dist-firefox` build target + runtime browser branching)
+- [x] Bookmark / folder edit, delete, rename (context / three-dot menu, delete with confirmation)
+- [x] Vertical / horizontal card inner layout; display-scope toggle (current / include subfolders); folder drag-sort
+- [x] Online favicon multi-level fallback + icon-validity detection (bookmark & engine icons)
+- [x] QR download PNG (adaptive resolution) / SVG (vector)
+
 Next candidates
 - [ ] OAuth-based Google Bookmarks / Pocket / Raindrop sync
 - [ ] Universal bookmark tags & cross-folder smart search
 - [ ] AI-driven auto-categorization / dedup suggestions
 - [ ] Browser history timeline visualization
 - [ ] Export bookmarks as Markdown
-- [ ] PWA version / Firefox adaptation
+- [ ] PWA version
 
 ## 🔐 Privacy
 
-- Bookmark data is 100% processed locally
+- **Local-first**: no servers operated by us, no telemetry, no analytics; bookmarks / history / settings stay on this machine
+- Bookmarks are not uploaded by default, with two exceptions: (1) when rendering site icons, the bookmark's **domain** is sent to a third-party favicon service (favicon.so / faviconkit / the site itself / Google s2; go offline or restrict the extension's network access to disable — icons then fall back to the local favicon or the site's initial); (2) when you actively use the AI assistant, up to 60 bookmark titles + URLs are sent as context directly to the provider you chose
 - AI API keys live only in `chrome.storage.local`
-- Dead-link detection issues HEAD/GET requests to the target domains — you can disable it during a scan
+- Dead-link detection issues HEAD requests to the target domains (toggle off per scan); home-page widgets (NewsNow iframe / GitHub public API) are on by default and individually toggleable in Settings
 - The floating ball is only injected when you enable it; no requests are made on injection, and search runs against local bookmarks
 - Full privacy policy: [PRIVACY.md](./PRIVACY.md) · [Online version](https://xiaoniuge36.github.io/Smart-Bookmark/privacy.html)
 

@@ -5,8 +5,9 @@ import archiver from "archiver";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const dist = path.join(root, "dist");
-const out = path.join(root, "dist.zip");
+const isFirefox = process.argv[2] === "firefox";
+const dist = path.join(root, isFirefox ? "dist-firefox" : "dist");
+const out = path.join(root, isFirefox ? "dist-firefox.zip" : "dist.zip");
 
 const output = createWriteStream(out);
 const archive = archiver("zip", { zlib: { level: 9 } });

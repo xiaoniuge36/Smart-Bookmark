@@ -172,6 +172,8 @@ export interface Settings {
   aiApiKey: string;
   aiBaseUrl: string;
   cardDensity: "comfy" | "compact";
+  /** 书签卡片内部布局：vertical=图标在上文字在下，horizontal=图标在左文字在右 */
+  cardLayout: "vertical" | "horizontal";
   language: Language;
   floatingBall: boolean;
   /** 禁用悬浮球的域名列表（域名级禁用） */
