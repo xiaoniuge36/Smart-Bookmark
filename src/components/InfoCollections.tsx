@@ -290,6 +290,15 @@ const COLLECTIONS: CollectionGroup[] = [
             },
           },
           {
+            title: "Folkbench",
+            url: "https://folkbench.com/?utm_source=github&utm_medium=awesome&utm_campaign=Smart-Bookmark",
+            tag: { zh: "中转榜单", en: "Relay rankings" },
+            description: {
+              zh: "AI API 中转站榜单与实时检测，按 Claude Code / Codex 等场景选线路；排序遵循站点规则（含合作档位和运营加权），部分数据为展示样本",
+              en: "AI API relay rankings and live checks for picking routes for Claude Code / Codex; sorting follows the site's rules, including partner tiers and ops boosts; some data are display samples",
+            },
+          },
+          {
             title: "猫眼检测",
             url: "https://md.catfree.me/",
             tag: { zh: "中转检测", en: "Relay checker" },
